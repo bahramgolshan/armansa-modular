@@ -34,20 +34,12 @@
         <tr>
           {{-- <th><i class='mdi mdi-trending-up'></i></th> --}}
           <th>عنوان</th>
-          <th>خلاصه</th>
-          <th>وضعیت</th>
-          <th>ویژه</th>
-          <th>دسته بندی بلاگ</th>
           <th class="cell-fit">اقدامات</th>
         </tr>
       </thead>
       <tbody class="table-border-bottom-0">
         <tr>
           <td>بلاگ</td>
-          <td>خلاصه بلاگ</td>
-          <td>فعال</td>
-          <td>هست</td>
-          <td>دسته بندی 1</td>
           <td>
             <div class="dropdown">
               <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></button>
@@ -61,10 +53,7 @@
         </tr>
         <tr>
           <td>بلاگ</td>
-          <td>خلاصه بلاگ</td>
-          <td>فعال</td>
-          <td>هست</td>
-          <td>دسته بندی 1</td>
+
           <td>
             <div class="dropdown">
               <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></button>
@@ -78,27 +67,7 @@
         </tr>
         <tr>
           <td>بلاگ</td>
-          <td>خلاصه بلاگ</td>
-          <td>فعال</td>
-          <td>هست</td>
-          <td>دسته بندی 1</td>
-          <td>
-            <div class="dropdown">
-              <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></button>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" href="/app/tag/preview"><i class="mdi mdi-eye-outline me-1"></i>مشاهده</a>
-                <a class="dropdown-item" href="/app/tag/edit"><i class="mdi mdi-pencil-outline me-1"></i> ویرایش</a>
-                <a class="dropdown-item text-danger" href="javascript:void(0);"><i class="mdi mdi-trash-can-outline me-1 text-danger"></i> حذف</a>
-              </div>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>بلاگ</td>
-          <td>خلاصه بلاگ</td>
-          <td>فعال</td>
-          <td>هست</td>
-          <td>دسته بندی 1</td>
+
           <td>
             <div class="dropdown">
               <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></button>

@@ -35,7 +35,7 @@
     <table class="datatables-ajax invoice-list-table table">
       <thead class="table-light">
         <tr>
-          <th>#ID</th>
+          <th>شماره فاکتور</th>
           {{-- <th><i class='mdi mdi-trending-up'></i></th> --}}
           <th>تاریخ</th>
           <th>وضعیت فاکتور</th>

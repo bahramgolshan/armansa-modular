@@ -1,14 +1,11 @@
 @extends('layouts/layoutMaster')
 
-@section('title', 'Add - Invoice')
+@section('title', 'Add - BlogCategory')
 
 @section('vendor-style')
 <link rel="stylesheet" href="{{asset('assets/vendor/libs/flatpickr/flatpickr.css')}}" />
 @endsection
 
-@section('page-style')
-<link rel="stylesheet" href="{{asset('assets/vendor/css/pages/app-invoice.css')}}" />
-@endsection
 
 @section('vendor-script')
 <script src="{{asset('assets/vendor/libs/flatpickr/flatpickr.js')}}"></script>
@@ -17,14 +14,10 @@
 <script src="{{asset('assets/vendor/libs/jquery-repeater/jquery-repeater.js')}}"></script>
 @endsection
 
-@section('page-script')
-<script src="{{asset('assets/js/offcanvas-send-invoice.js')}}"></script>
-<script src="{{asset('assets/js/app-invoice-add.js')}}"></script>
-@endsection
 
 @section('content')
 <form class="row invoice-add">
-  <!-- Invoice Add-->
+  <!-- BlogCategory Add-->
   <div class="col-lg-9 col-12 mb-lg-0 mb-4">
     <div class="">
       <!-- Multi Column with Form Separator -->
@@ -51,10 +44,10 @@
 </div>
     </div>
   </div>
-  <!-- /Invoice Add-->
+  <!-- /BlogCategory Add-->
 
-  <!-- Invoice Actions -->
-  <div class="col-lg-3 col-12 invoice-actions">
+  <!-- BlogCategory Actions -->
+  <div class="col-lg-3 col-12">
     <div class="card mb-4">
       <div class="card-body">
 
@@ -63,10 +56,7 @@
       </div>
     </div>
   </div>
-  <!-- /Invoice Actions -->
+  <!-- /BlogCategory Actions -->
 </form>
 
-<!-- Offcanvas -->
-@include('_partials/_offcanvas/offcanvas-send-invoice')
-<!-- /Offcanvas -->
 @endsection

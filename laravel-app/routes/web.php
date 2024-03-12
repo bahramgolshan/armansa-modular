@@ -76,6 +76,10 @@ Route::get('/app/tag/preview', $controller_path . '\apps\TagController@show')->n
 Route::get('/app/tag/edit', $controller_path . '\apps\TagController@edit')->name('app-tag-edit');
 Route::get('/app/tag/add', $controller_path . '\apps\TagController@create')->name('app-tag-add');
 
+// user
+Route::get('/app/user/list', $controller_path . '\apps\UserList@index')->name('app-user-list');
+Route::get('/app/user/preview', $controller_path . '\apps\UserViewAccount@index')->name('app-user-preview');
+
 // --------------------------------------------- end new routes
 
 Route::get('/app/user/list', $controller_path . '\apps\UserList@index')->name('app-user-list');
