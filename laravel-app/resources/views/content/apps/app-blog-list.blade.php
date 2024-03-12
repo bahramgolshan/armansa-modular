@@ -31,7 +31,6 @@
     <table class="datatables-ajax table">
       <thead class="table-light">
         <tr>
-          {{-- <th><i class='mdi mdi-trending-up'></i></th> --}}
           <th>عنوان</th>
           <th>خلاصه</th>
           <th>وضعیت</th>

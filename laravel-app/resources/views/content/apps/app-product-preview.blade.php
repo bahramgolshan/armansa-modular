@@ -26,35 +26,45 @@
     <div class="row g-4">
       <div class="col-md-6">
         <div class="form-floating form-floating-outline">
-          <input type="text" id="size" name="size" class="form-control" placeholder="نامعلوم" disabled/>
+          <span type="text" id="size" name="size" class="form-control">
+            سایز
+          </span>
           <label for="size">سایز</label>
         </div>
       </div>
 
       <div class="col-md-6">
         <div class="form-floating form-floating-outline">
-          <input type="text" id="paper" name="paper" class="form-control" placeholder="نامعلوم" disabled/>
+          <span type="text" id="paper" name="paper" class="form-control">
+            نوع کاغذ
+          </span>
           <label for="paper">نوع کاغذ</label>
         </div>
       </div>
 
       <div class="col-md-6">
         <div class="form-floating form-floating-outline">
-          <input type="text" id="color" name="color" class="form-control" placeholder="نامعلوم" disabled/>
+          <span type="text" id="color" name="color" class="form-control">
+            رنگ چاپ
+          </span>
           <label for="color">رنگ چاپ</label>
         </div>
       </div>
 
       <div class="col-md-6">
         <div class="form-floating form-floating-outline">
-          <input type="text" id="number-of-pages" name="number-of-pages" class="form-control" placeholder="نامعلوم" disabled/>
+          <span type="text" id="number-of-pages" name="number-of-pages" class="form-control">
+            تعداد صفحات
+          </span>
           <label for="number-of-pages">تعداد صفحات</label>
         </div>
       </div>
 
       <div class="col-md-6">
         <div class="form-floating form-floating-outline">
-          <input type="text" id="circulation" name="circulation" class="form-control" placeholder="نامعلوم" disabled/>
+          <span type="text" id="circulation" name="circulation" class="form-control">
+            تیراژ
+          </span>
           <label for="circulation">تیراژ</label>
         </div>
       </div>
@@ -66,21 +76,25 @@
 
       <div class="col-md-6">
         <div class="form-floating form-floating-outline">
-          <input type="text" id="cover" name="cover" class="form-control" placeholder="نامعلوم" disabled/>
+          <span type="text" id="cover" name="cover" class="form-control">
+            جنس جلد
+          </span>
           <label for="cover">جنس جلد</label>
         </div>
       </div>
 
       <div class="col-md-6">
         <div class="form-floating form-floating-outline">
-          <input type="text" id="binding" name="binding" class="form-control" placeholder="نامعلوم" disabled/>
+          <span type="text" id="binding" name="binding" class="form-control">
+            نوع صحافی
+          </span>
           <label for="binding">نوع صحافی</label>
         </div>
       </div>
 
       <div class="col-md-6">
         <div class="form-floating form-floating-outline">
-          <input type="text" id="cellophane" name="cellophane" class="form-control" placeholder="نامعلوم" disabled/>
+          <input type="text" id="cellophane" name="cellophane" class="form-control"/>
           <label for="cellophane">نوع سلفون</label>
         </div>
       </div>

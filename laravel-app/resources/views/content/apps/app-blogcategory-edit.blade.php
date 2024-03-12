@@ -28,14 +28,14 @@
           <div class="row mb-3">
             <label class="col-sm-2 col-form-label" for="basic-default-name">عنوان</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" id="basic-default-name" placeholder="عنوان دسته بندی بلاگ" />
+              <input type="text" name="name" class="form-control" id="basic-default-name" placeholder="عنوان دسته بندی بلاگ" />
             </div>
           </div>
 
           <div class="row mb-3">
             <label class="col-sm-2 col-form-label" for="basic-default-message">توضیحات</label>
             <div class="col-sm-10">
-              <textarea id="basic-default-message" class="form-control" placeholder="توضیحات مربوط به عنوان دسته بندی بلاگ" aria-label="توضیحات مربوط به دسته بندی بلاگ" aria-describedby="basic-icon-default-message2"></textarea>
+              <textarea id="basic-default-message" class="form-control" placeholder="توضیحات مربوط به عنوان دسته بندی بلاگ" aria-label="توضیحات مربوط به دسته بندی بلاگ" aria-describedby="basic-icon-default-message2" name="description"></textarea>
             </div>
           </div>
 

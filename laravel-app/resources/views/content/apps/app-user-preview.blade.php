@@ -152,7 +152,7 @@
         <!-- <button class="btn btn-outline-secondary d-grid w-100 mb-3">
           Download
         </button> -->
-        <a class="btn btn-outline-secondary d-grid w-100 mb-3" target="_blank" href="{{url('app/invoice/print')}}">
+        <a class="btn btn-outline-secondary d-grid w-100 mb-3" target="_blank" href="{{url('app/user/print')}}">
           پرینت
         </a>
         <!-- <a href="{{url('app/invoice/edit')}}" class="btn btn-outline-secondary d-grid w-100 mb-3">
@@ -167,8 +167,4 @@
   <!-- /Invoice Actions -->
 </div>
 
-<!-- Offcanvas -->
-@include('_partials/_offcanvas/offcanvas-send-invoice')
-@include('_partials/_offcanvas/offcanvas-add-payment')
-<!-- /Offcanvas -->
 @endsection

@@ -78,7 +78,7 @@
             <label class="col-sm-2 col-form-label" for="basic-default-name">کلید واژه</label>
           <div class="col-md-10 mb-4">
 
-              <input id="TagifyBasic" class="form-control" name="TagifyBasic" value="Tag1, Tag2, Tag3" />
+              <input id="TagifyBasic" class="form-control" name="meta_keyword" value="Tag1, Tag2, Tag3" />
           </div>
 
           </div>
@@ -100,7 +100,7 @@
             فایل ها را در اینجا رها کنید یا برای انتخاب فایل کلیک کنید
           </div>
           <div class="fallback">
-            <input name="file" type="file" />
+            <input name="media_id" type="file" />
           </div>
         </div>
             </div>
@@ -124,7 +124,7 @@
               <div class="row mb-3">
             <label class="col-sm-2 col-form-label" for="basic-default-message">خلاصه</label>
             <div class="col-sm-10">
-              <textarea id="basic-default-message" class="form-control" placeholder="خلاصه بلاگ" aria-label="خلاصه بلاگ" aria-describedby="basic-icon-default-message2" name="description"></textarea>
+              <textarea id="basic-default-message" class="form-control" placeholder="خلاصه بلاگ" aria-label="خلاصه بلاگ" aria-describedby="basic-icon-default-message2" name="summary"></textarea>
             </div>
           </div>
 
@@ -134,11 +134,11 @@
 
                                 <div class="col-sm-9">
                     <div class="form-check mb-2">
-                      <input name="collapsible-addressType" class="form-check-input" type="radio" value="" id="collapsible-addressType-home" checked="" />
+                      <input name="status" class="form-check-input" type="radio" value="" id="collapsible-addressType-home" checked="" />
                       <label class="form-check-label" for="collapsible-addressType-home">فعال</label>
                     </div>
                     <div class="form-check">
-                      <input name="collapsible-addressType" class="form-check-input" type="radio" value="" id="collapsible-addressType-office" />
+                      <input name="status" class="form-check-input" type="radio" value="" id="collapsible-addressType-office" />
                       <label class="form-check-label" for="collapsible-addressType-office">غیر فعال</label>
                     </div>
                   </div>
@@ -168,7 +168,7 @@
 
             <div class="col-sm-9">
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck3" checked />
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck3" name="is_featured" checked />
           </div>
             </div>
             </div>

@@ -7,7 +7,7 @@
 @endsection
 
 @section('page-style')
-<link rel="stylesheet" href="{{asset('assets/vendor/css/pages/app-invoice.css')}}" />
+
 @endsection
 
 @section('vendor-script')
