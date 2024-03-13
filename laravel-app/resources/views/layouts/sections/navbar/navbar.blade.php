@@ -37,29 +37,29 @@ $navbarDetached = ($navbarDetached ?? '');
 
       @if(!isset($menuHorizontal))
       <!-- Search -->
-      <div class="navbar-nav align-items-center">
+      {{-- <div class="navbar-nav align-items-center">
         <div class="nav-item navbar-search-wrapper mb-0">
           <a class="nav-item nav-link search-toggler fw-normal px-0" href="javascript:void(0);">
             <i class="mdi mdi-magnify mdi-24px scaleX-n1-rtl"></i>
             <span class="d-none d-md-inline-block text-muted">Search (Ctrl+/)</span>
           </a>
         </div>
-      </div>
+      </div> --}}
       <!-- /Search -->
       @endif
 
       <ul class="navbar-nav flex-row align-items-center ms-auto">
         @if(isset($menuHorizontal))
         <!-- Search -->
-        <li class="nav-item navbar-search-wrapper me-2 me-xl-0">
+        {{-- <li class="nav-item navbar-search-wrapper me-2 me-xl-0">
           <a class="nav-link search-toggler" href="javascript:void(0);">
             <i class="mdi mdi-magnify mdi-24px scaleX-n1-rtl"></i>
           </a>
-        </li>
+        </li> --}}
         <!-- /Search -->
         @endif
         <!-- Language -->
-        <li class="nav-item dropdown-language dropdown me-1 me-xl-0">
+        {{-- <li class="nav-item dropdown-language dropdown me-1 me-xl-0">
           <a class="nav-link btn btn-text-secondary rounded-pill btn-icon dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
             <i class='mdi mdi-translate mdi-24px'></i>
           </a>
@@ -90,7 +90,7 @@ $navbarDetached = ($navbarDetached ?? '');
               </a>
             </li>
           </ul>
-        </li>
+        </li> --}}
         <!--/ Language -->
 
         <!-- Style Switcher -->
@@ -102,7 +102,7 @@ $navbarDetached = ($navbarDetached ?? '');
         <!--/ Style Switcher -->
 
         <!-- Quick links  -->
-        <li class="nav-item dropdown-shortcuts navbar-dropdown dropdown me-1 me-xl-0">
+        {{-- <li class="nav-item dropdown-shortcuts navbar-dropdown dropdown me-1 me-xl-0">
           <a class="nav-link btn btn-text-secondary rounded-pill btn-icon dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
             <i class='mdi mdi-view-grid-plus-outline mdi-24px'></i>
           </a>
@@ -180,11 +180,11 @@ $navbarDetached = ($navbarDetached ?? '');
               </div>
             </div>
           </div>
-        </li>
+        </li> --}}
         <!-- Quick links -->
 
         <!-- Notification -->
-        <li class="nav-item dropdown-notifications navbar-dropdown dropdown me-2 me-xl-1">
+        {{-- <li class="nav-item dropdown-notifications navbar-dropdown dropdown me-2 me-xl-1">
           <a class="nav-link btn btn-text-secondary rounded-pill btn-icon dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
             <i class="mdi mdi-bell-outline mdi-24px"></i>
             <span class="position-absolute top-0 start-50 translate-middle-y badge badge-dot bg-danger mt-2 border"></span>
@@ -350,7 +350,7 @@ $navbarDetached = ($navbarDetached ?? '');
               </a>
             </li>
           </ul>
-        </li>
+        </li> --}}
         <!--/ Notification -->
 
         <!-- User -->
@@ -388,7 +388,7 @@ $navbarDetached = ($navbarDetached ?? '');
             <li>
               <a class="dropdown-item" href="{{ Route::has('profile.show') ? route('profile.show') : url('pages/profile-user') }}">
                 <i class="mdi mdi-account-outline me-2"></i>
-                <span class="align-middle">My Profile</span>
+                <span class="align-middle">پروفایل</span>
               </a>
             </li>
             @if (Auth::check() && Laravel\Jetstream\Jetstream::hasApiFeatures())
@@ -399,12 +399,6 @@ $navbarDetached = ($navbarDetached ?? '');
               </a>
             </li>
             @endif
-            <li>
-              <a class="dropdown-item" href="{{url('app/invoice/list')}}">
-                <i class="mdi mdi-credit-card-outline me-2"></i>
-                <span class="align-middle">Billing</span>
-              </a>
-            </li>
             @if (Auth::User() && Laravel\Jetstream\Jetstream::hasTeamFeatures())
             <li>
               <div class="dropdown-divider"></div>
@@ -463,7 +457,7 @@ $navbarDetached = ($navbarDetached ?? '');
             <li>
               <a class="dropdown-item" href="{{ Route::has('login') ? route('login') : url('auth/login-basic') }}">
                 <i class='mdi mdi-login me-2'></i>
-                <span class="align-middle">Login</span>
+                <span class="align-middle">خروج</span>
               </a>
             </li>
             @endif
@@ -474,10 +468,10 @@ $navbarDetached = ($navbarDetached ?? '');
     </div>
 
     <!-- Search Small Screens -->
-    <div class="navbar-search-wrapper search-input-wrapper {{ isset($menuHorizontal) ? $containerNav : '' }} d-none">
+    {{-- <div class="navbar-search-wrapper search-input-wrapper {{ isset($menuHorizontal) ? $containerNav : '' }} d-none">
       <input type="text" class="form-control search-input {{ isset($menuHorizontal) ? '' : $containerNav }} border-0" placeholder="Search..." aria-label="Search...">
       <i class="mdi mdi-close search-toggler cursor-pointer"></i>
-    </div>
+    </div> --}}
     @if(!isset($navbarDetached))
   </div>
   @endif
