@@ -25,7 +25,7 @@ $navbarFixed = (isset($configData['navbarFixed']) ? $configData['navbarFixed'] :
 $footerFixed = (isset($configData['footerFixed']) ? $configData['footerFixed'] : '');
 $menuCollapsed = (isset($configData['menuCollapsed']) ? $configData['menuCollapsed'] : '');
 $menuFlipped = (isset($configData['menuFlipped']) ? $configData['menuFlipped'] : '');
-/* $menuOffcanvas = (isset($configData['menuOffcanvas']) ? $configData['menuOffcanvas'] : ''); */
+$menuOffcanvas = (isset($configData['menuOffcanvas']) ? $configData['menuOffcanvas'] : '');
 
 /* Content classes */
 $container = ($container ?? 'container-xxl');

@@ -59,7 +59,7 @@ $navbarDetached = ($navbarDetached ?? '');
         <!-- /Search -->
         @endif
         <!-- Language -->
-        {{-- <li class="nav-item dropdown-language dropdown me-1 me-xl-0">
+        <li class="nav-item dropdown-language dropdown me-1 me-xl-0">
           <a class="nav-link btn btn-text-secondary rounded-pill btn-icon dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
             <i class='mdi mdi-translate mdi-24px'></i>
           </a>
@@ -90,7 +90,7 @@ $navbarDetached = ($navbarDetached ?? '');
               </a>
             </li>
           </ul>
-        </li> --}}
+        </li>
         <!--/ Language -->
 
         <!-- Style Switcher -->
