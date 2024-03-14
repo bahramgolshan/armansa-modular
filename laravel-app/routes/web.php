@@ -62,6 +62,12 @@ Route::get('/app/tag/preview', $controller_path . '\apps\TagController@show')->n
 Route::get('/app/tag/edit', $controller_path . '\apps\TagController@edit')->name('app-tag-edit');
 Route::get('/app/tag/add', $controller_path . '\apps\TagController@create')->name('app-tag-add');
 
+// faq
+Route::get('/app/faq/list', $controller_path . '\apps\FaqController@index')->name('app-faq-list');
+Route::get('/app/faq/preview', $controller_path . '\apps\FaqController@show')->name('app-faq-preview');
+Route::get('/app/faq/edit', $controller_path . '\apps\FaqController@edit')->name('app-faq-edit');
+Route::get('/app/faq/add', $controller_path . '\apps\FaqController@create')->name('app-faq-add');
+
 // user
 Route::get('/app/user/list', $controller_path . '\apps\UserList@index')->name('app-user-list');
 Route::get('/app/user/preview', $controller_path . '\apps\UserViewAccount@index')->name('app-user-preview');

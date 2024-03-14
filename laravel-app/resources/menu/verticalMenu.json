@@ -50,6 +50,12 @@
       "name": "تنظیمات",
       "icon": "menu-icon tf-icons mdi mdi-cog-outline",
       "slug": "app-tag"
+    },
+    {
+      "url": "app/faq/list",
+      "name": "سوالات متداول",
+      "icon": "menu-icon tf-icons mdi mdi-frequently-asked-questions",
+      "slug": "app-tag"
     }
   ]
 }
