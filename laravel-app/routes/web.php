@@ -19,8 +19,8 @@ use App\Http\Controllers\apps\ProductController;
 
 $controller_path = 'App\Http\Controllers';
 
-// Main Page Route
-Route::get('/', $controller_path . '\apps\InvoiceList@index');
+// Main App Page
+Route::get('/app', $controller_path . '\apps\InvoiceList@index');
 
 
 // locale
