@@ -196,6 +196,11 @@ return [
     App\Providers\RouteServiceProvider::class,
     App\Providers\MenuServiceProvider::class,
 
+    /*
+         * Website module Service Providers...
+         */
+    Modules\Website\App\Providers\WebsiteServiceProvider::class,
+
   ],
 
   /*

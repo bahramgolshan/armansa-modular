@@ -5,30 +5,21 @@
       "name": "کاربران",
       "icon": "menu-icon tf-icons mdi mdi-account-outline",
       "slug": "app-user",
-      "badge": [
-        "danger",
-        "4"
-      ]
+      "badge": ["danger", "4"]
     },
     {
       "url": "app/invoice/list",
       "name": "فاکتور",
       "icon": "menu-icon tf-icons mdi mdi-file-document-outline",
       "slug": "app-invoice",
-      "badge": [
-        "danger",
-        "4"
-      ]
+      "badge": ["danger", "4"]
     },
     {
       "url": "app/product/list",
       "name": "محصول",
       "icon": "menu-icon tf-icons mdi mdi-cart-arrow-down",
       "slug": "app-product",
-      "badge": [
-        "danger",
-        "4"
-      ]
+      "badge": ["danger", "4"]
     },
     {
       "name": "بلاگ",
@@ -52,10 +43,13 @@
       "name": "برچسب ها",
       "icon": "menu-icon tf-icons mdi mdi-tag-outline",
       "slug": "app-tag",
-      "badge": [
-        "danger",
-        "4"
-      ]
+      "badge": ["danger", "4"]
+    },
+    {
+      "url": "app/setting",
+      "name": "تنظیمات",
+      "icon": "menu-icon tf-icons mdi mdi-cog-outline",
+      "slug": "app-tag"
     }
   ]
 }

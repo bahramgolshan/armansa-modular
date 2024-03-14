@@ -22,6 +22,10 @@ $controller_path = 'App\Http\Controllers';
 // Main App Page
 Route::get('/app', $controller_path . '\apps\InvoiceList@index');
 
+// settings
+Route::get('/app/setting', $controller_path . '\apps\SettingController@index');
+
+
 
 // locale
 Route::get('lang/{locale}', $controller_path . '\language\LanguageController@swap');

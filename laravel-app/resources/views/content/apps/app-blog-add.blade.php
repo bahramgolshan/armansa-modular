@@ -28,7 +28,7 @@
 <script src="{{asset('assets/js/forms-file-upload.js')}}"></script>
 @endsection
 
-@section('vendor-style')
+{{-- @section('vendor-style')
 <link rel="stylesheet" href="{{asset('assets/vendor/libs/tagify/tagify.css')}}" />
 <link rel="stylesheet" href="{{asset('assets/vendor/libs/quill/typography.css')}}" />
 <link rel="stylesheet" href="{{asset('assets/vendor/libs/quill/katex.css')}}" />
@@ -43,7 +43,7 @@
 
 @section('page-script')
 <script src="{{asset('assets/js/forms-file-upload.js')}}"></script>
-@endsection
+@endsection --}}
 
 @section('content')
 <form class="row">
