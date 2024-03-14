@@ -29,7 +29,7 @@ Route::get('/dashboard', function () {
 require __DIR__ . '/auth.php';
 
 // Before Authentication
-Route::get('/', "App\\Http\\Controllers\\HomeController@index")->name('home');
+Route::get('/', "HomeController@index")->name('home');
 
 // Route::get('/login', "App\\Http\\Controllers\\AuthController@login")->name('login');
 
@@ -50,17 +50,17 @@ Route::group([
 ], function () {
 
   Route::get('/services', function () {
-    return view('front.pages.services');
+    return view('website::pages.services');
   });
 
   Route::get('/services/print/digital-print', "App\\Http\\Controllers\\InvoiceController@create")->name('service.print.digital-print');
 
   Route::get('/customers-dashboard', function () {
-    return view('front.pages.customers_dashboard');
+    return view('website::pages.customers_dashboard');
   });
 
   Route::get('/show-details', function () {
-    return view('front.pages.show_details');
+    return view('website::pages.show_details');
   });
 });
 
