@@ -5,6 +5,7 @@ namespace App\Http\Controllers\apps;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Validation\Rule;
 use Modules\Website\App\Models\Invoice;
 use Modules\Website\App\Models\InvoiceDetail;
 use Modules\Website\App\Models\Payment;
@@ -62,6 +63,26 @@ class InvoiceController extends Controller
   public function edit(string $id)
   {
     return view('content.apps.app-invoice-edit');
+  }
+
+  public function editStatus(Request $request)
+  {
+    $request->validate([
+      'status' => ['required', Rule::in(Invoice::$status)],
+    ]);
+
+    $id = Route::current()->parameter('id');
+    $invoice = Invoice::findOrFail($id);
+    $invoice->status = $request->status;
+    if ($invoice->save()) {
+      return response()->json([
+        'status' => 'success',
+      ]);
+    }
+
+    return response()->json([
+      'status' => 'error',
+    ]);
   }
 
   public function update(Request $request, string $id)

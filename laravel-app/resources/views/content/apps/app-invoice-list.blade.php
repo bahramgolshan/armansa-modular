@@ -39,6 +39,7 @@
                         <th>تخفیف اضافی</th>
                         <th>قیمت اضافی</th>
                         <th>مالیات</th>
+                        <th>مبلغ کل</th>
                         <th class="cell-fit">اقدامات</th>
                     </tr>
                 </thead>
@@ -54,6 +55,7 @@
                             <td><span class="">{{ $invoice->additional_discount }}</span></td>
                             <td><span class="">{{ $invoice->additional_price }}</span></td>
                             <td><span class="">{{ $invoice->tax }}</span></td>
+                            <td><span class="">{{ $invoice->final_price }}</span></td>
                             <td>
                                 <div class="dropdown">
                                     <button type="button" class="btn p-0 dropdown-toggle hide-arrow"

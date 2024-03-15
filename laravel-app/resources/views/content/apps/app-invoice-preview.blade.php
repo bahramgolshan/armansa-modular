@@ -13,6 +13,28 @@
 @section('page-script')
     <script src="{{ asset('assets/js/offcanvas-add-payment.js') }}"></script>
     <script src="{{ asset('assets/js/offcanvas-send-invoice.js') }}"></script>
+    <script>
+        $('button.edit-status').click(function() {
+            $.ajax({
+                type: "POST",
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                url: "{!! route('app-invoice-edit-status', ['id' => $invoice->id]) !!}",
+                data: {
+                    status: $(this).data("value")
+                },
+                success: function(response) {
+                    location.reload()
+                },
+                error: function(response) {
+                    hideAjaxLoader()
+
+                    location.reload()
+                }
+            });
+        });
+    </script>
 @endsection
 
 @section('vendor-script')
@@ -78,7 +100,7 @@
                                     </tr>
                                     <tr>
                                         <td class="pe-3 fw-medium">جهت صحافی :</td>
-                                        <td>{{ __('app.bindingDirection.' . $invoiceDetail->binding_direction) }}
+                                        <td>{{ $invoiceDetail->binding_direction ? __('app.bindingDirection.' . $invoiceDetail->binding_direction) : '' }}
                                         </td>
                                     </tr>
 
@@ -130,18 +152,11 @@
                                     <td class="text-nowrap">{{ $payment->id }}</td>
                                     <td class="text-nowrap">{{ $payment->reterival_ref_no }}</td>
                                     <td><span
-                                            class="badge bg-label-{{ $paymentStatusColors[$payment->status] }} me-1">{{ $payment->status }}</span>
+                                            class="badge bg-label-{{ $paymentStatusColors[$payment->status] }} me-1">{{ __('app.paymentStatus.' . $payment->status) }}</span>
                                     </td>
-                                    <td>{{ $payment->amount }}</td>
+                                    <td>{{ $payment->amount }} <span>تومان</span></td>
                                 </tr>
                             @endforeach
-                            <tr>
-                                <td class="text-nowrap">9999999</td>
-                                <td class="text-nowrap">9999999</td>
-                                <td><span class="badge bg-label-success me-1">انجام شده</span></td>
-                                <td>$32</td>
-                            </tr>
-
                         </tbody>
                     </table>
                     <table class="table m-0">
@@ -158,14 +173,26 @@
                                 <td class="text-end px-4 py-5">
                                     <p class="mb-2">قیمت:</p>
                                     <p class="mb-2">تخفیف:</p>
+                                    <p class="mb-2">مبلغ اضافه:</p>
+                                    <p class="mb-2">تخفیف اضافه:</p>
                                     <p class="mb-2">مالیات:</p>
                                     <p class="mb-0">قیمت کل:</p>
                                 </td>
                                 <td class="px-4 py-5">
-                                    <p class="fw-semibold mb-2 text-end">$154.25</p>
-                                    <p class="fw-semibold mb-2 text-end">$00.00</p>
-                                    <p class="fw-semibold mb-2 text-end">$50.00</p>
-                                    <p class="fw-semibold mb-0 text-end">$204.25</p>
+                                    <p class="fw-semibold mb-2 text-end">{{ $invoiceDetail->serviceDetail->price }}
+                                        <span>تومان</span>
+                                    </p>
+                                    <p class="fw-semibold mb-2 text-end">{{ $invoiceDetail->serviceDetail->discount }}
+                                        <span>{{ $invoiceDetail->serviceDetail->discount_type == 'percent' ? '%' : 'تومان' }}</span>
+                                    </p>
+                                    <p class="fw-semibold mb-2 text-end">{{ $invoice->additional_price }}
+                                        <span>تومان</span>
+                                    </p>
+                                    <p class="fw-semibold mb-2 text-end">{{ $invoice->additional_discount }}
+                                        <span>تومان</span>
+                                    </p>
+                                    <p class="fw-semibold mb-2 text-end">{{ $invoice->tax }} <span>تومان</span></p>
+                                    <p class="fw-semibold mb-0 text-end">{{ $invoice->final_price }} <span>تومان</span></p>
                                 </td>
                             </tr>
                         </tbody>
@@ -179,28 +206,19 @@
         <div class="col-xl-3 col-md-4 col-12 invoice-actions">
             <div class="card">
                 <div class="card-body">
-                    <button class="btn btn-primary d-grid w-100 mb-3" data-bs-toggle="offcanvas"
-                        data-bs-target="#sendInvoiceOffcanvas">
+                    <button class="edit-status btn btn-primary d-grid w-100 mb-3" data-value="delivered">
                         <span class="d-flex align-items-center justify-content-center text-nowrap"><i
-                                class="mdi mdi-send-outline scaleX-n1-rtl me-1"></i>تایید سفارش</span>
+                                class="mdi mdi-send-outline scaleX-n1-rtl me-1"></i>تحویل سفارش</span>
                     </button>
-                    <a class="btn btn-outline-secondary d-grid w-100 mb-3" target="_blank"
-                        href="{{ url('app/invoice/print') }}">
+                    <button class="edit-status btn btn-outline-secondary d-grid w-100 mb-3" data-value="processing">
+                        تایید سفارش
+                    </button>
+                    <button class="edit-status btn btn-outline-secondary d-grid w-100 mb-3" data-value="rejected">
                         رد کردن سفارش
-                    </a>
-                    {{-- <button class="btn btn-success d-grid w-100" data-bs-toggle="offcanvas"
-                        data-bs-target="#addPaymentOffcanvas">
-                        <span class="d-flex align-items-center justify-content-center text-nowrap"><i
-                                class="mdi mdi-currency-usd me-1"></i>فاکتور پرداخت مشتری</span>
-                    </button> --}}
+                    </button>
                 </div>
             </div>
         </div>
         <!-- /Invoice Actions -->
     </div>
-
-    <!-- Offcanvas -->
-    @include('_partials/_offcanvas/offcanvas-send-invoice')
-    @include('_partials/_offcanvas/offcanvas-add-payment')
-    <!-- /Offcanvas -->
 @endsection

@@ -34,6 +34,7 @@ Route::get('/app/invoice/list', 'App\Http\Controllers\apps\InvoiceController@ind
 Route::get('/app/invoice/preview/{id}', 'App\Http\Controllers\apps\InvoiceController@show')->where('id', '[0-9]+')->name('app-invoice-preview');
 Route::get('/app/invoice/print', 'App\Http\Controllers\apps\InvoiceController@print')->name('app-invoice-print');
 Route::get('/app/invoice/edit', 'App\Http\Controllers\apps\InvoiceController@edit')->name('app-invoice-edit');
+Route::post('/app/invoice/edit-status/{id}', 'App\Http\Controllers\apps\InvoiceController@editStatus')->where('id', '[0-9]+')->name('app-invoice-edit-status');
 Route::get('/app/invoice/add', 'App\Http\Controllers\apps\InvoiceController@create')->name('app-invoice-add');
 
 // product
@@ -67,8 +68,8 @@ Route::get('/app/faq/edit', 'App\Http\Controllers\apps\FaqController@edit')->nam
 Route::get('/app/faq/add', 'App\Http\Controllers\apps\FaqController@create')->name('app-faq-add');
 
 // customer
-Route::get('/app/customer/list', 'App\Http\Controllers\apps\UserList@index')->name('app-customer-list');
-Route::get('/app/customer/preview', 'App\Http\Controllers\apps\UserViewAccount@index')->name('app-customer-preview');
+Route::get('/app/customer/list', 'App\Http\Controllers\apps\CustomerController@index')->name('app-customer-list');
+Route::get('/app/customer/preview/{id}', 'App\Http\Controllers\apps\CustomerController@show')->where('id', '[0-9]+')->name('app-customer-preview');
 
 // authentication
 Route::get('/auth/login-basic', 'App\Http\Controllers\authentications\LoginBasic@index')->name('auth-login-basic');
