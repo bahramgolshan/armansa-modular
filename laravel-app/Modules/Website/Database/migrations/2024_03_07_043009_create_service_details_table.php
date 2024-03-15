@@ -21,6 +21,7 @@ class CreateServiceDetailsTable extends Migration
       $table->integer('binding_id')->unsigned()->nullable();
       $table->integer('cellophane_id')->unsigned()->nullable();
       $table->integer('cover_id')->unsigned()->nullable();
+      $table->integer('binding_direction')->unsigned()->nullable();
       $table->integer('media_id')->unsigned()->nullable()->comment('Preview image');
       $table->double('price', 22, 2)->nullable();
       $table->enum('status', ServiceDetail::$status)->default('publish');

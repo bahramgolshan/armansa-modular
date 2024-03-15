@@ -20,6 +20,6 @@ class Cellophane extends Model
 
   public function serviceDetails()
   {
-    return $this->hasMany('ServiceDetail');
+    return $this->hasMany(ServiceDetail::class);
   }
 }

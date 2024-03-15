@@ -19,74 +19,68 @@ use App\Http\Controllers\apps\ProductController;
 
 $controller_path = 'App\Http\Controllers';
 
+// locale
+Route::get('lang/{locale}', 'App\Http\Controllers\language\LanguageController@swap');
+
+
 // Main App Page
-Route::get('/app', $controller_path . '\apps\InvoiceList@index');
+Route::get('/app', 'App\Http\Controllers\apps\InvoiceController@index');
 
 // settings
-Route::get('/app/setting', $controller_path . '\apps\SettingController@index');
-
-
-
-// locale
-Route::get('lang/{locale}', $controller_path . '\language\LanguageController@swap');
+Route::get('/app/setting', 'App\Http\Controllers\apps\SettingController@index');
 
 // apps
-Route::get('/app/invoice/list', $controller_path . '\apps\InvoiceList@index')->name('app-invoice-list');
-Route::get('/app/invoice/preview', $controller_path . '\apps\InvoicePreview@index')->name('app-invoice-preview');
-Route::get('/app/invoice/print', $controller_path . '\apps\InvoicePrint@index')->name('app-invoice-print');
-Route::get('/app/invoice/edit', $controller_path . '\apps\InvoiceEdit@index')->name('app-invoice-edit');
-Route::get('/app/invoice/add', $controller_path . '\apps\InvoiceAdd@index')->name('app-invoice-add');
+Route::get('/app/invoice/list', 'App\Http\Controllers\apps\InvoiceController@index')->name('app-invoice-list');
+Route::get('/app/invoice/preview/{id}', 'App\Http\Controllers\apps\InvoiceController@show')->where('id', '[0-9]+')->name('app-invoice-preview');
+Route::get('/app/invoice/print', 'App\Http\Controllers\apps\InvoiceController@print')->name('app-invoice-print');
+Route::get('/app/invoice/edit', 'App\Http\Controllers\apps\InvoiceController@edit')->name('app-invoice-edit');
+Route::get('/app/invoice/add', 'App\Http\Controllers\apps\InvoiceController@create')->name('app-invoice-add');
 
-// ----------------------- new routes
 // product
-Route::get('/app/product/list', $controller_path . '\apps\ProductController@index')->name('app-product-list');
-Route::get('/app/product/preview', $controller_path . '\apps\ProductController@show')->name('app-product-preview');
-Route::get('/app/product/edit', $controller_path . '\apps\ProductController@edit')->name('app-product-edit');
-Route::get('/app/product/add', $controller_path . '\apps\ProductController@create')->name('app-product-add');
+Route::get('/app/product/list', 'App\Http\Controllers\apps\ProductController@index')->name('app-product-list');
+Route::get('/app/product/preview', 'App\Http\Controllers\apps\ProductController@show')->name('app-product-preview');
+Route::get('/app/product/edit', 'App\Http\Controllers\apps\ProductController@edit')->name('app-product-edit');
+Route::get('/app/product/add', 'App\Http\Controllers\apps\ProductController@create')->name('app-product-add');
 
 // blog-category
-Route::get('/app/blog-category/list', $controller_path . '\apps\BlogCategoryController@index')->name('app-blog-category-list');
-Route::get('/app/blog-category/preview', $controller_path . '\apps\BlogCategoryController@show')->name('app-blog-category-preview');
-Route::get('/app/blog-category/edit', $controller_path . '\apps\BlogCategoryController@edit')->name('app-blog-category-edit');
-Route::get('/app/blog-category/add', $controller_path . '\apps\BlogCategoryController@create')->name('app-blog-category-add');
+Route::get('/app/blog-category/list', 'App\Http\Controllers\apps\BlogCategoryController@index')->name('app-blog-category-list');
+Route::get('/app/blog-category/preview', 'App\Http\Controllers\apps\BlogCategoryController@show')->name('app-blog-category-preview');
+Route::get('/app/blog-category/edit', 'App\Http\Controllers\apps\BlogCategoryController@edit')->name('app-blog-category-edit');
+Route::get('/app/blog-category/add', 'App\Http\Controllers\apps\BlogCategoryController@create')->name('app-blog-category-add');
 
 // blog
-Route::get('/app/blog/list', $controller_path . '\apps\BlogController@index')->name('app-blog-list');
-Route::get('/app/blog/preview', $controller_path . '\apps\BlogController@show')->name('app-blog-preview');
-Route::get('/app/blog/edit', $controller_path . '\apps\BlogController@edit')->name('app-blog-edit');
-Route::get('/app/blog/add', $controller_path . '\apps\BlogController@create')->name('app-blog-add');
+Route::get('/app/blog/list', 'App\Http\Controllers\apps\BlogController@index')->name('app-blog-list');
+Route::get('/app/blog/preview', 'App\Http\Controllers\apps\BlogController@show')->name('app-blog-preview');
+Route::get('/app/blog/edit', 'App\Http\Controllers\apps\BlogController@edit')->name('app-blog-edit');
+Route::get('/app/blog/add', 'App\Http\Controllers\apps\BlogController@create')->name('app-blog-add');
 
 // tag
-Route::get('/app/tag/list', $controller_path . '\apps\TagController@index')->name('app-tag-list');
-Route::get('/app/tag/preview', $controller_path . '\apps\TagController@show')->name('app-tag-preview');
-Route::get('/app/tag/edit', $controller_path . '\apps\TagController@edit')->name('app-tag-edit');
-Route::get('/app/tag/add', $controller_path . '\apps\TagController@create')->name('app-tag-add');
+Route::get('/app/tag/list', 'App\Http\Controllers\apps\TagController@index')->name('app-tag-list');
+Route::get('/app/tag/preview', 'App\Http\Controllers\apps\TagController@show')->name('app-tag-preview');
+Route::get('/app/tag/edit', 'App\Http\Controllers\apps\TagController@edit')->name('app-tag-edit');
+Route::get('/app/tag/add', 'App\Http\Controllers\apps\TagController@create')->name('app-tag-add');
 
 // faq
-Route::get('/app/faq/list', $controller_path . '\apps\FaqController@index')->name('app-faq-list');
-Route::get('/app/faq/preview', $controller_path . '\apps\FaqController@show')->name('app-faq-preview');
-Route::get('/app/faq/edit', $controller_path . '\apps\FaqController@edit')->name('app-faq-edit');
-Route::get('/app/faq/add', $controller_path . '\apps\FaqController@create')->name('app-faq-add');
+Route::get('/app/faq/list', 'App\Http\Controllers\apps\FaqController@index')->name('app-faq-list');
+Route::get('/app/faq/preview', 'App\Http\Controllers\apps\FaqController@show')->name('app-faq-preview');
+Route::get('/app/faq/edit', 'App\Http\Controllers\apps\FaqController@edit')->name('app-faq-edit');
+Route::get('/app/faq/add', 'App\Http\Controllers\apps\FaqController@create')->name('app-faq-add');
 
-// user
-Route::get('/app/user/list', $controller_path . '\apps\UserList@index')->name('app-user-list');
-Route::get('/app/user/preview', $controller_path . '\apps\UserViewAccount@index')->name('app-user-preview');
-
-// -------------------------------- end new routes
-
-
+// customer
+Route::get('/app/customer/list', 'App\Http\Controllers\apps\UserList@index')->name('app-customer-list');
+Route::get('/app/customer/preview', 'App\Http\Controllers\apps\UserViewAccount@index')->name('app-customer-preview');
 
 // authentication
-Route::get('/auth/login-basic', $controller_path . '\authentications\LoginBasic@index')->name('auth-login-basic');
-Route::get('/auth/login-cover', $controller_path . '\authentications\LoginCover@index')->name('auth-login-cover');
-Route::get('/auth/register-basic', $controller_path . '\authentications\RegisterBasic@index')->name('auth-register-basic');
-Route::get('/auth/register-cover', $controller_path . '\authentications\RegisterCover@index')->name('auth-register-cover');
-Route::get('/auth/register-multisteps', $controller_path . '\authentications\RegisterMultiSteps@index')->name('auth-register-multisteps');
-Route::get('/auth/verify-email-basic', $controller_path . '\authentications\VerifyEmailBasic@index')->name('auth-verify-email-basic');
-Route::get('/auth/verify-email-cover', $controller_path . '\authentications\VerifyEmailCover@index')->name('auth-verify-email-cover');
-Route::get('/auth/reset-password-basic', $controller_path . '\authentications\ResetPasswordBasic@index')->name('auth-reset-password-basic');
-Route::get('/auth/reset-password-cover', $controller_path . '\authentications\ResetPasswordCover@index')->name('auth-reset-password-cover');
-Route::get('/auth/forgot-password-basic', $controller_path . '\authentications\ForgotPasswordBasic@index')->name('auth-reset-password-basic');
-Route::get('/auth/forgot-password-cover', $controller_path . '\authentications\ForgotPasswordCover@index')->name('auth-forgot-password-cover');
-Route::get('/auth/two-steps-basic', $controller_path . '\authentications\TwoStepsBasic@index')->name('auth-two-steps-basic');
-Route::get('/auth/two-steps-cover', $controller_path . '\authentications\TwoStepsCover@index')->name('auth-two-steps-cover');
+Route::get('/auth/login-basic', 'App\Http\Controllers\authentications\LoginBasic@index')->name('auth-login-basic');
+Route::get('/auth/login-cover', 'App\Http\Controllers\authentications\LoginCover@index')->name('auth-login-cover');
+Route::get('/auth/register-basic', 'App\Http\Controllers\authentications\RegisterBasic@index')->name('auth-register-basic');
+Route::get('/auth/register-cover', 'App\Http\Controllers\authentications\RegisterCover@index')->name('auth-register-cover');
+Route::get('/auth/register-multisteps', 'App\Http\Controllers\authentications\RegisterMultiSteps@index')->name('auth-register-multisteps');
+Route::get('/auth/verify-email-basic', 'App\Http\Controllers\authentications\VerifyEmailBasic@index')->name('auth-verify-email-basic');
+Route::get('/auth/verify-email-cover', 'App\Http\Controllers\authentications\VerifyEmailCover@index')->name('auth-verify-email-cover');
+Route::get('/auth/reset-password-basic', 'App\Http\Controllers\authentications\ResetPasswordBasic@index')->name('auth-reset-password-basic');
+Route::get('/auth/reset-password-cover', 'App\Http\Controllers\authentications\ResetPasswordCover@index')->name('auth-reset-password-cover');
+Route::get('/auth/forgot-password-basic', 'App\Http\Controllers\authentications\ForgotPasswordBasic@index')->name('auth-reset-password-basic');
+Route::get('/auth/forgot-password-cover', 'App\Http\Controllers\authentications\ForgotPasswordCover@index')->name('auth-forgot-password-cover');
+Route::get('/auth/two-steps-basic', 'App\Http\Controllers\authentications\TwoStepsBasic@index')->name('auth-two-steps-basic');
+Route::get('/auth/two-steps-cover', 'App\Http\Controllers\authentications\TwoStepsCover@index')->name('auth-two-steps-cover');

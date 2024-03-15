@@ -15,44 +15,45 @@ class ServiceDetail extends Model
 
   public static $status = ['draft', 'publish'];
   public static $discountTypes = ['fix', 'percent'];
+  public static $bindingDirection = ['fa_v', 'fa_h', 'en_v', 'en_h'];
 
   public function service()
   {
-    return $this->belongsTo('Service', 'service_id');
+    return $this->belongsTo(Service::class, 'service_id');
   }
 
   public function color()
   {
-    return $this->belongsTo('Color', 'color');
+    return $this->belongsTo(Color::class, 'color_id');
   }
 
   public function size()
   {
-    return $this->belongsTo('Size', 'size_id');
+    return $this->belongsTo(Size::class, 'size_id');
   }
 
   public function paper()
   {
-    return $this->belongsTo('Paper', 'paper_id');
+    return $this->belongsTo(Paper::class, 'paper_id');
   }
 
   public function binding()
   {
-    return $this->belongsTo('Binding', 'binding_id');
+    return $this->belongsTo(Binding::class, 'binding_id');
   }
 
   public function cellophane()
   {
-    return $this->belongsTo('Cellophane', 'cellophane_id');
+    return $this->belongsTo(Cellophane::class, 'cellophane_id');
   }
 
   public function invoiceDetails()
   {
-    return $this->hasMany('InvoiceDetail');
+    return $this->hasMany(InvoiceDetail::class);
   }
 
   public function cover()
   {
-    return $this->belongsTo('Cover', 'cover_id');
+    return $this->belongsTo(Cover::class, 'cover_id');
   }
 }

@@ -14,21 +14,21 @@ class BlogPost extends Model
 
   public function blogCategory()
   {
-    return $this->belongsTo('BlogCategory', 'blog_category_id');
+    return $this->belongsTo(BlogCategory::class, 'blog_category_id');
   }
 
   public function blogComments()
   {
-    return $this->hasMany('BlogComment');
+    return $this->hasMany(BlogComment::class);
   }
 
   public function blogPostTags()
   {
-    return $this->hasMany('BlogPostTag');
+    return $this->hasMany(BlogPostTag::class);
   }
 
   public function media()
   {
-    return $this->belongsTo('Media', 'media_id');
+    return $this->belongsTo(Media::class, 'media_id');
   }
 }

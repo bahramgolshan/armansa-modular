@@ -2,6 +2,7 @@
 
 namespace Modules\Website\App\Models;
 
+use App\Models\Customer;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -24,11 +25,16 @@ class Invoice extends Model
 
   public function payments()
   {
-    return $this->hasMany('Payment');
+    return $this->hasMany(Payment::class);
   }
 
   public function invoiceDetails()
   {
-    return $this->hasMany('InvoiceDetail');
+    return $this->hasMany(InvoiceDetail::class);
+  }
+
+  public function customer()
+  {
+    return $this->belongsTo(Customer::class, 'customer_id');
   }
 }

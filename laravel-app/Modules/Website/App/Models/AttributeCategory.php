@@ -17,6 +17,6 @@ class AttributeCategory extends Model
 
   public function attributes()
   {
-    return $this->hasMany('Attribute');
+    return $this->hasMany(Attribute::class);
   }
 }

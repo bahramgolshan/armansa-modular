@@ -12,11 +12,11 @@ class InvoiceDetail extends Model
 
   public function invoice()
   {
-    return $this->belongsTo('Invoice', 'invoice_id');
+    return $this->belongsTo(Invoice::class, 'invoice_id');
   }
 
   public function serviceDetail()
   {
-    return $this->belongsTo('ServiceDetail', 'service_detail_id');
+    return $this->belongsTo(ServiceDetail::class, 'service_detail_id');
   }
 }

@@ -17,16 +17,16 @@ class Service extends Model
 
   public function serviceCategory()
   {
-    return $this->belongsTo('ServiceCategory', 'service_category_id');
+    return $this->belongsTo(ServiceCategory::class, 'service_category_id');
   }
 
   public function serviceAttributes()
   {
-    return $this->hasMany('ServiceAttribute');
+    return $this->hasMany(ServiceAttribute::class);
   }
 
   public function serviceDetails()
   {
-    return $this->hasMany('ServiceDetail');
+    return $this->hasMany(ServiceDetail::class);
   }
 }

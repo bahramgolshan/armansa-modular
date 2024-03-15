@@ -17,11 +17,11 @@ class Attribute extends Model
 
   public function attributeCategory()
   {
-    return $this->belongsTo('AttributeCategory', 'attribute_category_id');
+    return $this->belongsTo(AttributeCategory::class, 'attribute_category_id');
   }
 
   public function serviceAttributes()
   {
-    return $this->hasMany('ServiceAttribute');
+    return $this->hasMany(ServiceAttribute::class);
   }
 }

@@ -12,11 +12,11 @@ class BlogPostTag extends Model
 
   public function blogPost()
   {
-    return $this->belongsTo('BlogPost', 'blog_post_id');
+    return $this->belongsTo(BlogPost::class, 'blog_post_id');
   }
 
   public function blogTag()
   {
-    return $this->belongsTo('Tag', 'tag_id');
+    return $this->belongsTo(Tag::class, 'tag_id');
   }
 }

@@ -12,11 +12,11 @@ class ServiceAttribute extends Model
 
   public function service()
   {
-    return $this->belongsTo('Service');
+    return $this->belongsTo(Service::class);
   }
 
   public function attribute()
   {
-    return $this->hasOne('Attribute');
+    return $this->hasOne(Attribute::class);
   }
 }

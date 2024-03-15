@@ -12,11 +12,11 @@ class ServiceSampleTag extends Model
 
   public function serviceSample()
   {
-    return $this->belongsTo('ServiceSample', 'service_sample_id');
+    return $this->belongsTo(ServiceSample::class, 'service_sample_id');
   }
 
   public function tag()
   {
-    return $this->belongsTo('Tag', 'tag_id');
+    return $this->belongsTo(Tag::class, 'tag_id');
   }
 }
