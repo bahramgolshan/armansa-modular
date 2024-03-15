@@ -15,7 +15,7 @@
       "badge": ["danger", "4"]
     },
     {
-      "url": "app/payments/list",
+      "url": "app/payment/list",
       "name": "فاکتور ها",
       "icon": "menu-icon tf-icons mdi mdi-file-document-outline",
       "slug": "app-invoice",
@@ -61,6 +61,12 @@
     {
       "url": "app/faq/list",
       "name": "سوالات متداول",
+      "icon": "menu-icon tf-icons mdi mdi-frequently-asked-questions",
+      "slug": "app-tag"
+    },
+    {
+      "url": "app/partner/list",
+      "name": "همکاران",
       "icon": "menu-icon tf-icons mdi mdi-frequently-asked-questions",
       "slug": "app-tag"
     }

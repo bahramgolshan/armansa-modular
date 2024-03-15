@@ -67,6 +67,16 @@ Route::get('/app/faq/preview', 'App\Http\Controllers\apps\FaqController@show')->
 Route::get('/app/faq/edit', 'App\Http\Controllers\apps\FaqController@edit')->name('app-faq-edit');
 Route::get('/app/faq/add', 'App\Http\Controllers\apps\FaqController@create')->name('app-faq-add');
 
+// partner
+Route::get('/app/partner/list', $controller_path . '\apps\PartnerController@index')->name('app-partner-list');
+Route::get('/app/partner/preview', $controller_path . '\apps\PartnerController@show')->name('app-partner-preview');
+Route::get('/app/partner/edit', $controller_path . '\apps\PartnerController@edit')->name('app-partner-edit');
+Route::get('/app/partner/add', $controller_path . '\apps\PartnerController@create')->name('app-partner-add');
+
+// payment
+Route::get('/app/payment/list', $controller_path . '\apps\PaymentController@index')->name('app-payment-list');
+Route::get('/app/payment/preview', $controller_path . '\apps\PaymentController@show')->name('app-payment-preview');
+
 // customer
 Route::get('/app/customer/list', 'App\Http\Controllers\apps\CustomerController@index')->name('app-customer-list');
 Route::get('/app/customer/preview/{id}', 'App\Http\Controllers\apps\CustomerController@show')->where('id', '[0-9]+')->name('app-customer-preview');
