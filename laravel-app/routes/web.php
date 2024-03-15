@@ -73,6 +73,12 @@ Route::get('/app/partner/preview', $controller_path . '\apps\PartnerController@s
 Route::get('/app/partner/edit', $controller_path . '\apps\PartnerController@edit')->name('app-partner-edit');
 Route::get('/app/partner/add', $controller_path . '\apps\PartnerController@create')->name('app-partner-add');
 
+// servicesample
+Route::get('/app/servicesample/list', $controller_path . '\apps\ServicesampleController@index')->name('app-servicesample-list');
+Route::get('/app/servicesample/preview', $controller_path . '\apps\ServicesampleController@show')->name('app-servicesample-preview');
+Route::get('/app/servicesample/edit', $controller_path . '\apps\ServicesampleController@edit')->name('app-servicesample-edit');
+Route::get('/app/servicesample/add', $controller_path . '\apps\ServicesampleController@create')->name('app-servicesample-add');
+
 // payment
 Route::get('/app/payment/list', $controller_path . '\apps\PaymentController@index')->name('app-payment-list');
 Route::get('/app/payment/preview', $controller_path . '\apps\PaymentController@show')->name('app-payment-preview');

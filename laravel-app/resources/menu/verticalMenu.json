@@ -71,10 +71,10 @@
       "slug": "app-partner"
     },
     {
-      "url": "app/service-sample/list",
+      "url": "app/servicesample/list",
       "name": "نمونه های چاپ شده",
       "icon": "menu-icon tf-icons mdi mdi-frequently-asked-questions",
-      "slug": "app-service-sample"
+      "slug": "app-servicesample"
     }
   ]
 }
