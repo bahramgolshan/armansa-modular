@@ -62,13 +62,19 @@
       "url": "app/faq/list",
       "name": "سوالات متداول",
       "icon": "menu-icon tf-icons mdi mdi-frequently-asked-questions",
-      "slug": "app-tag"
+      "slug": "app-faq"
     },
     {
       "url": "app/partner/list",
       "name": "همکاران",
       "icon": "menu-icon tf-icons mdi mdi-frequently-asked-questions",
-      "slug": "app-tag"
+      "slug": "app-partner"
+    },
+    {
+      "url": "app/service-sample/list",
+      "name": "نمونه های چاپ شده",
+      "icon": "menu-icon tf-icons mdi mdi-frequently-asked-questions",
+      "slug": "app-service-sample"
     }
   ]
 }
