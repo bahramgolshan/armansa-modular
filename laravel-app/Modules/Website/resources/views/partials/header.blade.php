@@ -43,7 +43,7 @@
                         <a href="">خروج از حساب</a>
                     @else
                         <a class="text-[1.5rem] bg-[--primary-color] text-white py-[.5rem] px-[3rem] mx-[1rem] rounded-lg"
-                            href="{{ route('login') }}">وارد شوید</a>
+                            href="{{ route('login') }}">ورود / ثبت نام</a>
                     @endif
                 </div>
             </nav>
@@ -156,26 +156,29 @@
         </li>
     </ul>
     <ul class="p-4 mt-[1rem]">
-        <li class="mb-1 group">
-            <a href="#" class="flex items-center py-2 px-4 text-gray-300">
-                <span class="text-white font-bold">سبد خرید</span>
-            </a>
-        </li>
-        <li class="mb-1 group">
-            <a href="#" class="flex items-center py-2 px-4 text-gray-300">
-                <span class="text-white font-bold">پروفایل</span>
-            </a>
-        </li>
-        <li class="mb-1 group">
-            <a href="#" class="flex items-center py-2 px-4 text-gray-300">
-                <span class="text-white font-bold">ورود / ثبت نام</span>
-            </a>
-        </li>
-        <li class="mb-1 group">
-            <a href="#" class="flex items-center py-2 px-4 text-gray-300">
-                <span class="text-[#FFA2A7] font-bold">خروج از حساب</span>
-            </a>
-        </li>
+        @if (!$is_guest)
+            <li class="mb-1 group">
+                <a href="#" class="flex items-center py-2 px-4 text-gray-300">
+                    <span class="text-white font-bold">سبد خرید</span>
+                </a>
+            </li>
+            <li class="mb-1 group">
+                <a href="#" class="flex items-center py-2 px-4 text-gray-300">
+                    <span class="text-white font-bold">پروفایل</span>
+                </a>
+            </li>
+            <li class="mb-1 group">
+                <a href="#" class="flex items-center py-2 px-4 text-gray-300">
+                    <span class="text-[#FFA2A7] font-bold">خروج از حساب</span>
+                </a>
+            </li>
+        @else
+            <li class="mb-1 group">
+                <a href="#" class="flex items-center py-2 px-4 text-gray-300">
+                    <span class="text-white font-bold">ورود / ثبت نام</span>
+                </a>
+            </li>
+        @endif
     </ul>
 </div>
 <div class="z-[300] fixed hidden top-0 left-0 w-full h-full bg-black/50 z-40 md:hidden sidebar-overlay"></div>
