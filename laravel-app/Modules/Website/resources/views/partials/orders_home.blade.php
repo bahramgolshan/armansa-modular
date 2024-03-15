@@ -282,21 +282,6 @@
                     sunt in culpa qui officia deserunt mollit anim id est laborum.
                 </p>
             </div>
-
-            <input class="tab-input-radio" type="radio" name="tabs" id="tabthree" />
-            <label for="tabthree" class="tab-header">
-                <div class="label-inside">
-                    <span
-                        class="text-[1.2rem] lg:text-[1.4rem] xl:text-[1.6rem] 2xl:text-[2rem] font-bold text-[--primary-color]">آیتم
-                        سوم</span>
-                    <img class="lg:hidden w-[2rem] h-[2rem] lg:w-[3rem] lg:h-[3rem]"
-                        src="{{ asset('assets/modules/website/images/icon/chevron-down.png') }}" alt="" />
-                </div>
-            </label>
-            <div class="custom-tab">
-                <h1>Tab Three Content</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-            </div>
         </div>
     </div>
 </section>
