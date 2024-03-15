@@ -30,9 +30,9 @@ class CreateServiceDetailsTable extends Migration
 
       $table->foreign('size_id')->references('id')->on('sizes')->onDelete('restrict')->onUpdate('cascade');
       $table->foreign('color_id')->references('id')->on('colors')->onDelete('restrict')->onUpdate('cascade');
-      $table->foreign('paper_id')->references('id')->on('services')->onDelete('restrict')->onUpdate('cascade');
+      $table->foreign('paper_id')->references('id')->on('papers')->onDelete('restrict')->onUpdate('cascade');
       $table->foreign('binding_id')->references('id')->on('bindings')->onDelete('restrict')->onUpdate('cascade');
-      $table->foreign('cellophane_id')->references('id')->on('cellophane')->onDelete('restrict')->onUpdate('cascade');
+      $table->foreign('cellophane_id')->references('id')->on('cellophanes')->onDelete('restrict')->onUpdate('cascade');
       $table->foreign('cover_id')->references('id')->on('covers')->onDelete('restrict')->onUpdate('cascade');
       $table->foreign('media_id')->references('id')->on('media')->onDelete('restrict')->onUpdate('cascade');
     });

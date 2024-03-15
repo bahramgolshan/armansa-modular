@@ -22,8 +22,8 @@ return [
     'awaiting_payment' => 'در انتظار پرداخت',
     'awaiting_approval' => 'در انتظار تایید سفارش',
     'processing' => 'در حال انجام',
-    'delivered' => 'تحویل داده شد',
-    'rejected' => 'سفارش رد شد',
+    'delivered' => 'تحویل شده',
+    'rejected' => 'رد شده',
   ],
 
   'serviceCategory' => [

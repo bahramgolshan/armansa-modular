@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Cellophane extends Model
 {
 
-  protected $table = 'cellophane';
+  protected $table = 'cellophanes';
   public $timestamps = true;
 
   use SoftDeletes;

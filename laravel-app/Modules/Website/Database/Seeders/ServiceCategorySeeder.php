@@ -15,8 +15,8 @@ class ServiceCategorySeeder extends Seeder
   public function run()
   {
     $data = [
-      // ['id', 'name', 'description']
-      [1, 'print', 'پرینت']
+      // ['name', 'description']
+      ['print', 'پرینت']
     ];
 
     foreach ($data as $value) {
