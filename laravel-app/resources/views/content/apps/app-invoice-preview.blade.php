@@ -71,9 +71,11 @@
                             </div>
                             <div>
                                 <span>نوع سفارش:</span>
-                                <span>{{ __('app.serviceCategory.' . $invoiceDetail->serviceDetail->service->serviceCategory->name) .
-                                    ' ' .
-                                    __('app.service.' . $invoiceDetail->serviceDetail->service->name) }}</span>
+                                <span>{{ $invoiceDetail
+                                    ? __('app.serviceCategory.' . $invoiceDetail->serviceDetail->service->serviceCategory->name) .
+                                        ' ' .
+                                        __('app.service.' . $invoiceDetail->serviceDetail->service->name)
+                                    : '' }}</span>
                             </div>
                         </div>
                     </div>
@@ -88,19 +90,20 @@
                                 <tbody>
                                     <tr>
                                         <td class="pe-3 fw-medium">جنس جلد:</td>
-                                        <td>{{ $invoiceDetail->serviceDetail->cover->name ?? '' }}</td>
+                                        <td>{{ $invoiceDetail ? $invoiceDetail->serviceDetail->cover->name : '' }}</td>
                                     </tr>
                                     <tr>
                                         <td class="pe-3 fw-medium">نوع صحافی:</td>
-                                        <td>{{ $invoiceDetail->serviceDetail->binding->name ?? '' }}</td>
+                                        <td>{{ $invoiceDetail ? $invoiceDetail->serviceDetail->binding->name : '' }}</td>
                                     </tr>
                                     <tr>
                                         <td class="pe-3 fw-medium">نوع سلفون:</td>
-                                        <td>{{ $invoiceDetail->serviceDetail->cellophane->name ?? '' }}</td>
+                                        <td>{{ $invoiceDetail ? $invoiceDetail->serviceDetail->cellophane->name : '' }}
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td class="pe-3 fw-medium">جهت صحافی :</td>
-                                        <td>{{ $invoiceDetail->binding_direction ? __('app.bindingDirection.' . $invoiceDetail->binding_direction) : '' }}
+                                        <td>{{ $invoiceDetail && $invoiceDetail->binding_direction ? __('app.bindingDirection.' . $invoiceDetail->binding_direction) : '' }}
                                         </td>
                                     </tr>
 
@@ -113,23 +116,23 @@
                                 <tbody>
                                     <tr>
                                         <td class="pe-3 fw-medium">سایز:</td>
-                                        <td>{{ $invoiceDetail->serviceDetail->size->name ?? '' }}</td>
+                                        <td>{{ $invoiceDetail ? $invoiceDetail->serviceDetail->size->name : '' }}</td>
                                     </tr>
                                     <tr>
                                         <td class="pe-3 fw-medium">نوع کاغذ:</td>
-                                        <td>{{ $invoiceDetail->serviceDetail->paper->name ?? '' }}</td>
+                                        <td>{{ $invoiceDetail ? $invoiceDetail->serviceDetail->paper->name : '' }}</td>
                                     </tr>
                                     <tr>
                                         <td class="pe-3 fw-medium">رنگ چاپ:</td>
-                                        <td>{{ $invoiceDetail->serviceDetail->color->name ?? '' }}</td>
+                                        <td>{{ $invoiceDetail ? $invoiceDetail->serviceDetail->color->name : '' }}</td>
                                     </tr>
                                     <tr>
                                         <td class="pe-3 fw-medium">تعداد صفحات:</td>
-                                        <td>{{ $invoiceDetail->number_of_pages ?? '' }}</td>
+                                        <td>{{ $invoiceDetail ? $invoiceDetail->number_of_pages : '' }}</td>
                                     </tr>
                                     <tr>
                                         <td class="pe-3 fw-medium">تیراژ :</td>
-                                        <td>{{ $invoiceDetail->circulation ?? '' }}</td>
+                                        <td>{{ $invoiceDetail ? $invoiceDetail->circulation : '' }}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -179,11 +182,13 @@
                                     <p class="mb-0">قیمت کل:</p>
                                 </td>
                                 <td class="px-4 py-5">
-                                    <p class="fw-semibold mb-2 text-end">{{ $invoiceDetail->serviceDetail->price }}
+                                    <p class="fw-semibold mb-2 text-end">
+                                        {{ $invoiceDetail ? $invoiceDetail->serviceDetail->price : '' }}
                                         <span>تومان</span>
                                     </p>
-                                    <p class="fw-semibold mb-2 text-end">{{ $invoiceDetail->serviceDetail->discount }}
-                                        <span>{{ $invoiceDetail->serviceDetail->discount_type == 'percent' ? '%' : 'تومان' }}</span>
+                                    <p class="fw-semibold mb-2 text-end">
+                                        {{ $invoiceDetail ? $invoiceDetail->serviceDetail->discount : '' }}
+                                        <span>{{ $invoiceDetail && $invoiceDetail->serviceDetail->discount_type == 'percent' ? '%' : 'تومان' }}</span>
                                     </p>
                                     <p class="fw-semibold mb-2 text-end">{{ $invoice->additional_price }}
                                         <span>تومان</span>
