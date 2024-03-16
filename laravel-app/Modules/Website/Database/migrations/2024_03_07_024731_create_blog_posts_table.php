@@ -24,8 +24,8 @@ class CreateBlogPostsTable extends Migration
       $table->integer('media_id')->unsigned();
       $table->string('slug', 1000);
       $table->enum('status', BlogPost::$status);
-      $table->boolean('allow_comments')->default(true);
-      $table->boolean('is_featured')->default(false);
+      $table->boolean('allow_comments')->default(true)->nullable();
+      $table->boolean('is_featured')->default(false)->nullable();
 
       $table->foreign('blog_category_id')->references('id')->on('blog_categories')->onDelete('restrict')->onUpdate('cascade');
       $table->foreign('media_id')->references('id')->on('media')->onDelete('restrict')->onUpdate('cascade');

@@ -29,6 +29,12 @@ return [
   'serviceCategory' => [
     'print' => 'چاپ',
   ],
+  'service' => [
+    'digital' => 'دیجیتال',
+  ],
+  'serviceFullName' => [
+    'print-digital' => 'چاپ دیجیتال',
+  ],
 
   'service' => [
     'digital' => 'دیجیتال',
@@ -46,5 +52,15 @@ return [
     'success' => 'انجام شده',
     'error' => 'خظا',
     'cancel' => 'رد شده',
-  ]
+  ],
+
+  'discountType' => [
+    'fix' => 'عدد ثابت',
+    'percent' => 'درصد',
+  ],
+
+  'serviceDetailStatus' => [
+    'draft' => 'پیش نویس',
+    'publish' => 'انتشار',
+  ],
 ];

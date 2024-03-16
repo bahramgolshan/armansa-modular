@@ -22,6 +22,8 @@ class Binding extends Model
     'simi-single',
   ];
 
+  public static $bindingDirection = ['fa_v', 'fa_h', 'en_v', 'en_h'];
+
   public function serviceDetails()
   {
     return $this->hasMany(ServiceDetail::class);
