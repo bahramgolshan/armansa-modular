@@ -22,7 +22,8 @@
 
             <div class="lg:w-[35%] flex flex-row justify-center justify-items-center items-center my-1">
                 <span class="text-right text-white text-xl font-light font-[300] ml-[9px]">
-                    {{ $settings['email'] }}
+                    <a href="mailto:{{ $settings['email'] }}">{{ $settings['email'] }}</a>
+
                 </span>
                 <div class="xl:w-[34px] xl:h-[34px] w-[24px] h-[24px] flex-col justify-start items-start inline-flex">
                     <img src="{{ asset('assets/modules/website/images/icon/mail.png') }}" />
