@@ -12,7 +12,8 @@ class FaqController extends Controller
    */
   public function index()
   {
-    return view('content.apps.app-faq-list');
+    $faq = Faq::paginate(9);
+    return view('content.apps.app-faq-list', compact('faq'));
   }
 
   /**
@@ -28,7 +29,14 @@ class FaqController extends Controller
    */
   public function store(Request $request)
   {
-    //
+    Faq::create([
+      'question'=>$request->question,
+      'description'=>$answer->answer,
+      'order'=>$request->order,
+  ]);
+
+    $request->session()->flash('create');
+    return redirect()->route('faq.index');
   }
 
   /**
@@ -44,7 +52,8 @@ class FaqController extends Controller
    */
   public function edit()
   {
-    return view('content.apps.app-faq-edit');
+    $faq = Faq::findOrFail($id);
+    return view('content.apps.app-faq-edit', compact('faq'));
   }
 
   /**
@@ -52,7 +61,15 @@ class FaqController extends Controller
    */
   public function update(Request $request, string $id)
   {
-    //
+    $faq = Faq::findOrFail($id);
+        $faq->update([
+          'question'=>$request->question,
+          'description'=>$answer->answer,
+          'order'=>$request->order,
+        ]);
+
+        $request->session()->flash('update');
+        return redirect()->route('faq.index');
   }
 
   /**
@@ -60,6 +77,8 @@ class FaqController extends Controller
    */
   public function destroy(string $id)
   {
-    //
+    $faq= Faq::findOrFail($id);
+    $faq->destroy($id);
+    return redirect()->route('faq.index');
   }
 }
