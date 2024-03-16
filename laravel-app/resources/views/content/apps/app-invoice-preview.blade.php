@@ -62,6 +62,12 @@
 
                             <span>آدرس:</span>
                             <span>{{ $invoice->customer->adderss ?? '--' }}</span>
+                            <span>نوع سفارش:</span>
+                                <span>{{ $invoiceDetail
+                                    ? __('app.serviceCategory.' . $invoiceDetail->serviceDetail->service->serviceCategory->name) .
+                                        ' ' .
+                                        __('app.service.' . $invoiceDetail->serviceDetail->service->name)
+                                    : '' }}</span>
                         </div>
                         <div>
                             <h5>شماره پیگیری: <span>{{ $invoice->id }}</span></h5>
@@ -70,12 +76,12 @@
                                 <span>{{ $invoice->customer->mobile ?? '--' }}</span>
                             </div>
                             <div>
-                                <span>نوع سفارش:</span>
-                                <span>{{ $invoiceDetail
-                                    ? __('app.serviceCategory.' . $invoiceDetail->serviceDetail->service->serviceCategory->name) .
-                                        ' ' .
-                                        __('app.service.' . $invoiceDetail->serviceDetail->service->name)
-                                    : '' }}</span>
+                                <span> مالیات :</span>
+                                <span>{{$invoice->tax }}</span>
+                            </div>
+                            <div>
+                                <span>قیمت کل :</span>
+                                <span>{{ $invoice->final_price }}</span>
                             </div>
                         </div>
                     </div>
