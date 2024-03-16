@@ -116,6 +116,7 @@
                                 <th>جهت صحافی</th>
                                 <th>سایز </th>
                                 <th>تیتراژ </th>
+                                <th class="cell-fit">اقدامات</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -128,6 +129,18 @@
                                     <td class="text-nowrap">{{ $invoiceDetail ? $invoiceDetail->serviceDetail->size->name : '' }}</td>
 
                                     <td>{{ $invoiceDetail ? $invoiceDetail->circulation : '' }}</td>
+                                    <td>
+                            <div class="dropdown">
+                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
+                                    data-bs-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="/app/invoice/preview"><i
+                                            class="mdi mdi-eye-outline me-1"></i>مشاهده</a>
+                                    <!-- <a class="dropdown-item" href="/app/invoice/edit"><i class="mdi mdi-pencil-outline me-1"></i> ویرایش</a>
+                                                                    <a class="dropdown-item text-danger" href="javascript:void(0);"><i class="mdi mdi-trash-can-outline me-1 text-danger"></i> حذف</a> -->
+                                </div>
+                            </div>
+                        </td>
                                 </tr>
                             @endforeach
                         </tbody>
