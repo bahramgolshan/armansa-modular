@@ -105,7 +105,7 @@
                 </div>
                 <hr class="my-0" />
                 <div class="card-body">
-                    <div class="d-flex justify-content-between flex-wrap px-4">
+                    <div class="d-flex justify-content-between flex-wrap w-100">
 
                     <table class="table m-0">
                         <thead class="table-light border-top">

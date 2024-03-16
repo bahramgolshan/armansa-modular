@@ -24,9 +24,9 @@
 
 @section('content')
 
-<div class="col invoice-preview">
+<div class="row invoice-preview">
   <!-- Invoice -->
-  <div class="col-12 mb-md-0 mb-4">
+  <div class="col-xl-9 col-md-8 col-12 mb-md-0 mb-4">
     <div class="card invoice-preview-card">
       <div class="card-body">
         <div class="px-4 d-flex justify-content-between flex-xl-row flex-md-column flex-sm-row flex-column">
@@ -55,27 +55,27 @@
         </div>
       </div>
       <hr class="my-0" />
-      <!-- <div class="card-body">
+      <div class="card-body">
         <div class="d-flex justify-content-between flex-wrap px-4">
 
           <div class="my-3">
-            <h6 class="pb-2">مشخصات جلو و صحافی:</h6>
+            <h6 class="pb-2"> مشخصات فاکتور</h6>
             <table>
               <tbody>
                 <tr>
-                  <td class="pe-3 fw-medium">جنس جلد:</td>
+                  <td class="pe-3 fw-medium">شماره فاکتور  :</td>
                   <td>9*9</td>
                 </tr>
                 <tr>
-                  <td class="pe-3 fw-medium">نوع صحافی:</td>
+                  <td class="pe-3 fw-medium">وضعیت :</td>
                   <td>ایتالیایی</td>
                 </tr>
                 <tr>
-                  <td class="pe-3 fw-medium">نوع سلفون:</td>
+                  <td class="pe-3 fw-medium">verification_result :</td>
                   <td> آبی</td>
                 </tr>
                 <tr>
-                  <td class="pe-3 fw-medium">جهت صحافی :</td>
+                  <td class="pe-3 fw-medium"> reterival_ref_no :</td>
                   <td>فارسی عمودی</td>
                 </tr>
 
@@ -83,35 +83,35 @@
             </table>
           </div>
           <div class="my-3">
-            <h6 class="pb-2">مشخصات کلی فاکتور:</h6>
+            <!-- <h6 class="pb-2"> کلی فاکتور:</h6> -->
             <table>
               <tbody>
                 <tr>
-                  <td class="pe-3 fw-medium">سایز:</td>
+                  <td class="pe-3 fw-medium">شماره فاکتور:</td>
                   <td>9*9</td>
                 </tr>
                 <tr>
-                  <td class="pe-3 fw-medium">نوع کاغذ:</td>
+                  <td class="pe-3 fw-medium"> system_trace_no:</td>
                   <td>ایتالیایی</td>
                 </tr>
                 <tr>
-                  <td class="pe-3 fw-medium">رنگ چاپ:</td>
+                  <td class="pe-3 fw-medium"> transaction_date:</td>
                   <td> آبی</td>
                 </tr>
                 <tr>
-                  <td class="pe-3 fw-medium">تعداد صفحات:</td>
+                  <td class="pe-3 fw-medium">transaction_result :</td>
                   <td>99</td>
                 </tr>
-                <tr>
+                <!-- <tr>
                   <td class="pe-3 fw-medium">تیراژ :</td>
                   <td>9</td>
-                </tr>
+                </tr> -->
               </tbody>
             </table>
           </div>
         </div>
-      </div> -->
-      <div class="table-responsive">
+      </div>
+      <!-- <div class="table-responsive">
         <table class="table m-0">
           <thead class="table-light border-top">
             <tr>
@@ -192,23 +192,64 @@
 
           </tbody>
         </table>
-      </div>
+      </div> -->
 
 
-      <div class="card-body">
+      <!-- <div class="card-body">
         <div class="row">
           <div class="col-12">
             <span class="fw-bold">نکته:</span>
             <span>ممنون از اینکه ما را انتخاب کردید</span>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
+
+    <table class="table m-0">
+                        <tbody>
+
+                            <tr>
+                                <td colspan="3" class="align-top px-4 py-5">
+                                    <p class="mb-2">
+                                        <span class="me-1 fw-semibold">
+                                            {{-- شرکت آرمانسا --}}
+                                        </span>
+                                    </p>
+                                </td>
+                                <td class="text-end px-4 py-5">
+                                    <p class="mb-2">قیمت:</p>
+                                    <p class="mb-2">تخفیف:</p>
+                                    <p class="mb-2">مبلغ اضافه:</p>
+                                    <p class="mb-2">تخفیف اضافه:</p>
+                                    <p class="mb-2">مالیات:</p>
+                                    <p class="mb-0">قیمت کل:</p>
+                                </td>
+                                <td class="px-4 py-5">
+                                    <p class="fw-semibold mb-2 text-end">
+                                        {{ $invoiceDetail ? $invoiceDetail->serviceDetail->price : '' }}
+                                        <span>تومان</span>
+                                    </p>
+                                    <p class="fw-semibold mb-2 text-end">
+                                        {{ $invoiceDetail ? $invoiceDetail->serviceDetail->discount : '' }}
+                                        <span>{{ $invoiceDetail && $invoiceDetail->serviceDetail->discount_type == 'percent' ? '%' : 'تومان' }}</span>
+                                    </p>
+                                    <p class="fw-semibold mb-2 text-end">{{ $invoice->additional_price }}
+                                        <span>تومان</span>
+                                    </p>
+                                    <p class="fw-semibold mb-2 text-end">{{ $invoice->additional_discount }}
+                                        <span>تومان</span>
+                                    </p>
+                                    <p class="fw-semibold mb-2 text-end">{{ $invoice->tax }} <span>تومان</span></p>
+                                    <p class="fw-semibold mb-0 text-end">{{ $invoice->final_price }} <span>تومان</span></p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
   </div>
   <!-- /Invoice -->
 
   <!-- Invoice Actions -->
-  <div class="col-3 center mt-2 invoice-actions">
+  <div class="col-xl-3 col-md-4 col-12">
     <div class="card">
       <div class="card-body">
         <button class="btn btn-primary d-grid w-100 mb-3" data-bs-toggle="offcanvas" data-bs-target="#sendInvoiceOffcanvas">
