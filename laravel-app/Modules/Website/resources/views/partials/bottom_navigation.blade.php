@@ -4,6 +4,7 @@
       <div class="navigation-container mx-auto text-[--primary-color]">
         <div class="">
           <div class="">
+            <a href="{{route('home')}}">
             <svg
               width="132"
               height="132"
@@ -34,11 +35,13 @@
                 fill="#E30813"
               />
             </svg>
+            </a>
+
           </div>
           <h3
             class="mx-auto text-center lg:text-[28px] xl:text-[32px] font-bold my-[1rem]"
           >
-            <a href="">مجتمع چاپ آرمانسا</a>
+            <a href="{{route('service.samples')}}">مجتمع چاپ آرمانسا</a>
           </h3>
         </div>
 
@@ -71,17 +74,17 @@
             <h3
               class="text-[18px] lg:text-[22px] xl:text-[24px] font-bold my-[0.5rem]"
             >
-              <a href="">خدمات چاپ</a>
+              <a href="{{route('service.print')}}">خدمات چاپ</a>
             </h3>
             <ul
               class="flex flex-row flex-wrap sm:flex-nowrap sm:flex-col gap-[0.8rem] lg:text-[17px] xl:text-[20px] mt-[0rem] sm:mt-[0.5rem]"
             >
               <li>
-                <a href="">چاپ دیجیتال</a>
+                <a href="{{route('service.print.digital')}}">چاپ دیجیتال</a>
               </li>
 
               <li>
-                <a href="">چاپ افست</a>
+                <a href="{{route('service.print.offset')}}">چاپ افست</a>
               </li>
             </ul>
           </div>
@@ -89,19 +92,19 @@
             <h3
               class="text-[18px] lg:text-[22px] xl:text-[24px] font-bold my-[0.5rem]"
             >
-              <a href="">خدمات نشر</a>
+              <a href="{{route('service.pubication')}}">خدمات نشر</a>
             </h3>
             <ul
               class="flex flex-row flex-wrap sm:flex-nowrap sm:flex-col gap-[0.8rem] lg:text-[17px] xl:text-[20px] mt-[0rem] sm:mt-[0.5rem]"
             >
               <li>
-                <a href="">اخذ مجوز چاپ</a>
+                <a href="{{route('service.pubication.permission')}}">اخذ مجوز چاپ</a>
               </li>
               <li>
-                <a href="">صفحه‌ آرایی</a>
+                <a href="{{route('service.pubication.layout')}}">صفحه‌ آرایی</a>
               </li>
               <li>
-                <a href="">ویراستاری</a>
+                <a href="{{route('service.pubication.editing')}}">ویراستاری</a>
               </li>
             </ul>
           </div>
@@ -109,19 +112,19 @@
             <h3
               class="text-[18px] lg:text-[22px] xl:text-[24px] font-bold my-[0.5rem]"
             >
-              <a href="">لیتوگرافی</a>
+              <a href="{{route('service.lithography')}}">لیتوگرافی</a>
             </h3>
             <ul
               class="flex flex-row flex-wrap sm:flex-nowrap sm:flex-col gap-[0.8rem] lg:text-[17px] xl:text-[20px] mt-[0rem] sm:mt-[0.5rem]"
             >
               <li>
-                <a href="">زینک GTO</a>
+                <a href="{{route('service.lithography.zinc-gto')}}">زینک GTO</a>
               </li>
               <li>
-                <a href="">زینک دورقی</a>
+                <a href="{{route('service.lithography.zinc-dureghi')}}">زینک دورقی</a>
               </li>
               <li>
-                <a href="">زینک اسپید مستر</a>
+                <a href="{{route('service.lithography.zinc-speed-master')}}">زینک اسپید مستر</a>
               </li>
             </ul>
           </div>
@@ -129,7 +132,7 @@
             <h3
               class="text-[18px] lg:text-[22px] xl:text-[24px] font-bold my-[0.5rem]"
             >
-              <a href="">سررسید</a>
+              <a href="{{route('service.diary')}}">سررسید</a>
             </h3>
             <ul
               class="flex flex-row flex-wrap sm:flex-nowrap sm:flex-col gap-[0.8rem] lg:text-[17px] xl:text-[20px] mt-[0rem] sm:mt-[0.5rem]"
@@ -141,7 +144,7 @@
             <h3
               class="text-[18px] lg:text-[22px] xl:text-[24px] font-bold my-[0.5rem]"
             >
-              <a href="">نمونه‌کار ها</a>
+              <a href="{{route('service.samples')}}">نمونه‌کار ها</a>
             </h3>
             <ul
               class="flex flex-row flex-wrap sm:flex-nowrap sm:flex-col gap-[0.8rem] lg:text-[17px] xl:text-[20px] mt-[0rem] sm:mt-[0.5rem]"
@@ -151,7 +154,7 @@
             <h3
               class="text-[18px] lg:text-[22px] xl:text-[24px] font-bold my-[0.5rem]"
             >
-              <a href="">درباره ما</a>
+              <a href="{{route('about-us')}}">درباره ما</a>
             </h3>
             <ul
               class="flex flex-row flex-wrap sm:flex-nowrap sm:flex-col gap-[0.8rem] lg:text-[17px] xl:text-[20px] mt-[0rem] sm:mt-[0.5rem]"

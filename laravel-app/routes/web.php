@@ -39,9 +39,12 @@ Route::get('/app/invoice/add', 'App\Http\Controllers\apps\InvoiceController@crea
 
 // product
 Route::get('/app/product/list', 'App\Http\Controllers\apps\ProductController@index')->name('app-product-list');
-Route::get('/app/product/preview', 'App\Http\Controllers\apps\ProductController@show')->name('app-product-preview');
-Route::get('/app/product/edit', 'App\Http\Controllers\apps\ProductController@edit')->name('app-product-edit');
+Route::get('/app/product/preview/{id}', 'App\Http\Controllers\apps\ProductController@show')->where('id', '[0-9]+')->name('app-product-preview');
 Route::get('/app/product/add', 'App\Http\Controllers\apps\ProductController@create')->name('app-product-add');
+Route::post('/app/product/store', 'App\Http\Controllers\apps\ProductController@store')->name('app-product-store');
+Route::get('/app/product/edit/{id}', 'App\Http\Controllers\apps\ProductController@edit')->where('id', '[0-9]+')->name('app-product-edit');
+Route::post('/app/product/update/{id}', 'App\Http\Controllers\apps\ProductController@update')->where('id', '[0-9]+')->name('app-product-update');
+Route::post('/app/product/delete/{id}', 'App\Http\Controllers\apps\ProductController@destroy')->where('id', '[0-9]+')->name('app-product-delete');
 
 // blog-category
 Route::get('/app/blog-category/list', 'App\Http\Controllers\apps\BlogCategoryController@index')->name('app-blog-category-list');

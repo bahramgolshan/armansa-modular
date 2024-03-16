@@ -16,6 +16,7 @@ class WebsiteDatabaseSeeder extends Seeder
       ServiceSeeder::class,
       SettingSeeder::class,
       BindingSeeder::class,
+      BindingDirectionSeeder::class,
       CellophaneSeeder::class,
       ColorSeeder::class,
       CoverSeeder::class,

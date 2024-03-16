@@ -22,12 +22,18 @@ return [
     'awaiting_payment' => 'در انتظار پرداخت',
     'awaiting_approval' => 'در انتظار تایید سفارش',
     'processing' => 'در حال انجام',
-    'delivered' => 'تحویل داده شد',
-    'rejected' => 'سفارش رد شد',
+    'delivered' => 'تحویل شده',
+    'rejected' => 'رد شده',
   ],
 
   'serviceCategory' => [
     'print' => 'چاپ',
+  ],
+  'service' => [
+    'digital' => 'دیجیتال',
+  ],
+  'serviceFullName' => [
+    'print-digital' => 'چاپ دیجیتال',
   ],
 
   'service' => [
@@ -46,5 +52,15 @@ return [
     'success' => 'انجام شده',
     'error' => 'خظا',
     'cancel' => 'رد شده',
-  ]
+  ],
+
+  'discountType' => [
+    'fix' => 'عدد ثابت',
+    'percent' => 'درصد',
+  ],
+
+  'serviceDetailStatus' => [
+    'draft' => 'پیش نویس',
+    'publish' => 'انتشار',
+  ],
 ];

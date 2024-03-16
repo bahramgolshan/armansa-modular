@@ -51,38 +51,38 @@
                         <div class="mt-1">
                             <h6 class="pb-2">سفارشات:</h6>
                             <!-- <p class="mb-1">Thomas shelby</p>
-                                                                    <p class="mb-1">Shelby Company Limited</p>
-                                                                    <p class="mb-1">Small Heath, B10 0HF, UK</p>
-                                                                    <p class="mb-1">718-986-6062</p>
-                                                                    <p class="mb-0">peakyFBlinders@gmail.com</p> -->
+                                                                        <p class="mb-1">Shelby Company Limited</p>
+                                                                        <p class="mb-1">Small Heath, B10 0HF, UK</p>
+                                                                        <p class="mb-1">718-986-6062</p>
+                                                                        <p class="mb-0">peakyFBlinders@gmail.com</p> -->
                         </div>
                         <!-- <div class="my-3">
-                                                                    <h6 class="pb-2">Bill To:</h6>
-                                                                    <table>
-                                                                      <tbody>
-                                                                        <tr>
-                                                                          <td class="pe-3 fw-medium">Total Due:</td>
-                                                                          <td>$12,110.55</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                          <td class="pe-3 fw-medium">Bank name:</td>
-                                                                          <td>American Bank</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                          <td class="pe-3 fw-medium">Country:</td>
-                                                                          <td>United States</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                          <td class="pe-3 fw-medium">IBAN:</td>
-                                                                          <td>ETD95476213874685</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                          <td class="pe-3 fw-medium">SWIFT code:</td>
-                                                                          <td>BR91905</td>
-                                                                        </tr>
-                                                                      </tbody>
-                                                                    </table>
-                                                                  </div> -->
+                                                                        <h6 class="pb-2">Bill To:</h6>
+                                                                        <table>
+                                                                          <tbody>
+                                                                            <tr>
+                                                                              <td class="pe-3 fw-medium">Total Due:</td>
+                                                                              <td>$12,110.55</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                              <td class="pe-3 fw-medium">Bank name:</td>
+                                                                              <td>American Bank</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                              <td class="pe-3 fw-medium">Country:</td>
+                                                                              <td>United States</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                              <td class="pe-3 fw-medium">IBAN:</td>
+                                                                              <td>ETD95476213874685</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                              <td class="pe-3 fw-medium">SWIFT code:</td>
+                                                                              <td>BR91905</td>
+                                                                            </tr>
+                                                                          </tbody>
+                                                                        </table>
+                                                                      </div> -->
                     </div>
                 </div>
                 <div class="table-responsive">
@@ -101,7 +101,9 @@
                         <tbody>
                             @foreach ($invoices as $invoice)
                                 <tr>
-                                    <td><a href="/app/invoice/preview"><strong>{{ $invoice->id }}</strong></a></td>
+                                    <td><a
+                                            href="{{ route('app-invoice-preview', ['id' => $invoice->id]) }}"><strong>{{ $invoice->id }}</strong></a>
+                                    </td>
                                     <td>{{ verta($invoice->created_at)->format('Y/n/j') }}</td>
 
                                     <td><span

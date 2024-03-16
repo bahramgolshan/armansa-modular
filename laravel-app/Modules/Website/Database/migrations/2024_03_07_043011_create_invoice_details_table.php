@@ -3,8 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Modules\Website\App\Models\Binding;
 use Modules\Website\App\Models\Media;
-use Modules\Website\App\Models\ServiceDetail;
 
 class CreateInvoiceDetailsTable extends Migration
 {
@@ -16,10 +16,10 @@ class CreateInvoiceDetailsTable extends Migration
       $table->timestamps();
       $table->integer('invoice_id')->unsigned();
       $table->integer('service_detail_id')->unsigned();
-      $table->integer('quantity')->unsigned()->default('1');
+      $table->integer('quantity')->unsigned()->default('1')->nullable();
       $table->integer('circulation')->unsigned();
       $table->integer('number_of_pages')->unsigned();
-      $table->enum('binding_direction', ServiceDetail::$bindingDirection)->nullable();
+      $table->enum('binding_direction', Binding::$bindingDirection)->nullable();
       $table->string('file_name', 500);
       $table->string('extension', 10);
       $table->enum('type', Media::$types);

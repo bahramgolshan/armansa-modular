@@ -15,10 +15,10 @@ class CreateInvoicesTable extends Migration
       $table->timestamps();
       $table->softDeletes();
       $table->integer('customer_id')->unsigned();
-      $table->enum('status', Invoice::$status)->default('awaiting_approval');
-      $table->float('additional_discount', 22, 2)->default('0');
-      $table->float('additional_price', 22, 2)->default('0');
-      $table->float('tax', 22, 2)->default('0');
+      $table->enum('status', Invoice::$status)->default('awaiting_approval')->nullable();
+      $table->float('additional_discount', 22, 2)->default('0')->nullable();
+      $table->float('additional_price', 22, 2)->default('0')->nullable();
+      $table->float('tax', 22, 2)->default('0')->nullable();
 
       $table->foreign('customer_id')->references('id')->on('customers')->onDelete('restrict')->onUpdate('cascade');
     });

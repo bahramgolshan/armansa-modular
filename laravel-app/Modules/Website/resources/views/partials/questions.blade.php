@@ -104,15 +104,15 @@
             @foreach ($faqs as $faq)
                 <div
                     class="flex flex-col overflow-hidden relative bg-white shadow-[0px_4px_4px_rgba(0,0,0,0.24)] rounded-[10px]">
-                    <input class="absolute opacity-0 inset-0 peer h-acc-q" type="checkbox">
+                    <input class="absolute opacity-0 inset-0 peer h-acc-q" type="radio" name="h-acc-q">
                     <div class="flex px-2 justify-between items-center py-2 gap-[1rem]">
                         <span
                             class="font-bold text-[0.85rem] sm:text-[1rem] lg:text-[1.6rem]">{{ $faq->question }}</span>
-                        <img class="duration-300 w-[19px] h-[19px]"
+                        <img class="transition-all duration-[400ms] w-[19px] h-[19px]"
                             src="{{ asset('assets/modules/website/images/icon/chevron-down.png') }}" alt="">
                     </div>
                     <p
-                        class="hidden px-2 peer-checked:block transition-all duration-300 peer-checked:pb-5 text-[0.85rem] sm:text-[1rem] lg:text-[1.4rem]">
+                        class="h-0 px-2 peer-checked:h-auto transition-all duration-[400ms] peer-checked:pb-5 text-[0.85rem] sm:text-[1rem] lg:text-[1.4rem]">
                         {{ $faq->answer }}</p>
                 </div>
             @endforeach

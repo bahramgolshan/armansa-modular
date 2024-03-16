@@ -10,12 +10,12 @@ class ServiceDetail extends Model
 
   protected $table = 'service_details';
   public $timestamps = true;
+  protected $guarded = [];
 
   use SoftDeletes;
 
   public static $status = ['draft', 'publish'];
   public static $discountTypes = ['fix', 'percent'];
-  public static $bindingDirection = ['fa_v', 'fa_h', 'en_v', 'en_h'];
 
   public function service()
   {
@@ -40,6 +40,11 @@ class ServiceDetail extends Model
   public function binding()
   {
     return $this->belongsTo(Binding::class, 'binding_id');
+  }
+
+  public function bindingDirection()
+  {
+    return $this->belongsTo(BindingDirection::class, 'binding_direction_id');
   }
 
   public function cellophane()
