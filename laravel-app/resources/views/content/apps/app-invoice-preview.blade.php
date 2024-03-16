@@ -59,29 +59,46 @@
                             </div>
                             <p class="mb-1">نام مشتری: <span>{{ $invoice->customer->fullName() ?? '--' }}</span></p>
                             <p class="mb-1">تاریخ: <span>{{ verta($invoice->created_at)->format('Y/n/j') ?? '--' }}</p>
+                            <p class="mb-1">شماره تلفن:<span>{{ $invoice->customer->mobile ?? '--' }}</span></p>
+                            <p class="mb-1">آدرس:<span>{{ $invoice->customer->adderss ?? '--' }}</span></p>
 
-                            <span>آدرس:</span>
-                            <span>{{ $invoice->customer->adderss ?? '--' }}</span>
-                            <span>نوع سفارش:</span>
-                                <span>{{ $invoiceDetail
-                                    ? __('app.serviceCategory.' . $invoiceDetail->serviceDetail->service->serviceCategory->name) .
-                                        ' ' .
-                                        __('app.service.' . $invoiceDetail->serviceDetail->service->name)
-                                    : '' }}</span>
+
                         </div>
                         <div>
                             <h5>شماره پیگیری: <span>{{ $invoice->id }}</span></h5>
-                            <div class="mb-1">
+                            <!-- <div class="mb-1">
                                 <span>شماره تلفن:</span>
                                 <span>{{ $invoice->customer->mobile ?? '--' }}</span>
+                            </div> -->
+                            <div>
+                                <span>قیمت  :</span>
+                                <span>{{ $invoiceDetail ? $invoiceDetail->serviceDetail->price : '' }}</span>
+                                <span>تومان</span>
+                            </div>
+                            <div>
+                                <span>تخفیف  :</span>
+                                <span>{{ $invoiceDetail ? $invoiceDetail->serviceDetail->discount : '' }}</span>
+                                <span>{{$invoiceDetail && $invoiceDetail->serviceDetail->discount_type == 'percent' ? '%' : 'تومان'}}</span>
+                            </div>
+                            <div>
+                                <span>مبلغ اضافه  :</span>
+                                <span>{{ $invoice->additional_price }}</span>
+                                <span>تومان</span>
+                            </div>
+                            <div>
+                                <span>تخفیف اضافه  :</span>
+                                <span>{{ $invoice->additional_discount }}</span>
+                                <span>تومان</span>
                             </div>
                             <div>
                                 <span> مالیات :</span>
                                 <span>{{$invoice->tax }}</span>
+                                <span>تومان</span>
                             </div>
                             <div>
                                 <span>قیمت کل :</span>
                                 <span>{{ $invoice->final_price }}</span>
+                                <span>تومان</span>
                             </div>
                         </div>
                     </div>
@@ -90,7 +107,33 @@
                 <div class="card-body">
                     <div class="d-flex justify-content-between flex-wrap px-4">
 
-                        <div class="my-3">
+                    <table class="table m-0">
+                        <thead class="table-light border-top">
+                            <tr>
+                                <th>شماره پیگیری</th>
+                                <th>جنس جلد</th>
+                                <th>نوع صحافی</th>
+                                <th>جهت صحافی</th>
+                                <th>سایز </th>
+                                <th>تیتراژ </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($payments as $payment)
+                                <tr>
+                                    <td class="text-nowrap">{{ $payment->id }}</td>
+                                    <td class="text-nowrap">{{ $invoiceDetail ? $invoiceDetail->serviceDetail->cover->name : ''  }}</td>
+                                    <td class="text-nowrap">{{ $invoiceDetail ? $invoiceDetail->serviceDetail->binding->name : '' }}</td>
+                                    <td class="text-nowrap">{{ $invoiceDetail && $invoiceDetail->binding_direction ? __('app.bindingDirection.' . $invoiceDetail->binding_direction) : '' }}</td>
+                                    <td class="text-nowrap">{{ $invoiceDetail ? $invoiceDetail->serviceDetail->size->name : '' }}</td>
+
+                                    <td>{{ $invoiceDetail ? $invoiceDetail->circulation : '' }}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+
+                        <!-- <div class="my-3">
                             <h6 class="pb-2">مشخصات جلد و صحافی:</h6>
                             <table>
                                 <tbody>
@@ -142,7 +185,7 @@
                                     </tr>
                                 </tbody>
                             </table>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="table-responsive">
@@ -168,7 +211,7 @@
                             @endforeach
                         </tbody>
                     </table>
-                    <table class="table m-0">
+                    <!-- <table class="table m-0">
                         <tbody>
 
                             <tr>
@@ -207,7 +250,7 @@
                                 </td>
                             </tr>
                         </tbody>
-                    </table>
+                    </table> -->
                 </div>
             </div>
         </div>
