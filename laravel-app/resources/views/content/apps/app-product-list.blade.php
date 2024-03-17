@@ -1,213 +1,158 @@
 @extends('layouts/layoutMaster')
 
-@section('title', 'DataTables - Advanced Tables')
+@section('title', 'Product List - Pages')
 
 @section('vendor-style')
     <link rel="stylesheet" href="{{ asset('assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/vendor/libs/flatpickr/flatpickr.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/vendor/libs/datatables-checkboxes-jquery/datatables.checkboxes.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendor/libs/sweetalert2/sweetalert2.css') }}" />
 @endsection
 
 @section('vendor-script')
-    <script src="{{ asset('assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js') }}"></script>
-    <!-- Flat Picker -->
     <script src="{{ asset('assets/vendor/libs/moment/moment.js') }}"></script>
-    <script src="{{ asset('assets/vendor/libs/flatpickr/flatpickr.js') }}"></script>
-
+    <script src="{{ asset('assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js') }}"></script>
+    <script src="{{ asset('assets/vendor/libs/sweetalert2/sweetalert2.js') }}"></script>
 @endsection
 
 @section('page-script')
-    <script src="{{ asset('assets/js/tables-datatables-advanced.js') }}"></script>
+    <script src="{{ asset('assets/js/extended-ui-sweetalert2.js') }}"></script>
+
+    <script>
+        function deleteItem(id) {
+            const swal = Swal.mixin({
+                customClass: {
+                    confirmButton: "btn btn-success",
+                    cancelButton: "btn btn-danger",
+                },
+                buttonsStyling: false,
+            });
+
+            swal.fire({
+                title: "آیا مطمعن هستید؟",
+                text: "پس از حذف امکان بازگشت وجود ندارد",
+                icon: "warning",
+                showConfirmButton: true,
+                showCancelButton: true,
+                confirmButtonText: "بله، حذف کن!",
+                cancelButtonText: "خیر",
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    let route = "{!! route('app-product-delete', ['id' => '-1']) !!}";
+                    route = route.replace('-1', id)
+
+                    $.ajax({
+                        type: "POST",
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        url: route,
+                        success: function(response) {
+                            console.log('success');
+                            if (response.status == 'success') {
+                                swal.fire({
+                                    title: "حذف شد!",
+                                    text: "آیتم مورد نظر شما با موفقیت حذف شد.",
+                                    icon: "success",
+                                    showConfirmButton: false,
+                                    showCancelButton: false,
+                                    timer: 2000,
+                                });
+
+                                location.reload();
+                            } else {
+                                swal.fire({
+                                    title: "خطا!",
+                                    text: "درخواست شما با خطا روبرو شد!",
+                                    icon: "error",
+                                    showConfirmButton: false,
+                                    showCancelButton: false,
+                                    timer: 2000,
+                                });
+
+                                location.reload();
+                            }
+                        },
+                        error: function(response) {
+                            hideAjaxLoader()
+                            console.log(response);
+                        }
+                    });
+                }
+            });
+
+        }
+    </script>
 @endsection
 
+
 @section('content')
+    @include('components.msg-success')
+
     <h4 class="fw-bold py-3 mb-4">
-        <span class="text-muted fw-light">DataTables /</span> Advanced
+        <span class="text-muted fw-light">لیست /</span> محصولات
     </h4>
 
-    <!-- Ajax Sourced Server-side -->
-    <div class="card">
-        <h5 class="card-header">Ajax Sourced Server-side</h5>
-        <div class="card-datatable text-nowrap">
-            <table class="datatables-ajax table table-bordered">
-                <thead>
+    {{-- add button --}}
+    <a href="/app/product/add" class="btn btn-primary mb-3">
+        <span class="tf-icons mdi mdi-plus-thick me-1"></span>افزودن
+    </a>
+
+    <!-- product List Table -->
+    <div class="card mb-5">
+        <div class="card-datatable table-responsive text-nowrap">
+            <table class="datatables-ajax  table">
+                <thead class="table-light">
                     <tr>
-                        <th>Full name</th>
-                        <th>Email</th>
-                        <th>Position</th>
-                        <th>Office</th>
-                        <th>Start date</th>
-                        <th>Salary</th>
+                        <th>#ID</th>
+                        <th>سرویس</th>
+                        <th>سایز</th>
+                        <th>رنگ</th>
+                        <th>نوع کاغذ</th>
+                        <th>نوع صحافی</th>
+                        <th>نوع سلفون</th>
+                        <th>جنس جلد</th>
+                        <th class="cell-fit">اقدامات</th>
                     </tr>
                 </thead>
+                <tbody class="table-border-bottom-0">
+                    @foreach ($serviceDetails as $serviceDetail)
+                        <tr>
+                            <td><strong>{{ $serviceDetail->id }}</strong></td>
+                            <td>{{ __('app.serviceCategory.' . $serviceDetail->service->serviceCategory->name) .
+                                ' ' .
+                                __('app.service.' . $serviceDetail->service->name) }}
+                            </td>
+                            <td>{{ $serviceDetail->size->name }}</td>
+                            <td><span class="">{{ $serviceDetail->color->name }}</span></td>
+                            <td><span class="">{{ $serviceDetail->paper->name }}</span></td>
+                            <td><span class="">{{ $serviceDetail->binding->name }}</span></td>
+                            <td><span class="">{{ $serviceDetail->cellophane->name }}</span></td>
+                            <td><span class="">{{ $serviceDetail->cover->name }}</span></td>
+                            <td>
+                                <div class="dropdown">
+                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
+                                        data-bs-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item"
+                                            href="{{ route('app-product-preview', ['id' => $serviceDetail->id]) }}"><i
+                                                class="mdi mdi-eye-outline me-1"></i>مشاهده</a>
+                                        <a class="dropdown-item"
+                                            href="{{ route('app-product-edit', ['id' => $serviceDetail->id]) }}"><i
+                                                class="mdi mdi-pencil-outline me-1"></i> ویرایش</a>
+                                        <button class="dropdown-item text-danger"
+                                            onclick="deleteItem({{ $serviceDetail->id }})"><i
+                                                class="mdi mdi-trash-can-outline me-1 text-danger"></i> حذف</button>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
             </table>
         </div>
     </div>
-    <!--/ Ajax Sourced Server-side -->
 
-    <hr class="my-5">
-
-    <!-- Column Search -->
-    <div class="card">
-        <h5 class="card-header">Column Search</h5>
-        <div class="card-datatable text-nowrap">
-            <table class="dt-column-search table table-bordered">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Post</th>
-                        <th>City</th>
-                        <th>Date</th>
-                        <th>Salary</th>
-                    </tr>
-                </thead>
-                <tfoot>
-                    <tr>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Post</th>
-                        <th>City</th>
-                        <th>Date</th>
-                        <th>Salary</th>
-                    </tr>
-                </tfoot>
-            </table>
-        </div>
-    </div>
-    <!--/ Column Search -->
-
-    <hr class="my-5">
-
-    <!-- Advanced Search -->
-    <div class="card">
-        <h5 class="card-header">Advanced Search</h5>
-        <!--Search Form -->
-        <div class="card-body">
-            <form class="dt_adv_search" method="POST">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="row g-3">
-                            <div class="col-12 col-sm-6 col-lg-4">
-                                <div class="form-floating form-floating-outline">
-                                    <input type="text" class="form-control dt-input dt-full-name" data-column=1
-                                        placeholder="Alaric Beslier" data-column-index="0">
-                                    <label>Name</label>
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6 col-lg-4">
-                                <div class="form-floating form-floating-outline">
-                                    <input type="text" class="form-control dt-input" data-column=2
-                                        placeholder="demo@example.com" data-column-index="1">
-                                    <label>Email</label>
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6 col-lg-4">
-                                <div class="form-floating form-floating-outline">
-                                    <input type="text" class="form-control dt-input" data-column=3
-                                        placeholder="Web designer" data-column-index="2">
-                                    <label>Post</label>
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6 col-lg-4">
-                                <div class="form-floating form-floating-outline">
-                                    <input type="text" class="form-control dt-input" data-column=4 placeholder="Balky"
-                                        data-column-index="3">
-                                    <label>City</label>
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6 col-lg-4">
-                                <div class="form-floating form-floating-outline">
-                                    <input type="text" class="form-control dt-date flatpickr-range dt-input"
-                                        data-column="5" placeholder="StartDate to EndDate" data-column-index="4"
-                                        id="dt_date" name="dt_date" />
-                                    <label for="dt_date">Date</label>
-                                </div>
-                                <input type="hidden" class="form-control dt-date start_date dt-input" data-column="5"
-                                    data-column-index="4" name="value_from_start_date" />
-                                <input type="hidden" class="form-control dt-date end_date dt-input"
-                                    name="value_from_end_date" data-column="5" data-column-index="4" />
-                            </div>
-                            <div class="col-12 col-sm-6 col-lg-4">
-                                <div class="form-floating form-floating-outline">
-                                    <input type="text" class="form-control dt-input" data-column=6 placeholder="10000"
-                                        data-column-index="5">
-                                    <label>Salary</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </div>
-        <hr class="mt-0">
-        <div class="card-datatable table-responsive">
-            <table class="dt-advanced-search table table-bordered">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Post</th>
-                        <th>City</th>
-                        <th>Date</th>
-                        <th>Salary</th>
-                    </tr>
-                </thead>
-                <tfoot>
-                    <tr>
-                        <th></th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Post</th>
-                        <th>City</th>
-                        <th>Date</th>
-                        <th>Salary</th>
-                    </tr>
-                </tfoot>
-            </table>
-        </div>
-    </div>
-    <!--/ Advanced Search -->
-
-    <hr class="my-5">
-
-    <!-- Responsive Datatable -->
-    <div class="card">
-        <h5 class="card-header">Responsive Datatable</h5>
-        <div class="card-datatable table-responsive">
-            <table class="dt-responsive table table-bordered">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Post</th>
-                        <th>City</th>
-                        <th>Date</th>
-                        <th>Salary</th>
-                        <th>Age</th>
-                        <th>Experience</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tfoot>
-                    <tr>
-                        <th></th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Post</th>
-                        <th>City</th>
-                        <th>Date</th>
-                        <th>Salary</th>
-                        <th>Age</th>
-                        <th>Experience</th>
-                        <th>Status</th>
-                    </tr>
-                </tfoot>
-            </table>
-        </div>
-    </div>
-    <!--/ Responsive Datatable -->
 
 @endsection
