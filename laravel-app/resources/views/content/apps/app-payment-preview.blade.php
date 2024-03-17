@@ -41,11 +41,15 @@
                             <span>آدرس:</span>
                             <span>{{ $payment->customer->address }}</span>
                         </div>
-                        <div>
-                            <h5></h5>
+                        <div class="mt-4">
+
                             <div class="mb-1">
                                 <span>شماره تلفن:</span>
                                 <span>{{ $payment->customer->mobile }} </span>
+                            </div>
+                            <div class="mb-1">
+                                <span>آدرس ایمیل:</span>
+                                <span>{{ $payment->customer->email }} </span>
                             </div>
                         </div>
                     </div>
@@ -78,7 +82,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        <div class="my-3">
+                        <div class="my-5">
                             <!-- <h6 class="pb-2"> کلی فاکتور:</h6> -->
                             <table>
                                 <tbody>
@@ -93,6 +97,10 @@
                                     <tr>
                                         <td class="pe-3 fw-medium">نتیجه تراکنش :</td>
                                         <td>{{ $payment->transaction_result }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="pe-3 fw-medium"> قیمت :</td>
+                                        <td>{{ $payment->amount }}</td>
                                     </tr>
                                     <!-- <tr>
                                                                                   <td class="pe-3 fw-medium">تیراژ :</td>
