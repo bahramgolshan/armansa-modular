@@ -4,62 +4,99 @@ namespace App\Http\Controllers\apps;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+use Modules\Website\App\Models\BlogCategory;
 
 class BlogCategoryController extends Controller
 {
-  /**
-   * Display a listing of the resource.
-   */
   public function index()
   {
-    return view('content.apps.app-blogcategory-list');
+    $blogCategories = BlogCategory::orderBy('id', 'DESC')->get();
+    return view('content.apps.app-blogcategory-list', [
+      'blogCategories' => $blogCategories,
+    ]);
   }
 
-  /**
-   * Show the form for creating a new resource.
-   */
   public function create()
   {
     return view('content.apps.app-blogcategory-add');
   }
 
-  /**
-   * Store a newly created resource in storage.
-   */
   public function store(Request $request)
   {
-    //
+    $request->validate([
+      'name' => 'required|string',
+      'slug' => 'required|string',
+      'description' => 'nullable|string',
+    ]);
+
+    $blogCategory = new BlogCategory();
+    $blogCategory->name = $request->name;
+    $blogCategory->slug = $request->slug;
+    $blogCategory->description = $request->description;
+    if ($blogCategory->save()) {
+      return redirect(route('app-blog-category-list'))->withError(__('messages.success'));
+    }
+
+    return redirect(route('app-blog-category-add'))->withError(__('messages.error'));
   }
 
-  /**
-   * Display the specified resource.
-   */
-  public function show()
+  public function show(Request $request)
   {
-    return view('content.apps.app-blogcategory-preview');
+    $id = Route::current()->parameter('id');
+
+    $blogCategory = BlogCategory::findOrFail($id);
+
+    return view('content.apps.app-blogcategory-preview', [
+      'blogCategory' => $blogCategory,
+    ]);
   }
 
-  /**
-   * Show the form for editing the specified resource.
-   */
   public function edit()
   {
-    return view('content.apps.app-blogcategory-edit');
+    $id = Route::current()->parameter('id');
+
+    $blogCategory = BlogCategory::findOrFail($id);
+
+    return view('content.apps.app-blogcategory-edit', [
+      'blogCategory' => $blogCategory,
+    ]);
   }
 
-  /**
-   * Update the specified resource in storage.
-   */
-  public function update(Request $request, string $id)
+  public function update(Request $request)
   {
-    //
+    $request->validate([
+      'name' => 'required|string',
+      'slug' => 'required|string',
+      'description' => 'nullable|string',
+    ]);
+
+    $id = Route::current()->parameter('id');
+
+    $blogCategory = BlogCategory::find($id);
+    $blogCategory->name = $request->name;
+    $blogCategory->slug = $request->slug;
+    $blogCategory->description = $request->description;
+    if ($blogCategory->save()) {
+      return redirect(route('app-blog-category-list'))->withError(__('messages.success'));
+    }
+
+    return redirect(route('app-blog-category-edit', ['id' => $id]))->withError(__('messages.error'));
   }
 
-  /**
-   * Remove the specified resource from storage.
-   */
-  public function destroy(string $id)
+  public function destroy(Request $request)
   {
-    //
+    $id = Route::current()->parameter('id');
+
+    $blogCategory = BlogCategory::find($id);
+    if ($blogCategory->delete()) {
+      return response()->json([
+        'status' => 'success',
+      ]);
+    }
+
+    return response()->json([
+      'status' => 'error',
+    ]);
   }
 }

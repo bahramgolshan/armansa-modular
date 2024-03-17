@@ -56,9 +56,12 @@ Route::post('/app/blog/delete/{id}', 'App\Http\Controllers\apps\BlogPostControll
 
 // blog-category
 Route::get('/app/blog-category/list', 'App\Http\Controllers\apps\BlogCategoryController@index')->name('app-blog-category-list');
-Route::get('/app/blog-category/preview', 'App\Http\Controllers\apps\BlogCategoryController@show')->name('app-blog-category-preview');
-Route::get('/app/blog-category/edit', 'App\Http\Controllers\apps\BlogCategoryController@edit')->name('app-blog-category-edit');
+Route::get('/app/blog-category/preview/{id}', 'App\Http\Controllers\apps\BlogCategoryController@show')->where('id', '[0-9]+')->name('app-blog-category-preview');
 Route::get('/app/blog-category/add', 'App\Http\Controllers\apps\BlogCategoryController@create')->name('app-blog-category-add');
+Route::post('/app/blog-category/store', 'App\Http\Controllers\apps\BlogCategoryController@store')->name('app-blog-category-store');
+Route::get('/app/blog-category/edit/{id}', 'App\Http\Controllers\apps\BlogCategoryController@edit')->where('id', '[0-9]+')->name('app-blog-category-edit');
+Route::post('/app/blog-category/update/{id}', 'App\Http\Controllers\apps\BlogCategoryController@update')->where('id', '[0-9]+')->name('app-blog-category-update');
+Route::post('/app/blog-category/delete/{id}', 'App\Http\Controllers\apps\BlogCategoryController@destroy')->where('id', '[0-9]+')->name('app-blog-category-delete');
 
 // tag
 Route::get('/app/tag/list', 'App\Http\Controllers\apps\TagController@index')->name('app-tag-list');
