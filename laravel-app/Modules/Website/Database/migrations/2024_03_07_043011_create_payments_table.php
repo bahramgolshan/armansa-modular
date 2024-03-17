@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Modules\Website\App\Models\Payment;
 
 class CreatePaymentsTable extends Migration
 {
@@ -15,7 +16,7 @@ class CreatePaymentsTable extends Migration
       $table->softDeletes();
       $table->integer('invoice_id')->unsigned();
       $table->integer('customer_id')->unsigned();
-      $table->enum('status', array('success', 'error', 'cancel'));
+      $table->enum('status', Payment::$status);
       $table->double('amount', 22, 2);
       $table->string('reterival_ref_no', 255)->nullable();
       $table->string('system_trace_no', 255)->nullable();

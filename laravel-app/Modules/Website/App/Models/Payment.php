@@ -15,6 +15,8 @@ class Payment extends Model
   use SoftDeletes;
 
 
+  public static $status = ['success', 'error', 'cancel'];
+
   public function invoice()
   {
     return $this->belongsTo(Invoice::class, 'invoice_id');

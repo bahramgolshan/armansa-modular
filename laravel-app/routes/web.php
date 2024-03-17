@@ -17,25 +17,24 @@ use App\Http\Controllers\apps\ProductController;
 |
 */
 
-$controller_path = 'App\Http\Controllers';
+Route::get('/app', 'App\Http\Controllers\apps\InvoiceController@index'); // Main App Page
+Route::get('lang/{locale}', 'App\Http\Controllers\language\LanguageController@swap'); // locale
 
-// locale
-Route::get('lang/{locale}', 'App\Http\Controllers\language\LanguageController@swap');
+// customers
+Route::get('/app/customer/list', 'App\Http\Controllers\apps\CustomerController@index')->name('app-customer-list');
+Route::get('/app/customer/preview/{id}', 'App\Http\Controllers\apps\CustomerController@show')->where('id', '[0-9]+')->name('app-customer-preview');
 
-
-// Main App Page
-Route::get('/app', 'App\Http\Controllers\apps\InvoiceController@index');
-
-// settings
-Route::get('/app/setting', 'App\Http\Controllers\apps\SettingController@index');
-
-// apps
+// invoices
 Route::get('/app/invoice/list', 'App\Http\Controllers\apps\InvoiceController@index')->name('app-invoice-list');
 Route::get('/app/invoice/preview/{id}', 'App\Http\Controllers\apps\InvoiceController@show')->where('id', '[0-9]+')->name('app-invoice-preview');
 Route::get('/app/invoice/print', 'App\Http\Controllers\apps\InvoiceController@print')->name('app-invoice-print');
 Route::get('/app/invoice/edit', 'App\Http\Controllers\apps\InvoiceController@edit')->name('app-invoice-edit');
 Route::post('/app/invoice/edit-status/{id}', 'App\Http\Controllers\apps\InvoiceController@editStatus')->where('id', '[0-9]+')->name('app-invoice-edit-status');
 Route::get('/app/invoice/add', 'App\Http\Controllers\apps\InvoiceController@create')->name('app-invoice-add');
+
+// payments
+Route::get('/app/payment/list', 'App\Http\Controllers\apps\PaymentController@index')->name('app-payment-list');
+Route::get('/app/payment/preview/{id}', 'App\Http\Controllers\apps\PaymentController@show')->where('id', '[0-9]+')->name('app-payment-preview');
 
 // product
 Route::get('/app/product/list', 'App\Http\Controllers\apps\ProductController@index')->name('app-product-list');
@@ -64,6 +63,9 @@ Route::get('/app/tag/preview', 'App\Http\Controllers\apps\TagController@show')->
 Route::get('/app/tag/edit', 'App\Http\Controllers\apps\TagController@edit')->name('app-tag-edit');
 Route::get('/app/tag/add', 'App\Http\Controllers\apps\TagController@create')->name('app-tag-add');
 
+// settings
+Route::get('/app/setting', 'App\Http\Controllers\apps\SettingController@index');
+
 // faq
 Route::get('/app/faq/list', 'App\Http\Controllers\apps\FaqController@index')->name('app-faq-list');
 Route::get('/app/faq/preview', 'App\Http\Controllers\apps\FaqController@show')->name('app-faq-preview');
@@ -71,24 +73,23 @@ Route::get('/app/faq/edit', 'App\Http\Controllers\apps\FaqController@edit')->nam
 Route::get('/app/faq/add', 'App\Http\Controllers\apps\FaqController@create')->name('app-faq-add');
 
 // partner
-Route::get('/app/partner/list', $controller_path . '\apps\PartnerController@index')->name('app-partner-list');
-Route::get('/app/partner/preview', $controller_path . '\apps\PartnerController@show')->name('app-partner-preview');
-Route::get('/app/partner/edit', $controller_path . '\apps\PartnerController@edit')->name('app-partner-edit');
-Route::get('/app/partner/add', $controller_path . '\apps\PartnerController@create')->name('app-partner-add');
+Route::get('/app/partner/list', 'App\Http\Controllers\apps\PartnerController@index')->name('app-partner-list');
+Route::get('/app/partner/preview', 'App\Http\Controllers\apps\PartnerController@show')->name('app-partner-preview');
+Route::get('/app/partner/edit', 'App\Http\Controllers\apps\PartnerController@edit')->name('app-partner-edit');
+Route::get('/app/partner/add', 'App\Http\Controllers\apps\PartnerController@create')->name('app-partner-add');
 
 // servicesample
-Route::get('/app/servicesample/list', $controller_path . '\apps\ServicesampleController@index')->name('app-servicesample-list');
-Route::get('/app/servicesample/preview', $controller_path . '\apps\ServicesampleController@show')->name('app-servicesample-preview');
-Route::get('/app/servicesample/edit', $controller_path . '\apps\ServicesampleController@edit')->name('app-servicesample-edit');
-Route::get('/app/servicesample/add', $controller_path . '\apps\ServicesampleController@create')->name('app-servicesample-add');
+Route::get('/app/servicesample/list', 'App\Http\Controllers\apps\ServicesampleController@index')->name('app-servicesample-list');
+Route::get('/app/servicesample/preview', 'App\Http\Controllers\apps\ServicesampleController@show')->name('app-servicesample-preview');
+Route::get('/app/servicesample/edit', 'App\Http\Controllers\apps\ServicesampleController@edit')->name('app-servicesample-edit');
+Route::get('/app/servicesample/add', 'App\Http\Controllers\apps\ServicesampleController@create')->name('app-servicesample-add');
 
-// payment
-Route::get('/app/payment/list', $controller_path . '\apps\PaymentController@index')->name('app-payment-list');
-Route::get('/app/payment/preview', $controller_path . '\apps\PaymentController@show')->name('app-payment-preview');
 
-// customer
-Route::get('/app/customer/list', 'App\Http\Controllers\apps\CustomerController@index')->name('app-customer-list');
-Route::get('/app/customer/preview/{id}', 'App\Http\Controllers\apps\CustomerController@show')->where('id', '[0-9]+')->name('app-customer-preview');
+
+
+
+
+
 
 // authentication
 Route::get('/auth/login-basic', 'App\Http\Controllers\authentications\LoginBasic@index')->name('auth-login-basic');
