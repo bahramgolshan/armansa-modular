@@ -74,9 +74,12 @@ Route::post('/app/tag/delete/{id}', 'App\Http\Controllers\apps\TagController@des
 
 // faq
 Route::get('/app/faq/list', 'App\Http\Controllers\apps\FaqController@index')->name('app-faq-list');
-Route::get('/app/faq/preview', 'App\Http\Controllers\apps\FaqController@show')->name('app-faq-preview');
-Route::get('/app/faq/edit', 'App\Http\Controllers\apps\FaqController@edit')->name('app-faq-edit');
+Route::get('/app/faq/preview/{id}', 'App\Http\Controllers\apps\FaqController@show')->where('id', '[0-9]+')->name('app-faq-preview');
 Route::get('/app/faq/add', 'App\Http\Controllers\apps\FaqController@create')->name('app-faq-add');
+Route::post('/app/faq/store', 'App\Http\Controllers\apps\FaqController@store')->name('app-faq-store');
+Route::get('/app/faq/edit/{id}', 'App\Http\Controllers\apps\FaqController@edit')->where('id', '[0-9]+')->name('app-faq-edit');
+Route::post('/app/faq/update/{id}', 'App\Http\Controllers\apps\FaqController@update')->where('id', '[0-9]+')->name('app-faq-update');
+Route::post('/app/faq/delete/{id}', 'App\Http\Controllers\apps\FaqController@destroy')->where('id', '[0-9]+')->name('app-faq-delete');
 
 // partner
 Route::get('/app/partner/list', 'App\Http\Controllers\apps\PartnerController@index')->name('app-partner-list');
