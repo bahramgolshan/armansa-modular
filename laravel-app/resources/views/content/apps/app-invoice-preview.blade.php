@@ -58,7 +58,7 @@
                                 <span class="h4 mb-0 app-brand-text fw-bold">سفارش {{ $invoice->id }}</span>
                             </div>
                             <p class="mb-1">نام مشتری: <span>{{ $invoice->customer->fullName() ?? '--' }}</span></p>
-                            <p class="mb-1">تاریخ: <span>{{ verta($invoice->created_at)->format('Y/n/j') ?? '--' }}</p>
+                            <p class="mb-1">تاریخ: <span>{{ verta($invoice->created_at)->format('Y-m-d') ?? '--' }}</p>
                             <p class="mb-1">شماره تلفن:<span>{{ $invoice->customer->mobile ?? '--' }}</span></p>
                             <p class="mb-1">آدرس:<span>{{ $invoice->customer->adderss ?? '--' }}</span></p>
 
@@ -67,32 +67,32 @@
                         <div>
                             <h5>شماره پیگیری: <span>{{ $invoice->id }}</span></h5>
                             <!-- <div class="mb-1">
-                                <span>شماره تلفن:</span>
-                                <span>{{ $invoice->customer->mobile ?? '--' }}</span>
-                            </div> -->
+                                    <span>شماره تلفن:</span>
+                                    <span>{{ $invoice->customer->mobile ?? '--' }}</span>
+                                </div> -->
                             <div>
-                                <span>قیمت  :</span>
+                                <span>قیمت :</span>
                                 <span>{{ $invoiceDetail ? $invoiceDetail->serviceDetail->price : '' }}</span>
                                 <span>تومان</span>
                             </div>
                             <div>
-                                <span>تخفیف  :</span>
+                                <span>تخفیف :</span>
                                 <span>{{ $invoiceDetail ? $invoiceDetail->serviceDetail->discount : '' }}</span>
-                                <span>{{$invoiceDetail && $invoiceDetail->serviceDetail->discount_type == 'percent' ? '%' : 'تومان'}}</span>
+                                <span>{{ $invoiceDetail && $invoiceDetail->serviceDetail->discount_type == 'percent' ? '%' : 'تومان' }}</span>
                             </div>
                             <div>
-                                <span>مبلغ اضافه  :</span>
+                                <span>مبلغ اضافه :</span>
                                 <span>{{ $invoice->additional_price }}</span>
                                 <span>تومان</span>
                             </div>
                             <div>
-                                <span>تخفیف اضافه  :</span>
+                                <span>تخفیف اضافه :</span>
                                 <span>{{ $invoice->additional_discount }}</span>
                                 <span>تومان</span>
                             </div>
                             <div>
                                 <span> مالیات :</span>
-                                <span>{{$invoice->tax }}</span>
+                                <span>{{ $invoice->tax }}</span>
                                 <span>تومان</span>
                             </div>
                             <div>
@@ -107,98 +107,103 @@
                 <div class="card-body">
                     <div class="d-flex justify-content-between flex-wrap w-100">
 
-                    <table class="table m-0">
-                        <thead class="table-light border-top">
-                            <tr>
-                                <th>شماره پیگیری</th>
-                                <th>جنس جلد</th>
-                                <th>نوع صحافی</th>
-                                <th>جهت صحافی</th>
-                                <th>سایز </th>
-                                <th>تیتراژ </th>
-                                <th class="cell-fit">اقدامات</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($payments as $payment)
+                        <table class="table m-0">
+                            <thead class="table-light border-top">
                                 <tr>
-                                    <td class="text-nowrap">{{ $payment->id }}</td>
-                                    <td class="text-nowrap">{{ $invoiceDetail ? $invoiceDetail->serviceDetail->cover->name : ''  }}</td>
-                                    <td class="text-nowrap">{{ $invoiceDetail ? $invoiceDetail->serviceDetail->binding->name : '' }}</td>
-                                    <td class="text-nowrap">{{ $invoiceDetail && $invoiceDetail->binding_direction ? __('app.bindingDirection.' . $invoiceDetail->binding_direction) : '' }}</td>
-                                    <td class="text-nowrap">{{ $invoiceDetail ? $invoiceDetail->serviceDetail->size->name : '' }}</td>
-
-                                    <td>{{ $invoiceDetail ? $invoiceDetail->circulation : '' }}</td>
-                                    <td>
-                            <div class="dropdown">
-                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
-                                    data-bs-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></button>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="/app/invoice/preview"><i
-                                            class="mdi mdi-eye-outline me-1"></i>مشاهده</a>
-                                    <!-- <a class="dropdown-item" href="/app/invoice/edit"><i class="mdi mdi-pencil-outline me-1"></i> ویرایش</a>
-                                                                    <a class="dropdown-item text-danger" href="javascript:void(0);"><i class="mdi mdi-trash-can-outline me-1 text-danger"></i> حذف</a> -->
-                                </div>
-                            </div>
-                        </td>
+                                    <th>شماره پیگیری</th>
+                                    <th>جنس جلد</th>
+                                    <th>نوع صحافی</th>
+                                    <th>جهت صحافی</th>
+                                    <th>سایز </th>
+                                    <th>تیتراژ </th>
+                                    <th class="cell-fit">اقدامات</th>
                                 </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                @foreach ($payments as $payment)
+                                    <tr>
+                                        <td class="text-nowrap">{{ $payment->id }}</td>
+                                        <td class="text-nowrap">
+                                            {{ $invoiceDetail ? $invoiceDetail->serviceDetail->cover->name : '' }}</td>
+                                        <td class="text-nowrap">
+                                            {{ $invoiceDetail ? $invoiceDetail->serviceDetail->binding->name : '' }}</td>
+                                        <td class="text-nowrap">
+                                            {{ $invoiceDetail && $invoiceDetail->binding_direction ? __('app.bindingDirection.' . $invoiceDetail->binding_direction) : '' }}
+                                        </td>
+                                        <td class="text-nowrap">
+                                            {{ $invoiceDetail ? $invoiceDetail->serviceDetail->size->name : '' }}</td>
+
+                                        <td>{{ $invoiceDetail ? $invoiceDetail->circulation : '' }}</td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
+                                                    data-bs-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></button>
+                                                <div class="dropdown-menu">
+                                                    <a class="dropdown-item" href="/app/invoice/preview"><i
+                                                            class="mdi mdi-eye-outline me-1"></i>مشاهده</a>
+                                                    <!-- <a class="dropdown-item" href="/app/invoice/edit"><i class="mdi mdi-pencil-outline me-1"></i> ویرایش</a>
+                                                                        <a class="dropdown-item text-danger" href="javascript:void(0);"><i class="mdi mdi-trash-can-outline me-1 text-danger"></i> حذف</a> -->
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
 
                         <!-- <div class="my-3">
-                            <h6 class="pb-2">مشخصات جلد و صحافی:</h6>
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        <td class="pe-3 fw-medium">جنس جلد:</td>
-                                        <td>{{ $invoiceDetail ? $invoiceDetail->serviceDetail->cover->name : '' }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="pe-3 fw-medium">نوع صحافی:</td>
-                                        <td>{{ $invoiceDetail ? $invoiceDetail->serviceDetail->binding->name : '' }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="pe-3 fw-medium">نوع سلفون:</td>
-                                        <td>{{ $invoiceDetail ? $invoiceDetail->serviceDetail->cellophane->name : '' }}
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="pe-3 fw-medium">جهت صحافی :</td>
-                                        <td>{{ $invoiceDetail && $invoiceDetail->binding_direction ? __('app.bindingDirection.' . $invoiceDetail->binding_direction) : '' }}
-                                        </td>
-                                    </tr>
+                                <h6 class="pb-2">مشخصات جلد و صحافی:</h6>
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td class="pe-3 fw-medium">جنس جلد:</td>
+                                            <td>{{ $invoiceDetail ? $invoiceDetail->serviceDetail->cover->name : '' }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="pe-3 fw-medium">نوع صحافی:</td>
+                                            <td>{{ $invoiceDetail ? $invoiceDetail->serviceDetail->binding->name : '' }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="pe-3 fw-medium">نوع سلفون:</td>
+                                            <td>{{ $invoiceDetail ? $invoiceDetail->serviceDetail->cellophane->name : '' }}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="pe-3 fw-medium">جهت صحافی :</td>
+                                            <td>{{ $invoiceDetail && $invoiceDetail->binding_direction ? __('app.bindingDirection.' . $invoiceDetail->binding_direction) : '' }}
+                                            </td>
+                                        </tr>
 
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="my-3">
-                            <h6 class="pb-2">مشخصات کلی سفارش:</h6>
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        <td class="pe-3 fw-medium">سایز:</td>
-                                        <td>{{ $invoiceDetail ? $invoiceDetail->serviceDetail->size->name : '' }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="pe-3 fw-medium">نوع کاغذ:</td>
-                                        <td>{{ $invoiceDetail ? $invoiceDetail->serviceDetail->paper->name : '' }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="pe-3 fw-medium">رنگ چاپ:</td>
-                                        <td>{{ $invoiceDetail ? $invoiceDetail->serviceDetail->color->name : '' }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="pe-3 fw-medium">تعداد صفحات:</td>
-                                        <td>{{ $invoiceDetail ? $invoiceDetail->number_of_pages : '' }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="pe-3 fw-medium">تیراژ :</td>
-                                        <td>{{ $invoiceDetail ? $invoiceDetail->circulation : '' }}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div> -->
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="my-3">
+                                <h6 class="pb-2">مشخصات کلی سفارش:</h6>
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td class="pe-3 fw-medium">سایز:</td>
+                                            <td>{{ $invoiceDetail ? $invoiceDetail->serviceDetail->size->name : '' }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="pe-3 fw-medium">نوع کاغذ:</td>
+                                            <td>{{ $invoiceDetail ? $invoiceDetail->serviceDetail->paper->name : '' }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="pe-3 fw-medium">رنگ چاپ:</td>
+                                            <td>{{ $invoiceDetail ? $invoiceDetail->serviceDetail->color->name : '' }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="pe-3 fw-medium">تعداد صفحات:</td>
+                                            <td>{{ $invoiceDetail ? $invoiceDetail->number_of_pages : '' }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="pe-3 fw-medium">تیراژ :</td>
+                                            <td>{{ $invoiceDetail ? $invoiceDetail->circulation : '' }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div> -->
                     </div>
                 </div>
                 <div class="table-responsive">
@@ -225,45 +230,45 @@
                         </tbody>
                     </table>
                     <!-- <table class="table m-0">
-                        <tbody>
+                            <tbody>
 
-                            <tr>
-                                <td colspan="3" class="align-top px-4 py-5">
-                                    <p class="mb-2">
-                                        <span class="me-1 fw-semibold">
-                                            {{-- شرکت آرمانسا --}}
-                                        </span>
-                                    </p>
-                                </td>
-                                <td class="text-end px-4 py-5">
-                                    <p class="mb-2">قیمت:</p>
-                                    <p class="mb-2">تخفیف:</p>
-                                    <p class="mb-2">مبلغ اضافه:</p>
-                                    <p class="mb-2">تخفیف اضافه:</p>
-                                    <p class="mb-2">مالیات:</p>
-                                    <p class="mb-0">قیمت کل:</p>
-                                </td>
-                                <td class="px-4 py-5">
-                                    <p class="fw-semibold mb-2 text-end">
-                                        {{ $invoiceDetail ? $invoiceDetail->serviceDetail->price : '' }}
-                                        <span>تومان</span>
-                                    </p>
-                                    <p class="fw-semibold mb-2 text-end">
-                                        {{ $invoiceDetail ? $invoiceDetail->serviceDetail->discount : '' }}
-                                        <span>{{ $invoiceDetail && $invoiceDetail->serviceDetail->discount_type == 'percent' ? '%' : 'تومان' }}</span>
-                                    </p>
-                                    <p class="fw-semibold mb-2 text-end">{{ $invoice->additional_price }}
-                                        <span>تومان</span>
-                                    </p>
-                                    <p class="fw-semibold mb-2 text-end">{{ $invoice->additional_discount }}
-                                        <span>تومان</span>
-                                    </p>
-                                    <p class="fw-semibold mb-2 text-end">{{ $invoice->tax }} <span>تومان</span></p>
-                                    <p class="fw-semibold mb-0 text-end">{{ $invoice->final_price }} <span>تومان</span></p>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table> -->
+                                <tr>
+                                    <td colspan="3" class="align-top px-4 py-5">
+                                        <p class="mb-2">
+                                            <span class="me-1 fw-semibold">
+                                                {{-- شرکت آرمانسا --}}
+                                            </span>
+                                        </p>
+                                    </td>
+                                    <td class="text-end px-4 py-5">
+                                        <p class="mb-2">قیمت:</p>
+                                        <p class="mb-2">تخفیف:</p>
+                                        <p class="mb-2">مبلغ اضافه:</p>
+                                        <p class="mb-2">تخفیف اضافه:</p>
+                                        <p class="mb-2">مالیات:</p>
+                                        <p class="mb-0">قیمت کل:</p>
+                                    </td>
+                                    <td class="px-4 py-5">
+                                        <p class="fw-semibold mb-2 text-end">
+                                            {{ $invoiceDetail ? $invoiceDetail->serviceDetail->price : '' }}
+                                            <span>تومان</span>
+                                        </p>
+                                        <p class="fw-semibold mb-2 text-end">
+                                            {{ $invoiceDetail ? $invoiceDetail->serviceDetail->discount : '' }}
+                                            <span>{{ $invoiceDetail && $invoiceDetail->serviceDetail->discount_type == 'percent' ? '%' : 'تومان' }}</span>
+                                        </p>
+                                        <p class="fw-semibold mb-2 text-end">{{ $invoice->additional_price }}
+                                            <span>تومان</span>
+                                        </p>
+                                        <p class="fw-semibold mb-2 text-end">{{ $invoice->additional_discount }}
+                                            <span>تومان</span>
+                                        </p>
+                                        <p class="fw-semibold mb-2 text-end">{{ $invoice->tax }} <span>تومان</span></p>
+                                        <p class="fw-semibold mb-0 text-end">{{ $invoice->final_price }} <span>تومان</span></p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table> -->
                 </div>
             </div>
         </div>

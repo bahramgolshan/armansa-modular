@@ -47,7 +47,7 @@
                     @foreach ($invoices as $invoice)
                         <tr>
                             <td><a href="/app/invoice/preview"><strong>{{ $invoice->id }}</strong></a></td>
-                            <td>{{ verta($invoice->created_at)->format('Y/n/j') }}</td>
+                            <td>{{ verta($invoice->created_at)->format('Y-m-d') }}</td>
 
                             <td><span
                                     class="badge bg-label-{{ $invoicesStatusColors[$invoice->status] }} me-1">{{ __('app.invoiceStatus.' . $invoice->status) }}</span>

@@ -58,7 +58,7 @@
                                 <span class="h4 mb-0 app-brand-text fw-bold">سفارش {{ $invoice->id }}</span>
                             </div>
                             <p class="mb-1">نام مشتری: <span>{{ $invoice->customer->fullName() ?? '--' }}</span></p>
-                            <p class="mb-1">تاریخ: <span>{{ verta($invoice->created_at)->format('Y/n/j') ?? '--' }}</p>
+                            <p class="mb-1">تاریخ: <span>{{ verta($invoice->created_at)->format('Y-m-d') ?? '--' }}</p>
                             <p class="mb-1">شماره تلفن:<span>{{ $invoice->customer->mobile ?? '--' }}</span></p>
                             <p class="mb-1">آدرس:<span>{{ $invoice->customer->adderss ?? '--' }}</span></p>
 
@@ -67,32 +67,32 @@
                         <div>
                             <h5>شماره پیگیری: <span>{{ $invoice->id }}</span></h5>
                             <!-- <div class="mb-1">
-                                <span>شماره تلفن:</span>
-                                <span>{{ $invoice->customer->mobile ?? '--' }}</span>
-                            </div> -->
+                                    <span>شماره تلفن:</span>
+                                    <span>{{ $invoice->customer->mobile ?? '--' }}</span>
+                                </div> -->
                             <div>
-                                <span>قیمت  :</span>
+                                <span>قیمت :</span>
                                 <span>{{ $invoiceDetail ? $invoiceDetail->serviceDetail->price : '' }}</span>
                                 <span>تومان</span>
                             </div>
                             <div>
-                                <span>تخفیف  :</span>
+                                <span>تخفیف :</span>
                                 <span>{{ $invoiceDetail ? $invoiceDetail->serviceDetail->discount : '' }}</span>
-                                <span>{{$invoiceDetail && $invoiceDetail->serviceDetail->discount_type == 'percent' ? '%' : 'تومان'}}</span>
+                                <span>{{ $invoiceDetail && $invoiceDetail->serviceDetail->discount_type == 'percent' ? '%' : 'تومان' }}</span>
                             </div>
                             <div>
-                                <span>مبلغ اضافه  :</span>
+                                <span>مبلغ اضافه :</span>
                                 <span>{{ $invoice->additional_price }}</span>
                                 <span>تومان</span>
                             </div>
                             <div>
-                                <span>تخفیف اضافه  :</span>
+                                <span>تخفیف اضافه :</span>
                                 <span>{{ $invoice->additional_discount }}</span>
                                 <span>تومان</span>
                             </div>
                             <div>
                                 <span> مالیات :</span>
-                                <span>{{$invoice->tax }}</span>
+                                <span>{{ $invoice->tax }}</span>
                                 <span>تومان</span>
                             </div>
                             <div>
@@ -186,45 +186,45 @@
                         </tbody>
                     </table>
                     <!-- <table class="table m-0">
-                        <tbody>
+                            <tbody>
 
-                            <tr>
-                                <td colspan="3" class="align-top px-4 py-5">
-                                    <p class="mb-2">
-                                        <span class="me-1 fw-semibold">
-                                            {{-- شرکت آرمانسا --}}
-                                        </span>
-                                    </p>
-                                </td>
-                                <td class="text-end px-4 py-5">
-                                    <p class="mb-2">قیمت:</p>
-                                    <p class="mb-2">تخفیف:</p>
-                                    <p class="mb-2">مبلغ اضافه:</p>
-                                    <p class="mb-2">تخفیف اضافه:</p>
-                                    <p class="mb-2">مالیات:</p>
-                                    <p class="mb-0">قیمت کل:</p>
-                                </td>
-                                <td class="px-4 py-5">
-                                    <p class="fw-semibold mb-2 text-end">
-                                        {{ $invoiceDetail ? $invoiceDetail->serviceDetail->price : '' }}
-                                        <span>تومان</span>
-                                    </p>
-                                    <p class="fw-semibold mb-2 text-end">
-                                        {{ $invoiceDetail ? $invoiceDetail->serviceDetail->discount : '' }}
-                                        <span>{{ $invoiceDetail && $invoiceDetail->serviceDetail->discount_type == 'percent' ? '%' : 'تومان' }}</span>
-                                    </p>
-                                    <p class="fw-semibold mb-2 text-end">{{ $invoice->additional_price }}
-                                        <span>تومان</span>
-                                    </p>
-                                    <p class="fw-semibold mb-2 text-end">{{ $invoice->additional_discount }}
-                                        <span>تومان</span>
-                                    </p>
-                                    <p class="fw-semibold mb-2 text-end">{{ $invoice->tax }} <span>تومان</span></p>
-                                    <p class="fw-semibold mb-0 text-end">{{ $invoice->final_price }} <span>تومان</span></p>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table> -->
+                                <tr>
+                                    <td colspan="3" class="align-top px-4 py-5">
+                                        <p class="mb-2">
+                                            <span class="me-1 fw-semibold">
+                                                {{-- شرکت آرمانسا --}}
+                                            </span>
+                                        </p>
+                                    </td>
+                                    <td class="text-end px-4 py-5">
+                                        <p class="mb-2">قیمت:</p>
+                                        <p class="mb-2">تخفیف:</p>
+                                        <p class="mb-2">مبلغ اضافه:</p>
+                                        <p class="mb-2">تخفیف اضافه:</p>
+                                        <p class="mb-2">مالیات:</p>
+                                        <p class="mb-0">قیمت کل:</p>
+                                    </td>
+                                    <td class="px-4 py-5">
+                                        <p class="fw-semibold mb-2 text-end">
+                                            {{ $invoiceDetail ? $invoiceDetail->serviceDetail->price : '' }}
+                                            <span>تومان</span>
+                                        </p>
+                                        <p class="fw-semibold mb-2 text-end">
+                                            {{ $invoiceDetail ? $invoiceDetail->serviceDetail->discount : '' }}
+                                            <span>{{ $invoiceDetail && $invoiceDetail->serviceDetail->discount_type == 'percent' ? '%' : 'تومان' }}</span>
+                                        </p>
+                                        <p class="fw-semibold mb-2 text-end">{{ $invoice->additional_price }}
+                                            <span>تومان</span>
+                                        </p>
+                                        <p class="fw-semibold mb-2 text-end">{{ $invoice->additional_discount }}
+                                            <span>تومان</span>
+                                        </p>
+                                        <p class="fw-semibold mb-2 text-end">{{ $invoice->tax }} <span>تومان</span></p>
+                                        <p class="fw-semibold mb-0 text-end">{{ $invoice->final_price }} <span>تومان</span></p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table> -->
                 </div>
             </div>
         </div>
