@@ -37,9 +37,9 @@ Route::get('/services/publication/permission', "SomeController@index")->name('se
 Route::get('/services/publication/layout', "SomeController@index")->name('service.pubication.layout'); // صفحه آرایی
 Route::get('/services/publication/editing', "SomeController@index")->name('service.pubication.editing'); // ویراستاری
 Route::get('/services/lithography', "SomeController@index")->name('service.lithography'); // لیتوگرافی
-Route::get('/services/lithography/zinc.gto', "SomeController@index")->name('service.lithography.zinc-gto'); // زینک gto
-Route::get('/services/lithography/zinc.dureghi', "SomeController@index")->name('service.lithography.zinc-dureghi'); // زینک دورقی
-Route::get('/services/lithography/zinc.speed-master', "SomeController@index")->name('service.lithography.zinc-speed-master'); // زینک اسپید مستر
+Route::get('/services/lithography/zinc-gto', "SomeController@index")->name('service.lithography.zinc-gto'); // زینک gto
+Route::get('/services/lithography/zinc-dureghi', "SomeController@index")->name('service.lithography.zinc-dureghi'); // زینک دورقی
+Route::get('/services/lithography/zinc-speed-master', "SomeController@index")->name('service.lithography.zinc-speed-master'); // زینک اسپید مستر
 Route::get('/services/diary', "SomeController@index")->name('service.diary'); // سررسید
 Route::get('/services/samples', "SomeController@index")->name('service.samples'); // نمونه کارها
 Route::get('/about-us', "SomeController@index")->name('about-us'); // درباره ما
