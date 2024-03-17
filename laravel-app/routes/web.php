@@ -20,10 +20,6 @@ use App\Http\Controllers\apps\ProductController;
 Route::get('/app', 'App\Http\Controllers\apps\InvoiceController@index'); // Main App Page
 Route::get('lang/{locale}', 'App\Http\Controllers\language\LanguageController@swap'); // locale
 
-// customers
-Route::get('/app/customer/list', 'App\Http\Controllers\apps\CustomerController@index')->name('app-customer-list');
-Route::get('/app/customer/preview/{id}', 'App\Http\Controllers\apps\CustomerController@show')->where('id', '[0-9]+')->name('app-customer-preview');
-
 // invoices
 Route::get('/app/invoice/list', 'App\Http\Controllers\apps\InvoiceController@index')->name('app-invoice-list');
 Route::get('/app/invoice/preview/{id}', 'App\Http\Controllers\apps\InvoiceController@show')->where('id', '[0-9]+')->name('app-invoice-preview');
@@ -31,6 +27,10 @@ Route::get('/app/invoice/print', 'App\Http\Controllers\apps\InvoiceController@pr
 Route::get('/app/invoice/edit', 'App\Http\Controllers\apps\InvoiceController@edit')->name('app-invoice-edit');
 Route::post('/app/invoice/edit-status/{id}', 'App\Http\Controllers\apps\InvoiceController@editStatus')->where('id', '[0-9]+')->name('app-invoice-edit-status');
 Route::get('/app/invoice/add', 'App\Http\Controllers\apps\InvoiceController@create')->name('app-invoice-add');
+
+// customers
+Route::get('/app/customer/list', 'App\Http\Controllers\apps\CustomerController@index')->name('app-customer-list');
+Route::get('/app/customer/preview/{id}', 'App\Http\Controllers\apps\CustomerController@show')->where('id', '[0-9]+')->name('app-customer-preview');
 
 // payments
 Route::get('/app/payment/list', 'App\Http\Controllers\apps\PaymentController@index')->name('app-payment-list');
@@ -83,9 +83,12 @@ Route::post('/app/faq/delete/{id}', 'App\Http\Controllers\apps\FaqController@des
 
 // partner
 Route::get('/app/partner/list', 'App\Http\Controllers\apps\PartnerController@index')->name('app-partner-list');
-Route::get('/app/partner/preview', 'App\Http\Controllers\apps\PartnerController@show')->name('app-partner-preview');
-Route::get('/app/partner/edit', 'App\Http\Controllers\apps\PartnerController@edit')->name('app-partner-edit');
+Route::get('/app/partner/preview/{id}', 'App\Http\Controllers\apps\PartnerController@show')->where('id', '[0-9]+')->name('app-partner-preview');
 Route::get('/app/partner/add', 'App\Http\Controllers\apps\PartnerController@create')->name('app-partner-add');
+Route::post('/app/partner/store', 'App\Http\Controllers\apps\PartnerController@store')->name('app-partner-store');
+Route::get('/app/partner/edit/{id}', 'App\Http\Controllers\apps\PartnerController@edit')->where('id', '[0-9]+')->name('app-partner-edit');
+Route::post('/app/partner/update/{id}', 'App\Http\Controllers\apps\PartnerController@update')->where('id', '[0-9]+')->name('app-partner-update');
+Route::post('/app/partner/delete/{id}', 'App\Http\Controllers\apps\PartnerController@destroy')->where('id', '[0-9]+')->name('app-partner-delete');
 
 // servicesample
 Route::get('/app/servicesample/list', 'App\Http\Controllers\apps\ServicesampleController@index')->name('app-servicesample-list');

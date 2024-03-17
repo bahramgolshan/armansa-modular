@@ -1,17 +1,17 @@
 {
   "menu": [
     {
-      "url": "app/customer/list",
-      "name": "مشتریان",
-      "icon": "menu-icon tf-icons mdi mdi-account-outline",
-      "slug": "app-user",
-      "badge": ["danger", "4"]
-    },
-    {
       "url": "app/invoice/list",
       "name": "سفارشات",
       "icon": "menu-icon tf-icons mdi mdi-file-document-outline",
       "slug": "app-invoice",
+      "badge": ["danger", "4"]
+    },
+    {
+      "url": "app/customer/list",
+      "name": "مشتریان",
+      "icon": "menu-icon tf-icons mdi mdi-account-outline",
+      "slug": "app-user",
       "badge": ["danger", "4"]
     },
     {
