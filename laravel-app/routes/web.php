@@ -65,9 +65,12 @@ Route::post('/app/blog-category/delete/{id}', 'App\Http\Controllers\apps\BlogCat
 
 // tag
 Route::get('/app/tag/list', 'App\Http\Controllers\apps\TagController@index')->name('app-tag-list');
-Route::get('/app/tag/preview', 'App\Http\Controllers\apps\TagController@show')->name('app-tag-preview');
-Route::get('/app/tag/edit', 'App\Http\Controllers\apps\TagController@edit')->name('app-tag-edit');
+Route::get('/app/tag/preview/{id}', 'App\Http\Controllers\apps\TagController@show')->where('id', '[0-9]+')->name('app-tag-preview');
 Route::get('/app/tag/add', 'App\Http\Controllers\apps\TagController@create')->name('app-tag-add');
+Route::post('/app/tag/store', 'App\Http\Controllers\apps\TagController@store')->name('app-tag-store');
+Route::get('/app/tag/edit/{id}', 'App\Http\Controllers\apps\TagController@edit')->where('id', '[0-9]+')->name('app-tag-edit');
+Route::post('/app/tag/update/{id}', 'App\Http\Controllers\apps\TagController@update')->where('id', '[0-9]+')->name('app-tag-update');
+Route::post('/app/tag/delete/{id}', 'App\Http\Controllers\apps\TagController@destroy')->where('id', '[0-9]+')->name('app-tag-delete');
 
 // faq
 Route::get('/app/faq/list', 'App\Http\Controllers\apps\FaqController@index')->name('app-faq-list');

@@ -4,62 +4,96 @@ namespace App\Http\Controllers\apps;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+use Modules\Website\App\Models\Tag;
 
 class TagController extends Controller
 {
-  /**
-   * Display a listing of the resource.
-   */
   public function index()
   {
-    return view('content.apps.app-tag-list');
+    $tags = Tag::orderBy('id', 'DESC')->get();
+
+    return view('content.apps.app-tag-list', [
+      'tags' => $tags,
+    ]);
   }
 
-  /**
-   * Show the form for creating a new resource.
-   */
   public function create()
   {
     return view('content.apps.app-tag-add');
   }
 
-  /**
-   * Store a newly created resource in storage.
-   */
   public function store(Request $request)
   {
-    //
+    $request->validate([
+      'name' => 'required|string',
+      'slug' => 'required|string',
+    ]);
+
+    $tag = new Tag();
+    $tag->name = $request->name;
+    $tag->slug = $request->slug;
+    if ($tag->save()) {
+      return redirect(route('app-tag-list'))->withError(__('messages.success'));
+    }
+
+    return redirect(route('app-tag-add'))->withError(__('messages.error'));
   }
 
-  /**
-   * Display the specified resource.
-   */
-  public function show()
+  public function show(Request $request)
   {
-    return view('content.apps.app-tag-preview');
+    $id = Route::current()->parameter('id');
+
+    $tag = Tag::findOrFail($id);
+
+    return view('content.apps.app-tag-preview', [
+      'tag' => $tag,
+    ]);
   }
 
-  /**
-   * Show the form for editing the specified resource.
-   */
-  public function edit()
+  public function edit(Request $request)
   {
-    return view('content.apps.app-tag-edit');
+    $id = Route::current()->parameter('id');
+
+    $tag = Tag::findOrFail($id);
+
+    return view('content.apps.app-tag-edit', [
+      'tag' => $tag,
+    ]);
   }
 
-  /**
-   * Update the specified resource in storage.
-   */
-  public function update(Request $request, string $id)
+  public function update(Request $request)
   {
-    //
+    $request->validate([
+      'name' => 'required|string',
+      'slug' => 'required|string',
+    ]);
+
+    $id = Route::current()->parameter('id');
+
+    $tag = Tag::find($id);
+    $tag->name = $request->name;
+    $tag->slug = $request->slug;
+    if ($tag->save()) {
+      return redirect(route('app-tag-list'))->withError(__('messages.success'));
+    }
+
+    return redirect(route('app-tag-edit', ['id' => $id]))->withError(__('messages.error'));
   }
 
-  /**
-   * Remove the specified resource from storage.
-   */
-  public function destroy(string $id)
+  public function destroy(Request $request)
   {
-    //
+    $id = Route::current()->parameter('id');
+
+    $tag = Tag::find($id);
+    if ($tag->delete()) {
+      return response()->json([
+        'status' => 'success',
+      ]);
+    }
+
+    return response()->json([
+      'status' => 'error',
+    ]);
   }
 }
