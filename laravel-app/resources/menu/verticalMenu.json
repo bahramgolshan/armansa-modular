@@ -34,29 +34,21 @@
       "slug": "app-blog",
       "submenu": [
         {
+          "url": "app/blog/list",
+          "name": "پست ها",
+          "slug": "app-blog-list"
+        },
+        {
           "url": "app/blog-category/list",
-          "name": "دسته بندی بلاگ",
+          "name": "دسته بندی",
           "slug": "app-blog-category-list"
         },
         {
-          "url": "app/blog/list",
-          "name": "بلاگ ها",
-          "slug": "app-blog-list"
+          "url": "app/tag/list",
+          "name": "برچسب ها",
+          "slug": "app-tag"
         }
       ]
-    },
-    {
-      "url": "app/tag/list",
-      "name": "برچسب ها",
-      "icon": "menu-icon tf-icons mdi mdi-tag-outline",
-      "slug": "app-tag",
-      "badge": ["danger", "4"]
-    },
-    {
-      "url": "app/setting",
-      "name": "تنظیمات",
-      "icon": "menu-icon tf-icons mdi mdi-cog-outline",
-      "slug": "app-tag"
     },
     {
       "url": "app/faq/list",
@@ -75,6 +67,12 @@
       "name": "نمونه های چاپ شده",
       "icon": "menu-icon tf-icons mdi mdi-frequently-asked-questions",
       "slug": "app-servicesample"
+    },
+    {
+      "url": "app/setting",
+      "name": "تنظیمات",
+      "icon": "menu-icon tf-icons mdi mdi-cog-outline",
+      "slug": "app-tag"
     }
   ]
 }

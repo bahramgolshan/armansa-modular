@@ -63,4 +63,9 @@ return [
     'draft' => 'پیش نویس',
     'publish' => 'انتشار',
   ],
+
+  'blogPostStatus' => [
+    'draft' => 'پیش نویس',
+    'publish' => 'انتشار',
+  ],
 ];

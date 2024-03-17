@@ -21,7 +21,7 @@ class CreateBlogPostsTable extends Migration
       $table->integer('created_by')->unsigned();
       $table->string('summary', 1000)->nullable();
       $table->integer('updated_by')->unsigned()->nullable();
-      $table->integer('media_id')->unsigned();
+      $table->integer('media_id')->unsigned()->nullable();
       $table->string('slug', 1000);
       $table->enum('status', BlogPost::$status);
       $table->boolean('allow_comments')->default(true)->nullable();

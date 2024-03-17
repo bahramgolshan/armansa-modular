@@ -45,26 +45,26 @@ Route::get('/app/product/edit/{id}', 'App\Http\Controllers\apps\ProductControlle
 Route::post('/app/product/update/{id}', 'App\Http\Controllers\apps\ProductController@update')->where('id', '[0-9]+')->name('app-product-update');
 Route::post('/app/product/delete/{id}', 'App\Http\Controllers\apps\ProductController@destroy')->where('id', '[0-9]+')->name('app-product-delete');
 
+// blog (posts)
+Route::get('/app/blog/list', 'App\Http\Controllers\apps\BlogPostController@index')->name('app-blog-list');
+Route::get('/app/blog/preview/{id}', 'App\Http\Controllers\apps\BlogPostController@show')->where('id', '[0-9]+')->name('app-blog-preview');
+Route::get('/app/blog/add', 'App\Http\Controllers\apps\BlogPostController@create')->name('app-blog-add');
+Route::post('/app/blog/store', 'App\Http\Controllers\apps\BlogPostController@store')->name('app-blog-store');
+Route::get('/app/blog/edit/{id}', 'App\Http\Controllers\apps\BlogPostController@edit')->where('id', '[0-9]+')->name('app-blog-edit');
+Route::post('/app/blog/update/{id}', 'App\Http\Controllers\apps\BlogPostController@update')->where('id', '[0-9]+')->name('app-blog-update');
+Route::post('/app/blog/delete/{id}', 'App\Http\Controllers\apps\BlogPostController@destroy')->where('id', '[0-9]+')->name('app-blog-delete');
+
 // blog-category
 Route::get('/app/blog-category/list', 'App\Http\Controllers\apps\BlogCategoryController@index')->name('app-blog-category-list');
 Route::get('/app/blog-category/preview', 'App\Http\Controllers\apps\BlogCategoryController@show')->name('app-blog-category-preview');
 Route::get('/app/blog-category/edit', 'App\Http\Controllers\apps\BlogCategoryController@edit')->name('app-blog-category-edit');
 Route::get('/app/blog-category/add', 'App\Http\Controllers\apps\BlogCategoryController@create')->name('app-blog-category-add');
 
-// blog
-Route::get('/app/blog/list', 'App\Http\Controllers\apps\BlogController@index')->name('app-blog-list');
-Route::get('/app/blog/preview', 'App\Http\Controllers\apps\BlogController@show')->name('app-blog-preview');
-Route::get('/app/blog/edit', 'App\Http\Controllers\apps\BlogController@edit')->name('app-blog-edit');
-Route::get('/app/blog/add', 'App\Http\Controllers\apps\BlogController@create')->name('app-blog-add');
-
 // tag
 Route::get('/app/tag/list', 'App\Http\Controllers\apps\TagController@index')->name('app-tag-list');
 Route::get('/app/tag/preview', 'App\Http\Controllers\apps\TagController@show')->name('app-tag-preview');
 Route::get('/app/tag/edit', 'App\Http\Controllers\apps\TagController@edit')->name('app-tag-edit');
 Route::get('/app/tag/add', 'App\Http\Controllers\apps\TagController@create')->name('app-tag-add');
-
-// settings
-Route::get('/app/setting', 'App\Http\Controllers\apps\SettingController@index');
 
 // faq
 Route::get('/app/faq/list', 'App\Http\Controllers\apps\FaqController@index')->name('app-faq-list');
@@ -83,6 +83,9 @@ Route::get('/app/servicesample/list', 'App\Http\Controllers\apps\ServicesampleCo
 Route::get('/app/servicesample/preview', 'App\Http\Controllers\apps\ServicesampleController@show')->name('app-servicesample-preview');
 Route::get('/app/servicesample/edit', 'App\Http\Controllers\apps\ServicesampleController@edit')->name('app-servicesample-edit');
 Route::get('/app/servicesample/add', 'App\Http\Controllers\apps\ServicesampleController@create')->name('app-servicesample-add');
+
+// settings
+Route::get('/app/setting', 'App\Http\Controllers\apps\SettingController@index');
 
 
 
