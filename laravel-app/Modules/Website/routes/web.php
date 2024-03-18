@@ -24,6 +24,10 @@ require __DIR__ . '/auth.php';
 |--------------------------------------------------------------------------
 */
 Route::get('/', "HomeController@index")->name('home');
+Route::get('/editing', "StaticPageController@staticEditing")->name('static-editing');
+Route::get('/layout', "StaticPageController@staticLayout")->name('static-layout');
+Route::get('/lithography', "StaticPageController@staticLithography")->name('static-lithography');
+Route::get('/license', "StaticPageController@staticLicense")->name('static-license');
 Route::get('/blogs', "BlogController@index");
 Route::get('/blogs/post/{id}', "BlogController@show");
 Route::get('/services/print/digital-print/inquiry', "InvoiceDetailController@inquiry")->name('service.print.digital-print.inquiry'); // Check price button

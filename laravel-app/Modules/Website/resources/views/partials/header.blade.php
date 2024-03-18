@@ -42,7 +42,7 @@
                         <div class="w-[0.3rem] h-[0.3rem] bg-[#3C4999] rotate-45"></div>
                         <a href="">خروج از حساب</a>
                     @else
-                        <a class="text-[1.5rem] bg-[--primary-color] text-white py-[.5rem] px-[3rem] mx-[1rem] rounded-lg"
+                        <a class="text-[1.3rem] bg-[--primary-color] text-white py-[.5rem] px-[1rem] mx-[1rem] rounded-lg"
                             href="{{ route('login') }}">ورود / ثبت نام</a>
                     @endif
                 </div>
