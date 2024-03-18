@@ -4,62 +4,50 @@ namespace App\Http\Controllers\apps;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Modules\Website\App\Models\Setting;
 
 class SettingController extends Controller
 {
-  /**
-   * Display a listing of the resource.
-   */
-  public function index()
+  public function edit()
   {
-    return view('content.pages.setting');
+    $settings = Setting::pluck('value', 'key')->toArray();
+
+    return view('content.pages.setting', [
+      'settings' => $settings,
+    ]);
   }
 
-  /**
-   * Show the form for creating a new resource.
-   */
-  public function create()
+  public function update(Request $request)
   {
-    //
-  }
+    $request->validate([
+      "websiteTitle" => 'nullable|string',
+      "websiteMetaDescriptions" => 'nullable|string',
+      "websiteMetaTags" => 'nullable|string',
+      "heroImageSrc" => 'nullable|string',
+      "heroDescription" => 'nullable|string',
+      "aboutArmansa" => 'nullable|string',
+      "featuredVideoEmbedCode" => 'nullable|string',
+      "customersCount" => 'nullable|string',
+      "ordersCount" => 'nullable|string',
+      "usersCount" => 'nullable|string',
+      "phone1" => 'nullable|string',
+      "phone2" => 'nullable|string',
+      "phone3" => 'nullable|string',
+      "instagram" => 'nullable|string',
+      "telegram" => 'nullable|string',
+      "eitaa" => 'nullable|string',
+      "address" => 'nullable|string',
+    ]);
 
-  /**
-   * Store a newly created resource in storage.
-   */
-  public function store(Request $request)
-  {
-    //
-  }
+    $i = 0;
+    foreach ($request->all() as $key => $value) {
+      if ($i == 5) {
+        dd($key, $value);
+      }
+      Setting::where('key', $key)->update(['value' => $value]);
+      // $i++;
+    }
 
-  /**
-   * Display the specified resource.
-   */
-  public function show(string $id)
-  {
-    //
-  }
-
-  /**
-   * Show the form for editing the specified resource.
-   */
-  public function edit(string $id)
-  {
-    //
-  }
-
-  /**
-   * Update the specified resource in storage.
-   */
-  public function update(Request $request, string $id)
-  {
-    //
-  }
-
-  /**
-   * Remove the specified resource from storage.
-   */
-  public function destroy(string $id)
-  {
-    //
+    return redirect(route('app-setting-edit'))->withSuccess(__('messages.success'));
   }
 }

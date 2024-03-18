@@ -100,7 +100,8 @@ Route::post('/app/servicesample/update/{id}', 'App\Http\Controllers\apps\Service
 Route::post('/app/servicesample/delete/{id}', 'App\Http\Controllers\apps\ServicesampleController@destroy')->where('id', '[0-9]+')->name('app-servicesample-delete');
 
 // settings
-Route::get('/app/setting', 'App\Http\Controllers\apps\SettingController@index');
+Route::get('/app/setting', 'App\Http\Controllers\apps\SettingController@edit')->name('app-setting-edit');
+Route::post('/app/setting', 'App\Http\Controllers\apps\SettingController@update')->name('app-setting-update');
 
 
 
