@@ -34,6 +34,7 @@ return [
   ],
   'serviceFullName' => [
     'print-digital' => 'چاپ دیجیتال',
+    'digital-print' => 'چاپ دیجیتال',
   ],
 
   'service' => [
