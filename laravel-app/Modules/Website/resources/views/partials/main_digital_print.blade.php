@@ -208,7 +208,7 @@
                         <h3 class="text-[1.5rem] lg:text-[1.6rem] xl:text-[2rem] font-bold">
                             پیش نمایش
                         </h3>
-                        <div class="h-[1px] bg-black my-[1.25rem]"></div>
+                        <div class="h-[1px] bg-[#D9D9D9] my-[1.25rem]"></div>
                     </div>
                     <div class="flex justify-center items-center py-[5rem]">
                         <img class="w-[25rem]"
@@ -222,7 +222,7 @@
                         <h3 class="text-[1.5rem] lg:text-[1.6rem] xl:text-[2rem] font-bold">
                             هزینه چاپ
                         </h3>
-                        <div class="h-[1px] bg-black my-[1rem]"></div>
+                        <div class="h-[1px] bg-[#D9D9D9] my-[1rem]"></div>
                     </div>
                     <div>
                         <div class="flex items-center gap-[1rem] justify-end">
@@ -282,7 +282,7 @@
 
             <div class="w-[100%]">
                 <h3 class="text-right text-indigo-800 text-2xl font-bold">
-                    آپلود فایل متن
+                    آپلود فایل جلد
                 </h3>
                 <div class="w-[100%] h-[0px] border border-neutral-400 my-5"></div>
                 <div class="flex items-center justify-center w-full mb-[9px]">
