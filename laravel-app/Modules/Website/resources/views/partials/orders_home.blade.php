@@ -270,17 +270,21 @@
                         src="{{ asset('assets/modules/website/images/icon/chevron-down.png') }}" alt="" />
                 </div>
             </label>
-            <div class="custom-tab">
-                <h1>Tab Two Content</h1>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                    enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                    nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                    reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                    nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                    sunt in culpa qui officia deserunt mollit anim id est laborum.
+            <div class="custom-tab p-[3rem] text-[--primary-color]">
+                <p class="xl:text-[1.5rem] md:text-[1.2rem] text-[1rem]">
+                  جهت دریافت مشاوره رایگان و همچنین ثبت سفارش چاپ آفست، با مشاوران آرمانسا تماس بگیرید.
                 </p>
+                <div class="mt-[1rem] flex flex-col gap-[0.6rem]">
+                  <div class="xl:text-[1.5rem] md:text-[1.2rem] text-[1rem]">
+                    ۰۲۱<span class="mx-[0.4rem]">-</span>۶۶۹۵۰۰۲۱
+                  </div>
+                  <div class="xl:text-[1.5rem] md:text-[1.2rem] text-[1rem]">
+                    ۰۲۱<span class="mx-[0.4rem]">-</span>۶۶۹۵۰۲۱۲
+                  </div>
+                  <div class="xl:text-[1.5rem] md:text-[1.2rem] text-[1rem]">
+                    ۰۲۱<span class="mx-[0.4rem]">-</span>۶۶۴۹۴۶۵۲
+                  </div>
+                </div>
             </div>
         </div>
     </div>
