@@ -149,15 +149,15 @@
                                         <li class="flex justify-center max-w-[9rem] lg:max-w-[10rem]">
                                             <input type="radio" id="binding-direction-extra-small"
                                                 name="binding-direction" value="fa_v"
-                                                class="reset-preview hidden peer" required />
+                                                class="reset-preview hidden peer" required checked/>
                                             <label for="binding-direction-extra-small"
-                                                class="flex flex-col justify-between w-[100%] h-[7.6875rem] border-[#3C4999] border-[1px] rounded-[0.4375rem] cursor-pointer peer-checked:bg-[--primary-color] peer-checked:text-white"
+                                                class="flex flex-col justify-between w-[100%] h-[7.6875rem] border-[#3C4999] cursor-pointer"
                                                 for="">
-                                                <div class="h-[77%] w-[100%]">
-                                                    <img class="w-[100%] h-[100%]" src="" alt="" />
+                                                <div class="h-[77%] border-[1px] border-[#3C4999] rounded-t-[0.4375rem] w-[100%]">
+                                                    <img class="w-[100%] h-[100%]" src="{{ asset('assets/modules/website/images/icon/Fa_V.svg') }}" alt="" />
                                                 </div>
                                                 <span
-                                                    class="block w-[100%] text-[0.875rem] h-[23%] leading-[1.5rem] text-center border-t-[#3C4999] border-t-[1px] peer-checked:bg-[--primary-color] peer-checked:text-white">
+                                                    class="block w-[100%] text-[0.875rem] h-[23%] leading-[1.5rem] text-center rounded-b-[0.4375rem] border-x-[1px] border-b-[1px] border-[#3C4999]">
                                                     فارسی عمودی
                                                 </span>
                                             </label>
@@ -167,13 +167,13 @@
                                                 name="binding-direction" value="fa_h"
                                                 class="reset-preview hidden peer" required />
                                             <label for="binding-direction-small"
-                                                class="flex flex-col justify-between w-[100%] h-[7.6875rem] border-[#3C4999] border-[1px] rounded-[0.4375rem] cursor-pointer peer-checked:bg-[--primary-color] peer-checked:text-white"
+                                                class="flex flex-col justify-between w-[100%] h-[7.6875rem] border-[#3C4999] cursor-pointer"
                                                 for="">
-                                                <div class="h-[77%] w-[100%]">
-                                                    <img class="w-[100%] h-[100%]" src="" alt="" />
+                                                <div class="h-[77%] border-[1px] border-[#3C4999] rounded-t-[0.4375rem] w-[100%]">
+                                                    <img class="w-[100%] h-[100%]" src="{{ asset('assets/modules/website/images/icon/Fa_H.svg') }}" alt="" />
                                                 </div>
                                                 <span
-                                                    class="block w-[100%] text-[0.875rem] h-[23%] leading-[1.5rem] text-center border-t-[#3C4999] border-t-[1px] peer-checked:bg-[--primary-color] peer-checked:text-white">
+                                                    class="block w-[100%] text-[0.875rem] h-[23%] leading-[1.5rem] text-center rounded-b-[0.4375rem] border-x-[1px] border-b-[1px] border-[#3C4999]">
                                                     فارسی افقی
                                                 </span>
                                             </label>
@@ -183,28 +183,28 @@
                                                 name="binding-direction" value="en_v"
                                                 class="reset-preview hidden peer" required />
                                             <label for="binding-direction-medium"
-                                                class="flex flex-col justify-between w-[100%] h-[7.6875rem] border-[#3C4999] border-[1px] rounded-[0.4375rem] cursor-pointer peer-checked:bg-[--primary-color] peer-checked:text-white"
+                                                class="flex flex-col justify-between w-[100%] h-[7.6875rem] border-[#3C4999] cursor-pointer"
                                                 for="">
-                                                <div class="h-[77%] w-[100%]">
-                                                    <img class="w-[100%] h-[100%]" src="" alt="" />
+                                                <div class="h-[77%] border-[1px] border-[#3C4999] rounded-t-[0.4375rem] w-[100%]">
+                                                    <img class="w-[100%] h-[100%]" src="{{ asset('assets/modules/website/images/icon/En_V.svg') }}" alt="" />
                                                 </div>
                                                 <span
-                                                    class="block w-[100%] text-[0.875rem] h-[23%] leading-[1.5rem] text-center border-t-[#3C4999] border-t-[1px] peer-checked:bg-[--primary-color] peer-checked:text-white">
+                                                    class="block w-[100%] text-[0.875rem] h-[23%] leading-[1.5rem] text-center rounded-b-[0.4375rem] border-x-[1px] border-b-[1px] border-[#3C4999]">
                                                     انگلیسی عمودی
                                                 </span>
                                             </label>
                                         </li>
                                         <li class="flex justify-center max-w-[9rem] lg:max-w-[10rem]">
                                             <input type="radio" id="binding-direction-big" name="binding-direction"
-                                                value="en_h" class="reset-preview hidden peer" />
+                                                value="en_h" class="reset-preview hidden peer" required/>
                                             <label for="binding-direction-big"
-                                                class="flex flex-col justify-between w-[100%] h-[7.6875rem] border-[#3C4999] border-[1px] rounded-[0.4375rem] cursor-pointer peer-checked:bg-[--primary-color] peer-checked:text-white"
+                                                class="lex flex-col justify-between w-[100%] h-[7.6875rem] border-[#3C4999] cursor-pointer"
                                                 for="">
-                                                <div class="h-[77%] w-[100%]">
-                                                    <img class="w-[100%] h-[100%]" src="" alt="" />
+                                                <div class="h-[77%] border-[1px] border-[#3C4999] rounded-t-[0.4375rem] w-[100%]">
+                                                    <img class="w-[100%] h-[100%]" src="{{ asset('assets/modules/website/images/icon/En_H.svg') }}" alt="" />
                                                 </div>
                                                 <span
-                                                    class="block w-[100%] text-[0.875rem] h-[23%] leading-[1.5rem] text-center border-t-[#3C4999] border-t-[1px] peer-checked:bg-[--primary-color] peer-checked:text-white">
+                                                    class="block w-[100%] text-[0.875rem] h-[23%] leading-[1.5rem] text-center rounded-b-[0.4375rem] border-x-[1px] border-b-[1px] border-[#3C4999]">
                                                     انگلیسی افقی
                                                 </span>
                                             </label>
@@ -235,7 +235,7 @@
                                     <h3 class="text-[1.5rem] lg:text-[1.6rem] xl:text-[2rem] font-bold">
                                         هزینه چاپ
                                     </h3>
-                                    <div class="h-[1px] bg-black my-[1rem]"></div>
+                                    <div class="h-[1px] bg-[#D9D9D9] my-[1rem]"></div>
                                 </div>
                                 <div>
                                     <div id="service-cost" class="flex items-center gap-[1rem] justify-end">
