@@ -246,16 +246,16 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="flex justify-center lg:mt-[4rem] col-span-1 lg:col-span-5">
+                        <div class="flex flex-col md:flex-row gap-[1rem] justify-center lg:mt-[4rem] col-span-1 lg:col-span-5">
                             <button type="button" id="price-inquiry-btn"
                                 class="text-[1.5rem] py-[.5rem] px-[2rem] bg-transparent rounded-lg text-[--primary-color] border-[--primary-color] border-2">
                                 محاسبه قیمت
                             </button>
-                            <a class="text-[1.5rem] bg-[--primary-color] text-white py-[.5rem] px-[3rem] mx-[1rem] rounded-lg "
+                            <a class="text-[1.5rem] text-center bg-[--primary-color] text-white py-[.5rem] px-[3rem] rounded-lg "
                                 href="{{ route('service.print.digital-print') }}">
                                 ثبت سفارش </a>
                         </div>
-                        <div id="digital-print-form-error-box" class="lg:mt-[4rem] col-span-1 lg:col-span-5"></div>
+                        <div id="digital-print-form-error-box" class="hidden mt-[1rem]"></div>
                     </div>
                 </form>
             </div>
