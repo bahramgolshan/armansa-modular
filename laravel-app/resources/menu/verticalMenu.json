@@ -1,32 +1,34 @@
 {
   "menu": [
     {
+      "url": "app/",
+      "name": "داشبورد",
+      "icon": "menu-icon tf-icons mdi mdi-file-document-outline",
+      "slug": "app-dashboard"
+    },
+    {
       "url": "app/invoice/list",
       "name": "سفارشات",
       "icon": "menu-icon tf-icons mdi mdi-file-document-outline",
-      "slug": "app-invoice",
-      "badge": ["danger", "4"]
+      "slug": "app-invoice"
     },
     {
       "url": "app/customer/list",
       "name": "مشتریان",
       "icon": "menu-icon tf-icons mdi mdi-account-outline",
-      "slug": "app-user",
-      "badge": ["danger", "4"]
+      "slug": "app-user"
     },
     {
       "url": "app/payment/list",
       "name": "فاکتور ها",
       "icon": "menu-icon tf-icons mdi mdi-file-document-outline",
-      "slug": "app-invoice",
-      "badge": ["danger", "4"]
+      "slug": "app-invoice"
     },
     {
       "url": "app/product/list",
       "name": "محصولات",
       "icon": "menu-icon tf-icons mdi mdi-cart-arrow-down",
-      "slug": "app-product",
-      "badge": ["danger", "4"]
+      "slug": "app-product"
     },
     {
       "name": "بلاگ",
