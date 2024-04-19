@@ -4,10 +4,15 @@
 
 @section('vendor-style')
     <link rel="stylesheet" href="{{ asset('assets/vendor/libs/flatpickr/flatpickr.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/vendor/libs/sweetalert2/sweetalert2.css') }}" />
 @endsection
 
 @section('page-style')
     <link rel="stylesheet" href="{{ asset('assets/vendor/css/pages/app-invoice.css') }}" />
+@endsection
+
+@section('vendor-script')
+    <script src="{{ asset('assets/vendor/libs/sweetalert2/sweetalert2.js') }}"></script>
 @endsection
 
 @section('page-script')
@@ -25,12 +30,31 @@
                     status: $(this).data("value")
                 },
                 success: function(response) {
-                    location.reload()
+                    Swal.fire({
+                        title: "انجام شد!",
+                        text: "تغییرات شما با موفقیت اعمال شد!",
+                        icon: "success",
+                        showConfirmButton: false,
+                        showCancelButton: false,
+                        timer: 1500,
+                    });
+
+                    setTimeout(function() {
+                        window.location = "{{ route('app-invoice-list') }}";
+                    }, 1500);
                 },
                 error: function(response) {
                     hideAjaxLoader()
 
-                    location.reload()
+                    Swal.fire({
+                        title: "خطا!",
+                        text: "تغییرات شما با خطا روبرو شد!",
+                        icon: "success"
+                    });
+
+                    setTimeout(function() {
+                        location.reload()
+                    }, 1500);
                 }
             });
         });
@@ -54,22 +78,19 @@
                     <div class="px-4 d-flex justify-content-between flex-xl-row flex-md-column flex-sm-row flex-column">
                         <div class="mb-xl-0 pb-3">
                             <div class="d-flex svg-illustration align-items-center gap-2 mb-4">
-
                                 <span class="h4 mb-0 app-brand-text fw-bold">سفارش {{ $invoice->id }}</span>
                             </div>
                             <p class="mb-1">نام مشتری: <span>{{ $invoice->customer->fullName() ?? '--' }}</span></p>
                             <p class="mb-1">تاریخ: <span>{{ verta($invoice->created_at)->format('Y-m-d') ?? '--' }}</p>
                             <p class="mb-1">شماره تلفن:<span>{{ $invoice->customer->mobile ?? '--' }}</span></p>
                             <p class="mb-1">آدرس:<span>{{ $invoice->customer->adderss ?? '--' }}</span></p>
-
-
                         </div>
                         <div>
                             <h5>شماره پیگیری: <span>{{ $invoice->id }}</span></h5>
                             <!-- <div class="mb-1">
-                                    <span>شماره تلفن:</span>
-                                    <span>{{ $invoice->customer->mobile ?? '--' }}</span>
-                                </div> -->
+                                                                                                                                                <span>شماره تلفن:</span>
+                                                                                                                                                <span>{{ $invoice->customer->mobile ?? '--' }}</span>
+                                                                                                                                            </div> -->
                             <div>
                                 <span>قیمت :</span>
                                 <span>{{ $invoiceDetail ? $invoiceDetail->serviceDetail->price : '' }}</span>
@@ -119,34 +140,34 @@
                             </tr>
                         </thead>
                         <tbody>
-                        @foreach ($payments as $payment)
-                                    <tr>
-                                        <td class="text-nowrap">{{ $payment->id }}</td>
-                                        <td class="text-nowrap">
-                                            {{ $invoiceDetail ? $invoiceDetail->serviceDetail->cover->name : '' }}</td>
-                                        <td class="text-nowrap">
-                                            {{ $invoiceDetail ? $invoiceDetail->serviceDetail->binding->name : '' }}</td>
-                                        <td class="text-nowrap">
-                                            {{ $invoiceDetail && $invoiceDetail->binding_direction ? __('app.bindingDirection.' . $invoiceDetail->binding_direction) : '' }}
-                                        </td>
-                                        <td class="text-nowrap">
-                                            {{ $invoiceDetail ? $invoiceDetail->serviceDetail->size->name : '' }}</td>
+                            @foreach ($payments as $payment)
+                                <tr>
+                                    <td class="text-nowrap">{{ $payment->id }}</td>
+                                    <td class="text-nowrap">
+                                        {{ $invoiceDetail ? $invoiceDetail->serviceDetail->cover->name : '' }}</td>
+                                    <td class="text-nowrap">
+                                        {{ $invoiceDetail ? $invoiceDetail->serviceDetail->binding->name : '' }}</td>
+                                    <td class="text-nowrap">
+                                        {{ $invoiceDetail && $invoiceDetail->binding_direction ? __('app.bindingDirection.' . $invoiceDetail->binding_direction) : '' }}
+                                    </td>
+                                    <td class="text-nowrap">
+                                        {{ $invoiceDetail ? $invoiceDetail->serviceDetail->size->name : '' }}</td>
 
-                                        <td>{{ $invoiceDetail ? $invoiceDetail->circulation : '' }}</td>
-                                        <td>
-                                            <div class="dropdown">
-                                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
-                                                    data-bs-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></button>
-                                                <div class="dropdown-menu">
-                                                    <a class="dropdown-item" href="/app/invoice/preview"><i
-                                                            class="mdi mdi-eye-outline me-1"></i>مشاهده</a>
-                                                    <!-- <a class="dropdown-item" href="/app/invoice/edit"><i class="mdi mdi-pencil-outline me-1"></i> ویرایش</a>
-                                                                        <a class="dropdown-item text-danger" href="javascript:void(0);"><i class="mdi mdi-trash-can-outline me-1 text-danger"></i> حذف</a> -->
-                                                </div>
+                                    <td>{{ $invoiceDetail ? $invoiceDetail->circulation : '' }}</td>
+                                    <td>
+                                        <div class="dropdown">
+                                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
+                                                data-bs-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></button>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="/app/invoice/preview"><i
+                                                        class="mdi mdi-eye-outline me-1"></i>مشاهده</a>
+                                                <!-- <a class="dropdown-item" href="/app/invoice/edit"><i class="mdi mdi-pencil-outline me-1"></i> ویرایش</a>
+                                                                                                                                                                                    <a class="dropdown-item text-danger" href="javascript:void(0);"><i class="mdi mdi-trash-can-outline me-1 text-danger"></i> حذف</a> -->
                                             </div>
-                                        </td>
-                                    </tr>
-                                @endforeach
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
 

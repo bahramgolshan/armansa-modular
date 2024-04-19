@@ -46,7 +46,9 @@
                 <tbody class="table-border-bottom-0">
                     @foreach ($invoices as $invoice)
                         <tr>
-                            <td><a href="/app/invoice/preview"><strong>{{ $invoice->id }}</strong></a></td>
+                            <td><a
+                                    href="{{ route('app-invoice-preview', ['id' => $invoice->id]) }}"><strong>{{ $invoice->id }}</strong></a>
+                            </td>
                             <td>{{ verta($invoice->created_at)->format('Y-m-d') }}</td>
 
                             <td><span

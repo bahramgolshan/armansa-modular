@@ -14,7 +14,6 @@ class InvoiceController extends Controller
 {
   public function index()
   {
-    dd('index');
     $invoices = Invoice::orderBy('id', 'DESC')->get();
     $invoicesStatusColors = [
       'awaiting_payment' => 'warning',

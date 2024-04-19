@@ -3,13 +3,13 @@
     {
       "url": "app/",
       "name": "داشبورد",
-      "icon": "menu-icon tf-icons mdi mdi-file-document-outline",
+      "icon": "menu-icon tf-icons mdi mdi-view-dashboard",
       "slug": "app-dashboard"
     },
     {
       "url": "app/invoice/list",
       "name": "سفارشات",
-      "icon": "menu-icon tf-icons mdi mdi-file-document-outline",
+      "icon": "menu-icon tf-icons mdi mdi-chart-line-variant",
       "slug": "app-invoice"
     },
     {
@@ -27,7 +27,7 @@
     {
       "url": "app/product/list",
       "name": "محصولات",
-      "icon": "menu-icon tf-icons mdi mdi-cart-arrow-down",
+      "icon": "menu-icon tf-icons mdi mdi-package-variant-closed",
       "slug": "app-product"
     },
     {
@@ -61,13 +61,13 @@
     {
       "url": "app/partner/list",
       "name": "همکاران",
-      "icon": "menu-icon tf-icons mdi mdi-frequently-asked-questions",
+      "icon": "menu-icon tf-icons mdi mdi-account-network",
       "slug": "app-partner"
     },
     {
       "url": "app/servicesample/list",
       "name": "نمونه های چاپ شده",
-      "icon": "menu-icon tf-icons mdi mdi-frequently-asked-questions",
+      "icon": "menu-icon tf-icons mdi mdi-book-open-page-variant",
       "slug": "app-servicesample"
     },
     {
