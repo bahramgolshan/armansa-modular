@@ -20,6 +20,7 @@ class CreateInvoiceDetailsTable extends Migration
       $table->integer('circulation')->unsigned();
       $table->integer('number_of_pages')->unsigned();
       $table->enum('binding_direction', Binding::$bindingDirection)->nullable();
+      $table->string('file_original_name', 500);
       $table->string('file_name', 500);
       $table->string('extension', 10);
       $table->enum('type', Media::$types);

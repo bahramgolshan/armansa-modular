@@ -44,7 +44,16 @@ class InvoiceController extends Controller
     $id = Route::current()->parameter('id');
 
     $invoice = Invoice::findOrFail($id);
+    $invoicesStatusColors = [
+      'awaiting_payment' => 'warning',
+      'awaiting_approval' => 'primary',
+      'processing' => 'info',
+      'delivered' => 'success',
+      'rejected' => 'danger',
+    ];
+
     $invoiceDetail = InvoiceDetail::where('invoice_id', $id)->first();
+
     $payments = Payment::where('invoice_id', $id)->get();
     $paymentStatusColors = [
       'success' => 'success',
@@ -54,6 +63,7 @@ class InvoiceController extends Controller
 
     return view('content.apps.app-invoice-preview', [
       'invoice' => $invoice,
+      'invoicesStatusColors' => $invoicesStatusColors,
       'invoiceDetail' => $invoiceDetail,
       'payments' => $payments,
       'paymentStatusColors' => $paymentStatusColors,
