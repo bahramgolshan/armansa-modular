@@ -13,6 +13,15 @@
         ->pluck('value', 'key')
         ->toArray();
 
+    // convert websiteMetaTags to a tags string
+    $jsonString = $settings['websiteMetaTags'];
+    $array = json_decode($jsonString, true);
+    $values = array_map(function ($item) {
+        return $item['value'];
+    }, $array);
+    $tagsString = implode(', ', $values);
+
+    // check user's role
     $is_guest = Auth::guest();
 @endphp
 
@@ -22,7 +31,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="description" content="@yield('meta_description', config('app.name'))">
-    <meta name="keywords" content="{{ $settings['websiteMetaTags'] }}">
+    <meta name="keywords" content="{{ $tagsString }}">
     <meta name="author" content="@yield('meta_author', config('app.name'))">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
