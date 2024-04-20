@@ -9,6 +9,17 @@
     <link rel="stylesheet" href="{{ asset('assets/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css') }}">
 @endsection
 
+@section('page-style')
+    <style>
+        .pagination {
+            margin-bottom: 0;
+            display: flex;
+            justify-content: center;
+            margin: 20px
+        }
+    </style>
+@endsection
+
 @section('vendor-script')
     <script src="{{ asset('assets/vendor/libs/moment/moment.js') }}"></script>
     <script src="{{ asset('assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js') }}"></script>
@@ -19,11 +30,6 @@
     <h4 class="fw-bold py-3 mb-4">
         <span class="text-muted fw-light">مشتری /</span> لیست مشتری ها
     </h4>
-
-    {{-- add button --}}
-    <!-- <a href="/app/invoice/add" class="btn btn-primary mb-3">
-                                                  <span class="tf-icons mdi mdi-plus-thick me-1"></span>افزودن
-                                                </a> -->
 
     <!-- User List Table -->
     <div class="card mb-5">
@@ -47,7 +53,6 @@
                             <td><span class="">{{ $customer->mobile }}</span></td>
                             <td><span class="">{{ $customer->address }}</span></td>
                             <td><span class="">{{ $customer->email }}</span></td>
-
                             <td>
                                 <div class="dropdown">
                                     <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
@@ -61,31 +66,9 @@
                             </td>
                         </tr>
                     @endforeach
-
                 </tbody>
             </table>
+            {{ $customers->links() }}
         </div>
     </div>
-
-    <!-- Ajax Sourced Server-side -->
-    <!-- <div class="card">
-                                      <h5 class="card-header">Ajax Sourced Server-side</h5>
-                                      <div class="card-datatable text-nowrap">
-                                        <table class="datatables-ajax table table-bordered">
-                                          <thead>
-                                            <tr>
-                                              <th>Full name</th>
-                                              <th>Email</th>
-                                              <th>Position</th>
-                                              <th>Office</th>
-                                              <th>Start date</th>
-                                              <th>Salary</th>
-                                            </tr>
-                                          </thead>
-                                        </table>
-                                      </div>
-                                    </div> -->
-    <!--/ Ajax Sourced Server-side -->
-
-
 @endsection

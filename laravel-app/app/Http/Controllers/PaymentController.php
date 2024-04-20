@@ -11,7 +11,7 @@ class PaymentController extends Controller
 {
   public function index()
   {
-    $payments = Payment::orderBy('id', 'DESC')->get();
+    $payments = Payment::orderBy('id', 'DESC')->paginate(15);
     $paymentsStatusColors = [
       'success' => 'success',
       'error' => 'warning',
@@ -39,9 +39,15 @@ class PaymentController extends Controller
     $id = Route::current()->parameter('id');
 
     $payment = Payment::findOrFail($id);
+    $paymentStatusColors = [
+      'success' => 'success',
+      'error' => 'warning',
+      'cancel' => 'danger',
+    ];
 
     return view('content.apps.app-payment-preview', [
       'payment' => $payment,
+      'paymentStatusColors' => $paymentStatusColors,
     ]);
   }
 

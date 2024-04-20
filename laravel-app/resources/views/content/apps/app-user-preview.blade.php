@@ -24,78 +24,73 @@
         <!-- user -->
         <div class="col-xl-9 col-md-8 col-12 mb-md-0 mb-4">
             <div class="card">
-                <div class="card-body">
-                    <div class="d-flex justify-content-between flex-xl-row flex-md-column flex-sm-row flex-column">
-                        <div class="mb-xl-0 pb-3">
-                            <div class="d-flex svg-illustration align-items-center gap-2 mb-2">
-                                <h5>{{ $customer->fullName() }}</h5>
+                <div class="card-header invoice-customer border d-flex justify-content-between">
+                    <h5 class="d-inline-block mb-0">اطلاعات مشتری</h5>
+                </div>
+                <div class="card-body p-4">
+                    <div class="card-text">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="row">
+                                    <label for="fullname" class="col-sm-2 col-form-label">نام کامل</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" readonly class="form-control-plaintext" id="fullname"
+                                            value="{{ $customer->fullName() ?? '' }}">
+                                    </div>
+                                </div>
                             </div>
-                            <p class="">{{ $customer->address }}</p>
                         </div>
-                        <div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="row">
+                                    <label for="mobile" class="col-sm-2 col-form-label">شماره تماس</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" readonly class="form-control-plaintext" id="mobile"
+                                            value="{{ $customer->mobile ?? '' }}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="row">
+                                    <label for="email" class="col-sm-2 col-form-label">ایمیل</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" readonly class="form-control-plaintext" id="email"
+                                            value="{{ $customer->email ?? '' }}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="row">
+                                    <label for="address" class="col-sm-2 col-form-label">آدرس</label>
+                                    <div class="col-sm-10">
+                                        <textarea class="form-control-plaintext" id="address" name="w3review" rows="2" cols="20" readonly>{{ $customer->address ?? '' }}</textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                            <div class="mb-1">
-                                <span>شماره تلفن:</span>
-                                <span>{{ $customer->mobile }}</span>
-                            </div>
-                            <div>
-                                <span>ایمیل:</span>
-                                <span>{{ $customer->email }}</span>
-                            </div>
-                        </div>
                     </div>
                 </div>
-                <hr class="my-0" />
-                <div class="card-body">
-                    <div class="d-flex justify-content-between flex-wrap">
-                        <div class="mt-1">
-                            <h6 class="pb-2">سفارشات:</h6>
-                            <!-- <p class="mb-1">Thomas shelby</p>
-                                                                            <p class="mb-1">Shelby Company Limited</p>
-                                                                            <p class="mb-1">Small Heath, B10 0HF, UK</p>
-                                                                            <p class="mb-1">718-986-6062</p>
-                                                                            <p class="mb-0">peakyFBlinders@gmail.com</p> -->
-                        </div>
-                        <!-- <div class="my-3">
-                                                                            <h6 class="pb-2">Bill To:</h6>
-                                                                            <table>
-                                                                              <tbody>
-                                                                                <tr>
-                                                                                  <td class="pe-3 fw-medium">Total Due:</td>
-                                                                                  <td>$12,110.55</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                  <td class="pe-3 fw-medium">Bank name:</td>
-                                                                                  <td>American Bank</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                  <td class="pe-3 fw-medium">Country:</td>
-                                                                                  <td>United States</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                  <td class="pe-3 fw-medium">IBAN:</td>
-                                                                                  <td>ETD95476213874685</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                  <td class="pe-3 fw-medium">SWIFT code:</td>
-                                                                                  <td>BR91905</td>
-                                                                                </tr>
-                                                                              </tbody>
-                                                                            </table>
-                                                                          </div> -->
-                    </div>
+
+
+                <div class="card-header invoice-payments border">
+                    <h5 class="mb-0">سفارشات قبلی</h5>
                 </div>
                 <div class="table-responsive">
                     <table class="table m-0">
                         <thead class="table-light border-top">
                             <tr>
                                 <th>شماره سفارش</th>
-                                <th>تاریخ</th>
-                                <th>وضعیت سفارش</th>
-                                <th>تخفیف اضافی</th>
-                                <th>قیمت اضافی</th>
-                                <th>مالیات</th>
-                                <th>مبلغ کل</th>
+                                <th class="w-50">تاریخ</th>
+                                <th class="w-25">وضعیت سفارش</th>
+                                <th class="w-25">تخفیف اضافی</th>
+                                <th class="w-25">قیمت اضافی</th>
+                                <th class="w-25">مالیات</th>
+                                <th class="w-25">مبلغ کل</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -118,17 +113,6 @@
                         </tbody>
                     </table>
                 </div>
-
-                {{-- <div class="card-body">
-                    <div class="row">
-                        <div class="col-12">
-                            <span class="fw-bold">Note:</span>
-                            <span>It was a pleasure working with you and your team. We hope you will keep us in mind for
-                                future freelance
-                                projects. Thank You!</span>
-                        </div>
-                    </div>
-                </div> --}}
             </div>
         </div>
         <!-- /user -->
@@ -137,9 +121,8 @@
         <div class="col-xl-3 col-md-4 col-12 ">
             <div class="card">
                 <div class="card-body">
-                    <a class="btn btn-primary d-grid w-100 mb-3" href="{{ route('app-customer-list') }}">
-                        <span class="d-flex align-items-center justify-content-center text-nowrap"><i
-                                class="mdi mdi-send-outline scaleX-n1-rtl me-1"></i>بازگشت به لیست مشتریان</span>
+                    <a class="btn btn-outline-secondary d-grid w-100 mb-3" href="{{ route('app-customer-list') }}">
+                        بازگشت
                     </a>
                 </div>
             </div>

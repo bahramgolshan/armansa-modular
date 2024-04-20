@@ -9,6 +9,17 @@
     <link rel="stylesheet" href="{{ asset('assets/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css') }}">
 @endsection
 
+@section('page-style')
+    <style>
+        .pagination {
+            margin-bottom: 0;
+            display: flex;
+            justify-content: center;
+            margin: 20px
+        }
+    </style>
+@endsection
+
 @section('vendor-script')
     <script src="{{ asset('assets/vendor/libs/moment/moment.js') }}"></script>
     <script src="{{ asset('assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js') }}"></script>
@@ -19,11 +30,6 @@
     <h4 class="fw-bold py-3 mb-4">
         <span class="text-muted fw-light">فاکتور /</span> لیست فاکتور ها
     </h4>
-
-    {{-- add button --}}
-    <!-- <a href="/app/payment/add" class="btn btn-primary mb-3">
-                                                                  <span class="tf-icons mdi mdi-plus-thick me-1"></span>افزودن
-                                                                </a> -->
 
     <!-- payment List Table -->
     <div class="card mb-5">
@@ -66,6 +72,7 @@
                     @endforeach
                 </tbody>
             </table>
+            {{ $payments->links() }}
         </div>
     </div>
 

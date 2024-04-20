@@ -9,6 +9,17 @@
     <link rel="stylesheet" href="{{ asset('assets/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css') }}">
 @endsection
 
+@section('page-style')
+    <style>
+        .pagination {
+            margin-bottom: 0;
+            display: flex;
+            justify-content: center;
+            margin: 20px
+        }
+    </style>
+@endsection
+
 @section('vendor-script')
     <script src="{{ asset('assets/vendor/libs/moment/moment.js') }}"></script>
     <script src="{{ asset('assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js') }}"></script>
@@ -75,72 +86,9 @@
                             </td>
                         </tr>
                     @endforeach
-
-                    {{-- <tr>
-                        <td><a href="/app/invoice/preview"><strong>1</strong></a></td>
-                        <td>1402/11/10</td>
-
-
-                        <td><span class="badge bg-label-success me-1">Completed</span></td>
-                        <td><span class="">12312</span></td>
-                        <td><span class="">12312</span></td>
-                        <td><span class="">9%</span></td>
-                        <td>
-                            <div class="dropdown">
-                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
-                                    data-bs-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></button>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="/app/invoice/preview"><i
-                                            class="mdi mdi-eye-outline me-1"></i>مشاهده</a>
-                                    <!-- <a class="dropdown-item" href="/app/invoice/edit"><i class="mdi mdi-pencil-outline me-1"></i> ویرایش</a>
-                                                                    <a class="dropdown-item text-danger" href="javascript:void(0);"><i class="mdi mdi-trash-can-outline me-1 text-danger"></i> حذف</a> -->
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><a href="/app/invoice/preview"><strong>1</strong></a></td>
-                        <td>1402/11/10</td>
-
-                        <td><span class="badge bg-label-info me-1">Scheduled</span></td>
-                        <td><span class="">12312</span></td>
-                        <td><span class="">12312</span></td>
-                        <td><span class="">9%</span></td>
-                        <td>
-                            <div class="dropdown">
-                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
-                                    data-bs-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></button>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="/app/invoice/preview"><i
-                                            class="mdi mdi-eye-outline me-1"></i>مشاهده</a>
-                                    <!-- <a class="dropdown-item" href="/app/invoice/edit"><i class="mdi mdi-pencil-outline me-1"></i> ویرایش</a>
-                                                                    <a class="dropdown-item text-danger" href="javascript:void(0);"><i class="mdi mdi-trash-can-outline me-1 text-danger"></i> حذف</a> -->
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><a href="/app/invoice/preview"><strong>1</strong></a></td>
-                        <td>1402/11/10</td>
-                        <td><span class="badge bg-label-warning me-1">Pending</span></td>
-                        <td><span class="">12312</span></td>
-                        <td><span class="">12312</span></td>
-                        <td><span class="">9%</span></td>
-                        <td>
-                            <div class="dropdown">
-                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
-                                    data-bs-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></button>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="/app/invoice/preview"><i
-                                            class="mdi mdi-eye-outline me-1"></i>مشاهده</a>
-                                    <!-- <a class="dropdown-item" href="/app/invoice/edit"><i class="mdi mdi-pencil-outline me-1"></i> ویرایش</a>
-                                                                    <a class="dropdown-item text-danger" href="javascript:void(0);"><i class="mdi mdi-trash-can-outline me-1 text-danger"></i> حذف</a> -->
-                                </div>
-                            </div>
-                        </td>
-                    </tr> --}}
                 </tbody>
             </table>
+            {{ $invoices->links() }}
         </div>
     </div>
 @endsection

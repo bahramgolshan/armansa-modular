@@ -20,7 +20,7 @@ class ProductController extends Controller
 {
   public function index()
   {
-    $serviceDetails = ServiceDetail::orderBy('created_at', 'DESC')->get();
+    $serviceDetails = ServiceDetail::orderBy('created_at', 'DESC')->paginate(15);
 
     return view('content.apps.app-product-list', [
       'serviceDetails' => $serviceDetails,

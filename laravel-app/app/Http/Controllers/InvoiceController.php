@@ -14,7 +14,7 @@ class InvoiceController extends Controller
 {
   public function index()
   {
-    $invoices = Invoice::orderBy('id', 'DESC')->get();
+    $invoices = Invoice::orderBy('id', 'DESC')->paginate(15);
     $invoicesStatusColors = [
       'awaiting_payment' => 'warning',
       'awaiting_approval' => 'primary',

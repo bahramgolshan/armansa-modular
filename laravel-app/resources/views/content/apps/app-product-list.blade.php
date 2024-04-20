@@ -10,6 +10,17 @@
     <link rel="stylesheet" href="{{ asset('assets/vendor/libs/sweetalert2/sweetalert2.css') }}" />
 @endsection
 
+@section('page-style')
+    <style>
+        .pagination {
+            margin-bottom: 0;
+            display: flex;
+            justify-content: center;
+            margin: 20px
+        }
+    </style>
+@endsection
+
 @section('vendor-script')
     <script src="{{ asset('assets/vendor/libs/moment/moment.js') }}"></script>
     <script src="{{ asset('assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js') }}"></script>
@@ -151,6 +162,7 @@
                     @endforeach
                 </tbody>
             </table>
+            {{ $serviceDetails->links() }}
         </div>
     </div>
 
