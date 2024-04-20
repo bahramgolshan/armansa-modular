@@ -13,7 +13,7 @@ class CreateMediaTable extends Migration
     Schema::create('media', function (Blueprint $table) {
       $table->increments('id');
       $table->timestamps();
-      $table->string('name', 100);
+      $table->string('original_name', 100);
       $table->string('file_name', 500);
       $table->string('extension', 10);
       $table->enum('type', Media::$types);

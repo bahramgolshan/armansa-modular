@@ -88,6 +88,9 @@
 
 
 @section('content')
+    @include('components.msg-success')
+    @include('components.msg-error')
+
     <h4 class="fw-bold py-3 mb-4">
         <span class="text-muted fw-light">همکاران /</span> لیست همکاران
     </h4>

@@ -30,6 +30,9 @@
 @endsection
 
 @section('content')
+    @include('components.msg-success')
+    @include('components.msg-error')
+
     <form action="{{ route('app-partner-store') }}" enctype="multipart/form-data" class="row" id="partner-form"
         method="POST">
         @csrf
@@ -42,9 +45,9 @@
                     <div class="card-body">
                         <div class="row pt-3">
                             <div class="row mb-3">
-                                <label class="col-sm-2 col-form-label" for="basic-default-name">عنوان</label>
+                                <label class="col-sm-2 col-form-label" for="name">عنوان</label>
                                 <div class="col-sm-6">
-                                    <input type="text" name="name" class="form-control" id="basic-default-name"
+                                    <input type="text" name="name" class="form-control" id="name"
                                         placeholder="عنوان" />
                                     <small class="text-danger">{{ $errors->first('name') }}</small>
                                 </div>
@@ -66,7 +69,7 @@
 
 
                             <div class="row mb-3">
-                                <label class="col-sm-2 col-form-label" for="basic-default-message">ویژه</label>
+                                <label class="col-sm-2 col-form-label" for="is_featured">ویژه</label>
                                 <div class="col-sm-10 d-flex align-items-center flex-wrap pt-2">
 
                                     <div class="col-sm-9">

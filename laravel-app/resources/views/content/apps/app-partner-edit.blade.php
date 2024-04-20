@@ -30,6 +30,9 @@
 @endsection
 
 @section('content')
+    @include('components.msg-success')
+    @include('components.msg-error')
+
     <form action="{{ route('app-partner-update', ['id' => $partner->id]) }}" enctype="multipart/form-data" class="row"
         id="partner-form" method="POST">
         @csrf
@@ -38,31 +41,31 @@
             <div class="">
                 <!-- Multi Column with Form Separator -->
                 <div class="card mb-4">
-                    <h5 class="card-header mb-2">فرم ثبت اطلاعات همکار</h5>
+                    <h5 class="card-header mb-2">اطلاعات همکار</h5>
                     <div class="card-body">
                         <div class="row pt-3">
                             <div class="row mb-3">
                                 <label class="col-sm-2 col-form-label" for="basic-default-name">عنوان</label>
                                 <div class="col-sm-6">
                                     <input type="text" name="name" class="form-control" id="basic-default-name"
-                                        value={{ $partner->name }} placeholder="عنوان" />
-                                    <small class="text-danger">{{ $errors->first('name') }}</small>
+                                        value="{{ $partner->name }}" />
                                 </div>
                             </div>
 
 
-                            <div class="row pt-3">
-                                <div class="row mb-3">
-                                    <label class="col-sm-2 col-form-label" for="basic-default-name">تصویر</label>
-                                    <div class="col-sm-10">
-                                        <div class="fallback">
-                                            <input name="file" type="file" value={{ $partner->media_id }} />
+                            <div class="row mb-3">
+                                <label class="col-sm-2 col-form-label" for="basic-default-name">تصویر</label>
+                                <div class="col-sm-6">
+                                    <span type="text" class="" id="basic-default-name">
+                                        <img class="w-50 h-auto"
+                                            src="{{ $partner->media_id ? asset(get_file_upload_path('image-partners', $partner->media->id) . $partner->media->file_name) : '' }}"
+                                            alt="">
+                                        <div class="fallback mt-3">
+                                            <input name="file" type="file" />
                                         </div>
-                                        <small class="text-danger">{{ $errors->first('file') }}</small>
-                                    </div>
+                                    </span>
                                 </div>
                             </div>
-
 
 
                             <div class="row mb-3">
@@ -72,12 +75,12 @@
                                     <div class="col-sm-9">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" name="is_featured"
+                                                value="" id="is_featured"
                                                 {{ $partner->is_featured ? 'checked' : '' }} />
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
 
                         </div>
                     </div>

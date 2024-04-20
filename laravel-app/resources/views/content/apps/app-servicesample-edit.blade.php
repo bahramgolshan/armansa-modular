@@ -30,8 +30,8 @@
 @endsection
 
 @section('content')
-    <form action="{{ route('app-servicesample-update') }}" enctype="multipart/form-data" class="row" id="servicesample-form"
-        method="POST">
+    <form action="{{ route('app-servicesample-update', ['id' => $serviceSample->id]) }}" enctype="multipart/form-data"
+        class="row" id="servicesample-form" method="POST">
         @csrf
         <!-- ss Edit-->
         <div class="col-lg-9 col-12 mb-lg-0 mb-4">

@@ -33,7 +33,8 @@
             <div class="w-[50%] flex flex-col xl:flex-row justify-around items-center">
                 <div
                     class="flex flex-row justify-around xl:justify-center justify-items-center items-center mt-[12px] xl:ml-[12px]">
-                    <a href="https://t.me/{{$settings['telegram']}}" class="text-right text-white text-xl font-light font-['IRANSans'] ml-[9px]">
+                    <a href="https://t.me/{{ $settings['telegram'] }}"
+                        class="text-right text-white text-xl font-light font-['IRANSans'] ml-[9px]">
                         {{ $settings['telegram'] }}
                     </a>
                     <div
@@ -44,7 +45,8 @@
                 </div>
 
                 <div class="flex flex-row justify-around xl:justify-center items-center mt-[12px]">
-                    <a href="https://www.instagram.com/{{$settings['instagram']}}/" class="text-right text-white text-xl font-light font-['IRANSans'] ml-[9px]">
+                    <a href="https://www.instagram.com/{{ $settings['instagram'] }}/"
+                        class="text-right text-white text-xl font-light font-['IRANSans'] ml-[9px]">
                         {{ $settings['instagram'] }}
                     </a>
                     <div
@@ -55,7 +57,8 @@
                 </div>
 
                 <div class="flex flex-row justify-around xl:justify-center items-center mt-[12px]">
-                    <a href="https://eitaa.com/{{$settings['eitaa']}}" class="text-right text-white text-xl font-light font-['IRANSans'] ml-[9px]">
+                    <a href="https://eitaa.com/{{ $settings['eitaa'] }}"
+                        class="text-right text-white text-xl font-light font-['IRANSans'] ml-[9px]">
                         {{ $settings['eitaa'] }}
                     </a>
                     <div

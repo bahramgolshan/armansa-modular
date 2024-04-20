@@ -27,6 +27,9 @@
 @endsection
 
 @section('content')
+    @include('components.msg-success')
+    @include('components.msg-error')
+
     <h4 class="fw-bold py-3 mb-4">
         تنظیمات
     </h4>

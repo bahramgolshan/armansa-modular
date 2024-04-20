@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Modules\Website\App\Models\Media;
 use Modules\Website\App\Models\Partner;
 
 class PartnerController extends Controller
@@ -37,13 +38,35 @@ class PartnerController extends Controller
     $partner->is_featured = $request->is_featured == 'true' ? 1 : 0;
     if ($partner->save()) {
 
-      // @TODO: Create media and update media_id
-      //...
+      if ($request->file('file')) {
+        $media = new Media();
+        $media->original_name = pathinfo($request->file->getClientOriginalName(), PATHINFO_FILENAME);
+        $media->file_name = "temp";
+        $media->extension = $request->file->getClientOriginalExtension();
+        $media->type = strtok($request->file->getMimeType(), '/');
 
-      return redirect(route('app-partner-list'))->withError(__('messages.success'));
+        if ($media->save()) {
+          $media->file_name =  time() . '_' . $media->id . '.' . $media->extension;
+          $media->save();
+
+          $partner->media_id = $media->id;
+          $partner->save();
+
+          // Upload file to local
+          $path = get_file_upload_path('image-partners', $media->id);
+          $file = $request->file('file');
+          $file->move($path, $media->file_name);
+
+          return redirect(route('app-partner-list'))->withSuccess(__('messages.success'));
+        }
+
+        return redirect(route('app-partner-add'))->withErrors(__('messages.error'));
+      }
+
+      return redirect(route('app-partner-list'))->withSuccess(__('messages.success'));
     }
 
-    return redirect(route('app-partner-add'))->withError(__('messages.error'));
+    return redirect(route('app-partner-add'))->withErrors(__('messages.error'));
   }
 
   public function show(Request $request)
@@ -72,7 +95,7 @@ class PartnerController extends Controller
   {
     $request->validate([
       'name' => 'required|string',
-      'file' => 'required|mimes:jpeg,jpg,png|max:5000', //max 5000 kb
+      'file' => 'nullable|mimes:jpeg,jpg,png|max:5000', //max 5000 kb
       'is_featured' => 'nullable|string|in:true,false',
     ]);
 
@@ -80,14 +103,35 @@ class PartnerController extends Controller
 
     $partner = Partner::find($id);
     $partner->name = $request->name;
-    $partner->media_id = null;
     $partner->is_featured = $request->is_featured == 'true' ? 1 : 0;
     if ($partner->save()) {
 
-      // @TODO: Create media and update media_id
-      //...
+      if ($request->file('file')) {
+        $media = Media::find($partner->media_id);
+        $media->original_name = pathinfo($request->file->getClientOriginalName(), PATHINFO_FILENAME);
+        $media->file_name = "temp";
+        $media->extension = $request->file->getClientOriginalExtension();
+        $media->type = strtok($request->file->getMimeType(), '/');
 
-      return redirect(route('app-partner-list'))->withError(__('messages.success'));
+        if ($media->save()) {
+          $media->file_name =  time() . '_' . $media->id . '.' . $media->extension;
+          $media->save();
+
+          $partner->media_id = $media->id;
+          $partner->save();
+
+          // Upload file to local
+          $path = get_file_upload_path('image-partners', $media->id);
+          $file = $request->file('file');
+          $file->move($path, $media->file_name);
+
+          return redirect(route('app-partner-list'))->withSuccess(__('messages.success'));
+        }
+
+        return redirect(route('app-partner-add'))->withErrors(__('messages.error'));
+      }
+
+      return redirect(route('app-partner-list'))->withSuccess(__('messages.success'));
     }
 
     return redirect(route('app-partner-edit', ['id' => $id]))->withError(__('messages.error'));
