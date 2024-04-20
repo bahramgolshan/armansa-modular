@@ -30,6 +30,10 @@
 @endsection
 
 @section('content')
+    @include('components.msg-success')
+    @include('components.msg-error')
+    @include('components.msg-validation')
+
     <form action="{{ route('app-servicesample-update', ['id' => $serviceSample->id]) }}" enctype="multipart/form-data"
         class="row" id="servicesample-form" method="POST">
         @csrf
@@ -87,7 +91,10 @@
                                 <div class="row mb-3">
                                     <label class="col-sm-2 col-form-label" for="basic-default-file">تصویر</label>
                                     <div class="col-sm-10">
-                                        <div class="fallback">
+                                        <img class="w-50 h-auto"
+                                            src="{{ $serviceSample->media_id ? asset(get_file_upload_path('image-service-samples', $serviceSample->media->id) . $serviceSample->media->file_name) : '' }}"
+                                            alt="">
+                                        <div class="fallback mt-3">
                                             <input name="file" type="file" />
                                         </div>
                                         <small class="text-danger">{{ $errors->first('file') }}</small>
@@ -106,6 +113,7 @@
                                             <input class="form-check-input" type="checkbox" name="is_featured"
                                                 id="defaultCheck3" {{ $serviceSample->is_featured ? 'checked' : '' }} />
                                         </div>
+                                        <small class="text-danger">{{ $errors->first('is_featured') }}</small>
                                     </div>
                                 </div>
                             </div>

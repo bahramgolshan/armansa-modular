@@ -14,6 +14,10 @@
 @endsection
 
 @section('content')
+    @include('components.msg-success')
+    @include('components.msg-error')
+    @include('components.msg-validation')
+
     <div class="row">
         <!-- tag Preview-->
         <div class="col-lg-9 col-12 mb-lg-0 mb-4">

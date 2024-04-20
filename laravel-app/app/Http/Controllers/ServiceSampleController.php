@@ -5,10 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Modules\Website\App\Models\Media;
 use Modules\Website\App\Models\Service;
 use Modules\Website\App\Models\ServiceSample;
 
-class ServicesampleController extends Controller
+class ServiceSampleController extends Controller
 {
   public function index()
   {
@@ -49,8 +50,30 @@ class ServicesampleController extends Controller
 
     if ($serviceSample->save()) {
 
-      // @TODO: Create media and update media_id
-      //...
+      if ($request->file('file')) {
+        $media = new Media();
+        $media->original_name = pathinfo($request->file->getClientOriginalName(), PATHINFO_FILENAME);
+        $media->file_name = "temp";
+        $media->extension = $request->file->getClientOriginalExtension();
+        $media->type = strtok($request->file->getMimeType(), '/');
+
+        if ($media->save()) {
+          $media->file_name =  time() . '_' . $media->id . '.' . $media->extension;
+          $media->save();
+
+          $serviceSample->media_id = $media->id;
+          $serviceSample->save();
+
+          // Upload file to local
+          $path = get_file_upload_path('image-service-samples', $media->id);
+          $file = $request->file('file');
+          $file->move($path, $media->file_name);
+
+          return redirect(route('app-servicesample-list'))->withSuccess(__('messages.success'));
+        }
+
+        return redirect(route('app-servicesample-add'))->withErrors(__('messages.error'));
+      }
 
       return redirect(route('app-servicesample-list'))->withError(__('messages.success'));
     }
@@ -85,20 +108,44 @@ class ServicesampleController extends Controller
   public function update(Request $request)
   {
     $request->validate([
-      'name' => 'required|string',
-      'file' => 'required|mimes:jpeg,jpg,png|max:5000', //max 5000 kb
+      'title' => 'required|string',
+      'file' => 'nullable|mimes:jpeg,jpg,png|max:5000', //max 5000 kb
       'is_featured' => 'nullable|string|in:true,false',
     ]);
 
     $id = Route::current()->parameter('id');
 
     $serviceSample = ServiceSample::find($id);
-    $serviceSample->name = $request->name;
+    $serviceSample->title = $request->title;
     $serviceSample->media_id = null;
     $serviceSample->is_featured = $request->is_featured == 'true' ? 1 : 0;
     if ($serviceSample->save()) {
 
       // @TODO: Create media and update media_id
+      if ($request->file('file')) {
+        $media = Media::find($serviceSample->media_id);
+        $media->original_name = pathinfo($request->file->getClientOriginalName(), PATHINFO_FILENAME);
+        $media->file_name = "temp";
+        $media->extension = $request->file->getClientOriginalExtension();
+        $media->type = strtok($request->file->getMimeType(), '/');
+
+        if ($media->save()) {
+          $media->file_name =  time() . '_' . $media->id . '.' . $media->extension;
+          $media->save();
+
+          $serviceSample->media_id = $media->id;
+          $serviceSample->save();
+
+          // Upload file to local
+          $path = get_file_upload_path('image-service-samples', $media->id);
+          $file = $request->file('file');
+          $file->move($path, $media->file_name);
+
+          return redirect(route('app-servicesample-list'))->withSuccess(__('messages.success'));
+        }
+
+        return redirect(route('app-servicesample-add'))->withErrors(__('messages.error'));
+      }
       //...
 
       return redirect(route('app-servicesample-list'))->withError(__('messages.success'));

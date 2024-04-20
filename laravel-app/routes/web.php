@@ -90,13 +90,13 @@ Route::post('/app/partner/update/{id}', 'App\Http\Controllers\PartnerController@
 Route::post('/app/partner/delete/{id}', 'App\Http\Controllers\PartnerController@destroy')->where('id', '[0-9]+')->name('app-partner-delete');
 
 // servicesample
-Route::get('/app/servicesample/list', 'App\Http\Controllers\ServicesampleController@index')->name('app-servicesample-list');
-Route::get('/app/servicesample/preview/{id}', 'App\Http\Controllers\ServicesampleController@show')->where('id', '[0-9]+')->name('app-servicesample-preview');
-Route::get('/app/servicesample/add', 'App\Http\Controllers\ServicesampleController@create')->name('app-servicesample-add');
-Route::post('/app/servicesample/store', 'App\Http\Controllers\ServicesampleController@store')->name('app-servicesample-store');
-Route::get('/app/servicesample/edit/{id}', 'App\Http\Controllers\ServicesampleController@edit')->where('id', '[0-9]+')->name('app-servicesample-edit');
-Route::post('/app/servicesample/update/{id}', 'App\Http\Controllers\ServicesampleController@update')->where('id', '[0-9]+')->name('app-servicesample-update');
-Route::post('/app/servicesample/delete/{id}', 'App\Http\Controllers\ServicesampleController@destroy')->where('id', '[0-9]+')->name('app-servicesample-delete');
+Route::get('/app/servicesample/list', 'App\Http\Controllers\ServiceSampleController@index')->name('app-servicesample-list');
+Route::get('/app/servicesample/preview/{id}', 'App\Http\Controllers\ServiceSampleController@show')->where('id', '[0-9]+')->name('app-servicesample-preview');
+Route::get('/app/servicesample/add', 'App\Http\Controllers\ServiceSampleController@create')->name('app-servicesample-add');
+Route::post('/app/servicesample/store', 'App\Http\Controllers\ServiceSampleController@store')->name('app-servicesample-store');
+Route::get('/app/servicesample/edit/{id}', 'App\Http\Controllers\ServiceSampleController@edit')->where('id', '[0-9]+')->name('app-servicesample-edit');
+Route::post('/app/servicesample/update/{id}', 'App\Http\Controllers\ServiceSampleController@update')->where('id', '[0-9]+')->name('app-servicesample-update');
+Route::post('/app/servicesample/delete/{id}', 'App\Http\Controllers\ServiceSampleController@destroy')->where('id', '[0-9]+')->name('app-servicesample-delete');
 
 // settings
 Route::get('/app/setting', 'App\Http\Controllers\SettingController@edit')->name('app-setting-edit');

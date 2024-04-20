@@ -32,6 +32,7 @@
 @section('content')
     @include('components.msg-success')
     @include('components.msg-error')
+    @include('components.msg-validation')
 
     <form action="{{ route('app-partner-update', ['id' => $partner->id]) }}" enctype="multipart/form-data" class="row"
         id="partner-form" method="POST">

@@ -16,6 +16,9 @@
 
 
 @section('content')
+    @include('components.msg-success')
+    @include('components.msg-error')
+    @include('components.msg-validation')
     <form class="row" action="{{ route('app-blog-category-update', ['id' => $blogCategory->id]) }}" method="POST">
         @csrf
         <!-- BlogCategory Add-->

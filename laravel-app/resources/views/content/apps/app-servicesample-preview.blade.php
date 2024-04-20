@@ -30,6 +30,10 @@
 @endsection
 
 @section('content')
+    @include('components.msg-success')
+    @include('components.msg-error')
+    @include('components.msg-validation')
+
     <div class="row">
         <!-- ss Preview-->
         <div class="col-lg-9 col-12 mb-lg-0 mb-4">
@@ -44,7 +48,6 @@
                                 <div class="col-sm-6">
                                     <input type="text" name="title" class="form-control" id="basic-default-title"
                                         value="{{ $serviceSample->title }}" placeholder="عنوان" disabled />
-                                    <small class="text-danger">{{ $errors->first('title') }}</small>
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -53,7 +56,6 @@
                                     <input type="text" name="description" class="form-control"
                                         value="{{ $serviceSample->description }}" id="basic-default-description"
                                         placeholder="توضیحات" disabled />
-                                    <small class="text-danger">{{ $errors->first('description') }}</small>
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -61,7 +63,6 @@
                                 <div class="col-sm-6">
                                     <input type="text" name="order" class="form-control" id="basic-default-order"
                                         value="{{ $serviceSample->order }}" placeholder="ترتیب" disabled />
-                                    <small class="text-danger">{{ $errors->first('order') }}</small>
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -70,7 +71,6 @@
                                     <input id="basic-default-service" name="service_id" class="form-control"
                                         value=" {{ __('app.serviceFullName.' . $serviceSample->service->serviceCategory->name . '-' . $serviceSample->service->name) }}"
                                         disabled />
-                                    <small class="text-danger">{{ $errors->first('service_id') }}</small>
                                 </div>
                             </div>
 
@@ -78,10 +78,11 @@
                                 <div class="row mb-3">
                                     <label class="col-sm-2 col-form-label" for="basic-default-file">تصویر</label>
                                     <div class="col-sm-10">
-                                        <div class="fallback">
-                                            <input name="file" type="file" disabled />
-                                        </div>
-                                        <small class="text-danger">{{ $errors->first('file') }}</small>
+                                        <span type="text" class="" id="basic-default-name">
+                                            <img class="w-50 h-auto"
+                                                src="{{ $serviceSample->media_id ? asset(get_file_upload_path('image-service-samples', $serviceSample->media->id) . $serviceSample->media->file_name) : '' }}"
+                                                alt="">
+                                        </span>
                                     </div>
                                 </div>
                             </div>

@@ -122,6 +122,9 @@
 @endsection
 
 @section('content')
+    @include('components.msg-success')
+    @include('components.msg-error')
+    @include('components.msg-validation')
 
     <div class="row invoice-preview">
         <!-- Invoice -->

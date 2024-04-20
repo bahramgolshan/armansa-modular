@@ -14,6 +14,10 @@
 @endsection
 
 @section('content')
+    @include('components.msg-success')
+    @include('components.msg-error')
+    @include('components.msg-validation')
+
     <form class="row" action="{{ route('app-tag-store') }}" method="POST">
         @csrf
         <!-- tag Add-->

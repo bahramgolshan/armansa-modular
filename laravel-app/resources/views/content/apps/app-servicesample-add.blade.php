@@ -30,6 +30,10 @@
 @endsection
 
 @section('content')
+    @include('components.msg-success')
+    @include('components.msg-error')
+    @include('components.msg-validation')
+
     <form action="{{ route('app-servicesample-store') }}" enctype="multipart/form-data" class="row" id="servicesample-form"
         method="POST">
         @csrf
