@@ -241,8 +241,6 @@
                                                     <span class="corner">
                                                         <span class="o-line"></span>
                                                     </span>
-                                                    <span
-                                                        class="d-block">{{ $invoiceDetail->file_name . '.' . $invoiceDetail->extension }}</span>
                                                 </a>
                                             </div>
                                         </div>
