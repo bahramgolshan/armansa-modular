@@ -104,7 +104,7 @@
     @include('components.msg-validation')
 
     <h4 class="fw-bold py-3 mb-4">
-        <span class="text-muted fw-light">لیست /</span> محصولات
+        <span class="text-muted fw-light">محصولات /</span> لیست محصول ها
     </h4>
 
     {{-- add button --}}

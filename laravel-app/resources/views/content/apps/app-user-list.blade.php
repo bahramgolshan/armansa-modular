@@ -32,7 +32,7 @@
     @include('components.msg-validation')
 
     <h4 class="fw-bold py-3 mb-4">
-        <span class="text-muted fw-light">مشتری /</span> لیست مشتری ها
+        <span class="text-muted fw-light">مشتریان /</span> لیست مشتری ها
     </h4>
 
     <!-- User List Table -->

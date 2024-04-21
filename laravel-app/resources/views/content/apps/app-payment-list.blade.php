@@ -32,7 +32,7 @@
     @include('components.msg-validation')
 
     <h4 class="fw-bold py-3 mb-4">
-        <span class="text-muted fw-light">فاکتور /</span> لیست فاکتور ها
+        <span class="text-muted fw-light">فاکتور ها /</span> لیست فاکتور ها
     </h4>
 
     <!-- payment List Table -->

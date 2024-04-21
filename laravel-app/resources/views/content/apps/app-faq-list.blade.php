@@ -92,7 +92,7 @@
     @include('components.msg-error')
     @include('components.msg-validation')
     <h4 class="fw-bold py-3 mb-4">
-        <span class="text-muted fw-light">سوالات /</span> لیست سوالات
+        <span class="text-muted fw-light">سوالات متداول /</span> لیست سوال ها
     </h4>
 
     {{-- add button --}}

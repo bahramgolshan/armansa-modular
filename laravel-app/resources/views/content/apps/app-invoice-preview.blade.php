@@ -300,12 +300,13 @@
                         <span class="d-flex align-items-center justify-content-center text-nowrap"><i
                                 class="mdi mdi-send-outline scaleX-n1-rtl me-1"></i>تایید سفارش</span>
                     </button>
-                    <button class="edit-status btn btn-outline-secondary d-grid w-100 mb-3" data-value="rejected">
+                    <button class="edit-status btn btn-danger d-grid w-100 mb-3" data-value="rejected">
                         رد کردن سفارش
                     </button>
-                    <button class="edit-status btn btn-outline-secondary d-grid w-100 mb-3" data-value="delivered">
+                    <button class="edit-status btn btn-success d-grid w-100 mb-3" data-value="delivered">
                         تحویل شده
                     </button>
+                    <a href="{{ route('app-invoice-list') }}" class="btn btn-outline-secondary d-grid w-100">بازگشت</a>
                 </div>
             </div>
         </div>
