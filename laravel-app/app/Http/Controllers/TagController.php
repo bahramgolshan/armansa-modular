@@ -34,7 +34,7 @@ class TagController extends Controller
     $tag->name = $request->name;
     $tag->slug = $request->slug;
     if ($tag->save()) {
-      return redirect(route('app-tag-list'))->withError(__('messages.success'));
+      return redirect(route('app-tag-list'))->withSuccess(__('messages.success'));
     }
 
     return redirect(route('app-tag-add'))->withError(__('messages.error'));
@@ -75,7 +75,7 @@ class TagController extends Controller
     $tag->name = $request->name;
     $tag->slug = $request->slug;
     if ($tag->save()) {
-      return redirect(route('app-tag-list'))->withError(__('messages.success'));
+      return redirect(route('app-tag-list'))->withSuccess(__('messages.success'));
     }
 
     return redirect(route('app-tag-edit', ['id' => $id]))->withError(__('messages.error'));

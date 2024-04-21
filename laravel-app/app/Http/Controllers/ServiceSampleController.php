@@ -75,7 +75,7 @@ class ServiceSampleController extends Controller
         return redirect(route('app-servicesample-add'))->withErrors(__('messages.error'));
       }
 
-      return redirect(route('app-servicesample-list'))->withError(__('messages.success'));
+      return redirect(route('app-servicesample-list'))->withSuccess(__('messages.success'));
     }
 
     return redirect(route('app-servicesample-add'))->withError(__('messages.error'));
@@ -124,6 +124,7 @@ class ServiceSampleController extends Controller
       // @TODO: Create media and update media_id
       if ($request->file('file')) {
         $media = Media::find($serviceSample->media_id);
+        $media = is_null($media) ? new Media() : $media; //create a media if old value is null
         $media->original_name = pathinfo($request->file->getClientOriginalName(), PATHINFO_FILENAME);
         $media->file_name = "temp";
         $media->extension = $request->file->getClientOriginalExtension();
@@ -148,7 +149,7 @@ class ServiceSampleController extends Controller
       }
       //...
 
-      return redirect(route('app-servicesample-list'))->withError(__('messages.success'));
+      return redirect(route('app-servicesample-list'))->withSuccess(__('messages.success'));
     }
 
     return redirect(route('app-servicesample-edit', ['id' => $id]))->withError(__('messages.error'));

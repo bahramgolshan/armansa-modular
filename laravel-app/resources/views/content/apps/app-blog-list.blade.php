@@ -23,8 +23,8 @@
         function deleteItem(id) {
             const swal = Swal.mixin({
                 customClass: {
-                    confirmButton: "btn btn-success",
-                    cancelButton: "btn btn-danger",
+                    confirmButton: "btn btn-danger",
+                    cancelButton: "btn btn-secondary",
                 },
                 buttonsStyling: false,
             });
@@ -107,9 +107,9 @@
                     <tr>
                         <th>عنوان</th>
                         <th>خلاصه</th>
+                        <th>دسته بندی بلاگ</th>
                         <th>وضعیت</th>
                         <th>ویژه</th>
-                        <th>دسته بندی بلاگ</th>
                         <th class="cell-fit">اقدامات</th>
                     </tr>
                 </thead>
@@ -117,12 +117,12 @@
                     @foreach ($blogPosts as $post)
                         <tr>
                             <td>{{ $post->title }}</td>
-                            <td>{{ $post->summary }}</td>
+                            <td>{{ Str::limit($post->summary, 40) }}</td>
+                            <td>{{ $post->blogCategory->name }}</td>
                             <td><span
                                     class="badge bg-label-{{ $blogPostsStatusColors[$post->status] }} me-1">{{ __('app.blogPostStatus.' . $post->status) }}</span>
                             </td>
                             <td>{{ $post->is_featured ? 'بله' : 'خیر' }}</td>
-                            <td>{{ $post->blogCategory->name }}</td>
                             <td>
                                 <div class="dropdown">
                                     <button type="button" class="btn p-0 dropdown-toggle hide-arrow"

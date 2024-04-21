@@ -82,7 +82,7 @@ class ProductController extends Controller
     $serviceDetail->price = $request->price;
     $serviceDetail->status = $request->status;
     if ($serviceDetail->save()) {
-      return redirect(route('app-product-list'))->withError(__('messages.success'));
+      return redirect(route('app-product-list'))->withSuccess(__('messages.success'));
     }
 
     return redirect(route('app-product-add'))->withError(__('messages.error'));
@@ -158,7 +158,7 @@ class ProductController extends Controller
     $serviceDetail->price = $request->price;
     $serviceDetail->status = $request->status;
     if ($serviceDetail->save()) {
-      return redirect(route('app-product-list'))->withError(__('messages.success'));
+      return redirect(route('app-product-list'))->withSuccess(__('messages.success'));
     }
 
     return redirect(route('app-product-edit', ['id' => $id]))->withError(__('messages.error'));

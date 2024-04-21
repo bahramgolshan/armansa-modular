@@ -34,7 +34,7 @@ class FaqController extends Controller
     $faq->question = $request->question;
     $faq->answer = $request->answer;
     if ($faq->save()) {
-      return redirect(route('app-faq-list'))->withError(__('messages.success'));
+      return redirect(route('app-faq-list'))->withSuccess(__('messages.success'));
     }
 
     return redirect(route('app-faq-add'))->withError(__('messages.error'));
@@ -75,7 +75,7 @@ class FaqController extends Controller
     $faq->question = $request->question;
     $faq->answer = $request->answer;
     if ($faq->save()) {
-      return redirect(route('app-faq-list'))->withError(__('messages.success'));
+      return redirect(route('app-faq-list'))->withSuccess(__('messages.success'));
     }
 
     return redirect(route('app-faq-edit', ['id' => $id]))->withError(__('messages.error'));

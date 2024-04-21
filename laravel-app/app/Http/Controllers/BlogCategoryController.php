@@ -35,7 +35,7 @@ class BlogCategoryController extends Controller
     $blogCategory->slug = $request->slug;
     $blogCategory->description = $request->description;
     if ($blogCategory->save()) {
-      return redirect(route('app-blog-category-list'))->withError(__('messages.success'));
+      return redirect(route('app-blog-category-list'))->withSuccess(__('messages.success'));
     }
 
     return redirect(route('app-blog-category-add'))->withError(__('messages.error'));
@@ -78,7 +78,7 @@ class BlogCategoryController extends Controller
     $blogCategory->slug = $request->slug;
     $blogCategory->description = $request->description;
     if ($blogCategory->save()) {
-      return redirect(route('app-blog-category-list'))->withError(__('messages.success'));
+      return redirect(route('app-blog-category-list'))->withSuccess(__('messages.success'));
     }
 
     return redirect(route('app-blog-category-edit', ['id' => $id]))->withError(__('messages.error'));

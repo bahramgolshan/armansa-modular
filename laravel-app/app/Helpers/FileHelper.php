@@ -18,6 +18,7 @@ if (!function_exists('get_file_upload_path')) {
       "invoice-detail-files" => "storage" . $ds . "invoice-detail" . $ds . "files" . $ds,
       "image-partners" => "assets" . $ds . "images" . $ds . "partners" . $ds,
       "image-service-samples" => "assets" . $ds . "images" . $ds . "service-samples" . $ds,
+      "image-blog-posts" => "assets" . $ds . "images" . $ds . "blog" . $ds . "posts" . $ds,
     ];
 
     $path = "";

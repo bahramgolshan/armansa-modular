@@ -219,15 +219,13 @@
 
                     {{-- <label class="col-sm-2 col-form-label" for="basic-default-name">تصویر</label> --}}
                     <div class="col-sm-12">
-                        <div action="/upload" class="dropzone needsclick" id="dropzone-basic">
-                            <div class="dz-message needsclick">
-                                فایل ها را در اینجا رها کنید یا برای انتخاب فایل کلیک کنید
-                            </div>
-                            <div class="fallback">
-                                <input name="media" type="file" />
-                            </div>
-                            <small class="text-danger">{{ $errors->first('media') }}</small>
-                        </div>
+                        <img class="w-50 h-auto"
+                            src="{{ $blogPost->media_id ? asset(get_file_upload_path('image-blog-posts', $blogPost->media->id) . $blogPost->media->file_name) : '' }}"
+                            alt="">
+                        {{-- <div class="fallback">
+                            <input name="file" type="file" />
+                        </div> --}}
+                        <small class="text-danger">{{ $errors->first('file') }}</small>
                     </div>
                 </div>
             </div>

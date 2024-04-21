@@ -172,6 +172,9 @@ return [
     'price' => 'مبلغ',
     'discount' => 'تخفیف',
     'discount_type' => 'نوع تخفیف',
+
+    'blog_category_id' => 'دسته بندی',
+    'summary ' => 'خلاصه مطلب',
   ],
 
 

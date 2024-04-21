@@ -14,7 +14,7 @@ class CreateBlogPostsTable extends Migration
       $table->increments('id');
       $table->timestamps();
       $table->string('title', 1000);
-      $table->text('content');
+      $table->longText('content');
       $table->string('meta_keyword', 1000)->nullable();
       $table->string('meta_description', 1000)->nullable();
       $table->unsignedInteger('blog_category_id');

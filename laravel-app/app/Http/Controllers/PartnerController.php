@@ -108,6 +108,7 @@ class PartnerController extends Controller
 
       if ($request->file('file')) {
         $media = Media::find($partner->media_id);
+        $media = is_null($media) ? new Media() : $media; //create a media if old value is null
         $media->original_name = pathinfo($request->file->getClientOriginalName(), PATHINFO_FILENAME);
         $media->file_name = "temp";
         $media->extension = $request->file->getClientOriginalExtension();

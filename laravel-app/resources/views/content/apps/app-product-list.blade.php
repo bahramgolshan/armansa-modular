@@ -34,8 +34,8 @@
         function deleteItem(id) {
             const swal = Swal.mixin({
                 customClass: {
-                    confirmButton: "btn btn-success",
-                    cancelButton: "btn btn-danger",
+                    confirmButton: "btn btn-danger",
+                    cancelButton: "btn btn-secondary",
                 },
                 buttonsStyling: false,
             });

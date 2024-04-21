@@ -55,7 +55,6 @@
 @section('content')
     @include('components.msg-success')
     @include('components.msg-error')
-    @include('components.msg-validation')
 
     <form action="{{ route('app-blog-store') }}" enctype="multipart/form-data" class="row" id="blog-post-form"
         method="POST">
@@ -71,12 +70,13 @@
 
                         <div class="row pt-3">
                             <div class="row mb-3">
-                                <label class="col-sm-2 col-form-label" for="basic-default-name">دسته بندی</label>
+                                <label class="col-sm-2 col-form-label" for="blog_category_id">دسته بندی</label>
                                 <div class="col-sm-6">
                                     <select class="select2 form-select" data-allow-clear="true" name="blog_category_id">
                                         <option value="">انتخاب کنید</option>
                                         @foreach ($blogCategories as $item)
-                                            <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                            <option value="{{ $item->id }}" @selected(old('blog_category_id') == $item->id)>
+                                                {{ $item->name }}</option>
                                         @endforeach
                                     </select>
                                     <small class="text-danger">{{ $errors->first('blog_category_id') }}</small>
@@ -86,10 +86,10 @@
 
                         <div class="row pt-3">
                             <div class="row mb-3">
-                                <label class="col-sm-2 col-form-label" for="basic-default-title">عنوان</label>
+                                <label class="col-sm-2 col-form-label" for="title">عنوان</label>
                                 <div class="col-sm-6">
-                                    <input type="text" name="title" class="form-control" id="basic-default-title"
-                                        placeholder="عنوان مطلب" />
+                                    <input type="text" name="title" class="form-control" id="title"
+                                        placeholder="عنوان مطلب" value="{{ old('title') }}" />
                                     <small class="text-danger">{{ $errors->first('title') }}</small>
                                 </div>
                             </div>
@@ -97,20 +97,21 @@
 
                         <div class="row pt-3">
                             <div class="row mb-3">
-                                <label class="col-sm-2 col-form-label" for="basic-default-title">slug</label>
+                                <label class="col-sm-2 col-form-label" for="slug">slug</label>
                                 <div class="col-sm-6">
-                                    <input type="text" name="slug" class="form-control" id="basic-default-slug"
-                                        placeholder="example-post-slug" onfocusout="slugify(this)" />
+                                    <input type="text" name="slug" class="form-control" id="slug"
+                                        placeholder="example-post-slug" onfocusout="slugify(this)"
+                                        value="{{ old('slug') }}" />
                                     <small class="text-muted">لطفا تنها از حروف، اعداد انگلیسی و خط فاصله (-) استفاده
                                         کنید.</small>
-                                    <small class="text-danger">{{ $errors->first('slug') }}</small>
+                                    <small class="text-danger d-block">{{ $errors->first('slug') }}</small>
                                 </div>
                             </div>
                         </div>
 
                         <div class="row pt-3">
                             <div class="row mb-3">
-                                <label class="col-sm-2 col-form-label" for="basic-default-name">کلید واژه</label>
+                                <label class="col-sm-2 col-form-label" for="meta_keyword">کلید واژه</label>
                                 <div class="col-sm-6 mb-4">
                                     <input id="TagifyBasic" class="form-control" name="meta_keyword"
                                         placeholder="tag1, tag2, tag3" />
@@ -123,30 +124,31 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label" for="basic-default-message">توضیحات متا</label>
+                            <label class="col-sm-2 col-form-label" for="meta_description">توضیحات متا</label>
                             <div class="col-sm-10">
-                                <textarea id="basic-default-message" class="form-control" placeholder="توضیحات متا" aria-label="توضیحات متا"
-                                    aria-describedby="basic-icon-default-message2" name="meta_description"></textarea>
+                                <textarea id="meta_description" class="form-control" placeholder="توضیحات متا" aria-label="توضیحات متا"
+                                    aria-describedby="basic-icon-default-message2" name="meta_description">{{ old('meta_description') }}</textarea>
                                 <small class="text-danger">{{ $errors->first('meta_description') }}</small>
                             </div>
                         </div>
 
                         <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label" for="basic-default-message">وضعیت</label>
+                            <label class="col-sm-2 col-form-label" for="status">وضعیت</label>
                             <div class="col-sm-10 d-flex align-items-center flex-wrap pt-2">
 
                                 <div class="col-sm-9">
                                     <div class="form-check mb-2">
                                         <input name="status" class="form-check-input" type="radio" value="publish"
-                                            id="collapsible-addressType-home" checked />
-                                        <label class="form-check-label" for="collapsible-addressType-home">فعال</label>
+                                            id="blog-post-publish" {{ old('status') == 'publish' ? 'checked' : '' }} />
+                                        <label class="form-check-label" for="blog-post-publish">انتشار</label>
                                     </div>
                                     <div class="form-check">
                                         <input name="status" class="form-check-input" type="radio" value="draft"
-                                            id="collapsible-addressType-office" />
-                                        <label class="form-check-label" for="collapsible-addressType-office">غیر
-                                            فعال</label>
+                                            id="blog-post-draft" {{ old('status') == 'draft' ? 'checked' : '' }} />
+                                        <label class="form-check-label" for="blog-post-draft">پیش
+                                            نویس</label>
                                     </div>
+                                    <small class="text-danger">{{ $errors->first('status') }}</small>
                                 </div>
                             </div>
                         </div>
@@ -158,14 +160,17 @@
                                 <div class="col-sm-9">
                                     <div class="form-check mb-2">
                                         <input name="allow_comments" class="form-check-input" type="radio"
-                                            value="true" id="allow_comments-active" checked />
+                                            value="true" id="allow_comments-active"
+                                            {{ old('allow_comments') == 'true' ? 'checked' : '' }} />
                                         <label class="form-check-label" for="allow_comments-active">دارد</label>
                                     </div>
                                     <div class="form-check">
                                         <input name="allow_comments" class="form-check-input" type="radio"
-                                            value="false" id="allow_comments-inactive" />
+                                            value="false"
+                                            id="allow_comments-inactive"{{ old('allow_comments') == 'false' ? 'checked' : '' }} />
                                         <label class="form-check-label" for="allow_comments-inactive">ندارد</label>
                                     </div>
+                                    <small class="text-danger">{{ $errors->first('allow_comments') }}</small>
                                 </div>
                             </div>
                         </div>
@@ -177,7 +182,9 @@
                                 <div class="col-sm-9">
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" name="is_featured"
-                                            id="defaultCheck3" checked />
+                                            id="defaultCheck3" value="true"
+                                            {{ old('is_featured') == 'true' ? 'checked' : '' }} />
+                                        <small class="text-danger">{{ $errors->first('is_featured') }}</small>
                                     </div>
                                 </div>
                             </div>
@@ -196,11 +203,9 @@
                 <h5 class="card-header">ویرایشگر بلاگ</h5>
                 <div class="card-body">
                     <div id="full-editor">
-                        {{-- <h6>Quill Rich Text Editor</h6>
-                        <p> Cupcake ipsum dolor sit amet. Halvah cheesecake chocolate bar gummi bears cupcake. Pie macaroon
-                            bear claw. Soufflé I love candy canes I love cotton candy I love. </p> --}}
+                        {!! old('content') !!}
                     </div>
-                    <small class="text-danger">{{ $errors->first('service_id') }}</small>
+                    <small class="text-danger">{{ $errors->first('content') }}</small>
                 </div>
             </div>
         </div>
@@ -215,7 +220,7 @@
                         {{-- <label class="col-sm-2 col-form-label" for="basic-default-message">خلاصه</label> --}}
                         <div class="col-sm-12">
                             <textarea id="basic-default-message" class="form-control" placeholder="خلاصه بلاگ" aria-label="خلاصه بلاگ"
-                                aria-describedby="basic-icon-default-message2" name="summary"></textarea>
+                                aria-describedby="basic-icon-default-message2" name="summary">{{ old('summary') }}</textarea>
                             <small class="text-danger">{{ $errors->first('summary') }}</small>
                         </div>
                     </div>
@@ -232,15 +237,10 @@
 
                     {{-- <label class="col-sm-2 col-form-label" for="basic-default-name">تصویر</label> --}}
                     <div class="col-sm-12">
-                        <div action="/upload" class="dropzone needsclick" id="dropzone-basic">
-                            <div class="dz-message needsclick">
-                                فایل ها را در اینجا رها کنید یا برای انتخاب فایل کلیک کنید
-                            </div>
-                            <div class="fallback">
-                                <input name="media" type="file" />
-                            </div>
-                            <small class="text-danger">{{ $errors->first('media') }}</small>
+                        <div class="fallback">
+                            <input name="file" type="file" />
                         </div>
+                        <small class="text-danger">{{ $errors->first('file') }}</small>
                     </div>
                 </div>
             </div>
