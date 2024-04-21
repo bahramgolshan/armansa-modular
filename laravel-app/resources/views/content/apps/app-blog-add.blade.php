@@ -38,6 +38,17 @@
                 $(('input[name="is_featured"]')).val(isFeatured)
             });
         });
+
+
+        function slugify(object) {
+            const slug = object.value
+                .toLowerCase()
+                .trim()
+                .replace(/[^\w\s-]/g, '')
+                .replace(/[\s_-]+/g, '-')
+                .replace(/^-+|-+$/g, '');
+            $(object).val(slug)
+        }
     </script>
 @endsection
 
@@ -86,10 +97,12 @@
 
                         <div class="row pt-3">
                             <div class="row mb-3">
-                                <label class="col-sm-2 col-form-label" for="basic-default-title">url</label>
+                                <label class="col-sm-2 col-form-label" for="basic-default-title">slug</label>
                                 <div class="col-sm-6">
                                     <input type="text" name="slug" class="form-control" id="basic-default-slug"
-                                        placeholder="url" />
+                                        placeholder="example-post-slug" onfocusout="slugify(this)" />
+                                    <small class="text-muted">لطفا تنها از حروف، اعداد انگلیسی و خط فاصله (-) استفاده
+                                        کنید.</small>
                                     <small class="text-danger">{{ $errors->first('slug') }}</small>
                                 </div>
                             </div>
@@ -99,7 +112,10 @@
                             <div class="row mb-3">
                                 <label class="col-sm-2 col-form-label" for="basic-default-name">کلید واژه</label>
                                 <div class="col-sm-6 mb-4">
-                                    <input id="TagifyBasic" class="form-control" name="meta_keyword" value="" />
+                                    <input id="TagifyBasic" class="form-control" name="meta_keyword"
+                                        placeholder="tag1, tag2, tag3" />
+                                    <small class="text-muted">
+                                        لطفا با استفاده از کاما (،) کلیدواژه ها را تفکیک کنید.</small>
                                     <small class="text-danger">{{ $errors->first('meta_keyword') }}</small>
                                 </div>
 
