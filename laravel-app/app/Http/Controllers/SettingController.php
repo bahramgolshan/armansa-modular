@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Modules\Website\App\Models\Setting;
+use App\Models\Setting;
 
 class SettingController extends Controller
 {
@@ -12,7 +12,7 @@ class SettingController extends Controller
   {
     $settings = Setting::pluck('value', 'key')->toArray();
 
-    return view('content.pages.setting', [
+    return view('content.apps.app-setting', [
       'settings' => $settings,
     ]);
   }
@@ -39,13 +39,9 @@ class SettingController extends Controller
       "address" => 'nullable|string',
     ]);
 
-    $i = 0;
+
     foreach ($request->all() as $key => $value) {
-      if ($i == 5) {
-        dd($key, $value);
-      }
       Setting::where('key', $key)->update(['value' => $value]);
-      // $i++;
     }
 
     return redirect(route('app-setting-edit'))->withSuccess(__('messages.success'));

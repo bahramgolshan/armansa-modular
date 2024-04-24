@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Validation\Rule;
-use Modules\Website\App\Models\BlogCategory;
-use Modules\Website\App\Models\BlogPost;
-use Modules\Website\App\Models\Media;
+use App\Models\BlogCategory;
+use App\Models\BlogPost;
+use App\Models\Media;
 use Symfony\Component\Console\Input\Input;
 use Stevebauman\Purify\Facades\Purify;
 

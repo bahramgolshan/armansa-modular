@@ -1,5 +1,5 @@
 @php
-    $settings = Modules\Website\App\Models\Setting::where('key', 'websiteMetaDescriptions')
+    $settings = App\Models\Setting::where('key', 'websiteMetaDescriptions')
         ->orWhere('key', 'websiteMetaTags')
         ->orWhere('key', 'websiteTitle')
         ->orWhere('key', 'address')

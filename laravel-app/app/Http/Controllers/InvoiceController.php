@@ -6,9 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Validation\Rule;
-use Modules\Website\App\Models\Invoice;
-use Modules\Website\App\Models\InvoiceDetail;
-use Modules\Website\App\Models\Payment;
+use App\Models\Invoice;
+use App\Models\InvoiceDetail;
+use App\Models\Payment;
 
 class InvoiceController extends Controller
 {

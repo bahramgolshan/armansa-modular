@@ -6,8 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Customer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use Modules\Website\App\Models\Invoice;
-use Modules\Website\App\Models\Payment;
+use App\Models\Invoice;
+use App\Models\Payment;
 
 class CustomerController extends Controller
 {

@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use Modules\Website\App\Models\Media;
-use Modules\Website\App\Models\Partner;
+use App\Models\Media;
+use App\Models\Partner;
 
 class PartnerController extends Controller
 {

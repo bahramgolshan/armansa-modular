@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use Modules\Website\App\Models\Media;
-use Modules\Website\App\Models\Service;
-use Modules\Website\App\Models\ServiceSample;
+use App\Models\Media;
+use App\Models\Service;
+use App\Models\ServiceSample;
 
 class ServiceSampleController extends Controller
 {

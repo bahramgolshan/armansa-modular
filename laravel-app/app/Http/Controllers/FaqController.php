@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use Modules\Website\App\Models\Faq;
+use App\Models\Faq;
 
 class FaqController extends Controller
 {

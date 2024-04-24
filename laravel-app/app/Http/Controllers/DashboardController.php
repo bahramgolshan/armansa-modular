@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Modules\Website\App\Models\Invoice;
+use App\Models\Invoice;
 
 class DashboardController extends Controller
 {

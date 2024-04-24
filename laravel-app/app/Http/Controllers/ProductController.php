@@ -6,15 +6,15 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Validation\Rule;
-use Modules\Website\App\Models\Binding;
-use Modules\Website\App\Models\BindingDirection;
-use Modules\Website\App\Models\Cellophane;
-use Modules\Website\App\Models\Color;
-use Modules\Website\App\Models\Cover;
-use Modules\Website\App\Models\Paper;
-use Modules\Website\App\Models\Service;
-use Modules\Website\App\Models\ServiceDetail;
-use Modules\Website\App\Models\Size;
+use App\Models\Binding;
+use App\Models\BindingDirection;
+use App\Models\Cellophane;
+use App\Models\Color;
+use App\Models\Cover;
+use App\Models\Paper;
+use App\Models\Service;
+use App\Models\ServiceDetail;
+use App\Models\Size;
 
 class ProductController extends Controller
 {
