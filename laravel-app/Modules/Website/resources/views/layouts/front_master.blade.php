@@ -1,5 +1,5 @@
 @php
-    $settings = App\Models\Setting::where('key', 'websiteMetaDescriptions')
+    $generalSettings = App\Models\Setting::where('key', 'websiteMetaDescriptions')
         ->orWhere('key', 'websiteMetaTags')
         ->orWhere('key', 'websiteTitle')
         ->orWhere('key', 'address')
@@ -14,7 +14,7 @@
         ->toArray();
 
     // convert websiteMetaTags to a tags string
-    $jsonString = $settings['websiteMetaTags'];
+    $jsonString = $generalSettings['websiteMetaTags'];
     $array = json_decode($jsonString, true);
     $values = array_map(function ($item) {
         return $item['value'];
@@ -35,7 +35,7 @@
     <meta name="author" content="@yield('meta_author', config('app.name'))">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ $settings['websiteTitle'] }}</title>
+    <title>{{ $generalSettings['websiteTitle'] }}</title>
     <!-- <link href="https://cdn.jsdelivr.net/npm/daisyui@4.6.1/dist/full.min.css" rel="stylesheet" type="text/css" /> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
