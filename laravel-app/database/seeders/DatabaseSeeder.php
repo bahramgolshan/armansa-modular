@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
   public function run(): void
   {
     $this->call([
-      // WebsiteDatabaseSeeder::class,
+      AdminSeeder::class,
       ServiceCategorySeeder::class,
       ServiceSeeder::class,
       SettingSeeder::class,
@@ -26,6 +26,8 @@ class DatabaseSeeder extends Seeder
       SizeSeeder::class,
       FaqSeeder::class,
       AchievementSeeder::class,
+
+      // WebsiteDatabaseSeeder::class,
     ]);
   }
 }
