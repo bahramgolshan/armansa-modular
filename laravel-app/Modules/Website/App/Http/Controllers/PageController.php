@@ -61,8 +61,6 @@ class PageController extends Controller
   // درباره ما
   public function about()
   {
-    return view('website::pages.static_page_text');
-
     return view('website::pages.about');
   }
 
