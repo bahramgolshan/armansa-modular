@@ -149,12 +149,15 @@
                                         <li class="flex justify-center max-w-[9rem] lg:max-w-[10rem]">
                                             <input type="radio" id="binding-direction-extra-small"
                                                 name="binding-direction" value="fa_v"
-                                                class="reset-preview hidden peer" required checked/>
+                                                class="reset-preview hidden peer" required checked />
                                             <label for="binding-direction-extra-small"
                                                 class="flex flex-col justify-between w-[100%] h-[7.6875rem] border-[#3C4999] cursor-pointer"
                                                 for="">
-                                                <div class="h-[77%] border-[1px] border-[#3C4999] rounded-t-[0.4375rem] w-[100%]">
-                                                    <img class="w-[100%] h-[100%]" src="{{ asset('assets/modules/website/images/icon/Fa_V.svg') }}" alt="" />
+                                                <div
+                                                    class="h-[77%] border-[1px] border-[#3C4999] rounded-t-[0.4375rem] w-[100%]">
+                                                    <img class="w-[100%] h-[100%]"
+                                                        src="{{ asset('assets/modules/website/images/icon/Fa_V.svg') }}"
+                                                        alt="" />
                                                 </div>
                                                 <span
                                                     class="block w-[100%] text-[0.875rem] h-[23%] leading-[1.5rem] text-center rounded-b-[0.4375rem] border-x-[1px] border-b-[1px] border-[#3C4999]">
@@ -169,8 +172,11 @@
                                             <label for="binding-direction-small"
                                                 class="flex flex-col justify-between w-[100%] h-[7.6875rem] border-[#3C4999] cursor-pointer"
                                                 for="">
-                                                <div class="h-[77%] border-[1px] border-[#3C4999] rounded-t-[0.4375rem] w-[100%]">
-                                                    <img class="w-[100%] h-[100%]" src="{{ asset('assets/modules/website/images/icon/Fa_H.svg') }}" alt="" />
+                                                <div
+                                                    class="h-[77%] border-[1px] border-[#3C4999] rounded-t-[0.4375rem] w-[100%]">
+                                                    <img class="w-[100%] h-[100%]"
+                                                        src="{{ asset('assets/modules/website/images/icon/Fa_H.svg') }}"
+                                                        alt="" />
                                                 </div>
                                                 <span
                                                     class="block w-[100%] text-[0.875rem] h-[23%] leading-[1.5rem] text-center rounded-b-[0.4375rem] border-x-[1px] border-b-[1px] border-[#3C4999]">
@@ -185,8 +191,11 @@
                                             <label for="binding-direction-medium"
                                                 class="flex flex-col justify-between w-[100%] h-[7.6875rem] border-[#3C4999] cursor-pointer"
                                                 for="">
-                                                <div class="h-[77%] border-[1px] border-[#3C4999] rounded-t-[0.4375rem] w-[100%]">
-                                                    <img class="w-[100%] h-[100%]" src="{{ asset('assets/modules/website/images/icon/En_V.svg') }}" alt="" />
+                                                <div
+                                                    class="h-[77%] border-[1px] border-[#3C4999] rounded-t-[0.4375rem] w-[100%]">
+                                                    <img class="w-[100%] h-[100%]"
+                                                        src="{{ asset('assets/modules/website/images/icon/En_V.svg') }}"
+                                                        alt="" />
                                                 </div>
                                                 <span
                                                     class="block w-[100%] text-[0.875rem] h-[23%] leading-[1.5rem] text-center rounded-b-[0.4375rem] border-x-[1px] border-b-[1px] border-[#3C4999]">
@@ -196,12 +205,15 @@
                                         </li>
                                         <li class="flex justify-center max-w-[9rem] lg:max-w-[10rem]">
                                             <input type="radio" id="binding-direction-big" name="binding-direction"
-                                                value="en_h" class="reset-preview hidden peer" required/>
+                                                value="en_h" class="reset-preview hidden peer" required />
                                             <label for="binding-direction-big"
                                                 class="lex flex-col justify-between w-[100%] h-[7.6875rem] border-[#3C4999] cursor-pointer"
                                                 for="">
-                                                <div class="h-[77%] border-[1px] border-[#3C4999] rounded-t-[0.4375rem] w-[100%]">
-                                                    <img class="w-[100%] h-[100%]" src="{{ asset('assets/modules/website/images/icon/En_H.svg') }}" alt="" />
+                                                <div
+                                                    class="h-[77%] border-[1px] border-[#3C4999] rounded-t-[0.4375rem] w-[100%]">
+                                                    <img class="w-[100%] h-[100%]"
+                                                        src="{{ asset('assets/modules/website/images/icon/En_H.svg') }}"
+                                                        alt="" />
                                                 </div>
                                                 <span
                                                     class="block w-[100%] text-[0.875rem] h-[23%] leading-[1.5rem] text-center rounded-b-[0.4375rem] border-x-[1px] border-b-[1px] border-[#3C4999]">
@@ -246,13 +258,14 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="flex flex-col md:flex-row gap-[1rem] justify-center lg:mt-[4rem] col-span-1 lg:col-span-5">
+                        <div
+                            class="flex flex-col md:flex-row gap-[1rem] justify-center lg:mt-[4rem] col-span-1 lg:col-span-5">
                             <button type="button" id="price-inquiry-btn"
                                 class="text-[1.5rem] py-[.5rem] px-[2rem] bg-transparent rounded-lg text-[--primary-color] border-[--primary-color] border-2">
                                 محاسبه قیمت
                             </button>
                             <a class="text-[1.5rem] text-center bg-[--primary-color] text-white py-[.5rem] px-[3rem] rounded-lg "
-                                href="{{ route('service.print.digital-print') }}">
+                                href="{{ route('service.print.digital') }}">
                                 ثبت سفارش </a>
                         </div>
                         <div id="digital-print-form-error-box" class="hidden mt-[1rem]"></div>
@@ -272,18 +285,18 @@
             </label>
             <div class="custom-tab p-[3rem] text-[--primary-color]">
                 <p class="xl:text-[1.5rem] md:text-[1.2rem] text-[1rem]">
-                  جهت دریافت مشاوره رایگان و همچنین ثبت سفارش چاپ آفست، با مشاوران آرمانسا تماس بگیرید.
+                    جهت دریافت مشاوره رایگان و همچنین ثبت سفارش چاپ آفست، با مشاوران آرمانسا تماس بگیرید.
                 </p>
                 <div class="mt-[1rem] flex flex-col gap-[0.6rem]">
-                  <div class="xl:text-[1.5rem] md:text-[1.2rem] text-[1rem]">
-                    ۰۲۱<span class="mx-[0.4rem]">-</span>۶۶۹۵۰۰۲۱
-                  </div>
-                  <div class="xl:text-[1.5rem] md:text-[1.2rem] text-[1rem]">
-                    ۰۲۱<span class="mx-[0.4rem]">-</span>۶۶۹۵۰۲۱۲
-                  </div>
-                  <div class="xl:text-[1.5rem] md:text-[1.2rem] text-[1rem]">
-                    ۰۲۱<span class="mx-[0.4rem]">-</span>۶۶۴۹۴۶۵۲
-                  </div>
+                    <div class="xl:text-[1.5rem] md:text-[1.2rem] text-[1rem]">
+                        ۰۲۱<span class="mx-[0.4rem]">-</span>۶۶۹۵۰۰۲۱
+                    </div>
+                    <div class="xl:text-[1.5rem] md:text-[1.2rem] text-[1rem]">
+                        ۰۲۱<span class="mx-[0.4rem]">-</span>۶۶۹۵۰۲۱۲
+                    </div>
+                    <div class="xl:text-[1.5rem] md:text-[1.2rem] text-[1rem]">
+                        ۰۲۱<span class="mx-[0.4rem]">-</span>۶۶۴۹۴۶۵۲
+                    </div>
                 </div>
             </div>
         </div>
@@ -347,7 +360,7 @@
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
-                url: "{!! route('service.print.digital-print.inquiry') !!}",
+                url: "{!! route('service.print.digital.inquiry') !!}",
                 data: data,
                 success: function(response) {
                     if (response.price) {

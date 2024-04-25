@@ -252,7 +252,7 @@
                                 محاسبه قیمت
                             </button>
                             <a class="text-[1.5rem] bg-[--primary-color] text-white py-[.5rem] px-[3rem] mx-[1rem] rounded-lg "
-                                href="{{ route('service.print.digital-print') }}">
+                                href="{{ route('service.print.digital') }}">
                                 ثبت سفارش </a>
                         </div>
                         <div id="digital-print-form-error-box" class="lg:mt-[4rem] col-span-1 lg:col-span-5"></div>
@@ -358,7 +358,7 @@
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
-                url: "{!! route('service.print.digital-print.inquiry') !!}",
+                url: "{!! route('service.print.digital.inquiry') !!}",
                 data: data,
                 success: function(response) {
                     if (response.price) {

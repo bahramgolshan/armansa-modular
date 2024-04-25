@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -37,16 +38,16 @@ class AuthController extends Controller
       'password' => $check['password'],
     ];
 
-    if (Auth::guard('admin')->attempt($data)) {
-      return redirect()->route('app-dashboard')->with('success', 'Login Successfull');
+    if (Auth::attempt($data)) {
+      return redirect()->route('dashboard.index')->with('success', 'Login Successfull');
     } else {
-      return redirect()->route('app-login')->with('error', 'Invalid Credentials');
+      return redirect()->route('login')->with('error', 'Invalid Credentials');
     }
   }
 
   public function logoutSubmit(Request $request): RedirectResponse
   {
-    Auth::guard('admin')->logout();
+    Auth::logout();
 
     $request->session()->invalidate();
 

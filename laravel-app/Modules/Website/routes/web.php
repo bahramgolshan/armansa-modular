@@ -46,7 +46,7 @@ Route::get('/blogs', "BlogController@index");
 Route::get('/blogs/post/{id}', "BlogController@show");
 
 // Service Inquiry
-Route::get('/services/print/digital-print/inquiry', "InvoiceDetailController@inquiry")->name('service.print.digital-print.inquiry'); // Check price button
+Route::get('/services/print/digital-print/inquiry', "InvoiceDetailController@inquiry")->name('service.print.digital.inquiry'); // Check price button
 
 
 /*
@@ -54,7 +54,7 @@ Route::get('/services/print/digital-print/inquiry', "InvoiceDetailController@inq
 | Website Routes - After Authentication
 |--------------------------------------------------------------------------
 */
-Route::middleware('guest')->prefix('dashboard')->group(function () {
+Route::middleware('auth')->prefix('dashboard')->group(function () {
 
   Route::get('/', 'DashboardController@index')->name('dashboard.index');
 
