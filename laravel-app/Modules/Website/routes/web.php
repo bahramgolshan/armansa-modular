@@ -20,13 +20,13 @@ Route::get('/services/print/digital', "PageController@printDigital")->name('serv
 
 Route::get('/services/print/offset', "PageController@printOffset")->name('service.print.offset'); // چاپ افست
 
-Route::get('/services/publication', "PageController@pubication")->name('service.pubication'); // خدمات نشر
+Route::get('/services/publication', "PageController@publication")->name('service.publication'); // خدمات نشر
 
-Route::get('/services/publication/permission', "PageController@pubPermission")->name('service.pubication.permission'); // اخذ مجوز چاپ
+Route::get('/services/publication/permission', "PageController@pubPermission")->name('service.publication.permission'); // اخذ مجوز چاپ
 
-Route::get('/services/publication/layout', "PageController@pubLayout")->name('service.pubication.layout'); // صفحه آرایی
+Route::get('/services/publication/layout', "PageController@pubLayout")->name('service.publication.layout'); // صفحه آرایی
 
-Route::get('/services/publication/editing', "PageController@pubEditing")->name('service.pubication.editing'); // ویراستاری
+Route::get('/services/publication/editing', "PageController@pubEditing")->name('service.publication.editing'); // ویراستاری
 
 Route::get('/services/lithography', "PageController@lithography")->name('service.lithography'); // لیتوگرافی
 

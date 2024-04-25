@@ -48,7 +48,7 @@ class PageController extends Controller
     $digitalPrintData['cellophanes'] = Cellophane::all();
     $digitalPrintData['covers'] = Cover::all();
 
-    return view('website::pages.index', compact(
+    return view('website::pages.home', compact(
       'achievements',
       'serviceSamples',
       'faqs',
@@ -61,6 +61,8 @@ class PageController extends Controller
   // درباره ما
   public function about()
   {
+    return view('website::pages.static_page_text');
+
     return view('website::pages.about');
   }
 
@@ -97,9 +99,9 @@ class PageController extends Controller
   }
 
   // خدمات نشر
-  public function pubication()
+  public function publication()
   {
-    return view('website::pages.pubication');
+    return view('website::pages.publication');
   }
 
   // اخذ مجوز چاپ

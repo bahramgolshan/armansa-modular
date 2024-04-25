@@ -54,7 +54,7 @@
             class="hidden primary-container text-white w-[100%] py-[12px] lg:flex md:mx-auto lg:mx-auto lg:flex lg:items-center lg:space-x-6">
             <li><a href="{{ route('service.print') }}" class="text-sm ml-3">خدمات چاپ</a></li>
             <li class="w-[0.3rem] h-[0.3rem] bg-white rotate-45"></li>
-            <li><a href="{{ route('service.pubication') }}" class="text-sm">خدمات‌‌‌‌‌‌‌‌‌‌ نشر </a></li>
+            <li><a href="{{ route('service.publication') }}" class="text-sm">خدمات‌‌‌‌‌‌‌‌‌‌ نشر </a></li>
             <li class="w-[0.3rem] h-[0.3rem] bg-white rotate-45"></li>
             <li><a href="{{ route('service.lithography') }}" class="text-sm">لیتوگرافی</a></li>
             <li class="w-[0.3rem] h-[0.3rem] bg-white rotate-45"></li>
@@ -102,16 +102,16 @@
             </div>
             <ul class="pr-4 mt-2 hidden group-[.selected]:block">
                 <li class="mb-3">
-                    <a href="{{ route('service.pubication.permission') }}"
+                    <a href="{{ route('service.publication.permission') }}"
                         class="text-gray-300 text-white font-normal flex items-center hover:text-gray-100">اخذ مجوز
                         چاپ</a>
                 </li>
                 <li class="mb-3">
-                    <a href="{{ route('service.pubication.layout') }}"
+                    <a href="{{ route('service.publication.layout') }}"
                         class="text-gray-300 text-white font-normal flex items-center hover:text-gray-100">صفحه‌آرایی</a>
                 </li>
                 <li class="mb-3">
-                    <a href="{{ route('service.pubication.editing') }}"
+                    <a href="{{ route('service.publication.editing') }}"
                         class="text-gray-300 text-white font-normal flex items-center hover:text-gray-100">ویراستاری</a>
                 </li>
             </ul>

@@ -58,18 +58,18 @@
             </div>
             <div class="flex flex-col">
                 <h3 class="text-[18px] lg:text-[22px] xl:text-[24px] font-bold my-[0.5rem]">
-                    <a href="{{ route('service.pubication') }}">خدمات نشر</a>
+                    <a href="{{ route('service.publication') }}">خدمات نشر</a>
                 </h3>
                 <ul
                     class="flex flex-row flex-wrap sm:flex-nowrap sm:flex-col gap-[0.8rem] lg:text-[17px] xl:text-[20px] mt-[0rem] sm:mt-[0.5rem]">
                     <li>
-                        <a href="{{ route('service.pubication.permission') }}">اخذ مجوز چاپ</a>
+                        <a href="{{ route('service.publication.permission') }}">اخذ مجوز چاپ</a>
                     </li>
                     <li>
-                        <a href="{{ route('service.pubication.layout') }}">صفحه‌ آرایی</a>
+                        <a href="{{ route('service.publication.layout') }}">صفحه‌ آرایی</a>
                     </li>
                     <li>
-                        <a href="{{ route('service.pubication.editing') }}">ویراستاری</a>
+                        <a href="{{ route('service.publication.editing') }}">ویراستاری</a>
                     </li>
                 </ul>
             </div>

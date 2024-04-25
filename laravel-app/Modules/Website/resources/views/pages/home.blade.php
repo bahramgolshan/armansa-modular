@@ -2,7 +2,7 @@
 
  @section('content')
      @include('website::partials.hero')
-     @include('website::partials.level_image_home')
+     {{-- @include('website::partials.level_image_home') --}}
      @include('website::partials.services_navigation')
      @include('website::partials.aboutus')
      @include('website::partials.statistics_home')
