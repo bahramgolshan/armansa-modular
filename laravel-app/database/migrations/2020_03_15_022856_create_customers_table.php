@@ -15,14 +15,14 @@ return new class extends Migration
       $table->increments('id');
       $table->string('first_name', 100);
       $table->string('last_name', 100);
-      $table->string('national_code', 15)->unique();
+      $table->string('national_code', 15)->unique()->nullable();
       $table->string('mobile', 15)->unique();
       $table->string('email', 150)->unique()->nullable();
       $table->timestamp('email_verified_at')->nullable();
       $table->enum('gender', ['male', 'female']);
       $table->string('address');
-      $table->integer('province_id');
-      $table->integer('city_id');
+      $table->integer('province_id')->nullable();
+      $table->integer('city_id')->nullable();
       $table->integer('password');
       $table->rememberToken();
       $table->timestamps();

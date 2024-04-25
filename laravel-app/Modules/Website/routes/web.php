@@ -54,19 +54,21 @@ Route::get('/services/print/digital-print/inquiry', "InvoiceDetailController@inq
 | Website Routes - After Authentication
 |--------------------------------------------------------------------------
 */
-Route::group([
-  'middleware' => ['auth']
-], function () {
-  Route::get('/services', function () {
-    return view('website::pages.services');
-  });
-  Route::get('/services/print/digital-print', "InvoiceController@create")->name('service.print.digital-print');
-  Route::get('/customers-dashboard', function () {
-    return view('website::pages.customers_dashboard');
-  });
-  Route::get('/show-details', function () {
-    return view('website::pages.show_details');
-  });
+Route::middleware('guest')->prefix('dashboard')->group(function () {
+
+  Route::get('/', 'DashboardController@index')->name('dashboard.index');
+
+  Route::get('/profile', 'DashboardController@profile')->name('dashboard.profile');
+
+  Route::get('/cart', 'DashboardController@cart')->name('dashboard.cart');
+
+  Route::get('/orders', 'DashboardController@orders')->name('dashboard.orders');
+
+  Route::get('/unsuccessful', 'DashboardController@unsuccessful')->name('dashboard.unsuccessful');
+
+  Route::get('/successful', 'DashboardController@successful')->name('dashboard.successful');
+
+  Route::get('/empty-cart', 'DashboardController@emptyCart')->name('dashboard.empty-cart');
 });
 
 require __DIR__ . '/auth.php';

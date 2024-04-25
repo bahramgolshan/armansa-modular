@@ -7,7 +7,7 @@
          </div>
          <div class="p-4 md:p-5">
              <div>
-                 <form class="h-[100%] flex flex-col justify-around items-center" action="{{ route('login.otp') }}"
+                 <form class="h-[100%] flex flex-col justify-around items-center" action="{{ route('login-submit') }}"
                      method="POST">
                      @csrf
                      <div class="flex gap-[1rem] justify-center items-center my-5">

@@ -7,7 +7,7 @@
             </h1>
         </div>
         <div class="mx-auto grid grid-cols-1 lg:gap-x-8 gap-y-8 lg:grid-cols-5 xl:gap-x-9">
-            @include('front/partials/customer_dashboard_sidebar')
+            @include('website::partials.customer_dashboard_sidebar')
             <div
                 class="border-gray-300 border-2 col-span-1 lg:col-span-4 gap-[2rem] bg-white rounded-lg shadow-[-2px_2px_8px_1px_rgba(0,0,0,0.15)]">
                 <div class="flex flex-col justify-around items-center gap-y-3 p-9">

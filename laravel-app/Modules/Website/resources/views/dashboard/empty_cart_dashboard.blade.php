@@ -1,7 +1,7 @@
  @extends('website::layouts.front_master')
 
  @section('content')
-     @include('website::partials.bread_crumb')
+     {{-- @include('website::partials.bread_crumb') --}}
      @include('website::partials.contacts_dashboard')
      @include('website::partials.cart_dashboard')
      @include('website::partials.orders_dashboard')
