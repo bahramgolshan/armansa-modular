@@ -145,9 +145,9 @@ class PageController extends Controller
   }
 
   // سررسید
-  public function diary()
+  public function calendar()
   {
-    return view('website::pages.diary');
+    return view('website::pages.calendar');
   }
 
   // نمونه کارها

@@ -52,17 +52,17 @@
     <section class="bg-[#3C4999] custom-padding">
         <ul
             class="hidden primary-container text-white w-[100%] py-[12px] lg:flex md:mx-auto lg:mx-auto lg:flex lg:items-center lg:space-x-6">
-            <li><a href="{{ route('service.print') }}" class="text-sm ml-3">خدمات چاپ</a></li>
+            <li><a href="{{ route('page.service.print') }}" class="text-sm ml-3">خدمات چاپ</a></li>
             <li class="w-[0.3rem] h-[0.3rem] bg-white rotate-45"></li>
-            <li><a href="{{ route('service.publication') }}" class="text-sm">خدمات‌‌‌‌‌‌‌‌‌‌ نشر </a></li>
+            <li><a href="{{ route('page.service.publication') }}" class="text-sm">خدمات‌‌‌‌‌‌‌‌‌‌ نشر </a></li>
             <li class="w-[0.3rem] h-[0.3rem] bg-white rotate-45"></li>
-            <li><a href="{{ route('service.lithography') }}" class="text-sm">لیتوگرافی</a></li>
+            <li><a href="{{ route('page.service.lithography') }}" class="text-sm">لیتوگرافی</a></li>
             <li class="w-[0.3rem] h-[0.3rem] bg-white rotate-45"></li>
-            <li><a href="{{ route('service.diary') }}" class="text-sm">سر رسید</a></li>
+            <li><a href="{{ route('page.service.calendar') }}" class="text-sm">سر رسید</a></li>
             <li class="w-[0.3rem] h-[0.3rem] bg-white rotate-45"></li>
-            <li><a href="{{ route('service.samples') }}" class="text-sm">نمونه‌کار</a></li>
+            <li><a href="{{ route('page.service.samples') }}" class="text-sm">نمونه‌کار</a></li>
             <li class="w-[0.3rem] h-[0.3rem] bg-white rotate-45"></li>
-            <li><a href="{{ route('about-us') }}" class="text-sm">درباره‌ما</a></li>
+            <li><a href="{{ route('page.about-us') }}" class="text-sm">درباره‌ما</a></li>
         </ul>
     </section>
 </header>
@@ -83,18 +83,18 @@
             </div>
             <ul class="pr-4 mt-2 hidden group-[.selected]:block">
                 <li class="mb-3">
-                    <a href="{{ route('service.print.digital') }}"
+                    <a href="{{ route('page.service.print.digital') }}"
                         class="text-gray-300 text-white font-normal flex items-center hover:text-gray-100">چاپ
                         دیجیتال</a>
                 </li>
                 <li class="mb-3">
-                    <a href="{{ route('service.print.offset') }}"
+                    <a href="{{ route('page.service.print.offset') }}"
                         class="text-gray-300 text-white font-normal flex items-center hover:text-gray-100">چاپ افست</a>
                 </li>
             </ul>
         </li>
         <li class="mb-[1rem] group">
-            <div href="{{ route('service.print') }}"
+            <div href="{{ route('page.service.print') }}"
                 class="flex items-center py-2 px-4 text-gray-300 sidebar-dropdown-toggle">
                 <span class="text-white text-base font-semibold">خدمات نشر</span>
                 <img src="{{ asset('assets/modules/website/images/icon/white-chevron-down.png') }}"
@@ -102,22 +102,22 @@
             </div>
             <ul class="pr-4 mt-2 hidden group-[.selected]:block">
                 <li class="mb-3">
-                    <a href="{{ route('service.publication.permission') }}"
+                    <a href="{{ route('page.service.publication.permission') }}"
                         class="text-gray-300 text-white font-normal flex items-center hover:text-gray-100">اخذ مجوز
                         چاپ</a>
                 </li>
                 <li class="mb-3">
-                    <a href="{{ route('service.publication.layout') }}"
+                    <a href="{{ route('page.service.publication.layout') }}"
                         class="text-gray-300 text-white font-normal flex items-center hover:text-gray-100">صفحه‌آرایی</a>
                 </li>
                 <li class="mb-3">
-                    <a href="{{ route('service.publication.editing') }}"
+                    <a href="{{ route('page.service.publication.editing') }}"
                         class="text-gray-300 text-white font-normal flex items-center hover:text-gray-100">ویراستاری</a>
                 </li>
             </ul>
         </li>
         <li class="mb-[1rem] group">
-            <div href="{{ route('service.print') }}"
+            <div href="{{ route('page.service.print') }}"
                 class="flex items-center py-2 px-4 text-gray-300 sidebar-dropdown-toggle">
                 <span class="text-white text-base font-semibold">لیتوگرافی</span>
                 <img src="{{ asset('assets/modules/website/images/icon/white-chevron-down.png') }}"
@@ -125,16 +125,16 @@
             </div>
             <ul class="pr-4 mt-2 hidden group-[.selected]:block">
                 <li class="mb-3">
-                    <a href="{{ route('service.lithography.zinc-gto') }}"
+                    <a href="{{ route('page.service.lithography.zinc-gto') }}"
                         class="text-gray-300 text-white font-normal flex items-center hover:text-gray-100">زینک GTO</a>
                 </li>
                 <li class="mb-3">
-                    <a href="{{ route('service.lithography.zinc-dureghi') }}"
+                    <a href="{{ route('page.service.lithography.zinc-dureghi') }}"
                         class="text-gray-300 text-white font-normal flex items-center hover:text-gray-100">زینک
                         دورقی</a>
                 </li>
                 <li class="mb-3">
-                    <a href="{{ route('service.lithography.zinc-speed-master') }}"
+                    <a href="{{ route('page.service.lithography.zinc-speed-master') }}"
                         class="text-gray-300 text-white font-normal flex items-center hover:text-gray-100">زینک اسپید
                         مستر</a>
                 </li>
@@ -142,17 +142,17 @@
         </li>
 
         <li class="mb-1 group">
-            <a href="{{ route('service.diary') }}" class="flex items-center py-2 px-4 text-gray-300">
+            <a href="{{ route('page.service.calendar') }}" class="flex items-center py-2 px-4 text-gray-300">
                 <span class="text-white text-base font-semibold">سررسید</span>
             </a>
         </li>
         <li class="mb-1 group">
-            <a href="{{ route('service.samples') }}" class="flex items-center py-2 px-4 text-gray-300">
+            <a href="{{ route('page.service.samples') }}" class="flex items-center py-2 px-4 text-gray-300">
                 <span class="text-white text-base font-semibold">نمونه کارها</span>
             </a>
         </li>
         <li class="mb-1 group">
-            <a href="{{ route('about-us') }}" class="flex items-center py-2 px-4 text-gray-300">
+            <a href="{{ route('page.about-us') }}" class="flex items-center py-2 px-4 text-gray-300">
                 <span class="text-white text-base font-semibold">درباره ما</span>
             </a>
         </li>
@@ -160,23 +160,23 @@
     <ul class="p-4 mt-[1rem]">
         @if (!$is_guest)
             <li class="mb-1 group">
-                <a href="{{ route('service.print') }}" class="flex items-center py-2 px-4 text-gray-300">
+                <a href="{{ route('page.service.print') }}" class="flex items-center py-2 px-4 text-gray-300">
                     <span class="text-white font-bold">سبد خرید</span>
                 </a>
             </li>
             <li class="mb-1 group">
-                <a href="{{ route('service.print') }}" class="flex items-center py-2 px-4 text-gray-300">
+                <a href="{{ route('page.service.print') }}" class="flex items-center py-2 px-4 text-gray-300">
                     <span class="text-white font-bold">پروفایل</span>
                 </a>
             </li>
             <li class="mb-1 group">
-                <a href="{{ route('service.print') }}" class="flex items-center py-2 px-4 text-gray-300">
+                <a href="{{ route('page.service.print') }}" class="flex items-center py-2 px-4 text-gray-300">
                     <span class="text-[#FFA2A7] font-bold">خروج از حساب</span>
                 </a>
             </li>
         @else
             <li class="mb-1 group">
-                <a href="{{ route('service.print') }}" class="flex items-center py-2 px-4 text-gray-300">
+                <a href="{{ route('page.service.print') }}" class="flex items-center py-2 px-4 text-gray-300">
                     <span class="text-white font-bold">ورود / ثبت نام</span>
                 </a>
             </li>
