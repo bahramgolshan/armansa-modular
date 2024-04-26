@@ -4,6 +4,7 @@ namespace Modules\Website\App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Binding;
+use App\Models\BindingDirection;
 use App\Models\Cellophane;
 use App\Models\Color;
 use App\Models\Cover;
@@ -66,15 +67,19 @@ class InvoiceDetailController  extends Controller
     $bindingId = Binding::where('code', $request->binding)->first()->id;
     $cellophaneId = Cellophane::where('code', $request->cellophane)->first()->id;
     $coverId = Cover::where('code', $request->cover)->first()->id;
+    $bindingDirectionId = BindingDirection::where('code', $request->get('binding-direction'))->first()->id;
 
-    $serviceDetail = ServiceDetail::where('service_id', $request->service)
-      ->orWhere('size_id', $sizeId)
-      ->orWhere('color_id', $colorId)
-      ->orWhere('paper_id', $paperId)
-      ->orWhere('binding_id', $bindingId)
-      ->orWhere('cellophane_id', $cellophaneId)
-      ->orWhere('cover_id', $coverId)
-      ->orWhere('status', 'publish')
+    $serviceDetail = ServiceDetail::where([
+      'service_id' => $request->service,
+      'size_id' => $sizeId,
+      'color_id' => $colorId,
+      'paper_id' => $paperId,
+      'binding_id' => $bindingId,
+      'cellophane_id' => $cellophaneId,
+      'cover_id' => $coverId,
+      'binding_direction_id' => $bindingDirectionId,
+      'status' => 'publish'
+    ])
       ->first();
 
     return response()->json([

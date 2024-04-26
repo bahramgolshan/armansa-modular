@@ -74,3 +74,10 @@ Route::middleware('auth')->prefix('dashboard')->group(function () {
 
   Route::get('/empty-cart', 'DashboardController@emptyCart')->name('dashboard.empty-cart');
 });
+
+Route::middleware('auth')->prefix('services')->group(function () {
+  Route::get('print/digital', 'PrintDigitalController@create')->name('service.print-digital.create');
+  Route::post('print/digital', 'PrintDigitalController@store')->name('service.print-digital.store');
+
+  Route::get('print/digital/inquiry', "PrintDigitalController@inquiry")->name('service.print-digital.inquiry'); // Check price button
+});
