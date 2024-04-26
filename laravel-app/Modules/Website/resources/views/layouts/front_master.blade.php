@@ -20,9 +20,6 @@
         return $item['value'];
     }, $array);
     $tagsString = implode(', ', $values);
-
-    // check user's role
-    $is_guest = Auth::guest();
 @endphp
 
 <!DOCTYPE html>

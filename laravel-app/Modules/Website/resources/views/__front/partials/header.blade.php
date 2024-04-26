@@ -35,7 +35,7 @@
                 </div>
 
                 <div class="hidden lg:flex gap-[2rem] items-center text-[#3C4999]">
-                    @if (!$is_guest)
+                    @if (Auth::check())
                         <a href="">سبد خرید</a>
                         <div class="w-[0.3rem] h-[0.3rem] bg-[#3C4999] rotate-45"></div>
                         <a href="">پروفایل</a>

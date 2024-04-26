@@ -25,27 +25,25 @@ class AuthController extends Controller
     return view('website::auth.login');
   }
 
-  public function loginSubmit(Request $request)
+  public function authenticate(Request $request): RedirectResponse
   {
-    $request->validate([
-      'email' => 'required|email',
-      'password' => 'required'
+    $credentials = $request->validate([
+      'email' => ['required', 'email'],
+      'password' => ['required'],
     ]);
 
-    $check = $request->all();
-    $data = [
-      'email' => $check['email'],
-      'password' => $check['password'],
-    ];
+    if (Auth::attempt($credentials)) {
+      $request->session()->regenerate();
 
-    if (Auth::attempt($data)) {
-      return redirect()->route('dashboard.index')->with('success', 'Login Successfull');
-    } else {
-      return redirect()->route('login')->with('error', 'Invalid Credentials');
+      return redirect()->intended('dashboard');
     }
+
+    return back()->withErrors([
+      'email' => 'The provided credentials do not match our records.',
+    ])->onlyInput('email');
   }
 
-  public function logoutSubmit(Request $request): RedirectResponse
+  public function logout(Request $request): RedirectResponse
   {
     Auth::logout();
 
@@ -53,6 +51,6 @@ class AuthController extends Controller
 
     $request->session()->regenerateToken();
 
-    return redirect('/');
+    return redirect()->route('home');
   }
 }

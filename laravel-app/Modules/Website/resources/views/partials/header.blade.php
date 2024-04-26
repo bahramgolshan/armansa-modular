@@ -35,12 +35,17 @@
                 </div>
 
                 <div class="hidden lg:flex gap-[2rem] items-center text-[#3C4999]">
-                    @if (!$is_guest)
-                        <a href="">سبد خرید</a>
+                    @if (Auth::check())
+                        <a href="{{ route('dashboard.cart') }}">سبد خرید</a>
                         <div class="w-[0.3rem] h-[0.3rem] bg-[#3C4999] rotate-45"></div>
-                        <a href="">پروفایل</a>
+                        <a href="{{ route('dashboard.profile') }}">پروفایل</a>
                         <div class="w-[0.3rem] h-[0.3rem] bg-[#3C4999] rotate-45"></div>
-                        <a href="">خروج از حساب</a>
+                        <button
+                            onclick="event.preventDefault(); document.getElementById('logout-form-lg').submit();">خروج
+                            از حساب</button>
+                        <form method="POST" id="logout-form-lg" action="{{ route('logout-submit') }}">
+                            @csrf
+                        </form>
                     @else
                         <a class="text-[1.3rem] bg-[--primary-color] text-white py-[.5rem] px-[1rem] mx-[1rem] rounded-lg"
                             href="{{ route('login') }}">ورود / ثبت نام</a>
@@ -158,25 +163,34 @@
         </li>
     </ul>
     <ul class="p-4 mt-[1rem]">
-        @if (!$is_guest)
+        @if (Auth::check())
             <li class="mb-1 group">
-                <a href="{{ route('page.service.print') }}" class="flex items-center py-2 px-4 text-gray-300">
+                <a href="{{ route('dashboard.cart') }}" class="flex items-center py-2 px-4 text-gray-300">
                     <span class="text-white font-bold">سبد خرید</span>
                 </a>
             </li>
             <li class="mb-1 group">
-                <a href="{{ route('page.service.print') }}" class="flex items-center py-2 px-4 text-gray-300">
+                <a href="{{ route('dashboard.profile') }}" class="flex items-center py-2 px-4 text-gray-300">
                     <span class="text-white font-bold">پروفایل</span>
                 </a>
             </li>
             <li class="mb-1 group">
-                <a href="{{ route('page.service.print') }}" class="flex items-center py-2 px-4 text-gray-300">
-                    <span class="text-[#FFA2A7] font-bold">خروج از حساب</span>
+                <a href="{{ route('dashboard.orders') }}" class="flex items-center py-2 px-4 text-gray-300">
+                    <span class="text-white font-bold">سفارش های من</span>
                 </a>
+            </li>
+            <li class="mb-1 group">
+                <button class="flex items-center py-2 px-4 text-gray-300"
+                    onclick="event.preventDefault(); document.getElementById('logout-form-sm').submit();">
+                    <span class="text-[#FFA2A7] font-bold">خروج از حساب</span>
+                </button>
+                <form method="POST" id="logout-form-sm" action="{{ route('logout-submit') }}">
+                    @csrf
+                </form>
             </li>
         @else
             <li class="mb-1 group">
-                <a href="{{ route('page.service.print') }}" class="flex items-center py-2 px-4 text-gray-300">
+                <a href="{{ route('login') }}" class="flex items-center py-2 px-4 text-gray-300">
                     <span class="text-white font-bold">ورود / ثبت نام</span>
                 </a>
             </li>
