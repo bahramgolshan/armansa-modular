@@ -33,11 +33,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ $generalSettings['websiteTitle'] }}</title>
-    <!-- <link href="https://cdn.jsdelivr.net/npm/daisyui@4.6.1/dist/full.min.css" rel="stylesheet" type="text/css" /> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    @yield('page-style')
     <link rel="stylesheet" href="{{ asset('assets/modules/website/css/style.css') }}" />
 
     @stack('head-scripts')
@@ -69,7 +69,7 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="{{ asset('assets/modules/website/js/ajax-loader.js') }}?v=2"></script>
     <script src="{{ asset('assets/modules/website/js/main.js') }}"></script>
-    @yield('scripts')
+    @yield('page-script')
 </body>
 
 </html>

@@ -1,5 +1,8 @@
  @extends('website::layouts.front_master')
 
+ @section('page-style')
+ @endsection
+
  @section('content')
      {{-- @include('website::partials.bread_crumb') --}}
      {{-- @include('website::partials.main_digital_print') --}}
@@ -272,7 +275,8 @@
                          آپلود فایل متن
                      </h3>
                      <div class="w-[100%] h-[1px] bg-[#D9D9D9] my-5"></div>
-                     <div class="flex items-center justify-center w-full mb-[9px]">
+                     {{-- DROPZONE FILEUPLOAD --}}
+                     {{-- <div class="flex items-center justify-center w-full mb-[9px]">
                          <label for="dropzone-file"
                              class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-neutral-100 dark:hover:bg-neutral-200 dark:bg-neutral-200 hover:bg-neutral-200 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
                              <div class="flex flex-col items-center justify-center pt-5 pb-6">
@@ -288,6 +292,11 @@
                              </div>
                              <input id="dropzone-file" type="file" class="hidden" />
                          </label>
+                        </div> --}}
+                     {{-- HTML FILEUPLOAD --}}
+                     <div class="flex items-center justify-start w-full mb-[9px]">
+                         <input type="file" name="file-content" id="file-content"
+                             accept=".doc,.docx,application/msword,application/vnd.indesign,.indd,application/pdf">
                      </div>
                      <div>
                          <h4 class="text-indigo-800 my-[1rem] text-[0.875rem] lg:text-xl font-bold">
@@ -313,7 +322,8 @@
                          آپلود فایل جلد
                      </h3>
                      <div class="w-[100%] h-[1px] bg-[#D9D9D9] my-5"></div>
-                     <div class="flex items-center justify-center w-full mb-[9px]">
+                     {{-- DROPZONE FILEUPLOAD --}}
+                     {{-- <div class="flex items-center justify-center w-full mb-[9px]">
                          <label for="dropzone-file"
                              class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-neutral-100 dark:hover:bg-neutral-200 dark:bg-neutral-200 hover:bg-neutral-200 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
                              <div class="flex flex-col items-center justify-center pt-5 pb-6">
@@ -329,6 +339,10 @@
                              </div>
                              <input id="dropzone-file" type="file" class="hidden" />
                          </label>
+                     </div> --}}
+                     {{-- HTML FILEUPLOAD --}}
+                     <div class="flex items-center justify-start w-full mb-[9px]">
+                         <input type="file" name="file-cover" id="file-cover" accept="image/*,.pdf,application/pdf">
                      </div>
                      <div>
                          <h4 class="text-indigo-800 text-[0.875rem] lg:text-xl my-[1rem] font-bold">
@@ -416,7 +430,8 @@
                          <span class="text-[2rem] lg:text-[2.5rem] font-bold leading-[2rem]">1,234,567</span>
                          <span class="text-[1.5rem] leading-[2rem]">تومان</span>
                      </div> --}}
-                     <button class="py-[.8rem] px-[3rem] bg-[--green] text-white text-[1.125rem] rounded-lg">
+                     <button class="py-[.8rem] px-[3rem] bg-[--green] text-white text-[1.125rem] rounded-lg"
+                         type="submit">
                          ثبت سفارش و پرداخت
                      </button>
                  </div>
@@ -427,112 +442,135 @@
      {{-- @include('website::partials.questions') --}}
  @endsection
 
- @section('scripts')
+ @section('page-script')
+     <script src="{{ asset('assets/plugins/jquery-validation/additional-methods.js') }}"></script>
      <script>
-         $('#digital-print-form').validate({
-             ignore: 'input[type=hidden]',
-             rules: {
-                 'size': {
-                     required: true
-                 },
-                 'paper': {
-                     required: true
-                 },
-                 'color': {
-                     required: true,
-                 },
-                 'size': {
-                     required: true
-                 },
-                 'number-of-pages': {
-                     required: true
-                 },
-                 'circulation': {
-                     required: true,
-                 },
-                 'cover': {
-                     required: true
-                 },
-                 'binding': {
-                     required: true
-                 },
-                 'cellophane': {
-                     required: true,
-                 },
-             },
-             // highlight: function(input) {
-             //     $(input).parents('.form-group').addClass('error has-danger');
-             //     $(input).addClass('form-control-danger');
-             // },
-             // unhighlight: function(input) {
-             //     $(input).parents('.form-group').removeClass('error has-danger');
-             //     $(input).parents('.form-group').addClass('has-success');
-             //     $(input).removeClass('form-control-danger');
-             //     $(input).addClass('form-control-success');
-             // },
-             // errorPlacement: function(error, element) {
-             //     $(element).parents('.form-group').append(error);
-             // }
-         });
+         $(document).ready(function() {
 
-         $('#price-inquiry-btn').click(function() {
-
-             if ($('#digital-print-form').valid()) {
-                 var data = $('#digital-print-form').serialize();
-                 var data2 = $('#digital-print-form').serializeArray();
-
-                 $.ajax({
-                     type: "GET",
-                     headers: {
-                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+             // Complete Form Validation
+             $('#digital-print-form').validate({
+                 ignore: 'input[type=hidden]',
+                 rules: {
+                     'size': {
+                         required: true
                      },
-                     url: "{!! route('service.print-digital.inquiry') !!}",
-                     data: data,
+                     'paper': {
+                         required: true
+                     },
+                     'color': {
+                         required: true,
+                     },
+                     'size': {
+                         required: true
+                     },
+                     'number-of-pages': {
+                         required: true
+                     },
+                     'circulation': {
+                         required: true,
+                     },
+                     'cover': {
+                         required: true
+                     },
+                     'binding': {
+                         required: true
+                     },
+                     'cellophane': {
+                         required: true,
+                     },
+                     'file-content': {
+                         required: false,
+                         accept: "application/msword, application/pdf, application/x-indesign"
+                     },
+                     'file-cover': {
+                         required: false,
+                         accept: "image/*"
+                     },
+                 },
+                 submitHandler: function(form) {
+                     console.log('submitHandler called');
 
-                     success: function(response) {
-                         if (response.status == 'success') {
-                             $('#final-price-holder').html(response.data.price.toLocaleString('en-US'))
-                             $('#call-for-price-message').addClass('hidden');
-
-                             $('#digital-print-file-input').removeClass('hidden');
-                             $('#digital-print-contacts').removeClass('hidden');
-                             $('#digital-print-submit-btn').removeClass('hidden');
-
+                     $('#digital-print-form input[type="file"]').each(function() {
+                         if (!$(this).val()) {
+                             $(this).addClass("error text-red-700");
                          } else {
-                             $('#final-price-holder').html('0')
-                             $('#call-for-price-message').removeClass('hidden');
-
-                             $('#digital-print-file-input').addClass('hidden');
-                             $('#digital-print-contacts').addClass('hidden');
-                             $('#digital-print-submit-btn').addClass('hidden');
+                             $(this).removeClass("error text-red-700");
                          }
+                     });
 
-                         $('#digital-print-form-error-box').html(''); // reset error box
-                     },
+                     form.submit();
+                 }
+             });
 
-                     error: function(response) {
-                         hideAjaxLoader()
-                         var html = "";
-                         var response = JSON.parse(response.responseText);
-                         $.each(response.errors, function(key, value) {
-                             html +=
-                                 `<div class=''><strong>${value}</strong></div>`;
-                         });
-                         $('#digital-print-form-error-box').html(html);
-                     }
-                 });
-             }
-         });
+             //  Complete Form Submit
+             //  $('#digital-print-form').on('submit', function(e) {
+             //      console.log('SUBMITTTT');
+             //      if (!$('#digital-print-form').valid()) {
+             //          e.preventDefault();
+             //      }
+             //  });
 
-         $(".reset-preview").on("change", function() {
-             let size = $('select[name=size]').val()
-             let bindingDirection = $("input[name=binding-direction]").val()
+             //  Price Inquiry Click
+             $('#price-inquiry-btn').click(function() {
+                 console.log('click');
+                 if ($('#digital-print-form').valid()) {
+                     var data = $('#digital-print-form').serializeArray();
+                     $.ajax({
+                         type: "GET",
+                         headers: {
+                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                         },
+                         url: "{!! route('service.print-digital.inquiry') !!}",
+                         data: data,
 
-             if (size && bindingDirection) {
-                 let src =
-                     `{{ asset('assets/modules/website/images/home/form/previews/${size}_${bindingDirection}.svg') }}`
-                 $('#preview-image').attr('src', src)
-             }
+                         success: function(response) {
+                             if (response.status == 'success') {
+                                 $('#final-price-holder').html(response.data.price
+                                     .toLocaleString('en-US'))
+                                 $('#call-for-price-message').addClass('hidden');
+
+                                 $('#digital-print-file-input').removeClass('hidden');
+                                 $('#digital-print-contacts').removeClass('hidden');
+                                 $('#digital-print-submit-btn').removeClass('hidden');
+
+                             } else {
+                                 $('#final-price-holder').html('0')
+                                 $('#call-for-price-message').removeClass('hidden');
+
+                                 $('#digital-print-file-input').addClass('hidden');
+                                 $('#digital-print-contacts').addClass('hidden');
+                                 $('#digital-print-submit-btn').addClass('hidden');
+                             }
+
+                             $('#digital-print-form-error-box').html(''); // reset error box
+                         },
+
+                         error: function(response) {
+                             hideAjaxLoader()
+                             var html = "";
+                             var response = JSON.parse(response.responseText);
+                             $.each(response.errors, function(key, value) {
+                                 html +=
+                                     `<div class=''><strong>${value}</strong></div>`;
+                             });
+                             $('#digital-print-form-error-box').html(html);
+                         }
+                     });
+                 }
+             });
+
+             //  Reset Preview
+             $(".reset-preview").on("change", function() {
+                 let size = $('select[name=size]').val()
+                 let bindingDirection = $("input[name=binding-direction]").val()
+
+                 if (size && bindingDirection) {
+                     let src =
+                         `{{ asset('assets/modules/website/images/home/form/previews/${size}_${bindingDirection}.svg') }}`
+                     $('#preview-image').attr('src', src)
+                 }
+             });
+
          });
      </script>
  @endsection
