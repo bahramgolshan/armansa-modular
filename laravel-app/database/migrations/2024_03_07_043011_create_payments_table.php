@@ -15,7 +15,7 @@ class CreatePaymentsTable extends Migration
       $table->timestamps();
       $table->softDeletes();
       $table->integer('invoice_id')->unsigned();
-      $table->integer('customer_id')->unsigned();
+      $table->integer('user_id')->unsigned();
       $table->enum('status', Payment::$status);
       $table->double('amount', 22, 2);
       $table->string('reterival_ref_no', 255)->nullable();
@@ -25,7 +25,7 @@ class CreatePaymentsTable extends Migration
       $table->string('verification_result', 2000)->nullable();
 
       $table->foreign('invoice_id')->references('id')->on('invoices')->onDelete('restrict')->onUpdate('cascade');
-      $table->foreign('customer_id')->references('id')->on('customers')->onDelete('restrict')->onUpdate('cascade');
+      $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict')->onUpdate('cascade');
     });
   }
 

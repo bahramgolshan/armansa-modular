@@ -142,7 +142,7 @@ return [
     'amount' => 'مبلغ',
 
     'warehouse_id' => "انبار",
-    'customer_id' => "فروشنده",
+    'user_id' => "فروشنده",
     'details' => 'اقلام',
     'source_id' => 'مبدا',
     'comment' => 'نظر',

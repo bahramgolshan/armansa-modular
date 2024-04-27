@@ -82,7 +82,7 @@ class SettingSeeder extends Seeder
         |--------------------------------------------------------------------------
         */
     Setting::updateOrCreate(array(
-      'key' => 'customersCount',
+      'key' => 'usersCount',
       'value' => '123',
       'description' => null,
     ));

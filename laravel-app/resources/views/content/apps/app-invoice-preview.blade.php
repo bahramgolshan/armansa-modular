@@ -130,7 +130,7 @@
         <!-- Invoice -->
         <div class="col-xl-9 col-md-8 col-12 mb-md-0 mb-4">
             <div class="card mb-4">
-                <div class="card-header invoice-customer border d-flex justify-content-between">
+                <div class="card-header invoice-user border d-flex justify-content-between">
                     <h5 class="d-inline-block mb-0">اطلاعات کلی</h5>
                     <span
                         class="badge bg-label-{{ $invoicesStatusColors[$invoice->status] }}">{{ __('app.invoiceStatus.' . $invoice->status) }}</span>
@@ -155,24 +155,24 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <label for="customer_name" class="col-sm-2 col-form-label">نام مشتری</label>
+                                    <label for="user_name" class="col-sm-2 col-form-label">نام مشتری</label>
                                     <div class="col-sm-10">
-                                        <input type="text" readonly class="form-control-plaintext" id="customer_name"
-                                            value="{{ $invoice->customer->fullName() ?? '--' }}">
+                                        <input type="text" readonly class="form-control-plaintext" id="user_name"
+                                            value="{{ $invoice->user->full_name ?? '--' }}">
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <label for="customer_mobile" class="col-sm-2 col-form-label">شماره موبایل</label>
+                                    <label for="user_mobile" class="col-sm-2 col-form-label">شماره موبایل</label>
                                     <div class="col-sm-10">
-                                        <input type="text" readonly class="form-control-plaintext" id="customer_mobile"
-                                            value="{{ $invoice->customer->mobile ?? '--' }}">
+                                        <input type="text" readonly class="form-control-plaintext" id="user_mobile"
+                                            value="{{ $invoice->user->mobile ?? '--' }}">
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <label for="customer_address" class="col-sm-2 col-form-label">آدرس</label>
+                                    <label for="user_address" class="col-sm-2 col-form-label">آدرس</label>
                                     <div class="col-sm-10">
-                                        <input type="text" readonly class="form-control-plaintext" id="customer_address"
-                                            value="{{ $invoice->customer->adderss ?? '--' }}">
+                                        <input type="text" readonly class="form-control-plaintext" id="user_address"
+                                            value="{{ $invoice->user->adderss ?? '--' }}">
                                     </div>
                                 </div>
                             </div>

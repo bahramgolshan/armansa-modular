@@ -127,7 +127,7 @@
                                     <label for="address" class="col-sm-4 col-form-label">نام مشتری</label>
                                     <div class="col-sm-8">
                                         <input type="text" readonly class="form-control-plaintext" id="address"
-                                            value="{{ $payment->customer->fullname() ?? '' }}">
+                                            value="{{ $payment->user->full_name ?? '' }}">
                                     </div>
                                 </div>
                             </div>
@@ -136,7 +136,7 @@
                                     <label for="address" class="col-sm-4 col-form-label">شماره تماس</label>
                                     <div class="col-sm-8">
                                         <input type="text" readonly class="form-control-plaintext" id="address"
-                                            value="{{ $payment->customer->mobile ?? '' }}">
+                                            value="{{ $payment->user->mobile ?? '' }}">
                                     </div>
                                 </div>
                             </div>
@@ -145,7 +145,7 @@
                                     <label for="address" class="col-sm-4 col-form-label">آدرس ایمیل</label>
                                     <div class="col-sm-8">
                                         <input type="text" readonly class="form-control-plaintext" id="address"
-                                            value="{{ $payment->customer->email ?? '' }}">
+                                            value="{{ $payment->user->email ?? '' }}">
                                     </div>
                                 </div>
                             </div>

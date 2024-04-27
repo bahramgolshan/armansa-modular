@@ -27,7 +27,7 @@
         <!-- user -->
         <div class="col-xl-9 col-md-8 col-12 mb-md-0 mb-4">
             <div class="card">
-                <div class="card-header invoice-customer border d-flex justify-content-between">
+                <div class="card-header invoice-user border d-flex justify-content-between">
                     <h5 class="d-inline-block mb-0">اطلاعات مشتری</h5>
                 </div>
                 <div class="card-body p-4">
@@ -38,7 +38,7 @@
                                     <label for="fullname" class="col-sm-2 col-form-label">نام کامل</label>
                                     <div class="col-sm-10">
                                         <input type="text" readonly class="form-control-plaintext" id="fullname"
-                                            value="{{ $customer->fullName() ?? '' }}">
+                                            value="{{ $user->full_name ?? '' }}">
                                     </div>
                                 </div>
                             </div>
@@ -49,7 +49,7 @@
                                     <label for="mobile" class="col-sm-2 col-form-label">شماره تماس</label>
                                     <div class="col-sm-10">
                                         <input type="text" readonly class="form-control-plaintext" id="mobile"
-                                            value="{{ $customer->mobile ?? '' }}">
+                                            value="{{ $user->mobile ?? '' }}">
                                     </div>
                                 </div>
                             </div>
@@ -60,7 +60,7 @@
                                     <label for="email" class="col-sm-2 col-form-label">ایمیل</label>
                                     <div class="col-sm-10">
                                         <input type="text" readonly class="form-control-plaintext" id="email"
-                                            value="{{ $customer->email ?? '' }}">
+                                            value="{{ $user->email ?? '' }}">
                                     </div>
                                 </div>
                             </div>
@@ -70,7 +70,7 @@
                                 <div class="row">
                                     <label for="address" class="col-sm-2 col-form-label">آدرس</label>
                                     <div class="col-sm-10">
-                                        <textarea class="form-control-plaintext" id="address" name="w3review" rows="2" cols="20" readonly>{{ $customer->address ?? '' }}</textarea>
+                                        <textarea class="form-control-plaintext" id="address" name="w3review" rows="2" cols="20" readonly>{{ $user->address ?? '' }}</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -124,7 +124,7 @@
         <div class="col-xl-3 col-md-4 col-12 ">
             <div class="card">
                 <div class="card-body">
-                    <a class="btn btn-outline-secondary d-grid w-100 mb-3" href="{{ route('app-customer-list') }}">
+                    <a class="btn btn-outline-secondary d-grid w-100 mb-3" href="{{ route('app-user-list') }}">
                         بازگشت
                     </a>
                 </div>

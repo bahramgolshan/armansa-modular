@@ -75,7 +75,7 @@ class PrintDigitalController extends Controller
 
     if (Auth::check()) {
       $invoice = new Invoice();
-      $invoice->customer_id = Auth::id();
+      $invoice->user_id = Auth::id();
       $invoice->status = 'awaiting_payment';
       $invoice->additional_discount = $request->additional_discount;
       $invoice->additional_price = $request->additional_price;
@@ -88,7 +88,7 @@ class PrintDigitalController extends Controller
         $invoiceDetail->service_detail_id = $request->service_detail_id;
         $invoiceDetail->quantity = null;
         $invoiceDetail->circulation = $request->circulation;
-        $invoiceDetail->pages = $request->number_of_pages;
+        $invoiceDetail->pages = $request->pages;
 
         // TODO: add upload files
 

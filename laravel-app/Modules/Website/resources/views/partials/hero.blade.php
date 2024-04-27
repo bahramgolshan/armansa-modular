@@ -10,7 +10,7 @@
                 <h3 class="text-center lg:text-start text-[1.5rem] md:text-[2rem] lg:text-[3rem] font-bold">
                     {{ $settings['heroDescription'] }}</h3>
                 <a class="sm:w-[50%] sm:mx-auto lg:max-w-[10rem] lg:mx-0 py-[.7rem] bg-[--primary-color] text-[1.125rem] rounded-lg text-center"
-                    href="{{ route('page.service.print.digital') }}">سفارش
+                    href="{{ route('service.print-digital.create') }}">سفارش
                     دهید</a>
             </div>
         </div>

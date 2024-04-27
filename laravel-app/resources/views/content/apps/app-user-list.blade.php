@@ -50,20 +50,20 @@
                     </tr>
                 </thead>
                 <tbody class="table-border-bottom-0">
-                    @foreach ($customers as $customer)
+                    @foreach ($users as $user)
                         <tr>
-                            <td><span class="">{{ $customer->id }}</span></td>
-                            <td><a href="/app/user/preview"><strong>{{ $customer->fullName() }}</strong></a></td>
-                            <td><span class="">{{ $customer->mobile }}</span></td>
-                            <td><span class="">{{ $customer->address }}</span></td>
-                            <td><span class="">{{ $customer->email }}</span></td>
+                            <td><span class="">{{ $user->id }}</span></td>
+                            <td><a href="/app/user/preview"><strong>{{ $user->full_name }}</strong></a></td>
+                            <td><span class="">{{ $user->mobile }}</span></td>
+                            <td><span class="">{{ $user->address }}</span></td>
+                            <td><span class="">{{ $user->email }}</span></td>
                             <td>
                                 <div class="dropdown">
                                     <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
                                         data-bs-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></button>
                                     <div class="dropdown-menu">
                                         <a class="dropdown-item"
-                                            href="{{ route('app-customer-preview', ['id' => $customer->id]) }}"><i
+                                            href="{{ route('app-user-preview', ['id' => $user->id]) }}"><i
                                                 class="mdi mdi-eye-outline me-1"></i>مشاهده</a>
                                     </div>
                                 </div>
@@ -72,7 +72,7 @@
                     @endforeach
                 </tbody>
             </table>
-            {{ $customers->links() }}
+            {{ $users->links() }}
         </div>
     </div>
 @endsection

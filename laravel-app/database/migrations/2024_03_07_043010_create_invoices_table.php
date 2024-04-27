@@ -14,14 +14,14 @@ class CreateInvoicesTable extends Migration
       $table->increments('id');
       $table->timestamps();
       $table->softDeletes();
-      $table->integer('customer_id')->unsigned();
+      $table->integer('user_id')->unsigned();
       $table->enum('status', Invoice::$status)->default('awaiting_approval')->nullable();
       $table->float('additional_discount', 22, 2)->default('0')->nullable();
       $table->float('additional_price', 22, 2)->default('0')->nullable();
       $table->float('tax', 22, 2)->default('0')->nullable();
       $table->float('final_price', 22, 2)->default('0')->nullable();
 
-      $table->foreign('customer_id')->references('id')->on('customers')->onDelete('restrict')->onUpdate('cascade');
+      $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict')->onUpdate('cascade');
     });
   }
 

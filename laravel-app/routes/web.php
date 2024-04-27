@@ -30,9 +30,9 @@ Route::middleware('admin')->prefix('/app')->group(function () {
   Route::post('/invoice/edit-status/{id}', 'App\Http\Controllers\InvoiceController@editStatus')->where('id', '[0-9]+')->name('app-invoice-edit-status');
   Route::get('/invoice/add', 'App\Http\Controllers\InvoiceController@create')->name('app-invoice-add');
 
-  // customers
-  Route::get('/customer/list', 'App\Http\Controllers\CustomerController@index')->name('app-customer-list');
-  Route::get('/customer/preview/{id}', 'App\Http\Controllers\CustomerController@show')->where('id', '[0-9]+')->name('app-customer-preview');
+  // users
+  Route::get('/user/list', 'App\Http\Controllers\userController@index')->name('app-user-list');
+  Route::get('/user/preview/{id}', 'App\Http\Controllers\userController@show')->where('id', '[0-9]+')->name('app-user-preview');
 
   // payments
   Route::get('/payment/list', 'App\Http\Controllers\PaymentController@index')->name('app-payment-list');

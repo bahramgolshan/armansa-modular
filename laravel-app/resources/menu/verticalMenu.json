@@ -13,7 +13,7 @@
       "slug": "app-invoice"
     },
     {
-      "url": "app/customer/list",
+      "url": "app/user/list",
       "name": "مشتریان",
       "icon": "menu-icon tf-icons mdi mdi-account-outline",
       "slug": "app-user"

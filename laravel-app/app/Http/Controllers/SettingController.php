@@ -27,7 +27,7 @@ class SettingController extends Controller
       "heroDescription" => 'nullable|string',
       "aboutArmansa" => 'nullable|string',
       "featuredVideoEmbedCode" => 'nullable|string',
-      "customersCount" => 'nullable|string',
+      "usersCount" => 'nullable|string',
       "ordersCount" => 'nullable|string',
       "usersCount" => 'nullable|string',
       "phone1" => 'nullable|string',

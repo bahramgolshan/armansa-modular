@@ -265,7 +265,7 @@
                                 محاسبه قیمت
                             </button>
                             <a class="text-[1.5rem] text-center bg-[--primary-color] text-white py-[.5rem] px-[3rem] rounded-lg "
-                                href="{{ route('page.service.print.digital') }}">
+                                href="{{ route('service.print-digital.create') }}">
                                 ثبت سفارش </a>
                         </div>
                         <div id="digital-print-form-error-box" class="hidden mt-[1rem]"></div>

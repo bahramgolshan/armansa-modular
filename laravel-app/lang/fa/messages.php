@@ -39,7 +39,7 @@ return [
     'passissame' => 'رمز قبلی و جدید یکسان است',
     'userdisabled' => 'نام کاربری غیر فعال است، لطفا با مدیر سیستم تماس بگیرید',
     'passchanged' => 'رمز عبور با موفقیت تغییر کرد، لطفا مجددا وارد سیستم شوید',
-    'customerAdd' => 'مشتری جدید  با موفقیت اضافه شد',
+    'userAdd' => 'مشتری جدید  با موفقیت اضافه شد',
     'pageAdd' => 'صفحه با موفقیت اضافه شد',
     'fileUpload' => 'لطفا فایل را برای بارگذاری انتخاب کنید ',
     'recordnotfound' => 'رکوردی  یافت نشد ',
@@ -71,14 +71,14 @@ return [
     'inProgress' => 'در دست اقدام',
     'bpmnNotFound' => 'فایل BPMN تعریف نشده است',
     'end_of_workflow' => "فرایند به پایان رسیده است",
-    'customerSearch' => 'کد ملی، شماره موبایل، نام و نام خانوادگی',
-    'customerSearchAllert' => 'اطلاعاتی برای نمایش وجود ندارد. لطفا عبارت مورد نظر خود را وارد کرده و جستجو کنید! ',
+    'userSearch' => 'کد ملی، شماره موبایل، نام و نام خانوادگی',
+    'userSearchAllert' => 'اطلاعاتی برای نمایش وجود ندارد. لطفا عبارت مورد نظر خود را وارد کرده و جستجو کنید! ',
     'unauthorizedToReceipt' => 'پذیرش دستگاه وارد شده برای کاربران شرکت ":company" مجاز نمی باشد!',
     'moreThanThreeChar' => 'لطفا بیش از 5 کاراکتر وارد کنید!',
     'deviceSearch' => 'IMEI-1 جعبه بصورت کامل',
     'youCantWarranty' => 'این دستگاه تحت پوشش گارانتی داریا نمی باشد',
     'deviceReceptionHistory' => 'سابقه پذیرش های قبلی این دستگاه',
-    'customerReceptionHistory' => 'سابقه پذیرش های قبلی این مشتری',
+    'userReceptionHistory' => 'سابقه پذیرش های قبلی این مشتری',
     'surveySubmit' => 'نظر شما با موفقیت ثبت شد',
     'suggestionSubmit' => 'پیشنهاد/انتقاد شما با موفقیت ثبت شد',
     'suggestionNotSubmit' => 'پیشنهاد/انتقاد شما ثبت نشد',
@@ -99,7 +99,7 @@ return [
 
     'sallaryHelp' => '
     1. فایل‌های فیش حقوقی پرسنل که مربوط به یک ماه مشخص است را در یک پوشه ترجیها با نام و سال مرتبط قرار دهید. :br
-    2. پوشه مربوطه را به zip تبدیل کرده و در فرم، آپلود کنید.  
+    2. پوشه مربوطه را به zip تبدیل کرده و در فرم، آپلود کنید.
      در انتها خروجی مشابه تصویر زیر  باید داشته باشید.  :br
     3. دکمه ذخیره را فشار دهید.',
 
@@ -168,7 +168,7 @@ return [
     'emptyReceptionStatusError' => 'لطفا وضعیت جاب رو مشخص کنید.',
     'emptyReceptionPayment' => 'لطفا برای این جاب رسید پرداخت ثبت نمایید',
     'notEqualReceptionPayment' => "مبلغ پرداختی با فاکتور همخوانی ندارد",
-    'customerJobList' => 'برای این مشتری این جاب ثبت گردیده است .(:job_number) ',
+    'userJobList' => 'برای این مشتری این جاب ثبت گردیده است .(:job_number) ',
     'userRoleHasTask' => 'این کاربر با این نقش دارای تسک باز است. و امکان حذف وجود ندارد.',
     'taskTransferSuccess' => 'انتقال تسک ها به درستی انجام شد',
     'saveSuccess' => 'ذخیره با موفقیت انجام شد',
@@ -213,7 +213,7 @@ return [
     'receptionSearch' => 'جستجو بر اساس شماره ی پذیرش',
     'emptyReceptionStatusError' => 'لطفا وضعیت جاب رو مشخص کنید.',
     'emptyReceptionPayment' => 'لطفا برای این جاب رسید پرداخت ثبت نمایید',
-    'customerJobList' => 'برای این مشتری این جاب ثبت گردیده است .(:job_number) ',
+    'userJobList' => 'برای این مشتری این جاب ثبت گردیده است .(:job_number) ',
     'userRoleHasTask' => 'این کاربر با این نقش دارای تسک باز است. و امکان حذف وجود ندارد.',
     'taskTransferSuccess' => 'انتقال تسک ها به درستی انجام شد',
     'saveSuccess' => 'ذخیره با موفقیت انجام شد',
@@ -238,7 +238,7 @@ return [
     'incorectFile' => 'فایل ارسالی با نمونه مطابقت ندارد!!',
     'inputVariableNotTrue' => 'مقادیر ورودی صحیح نمی باشد',
     'device_parts' => ' جستجو براساس  name , local_name , number ',
-    'theCustomerIsRegisteredInRahkaran' => 'اطلاعات مشتری در مالی ثبت گردیده است. برای تغییر آن از فرآیند ویرایش اطلاعات مشتری استفاده نمایید.',
+    'theuserIsRegisteredInRahkaran' => 'اطلاعات مشتری در مالی ثبت گردیده است. برای تغییر آن از فرآیند ویرایش اطلاعات مشتری استفاده نمایید.',
 
     'single_sell' => [
         'part-supply-store' => 'تامین قطعات با موفقیت انجام شد',
@@ -289,8 +289,8 @@ return [
         'errorInCreatingGiftPromotion' => 'خطایی در ذخیره هدایای جشنواره رخ داده است',
         'errorInCreatingDeviceModelPromotion' => 'خطایی در ذخیره مدل گوشی ها برای جشنواره رخ داده است.',
         'device_duplicate' => 'imei ' . '  وارد شده قبلا در جشنواره شرکت داده شده است',
-        'customer_duplicate' => 'مشتری در طی ۶ ماه گذشته در جشنواره شرکت داشته است',
-        'customer_participated_limit' => 'مشتری در طی :period روز گذشته ظرفیت :limit هدیه خود را استفاده کرده است',
+        'user_duplicate' => 'مشتری در طی ۶ ماه گذشته در جشنواره شرکت داشته است',
+        'user_participated_limit' => 'مشتری در طی :period روز گذشته ظرفیت :limit هدیه خود را استفاده کرده است',
         'date-device-required' => 'ورود دستگاه و تاریخ فاکتور الزامی است',
         'promotion-gift-required' => 'لطفا یکی از هدایا را انتخاب نماببد',
         'hamta' => 'لطفا توجه نمایید  استعلام از سامانه همتا برعهده کارشناس است.',
@@ -321,13 +321,13 @@ return [
     'isNotPossibleUseDariaPlus' => 'امکان استفاده ی مجدد از داریا پلاس وجود ندارد',
     'swap' => [
         'notFoundActionWork' => 'ActionWork پیدا نشد',
-        'notFoundReception' =>'Reception پیدا نشد',
-        'notFoundWorkflow' =>'Workflow پیدا نشد',
-        'notFoundNextActivity' =>'NextActivity پیدا نشد',
+        'notFoundReception' => 'Reception پیدا نشد',
+        'notFoundWorkflow' => 'Workflow پیدا نشد',
+        'notFoundNextActivity' => 'NextActivity پیدا نشد',
         '' => '',
         '' => '',
-        
+
     ],
-    'customerEditWarning' => 'حتما قبل از ذخیره فرم، تغییرات لازم را در سیستم مالی (راهکاران) اعمال شده باشد.',
+    'userEditWarning' => 'حتما قبل از ذخیره فرم، تغییرات لازم را در سیستم مالی (راهکاران) اعمال شده باشد.',
     'warehousesNotDefine' => 'انبار تعریف نشده است.',
 ];

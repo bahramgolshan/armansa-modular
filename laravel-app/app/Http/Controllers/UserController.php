@@ -3,20 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Customer;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Invoice;
 use App\Models\Payment;
 
-class CustomerController extends Controller
+class UserController extends Controller
 {
   public function index()
   {
-    $customers = Customer::orderby('id', 'DESC')->paginate(15);
+    $users = User::orderby('id', 'DESC')->paginate(15);
 
     return view('content.apps.app-user-list', [
-      'customers' => $customers,
+      'users' => $users,
     ]);
   }
 
@@ -34,8 +34,8 @@ class CustomerController extends Controller
   {
     $id = Route::current()->parameter('id');
 
-    $customer = Customer::findOrfail($id);
-    $invoices = Invoice::where('customer_id', $id)->orderBy('id', 'DESC')->get();
+    $user = User::findOrfail($id);
+    $invoices = Invoice::where('user_id', $id)->orderBy('id', 'DESC')->get();
     $invoicesStatusColors = [
       'awaiting_payment' => 'warning',
       'awaiting_approval' => 'primary',
@@ -45,7 +45,7 @@ class CustomerController extends Controller
     ];
 
     return view('content.apps.app-user-preview', [
-      'customer' => $customer,
+      'user' => $user,
       'invoices' => $invoices,
       'invoicesStatusColors' => $invoicesStatusColors,
     ]);

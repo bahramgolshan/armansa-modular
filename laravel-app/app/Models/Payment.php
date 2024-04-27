@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\Customer;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -22,8 +22,8 @@ class Payment extends Model
     return $this->belongsTo(Invoice::class, 'invoice_id');
   }
 
-  public function customer()
+  public function user()
   {
-    return $this->belongsTo(Customer::class, 'customer_id');
+    return $this->belongsTo(User::class, 'user_id');
   }
 }

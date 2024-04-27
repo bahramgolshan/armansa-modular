@@ -108,10 +108,10 @@
 
                             <div class="col-md-6">
                                 <div class="">
-                                    <label class="mb-1" for="customersCount">تعداد مشتریان</label>
-                                    <input class="form-control" type="text" id="customersCount" name="customersCount"
-                                        value="{{ $settings['customersCount'] }}" />
-                                    <small class="text-danger">{{ $errors->first('customersCount') }}</small>
+                                    <label class="mb-1" for="usersCount">تعداد مشتریان</label>
+                                    <input class="form-control" type="text" id="usersCount" name="usersCount"
+                                        value="{{ $settings['usersCount'] }}" />
+                                    <small class="text-danger">{{ $errors->first('usersCount') }}</small>
                                 </div>
                             </div>
 
