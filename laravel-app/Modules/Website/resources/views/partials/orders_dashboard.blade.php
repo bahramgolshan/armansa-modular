@@ -37,7 +37,7 @@
                             <div class="flex gap-[1rem] justify-star items-center">
                                 <span class="text-[1.2rem] xl:text-[1.5rem] font-bold">وضعیت :</span>
                                 <span
-                                    class="text-[1.2rem] xl:text-[1.5rem] {{ $invoiceStatusColors[$invoice->status] }} px-[1rem] rounded-lg">{{ __('invoiceStatus.' . $invoice->status) }}</span>
+                                    class="text-[1.2rem] xl:text-[1.5rem] {{ $invoiceStatusColors[$invoice->status] }} px-[1rem] rounded-lg">{{ __('app.invoiceStatus.' . $invoice->status) }}</span>
                             </div>
                             <div class="flex gap-[1rem] justify-star items-center">
                                 <span

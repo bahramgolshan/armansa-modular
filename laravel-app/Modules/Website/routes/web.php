@@ -55,7 +55,7 @@ Route::middleware('auth')->prefix('dashboard')->group(function () {
   Route::get('/cart', 'InvoiceController@cartIndex')->name('dashboard.cart');
   Route::get('/orders', 'InvoiceController@ordersIndex')->name('dashboard.orders');
   Route::get('/invoice/{id}', 'InvoiceController@show')->where('id', '[0-9]+')->name('dashboard.invoice.show');
-  Route::post('/invoice/{id}', 'InvoiceController@pay')->where('id', '[0-9]+')->name('dashboard.invoice.pay');
+  Route::post('/invoice/{id}/pay', 'InvoiceController@pay')->where('id', '[0-9]+')->name('dashboard.invoice.pay');
   Route::post('/invoice/{id}', 'InvoiceController@destroy')->where('id', '[0-9]+')->name('dashboard.invoice.destroy');
 
 
@@ -68,7 +68,7 @@ Route::middleware('auth')->prefix('services')->group(function () {
   Route::get('print/digital/{id}', 'PrintDigitalController@show')->where('id', '[0-9]+')->name('service.print-digital.show');
   Route::get('print/digital', 'PrintDigitalController@create')->name('service.print-digital.create');
   Route::post('print/digital', 'PrintDigitalController@store')->name('service.print-digital.store');
-  Route::post('print/digital', 'PrintDigitalController@destroy')->name('service.print-digital.destroy');
+  Route::post('print/digitall/{id}', 'PrintDigitalController@destroy')->where('id', '[0-9]+')->name('service.print-digital.destroy');
 
   Route::get('print/digital/inquiry', "PrintDigitalController@inquiry")->name('service.print-digital.inquiry'); // Check price button
 });

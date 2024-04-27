@@ -4,9 +4,11 @@ namespace Modules\Website\App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Invoice;
+use App\Models\InvoiceDetail;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 class InvoiceController extends Controller
 {
@@ -37,10 +39,26 @@ class InvoiceController extends Controller
 
   public function pay(Request $request)
   {
+    $id = Route::current()->parameter('id');
+
+    $invoice = Invoice::findOrFail($id);
+    $invoice->status = 'awaiting_approval';
+
+    if ($invoice->save()) {
+      return redirect()->route('dashboard.orders')->withSuccess(__('messages.success'));
+    }
+    return redirect()->route('dashboard.cart')->withErrors(__('messages.error'));
   }
 
   public function show(Request $request)
   {
+    $id = Route::current()->parameter('id');
+
+    $invoice = Invoice::findOrFail($id);
+    $invoiceDetail = InvoiceDetail::where('invoice_id', $invoice->id)->first();
+    $serviceDetail = $invoiceDetail->serviceDetail;
+
+    return view('website::services.print-digital.show_details', compact('invoice', 'invoiceDetail', 'serviceDetail'));
   }
 
   public function destroy(Request $request)

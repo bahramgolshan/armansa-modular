@@ -95,7 +95,7 @@ class PrintDigitalController extends Controller
 
         if ($invoiceDetail->save()) {
 
-          return redirect()->route('dashboard.orders')->withSuccess(__('messages.success'));
+          return redirect()->route('dashboard.cart')->withSuccess(__('messages.success'));
         }
 
         return redirect()->route('service.print-digital.create')->withErrors(__('messages.error'));

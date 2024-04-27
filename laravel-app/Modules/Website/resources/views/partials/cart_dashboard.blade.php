@@ -64,10 +64,15 @@
                                 <span class="text-[1.2rem] xl:text-[1.5rem]">تومان</span>
                             </div>
                             <div class="flex items-center gap-[1rem] justify-end">
-                                <button
+                                <button href="{{ route('dashboard.invoice.pay', ['id' => $invoice->id]) }}"
+                                    onclick="event.preventDefault(); document.getElementById('pay-invoice').submit();"
                                     class="w-[200px] text-[0.75rem] sm:text-[1rem] lg:text-[1.2rem] h-[50px] bg-[#51956D] rounded-lg text-white text-center">
                                     پرداخت
                                 </button>
+                                <form method="POST" id="pay-invoice"
+                                    action="{{ route('dashboard.invoice.pay', ['id' => $invoice->id]) }}">
+                                    @csrf
+                                </form>
                             </div>
                         </div>
                     </div>
