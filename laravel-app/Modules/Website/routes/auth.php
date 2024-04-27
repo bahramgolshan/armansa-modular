@@ -17,7 +17,7 @@ Route::middleware('guest')->group(function () {
 
   Route::get('/login', 'Modules\Website\App\Http\Controllers\Auth\AuthController@login')->name('login');
 
-  Route::post('/login', 'Modules\Website\App\Http\Controllers\Auth\AuthController@authenticate')->name('login-submit');
+  Route::post('/login', 'Modules\Website\App\Http\Controllers\Auth\AuthController@loginSubmit')->name('login-submit');
 });
 
 Route::middleware('auth')->group(function () {

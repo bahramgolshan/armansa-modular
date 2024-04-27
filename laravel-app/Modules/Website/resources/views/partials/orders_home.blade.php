@@ -14,16 +14,16 @@
             <div class="custom-tab">
                 <form id="digital-print-form">
                     @csrf
-                    <input type="hidden" name="service" value="{{ $digitalPrintData['service_id'] }}">
+                    <input type="hidden" name="service_id" value="{{ $digitalPrintData['service_id'] }}">
                     <div
-                        class="primary-container mx-auto grid grid-cols-1 lg:gap-x-[5%] xl:gap-x-[10%] gap-y-[5rem] lg:gap-y-[0] lg:grid-cols-5 bg-white p-[1.5rem] rounded-lg text-[--primary-color]">
+                        class="primary-container mx-auto grid grid-cols-1 lg:gap-x-[5%] xl:gap-x-[10%] gap-y-[5rem] lg:gap-y-[0] lg:grid-cols-5 bg-white p-[1.5rem] shadow-[-2px_2px_8px_1px_rgba(0,0,0,0.15)] rounded-xl text-[--primary-color]">
                         <!-- right -->
                         <div class="lg:col-span-3 flex flex-col gap-[2rem] text-[1.125rem]">
                             <!-- top -->
                             <div>
                                 <div>
                                     <h3
-                                        class="text-[1.2rem] lg:text-[1.4rem] xl:text-[1.6rem] 2xl:text-[2rem] font-bold text-[--primary-color]">
+                                        class="text-[1.2rem] text-center lg:text-right lg:text-[1.4rem] xl:text-[1.6rem] 2xl:text-[2rem] font-bold text-[--primary-color]">
                                         مشخصات کلی
                                     </h3>
                                     <div class="h-[1px] bg-[#D9D9D9] my-[1.25rem]"></div>
@@ -33,11 +33,12 @@
                                     <div class="col-span-2 md:col-span-1">
                                         <label for="size" class="block font-medium leading-6">سایز:</label>
                                         <div class="mt-2">
-                                            <select id="size" name="size" autocomplete="size-name"
+                                            <select id="size" name="size_id" autocomplete="size-name"
                                                 class="reset-preview block w-full lg:max-w-[18.75rem] rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6">
                                                 <option value="">انتخاب کنید</option>
                                                 @foreach ($digitalPrintData['sizes'] as $item)
-                                                    <option value="{{ $item->code }}">{{ $item->name }}</option>
+                                                    <option value="{{ $item->id }}" data-code="{{ $item->code }}">
+                                                        {{ $item->name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -46,11 +47,11 @@
                                     <div class="col-span-2 md:col-span-1">
                                         <label for="paper" class="block font-medium leading-6">نوع کاغذ:</label>
                                         <div class="mt-2">
-                                            <select id="paper" name="paper" autocomplete="paper-name"
+                                            <select id="paper" name="paper_id" autocomplete="paper-name"
                                                 class="block w-full lg:max-w-[18.75rem] rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6">
                                                 <option value="">انتخاب کنید</option>
                                                 @foreach ($digitalPrintData['papers'] as $item)
-                                                    <option value="{{ $item->code }}">{{ $item->name }}</option>
+                                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -59,22 +60,22 @@
                                     <div class="col-span-2 md:col-span-1">
                                         <label for="color" class="block font-medium leading-6">رنگ چاپ:</label>
                                         <div class="mt-2">
-                                            <select id="color" name="color" autocomplete="color-name"
+                                            <select id="color" name="color_id" autocomplete="color-name"
                                                 class="block w-full lg:max-w-[18.75rem] rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6">
                                                 <option value="">انتخاب کنید</option>
                                                 @foreach ($digitalPrintData['colors'] as $item)
-                                                    <option value="{{ $item->code }}">{{ $item->name }}</option>
+                                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
                                     </div>
 
                                     <div class="col-span-2 md:col-span-1">
-                                        <label for="number-of-pages" class="block font-medium leading-6">تعداد
+                                        <label for="pages" class="block font-medium leading-6">تعداد
                                             صفحات:</label>
                                         <div class="mt-2">
-                                            <input type="text" name="number-of-pages" id="number-of-pages"
-                                                value="" autocomplete="given-name"
+                                            <input type="text" name="pages" id="pages" value=""
+                                                autocomplete="given-name"
                                                 class="block w-full lg:max-w-[18.75rem] rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm sm:leading-6" />
                                         </div>
                                     </div>
@@ -104,11 +105,11 @@
                                     <div class="col-span-2 md:col-span-1">
                                         <label for="cover" class="block font-medium leading-6">جنس جلد:</label>
                                         <div class="mt-2">
-                                            <select id="cover" name="cover" autocomplete="cover-name"
+                                            <select id="cover" name="cover_id" autocomplete="cover-name"
                                                 class="block w-full lg:max-w-[18.75rem] rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6">
                                                 <option value="">انتخاب کنید</option>
                                                 @foreach ($digitalPrintData['covers'] as $item)
-                                                    <option value="{{ $item->code }}">{{ $item->name }}</option>
+                                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -117,11 +118,11 @@
                                     <div class="col-span-2 md:col-span-1">
                                         <label for="binding" class="block font-medium leading-6">نوع صحافی:</label>
                                         <div class="mt-2">
-                                            <select id="binding" name="binding" autocomplete="binding-name"
+                                            <select id="binding" name="binding_id" autocomplete="binding-name"
                                                 class="block w-full lg:max-w-[18.75rem] rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6">
                                                 <option value="">انتخاب کنید</option>
                                                 @foreach ($digitalPrintData['bindings'] as $item)
-                                                    <option value="{{ $item->code }}">{{ $item->name }}</option>
+                                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -130,11 +131,12 @@
                                     <div class="col-span-2 md:col-span-1">
                                         <label for="cellophane" class="block font-medium leading-6">نوع سلفون:</label>
                                         <div class="mt-2">
-                                            <select id="cellophane" name="cellophane" autocomplete="cellophane-name"
+                                            <select id="cellophane" name="cellophane_id"
+                                                autocomplete="cellophane-name"
                                                 class="block w-full lg:max-w-[18.75rem] rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6">
                                                 <option value="">انتخاب کنید</option>
                                                 @foreach ($digitalPrintData['cellophanes'] as $item)
-                                                    <option value="{{ $item->code }}">{{ $item->name }}</option>
+                                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -146,81 +148,26 @@
 
                                     <ul
                                         class="w-[100%] xl:w-[75%] 2xl:w-[65%] grid gap-6 grid-cols-2 sm:grid-cols-4 book-direction">
-                                        <li class="flex justify-center max-w-[9rem] lg:max-w-[10rem]">
-                                            <input type="radio" id="binding-direction-extra-small"
-                                                name="binding-direction" value="fa_v"
-                                                class="reset-preview hidden peer" required checked />
-                                            <label for="binding-direction-extra-small"
-                                                class="flex flex-col justify-between w-[100%] h-[7.6875rem] border-[#3C4999] cursor-pointer"
-                                                for="">
-                                                <div
-                                                    class="h-[77%] border-[1px] border-[#3C4999] rounded-t-[0.4375rem] w-[100%]">
-                                                    <img class="w-[100%] h-[100%]"
-                                                        src="{{ asset('assets/modules/website/images/icon/Fa_V.svg') }}"
-                                                        alt="" />
-                                                </div>
-                                                <span
-                                                    class="block w-[100%] text-[0.875rem] h-[23%] leading-[1.5rem] text-center rounded-b-[0.4375rem] border-x-[1px] border-b-[1px] border-[#3C4999]">
-                                                    فارسی عمودی
-                                                </span>
-                                            </label>
-                                        </li>
-                                        <li class="flex justify-center max-w-[9rem] lg:max-w-[10rem]">
-                                            <input type="radio" id="binding-direction-small"
-                                                name="binding-direction" value="fa_h"
-                                                class="reset-preview hidden peer" required />
-                                            <label for="binding-direction-small"
-                                                class="flex flex-col justify-between w-[100%] h-[7.6875rem] border-[#3C4999] cursor-pointer"
-                                                for="">
-                                                <div
-                                                    class="h-[77%] border-[1px] border-[#3C4999] rounded-t-[0.4375rem] w-[100%]">
-                                                    <img class="w-[100%] h-[100%]"
-                                                        src="{{ asset('assets/modules/website/images/icon/Fa_H.svg') }}"
-                                                        alt="" />
-                                                </div>
-                                                <span
-                                                    class="block w-[100%] text-[0.875rem] h-[23%] leading-[1.5rem] text-center rounded-b-[0.4375rem] border-x-[1px] border-b-[1px] border-[#3C4999]">
-                                                    فارسی افقی
-                                                </span>
-                                            </label>
-                                        </li>
-                                        <li class="flex justify-center max-w-[9rem] lg:max-w-[10rem]">
-                                            <input type="radio" id="binding-direction-medium"
-                                                name="binding-direction" value="en_v"
-                                                class="reset-preview hidden peer" required />
-                                            <label for="binding-direction-medium"
-                                                class="flex flex-col justify-between w-[100%] h-[7.6875rem] border-[#3C4999] cursor-pointer"
-                                                for="">
-                                                <div
-                                                    class="h-[77%] border-[1px] border-[#3C4999] rounded-t-[0.4375rem] w-[100%]">
-                                                    <img class="w-[100%] h-[100%]"
-                                                        src="{{ asset('assets/modules/website/images/icon/En_V.svg') }}"
-                                                        alt="" />
-                                                </div>
-                                                <span
-                                                    class="block w-[100%] text-[0.875rem] h-[23%] leading-[1.5rem] text-center rounded-b-[0.4375rem] border-x-[1px] border-b-[1px] border-[#3C4999]">
-                                                    انگلیسی عمودی
-                                                </span>
-                                            </label>
-                                        </li>
-                                        <li class="flex justify-center max-w-[9rem] lg:max-w-[10rem]">
-                                            <input type="radio" id="binding-direction-big" name="binding-direction"
-                                                value="en_h" class="reset-preview hidden peer" required />
-                                            <label for="binding-direction-big"
-                                                class="lex flex-col justify-between w-[100%] h-[7.6875rem] border-[#3C4999] cursor-pointer"
-                                                for="">
-                                                <div
-                                                    class="h-[77%] border-[1px] border-[#3C4999] rounded-t-[0.4375rem] w-[100%]">
-                                                    <img class="w-[100%] h-[100%]"
-                                                        src="{{ asset('assets/modules/website/images/icon/En_H.svg') }}"
-                                                        alt="" />
-                                                </div>
-                                                <span
-                                                    class="block w-[100%] text-[0.875rem] h-[23%] leading-[1.5rem] text-center rounded-b-[0.4375rem] border-x-[1px] border-b-[1px] border-[#3C4999]">
-                                                    انگلیسی افقی
-                                                </span>
-                                            </label>
-                                        </li>
+                                        @foreach ($digitalPrintData['binding_directions'] as $index => $item)
+                                            <li class="flex justify-center max-w-[9rem] lg:max-w-[10rem]">
+                                                <input type="radio" id="binding_direction_{{ $item->code }}"
+                                                    name="binding_direction_id" value="{{ $item->id }}"
+                                                    data-code="{{ $item->code }}" class="reset-preview hidden peer"
+                                                    required {{ $index == 0 ? 'checked' : '' }} />
+                                                <label for="binding_direction_{{ $item->code }}"
+                                                    class="flex flex-col justify-between w-[100%] h-[7.6875rem] border-[#3C4999] cursor-pointer"
+                                                    for="">
+                                                    <div
+                                                        class="h-[77%] border-[1px] border-[#3C4999] rounded-t-[0.4375rem] w-[100%]">
+                                                        <img class="w-[100%] h-[100%]"
+                                                            src="{{ asset('assets/modules/website/images/icon/' . $item->code . '.svg') }}"
+                                                            alt="" />
+                                                    </div>
+                                                    <span
+                                                        class="block w-[100%] text-[0.875rem] h-[23%] leading-[1.5rem] text-center rounded-b-[0.4375rem] border-x-[1px] border-b-[1px] border-[#3C4999]">{{ $item->name }}</span>
+                                                </label>
+                                            </li>
+                                        @endforeach
                                     </ul>
                                 </div>
                             </div>
@@ -244,15 +191,18 @@
 
                             <div class="">
                                 <div>
-                                    <h3 class="text-[1.5rem] lg:text-[1.6rem] xl:text-[2rem] font-bold">
+                                    <h3 class="inline-block text-[1.5rem] lg:text-[1.6rem] xl:text-[2rem] font-bold">
                                         هزینه چاپ
                                     </h3>
+                                    <span id="call-for-price-message"
+                                        class="hidden text-[1.2rem] lg:text-[1.3rem] xl:text-[1.5rem]">(لطفا تماس
+                                        بگیرید)</span>
                                     <div class="h-[1px] bg-[#D9D9D9] my-[1rem]"></div>
                                 </div>
                                 <div>
-                                    <div id="service-cost" class="flex items-center gap-[1rem] justify-end">
-                                        <span class="text-[1.5rem] lg:text-[2rem] xl:text-[2.5rem] font-bold"
-                                            id="service-detail-price">1,234,567</span>
+                                    <div class="flex items-center gap-[1rem] justify-end">
+                                        <span id="final-price-holder"
+                                            class="text-[1.5rem] lg:text-[2rem] xl:text-[2.5rem] font-bold">0</span>
                                         <span class="text-[1.2rem] lg:text-[1.5rem] xl:text-[2rem]">تومان</span>
                                     </div>
                                 </div>
@@ -307,54 +257,78 @@
     $('#digital-print-form').validate({
         ignore: 'input[type=hidden]',
         rules: {
-            'size': {
+            'size_id': {
                 required: true
             },
-            'paper': {
+            'paper_id': {
                 required: true
             },
-            'color': {
+            'color_id': {
                 required: true,
             },
-            'size': {
-                required: true
-            },
-            'number-of-pages': {
+            'pages': {
                 required: true
             },
             'circulation': {
                 required: true,
             },
-            'cover': {
+            'cover_id': {
                 required: true
             },
-            'binding': {
+            'binding_id': {
                 required: true
             },
-            'cellophane': {
+            'cellophane_id': {
                 required: true,
             },
         },
-        // highlight: function(input) {
-        //     $(input).parents('.form-group').addClass('error has-danger');
-        //     $(input).addClass('form-control-danger');
-        // },
-        // unhighlight: function(input) {
-        //     $(input).parents('.form-group').removeClass('error has-danger');
-        //     $(input).parents('.form-group').addClass('has-success');
-        //     $(input).removeClass('form-control-danger');
-        //     $(input).addClass('form-control-success');
-        // },
-        // errorPlacement: function(error, element) {
-        //     $(element).parents('.form-group').append(error);
-        // }
     });
 
-    $('#price-inquiry-btn').click(function() {
+    // $('#price-inquiry-btn').click(function() {
 
+    //     if ($('#digital-print-form').valid()) {
+    //         var data = $('#digital-print-form').serializeArray();
+
+    //         $.ajax({
+    //             type: "GET",
+    //             headers: {
+    //                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    //             },
+    //             url: "{!! route('service.print.digital.inquiry') !!}",
+    //             data: data,
+    //             success: function(response) {
+    //                 if (response.price) {
+    //                     html = `
+    //                         <span class="text-[1.5rem] lg:text-[2rem] xl:text-[2.5rem] font-bold">${response.price.toLocaleString('en-US')}</span>
+    //                         <span class="text-[1.2rem] lg:text-[1.5rem] xl:text-[2rem]">تومان</span>
+    //                         `
+    //                 } else {
+    //                     html = `
+    //                         <span class="text-[1.2rem] lg:text-[1.5rem] xl:text-[2rem]"> برای استعلام قیمت لطفا تماس بگیرید... </span>
+    //                             `
+    //                 }
+
+    //                 $('#service-cost').html(html)
+    //                 $('#digital-print-form-error-box').html(''); // reset error box
+    //             },
+    //             error: function(response) {
+    //                 hideAjaxLoader()
+    //                 var html = "";
+    //                 var response = JSON.parse(response.responseText);
+    //                 $.each(response.errors, function(key, value) {
+    //                     html +=
+    //                         `<div class=''><strong>${value}</strong></div>`;
+    //                 });
+    //                 $('#digital-print-form-error-box').html(html);
+    //             }
+    //         });
+    //     }
+    // });
+
+    //  Price Inquiry Click
+    $('#price-inquiry-btn').click(function() {
         if ($('#digital-print-form').valid()) {
             var data = $('#digital-print-form').serializeArray();
-
             $.ajax({
                 type: "GET",
                 headers: {
@@ -362,21 +336,22 @@
                 },
                 url: "{!! route('service.print.digital.inquiry') !!}",
                 data: data,
+
                 success: function(response) {
-                    if (response.price) {
-                        html = `
-                            <span class="text-[1.5rem] lg:text-[2rem] xl:text-[2.5rem] font-bold">${response.price.toLocaleString('en-US')}</span>
-                            <span class="text-[1.2rem] lg:text-[1.5rem] xl:text-[2rem]">تومان</span>
-                            `
+                    if (response.status == 'success') {
+                        let data = response.data;
+                        $('#final-price-holder').html(data.final_price.toLocaleString(
+                            'en-US'))
+                        $('#call-for-price-message').addClass('hidden');
+
                     } else {
-                        html = `
-                            <span class="text-[1.2rem] lg:text-[1.5rem] xl:text-[2rem]"> برای استعلام قیمت لطفا تماس بگیرید... </span>
-                                `
+                        $('#final-price-holder').html('0')
+                        $('#call-for-price-message').removeClass('hidden');
                     }
 
-                    $('#service-cost').html(html)
                     $('#digital-print-form-error-box').html(''); // reset error box
                 },
+
                 error: function(response) {
                     hideAjaxLoader()
                     var html = "";
@@ -391,13 +366,15 @@
         }
     });
 
+    //  Reset Preview
     $(".reset-preview").on("change", function() {
-        let size = $('select[name=size]').val()
-        let bindingDirection = $("input[name=binding-direction]").val()
+        let sizeCode = $('select[id=size]').find(':selected').data('code')
+        let bindingDirectionCode = $("input[name=binding_direction_id]:checked").data('code')
+        console.log('resetPreview', sizeCode, bindingDirectionCode)
 
-        if (size && bindingDirection) {
+        if (sizeCode && bindingDirectionCode) {
             let src =
-                `{{ asset('assets/modules/website/images/home/form/previews/${size}_${bindingDirection}.svg') }}`
+                `{{ asset('assets/modules/website/images/home/form/previews/${sizeCode}_${bindingDirectionCode}.svg') }}`
             $('#preview-image').attr('src', src)
         }
     });

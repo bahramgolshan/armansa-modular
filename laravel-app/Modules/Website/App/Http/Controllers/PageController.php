@@ -16,6 +16,7 @@ use App\Models\Setting;
 use App\Models\Size;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\BindingDirection;
 
 class PageController extends Controller
 {
@@ -47,6 +48,7 @@ class PageController extends Controller
     $digitalPrintData['bindings'] = Binding::all();
     $digitalPrintData['cellophanes'] = Cellophane::all();
     $digitalPrintData['covers'] = Cover::all();
+    $digitalPrintData['binding_directions'] = BindingDirection::all();
 
     return view('website::pages.home', compact(
       'achievements',

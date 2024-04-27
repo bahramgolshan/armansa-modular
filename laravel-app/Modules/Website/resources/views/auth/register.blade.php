@@ -69,32 +69,18 @@
                         <form id="formAuthentication" class="mb-3" action="{{ route('register-submit') }}" method="POST">
                             @csrf
                             <div class="form-floating form-floating-outline mb-3">
-                                <input type="text" class="form-control" id="first_name" name="first_name"
-                                    placeholder="First Name" autofocus required>
-                                <label for="first_name">نام</label>
-                            </div>
-                            <div class="form-floating form-floating-outline mb-3">
-                                <input type="text" class="form-control" id="last_name" name="last_name"
-                                    placeholder="Last Name" required>
-                                <label for="last_name">نام خانوادگی</label>
-                            </div>
-                            <div class="form-floating form-floating-outline mb-3">
-                                <select class="form-select" id="gender" name="gender" required>
-                                    <option></option>
-                                    @foreach ($staticData['genders'] as $item)
-                                        <option value="{{ $item }}">{{ __('app.gender.' . $item) }}</option>
-                                    @endforeach
-                                </select>
-                                <label for="email">جنسیت</label>
+                                <input type="text" class="form-control" id="full_name" name="full_name"
+                                    placeholder="First Name" autofocus>
+                                <label for="full_name">نام و نام خانوادگی</label>
                             </div>
                             <div class="form-floating form-floating-outline mb-3">
                                 <input type="tel" class="form-control" id="mobile" name="mobile"
-                                    placeholder="Mobile" required>
+                                    placeholder="Mobile">
                                 <label for="mobile">شماره موبایل</label>
                             </div>
                             <div class="form-floating form-floating-outline mb-3">
                                 <input type="text" class="form-control" id="address" name="address"
-                                    placeholder="Address" required>
+                                    placeholder="Address">
                                 <label for="address">آدرس</label>
                             </div>
                             <div class="form-floating form-floating-outline mb-3">

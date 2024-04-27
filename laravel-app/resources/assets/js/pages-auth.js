@@ -11,6 +11,39 @@ document.addEventListener('DOMContentLoaded', function (e) {
     if (formAuthentication) {
       const fv = FormValidation.formValidation(formAuthentication, {
         fields: {
+          full_name: {
+            validators: {
+              notEmpty: {
+                message: 'Please enter name'
+              },
+              stringLength: {
+                min: 6,
+                message: 'Name must be more than 6 characters'
+              }
+            }
+          },
+          mobile: {
+            validators: {
+              notEmpty: {
+                message: 'Please enter mobile'
+              },
+              stringLength: {
+                min: 6,
+                message: 'Mobile must be more than 6 characters'
+              }
+            }
+          },
+          address: {
+            validators: {
+              notEmpty: {
+                message: 'Please enter address'
+              },
+              stringLength: {
+                min: 6,
+                message: 'Address must be more than 6 characters'
+              }
+            }
+          },
           username: {
             validators: {
               notEmpty: {
