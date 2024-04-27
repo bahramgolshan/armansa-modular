@@ -17,7 +17,10 @@ use App\Models\Size;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\BindingDirection;
+use App\Models\Invoice;
+use App\Models\InvoiceDetail;
 use App\Models\ServiceDetail;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 
 class PrintDigitalController extends Controller
@@ -38,6 +41,7 @@ class PrintDigitalController extends Controller
     $digitalPrintData['bindings'] = Binding::all();
     $digitalPrintData['cellophanes'] = Cellophane::all();
     $digitalPrintData['covers'] = Cover::all();
+    $digitalPrintData['binding_directions'] = BindingDirection::all();
 
     $faqs = Faq::orderBy('order', 'ASC')->get();
 
@@ -49,7 +53,57 @@ class PrintDigitalController extends Controller
 
   public function store(Request $request)
   {
-    dd('PrintDigitalController@store', $request->all());
+    $request->validate([
+      'service_id' => 'required|numeric',
+      'size_id' => 'required|numeric',
+      'paper_id' => 'required|numeric',
+      'color_id' => 'required|numeric',
+      'cover_id' => 'required|numeric',
+      'binding_id' => 'required|numeric',
+      'cellophane_id' => 'required|numeric',
+      'binding_direction_id' => 'required|numeric',
+      'pages' => 'required|numeric|min:0|max:100000',
+      'circulation' => 'required|numeric|min:0|max:1000000000',
+      'file_content' => 'required|mimetypes:application/msword,application/pdf,application/x-indesign|max:10240',
+      'file_cover' => 'required|mimetypes:image/*,application/pdf|max:10240',
+      'service_detail_id' => 'required|numeric',
+      'additional_discount' => 'required|numeric',
+      'additional_price' => 'required|numeric',
+      'tax' => 'required|numeric',
+      'final_price' => 'required|numeric',
+    ]);
+
+    if (Auth::check()) {
+      $invoice = new Invoice();
+      $invoice->customer_id = Auth::id();
+      $invoice->status = 'awaiting_payment';
+      $invoice->additional_discount = $request->additional_discount;
+      $invoice->additional_price = $request->additional_price;
+      $invoice->tax = $request->tax;
+      $invoice->final_price = $request->final_price;
+
+      if ($invoice->save()) {
+        $invoiceDetail = new InvoiceDetail();
+        $invoiceDetail->invoice_id = $invoice->id;
+        $invoiceDetail->service_detail_id = $request->service_detail_id;
+        $invoiceDetail->quantity = null;
+        $invoiceDetail->circulation = $request->circulation;
+        $invoiceDetail->pages = $request->number_of_pages;
+
+        // TODO: add upload files
+
+        if ($invoiceDetail->save()) {
+
+          return redirect()->route('dashboard.orders')->withSuccess(__('messages.success'));
+        }
+
+        return redirect()->route('service.print-digital.create')->withErrors(__('messages.error'));
+      }
+
+      return redirect()->route('service.print-digital.create')->withErrors(__('messages.error'));
+    }
+
+    return redirect()->route('login')->withErrors('You do not have permission!');
   }
 
   public function show($id)
@@ -74,63 +128,63 @@ class PrintDigitalController extends Controller
 
   public function inquiry(Request $request)
   {
-    $request->validate([
-      'service' => 'required|numeric|min:0|max:10000',
-      'size' => ['required', Rule::in(Size::$codes)],
-      'paper' => ['required', Rule::in(Paper::$codes)],
-      'color' => ['required', Rule::in(Color::$codes)],
-      'number-of-pages' => 'required|numeric|min:0|max:100000',
-      'circulation' => 'required|numeric|min:0|max:1000000000',
-      'cover' => ['required', Rule::in(Cover::$codes)],
-      'binding' => ['required', Rule::in(Binding::$codes)],
-      'cellophane' => ['required', Rule::in(Cellophane::$codes)],
-      'binding-direction' => ['required', Rule::in(['fa_v', 'fa_h', 'en_v', 'en_h'])],
+    $query = $request->validate([
+      'service_id' => 'required|numeric',
+      'size_id' => 'required|numeric',
+      'paper_id' => 'required|numeric',
+      'color_id' => 'required|numeric',
+      'cover_id' => 'required|numeric',
+      'binding_id' => 'required|numeric',
+      'cellophane_id' => 'required|numeric',
+      'binding_direction_id' => 'required|numeric',
+      // 'pages' => 'required|numeric|min:0|max:100000',
+      // 'circulation' => 'required|numeric|min:0|max:1000000000',
     ]);
 
-    $sizeId = Size::where('code', $request->size)->first()->id;
-    $colorId = Color::where('code', $request->color)->first()->id;
-    $paperId = Paper::where('code', $request->paper)->first()->id;
-    $bindingId = Binding::where('code', $request->binding)->first()->id;
-    $cellophaneId = Cellophane::where('code', $request->cellophane)->first()->id;
-    $coverId = Cover::where('code', $request->cover)->first()->id;
-    $bindingDirectionId = BindingDirection::where('code', $request->get('binding-direction'))->first()->id;
-
-    $serviceDetail = ServiceDetail::where([
-      'service_id' => $request->service,
-      'size_id' => $sizeId,
-      'color_id' => $colorId,
-      'paper_id' => $paperId,
-      'binding_id' => $bindingId,
-      'cellophane_id' => $cellophaneId,
-      'cover_id' => $coverId,
-      'binding_direction_id' => $bindingDirectionId,
-      'status' => 'publish'
-    ])
+    $serviceDetail = ServiceDetail::where($query)
+      ->where('status', 'publish')
       ->first();
 
     if (isset($serviceDetail)) {
       if (isset($serviceDetail->price)) {
+        // Extract necessary data
+        $id = $serviceDetail->id;
         $price = $serviceDetail->price;
         $discount = $serviceDetail->discount;
         $discountType = $serviceDetail->discount_type;
-        $finalPrice = $serviceDetail->discount_type;
+        $additionalDiscount = 0;
+        $additionalPrice = 0;
+        $tax = 0;
+
+        // Calculate final_price
+        if ($discountType == 'percent') {
+          $finalPrice = $price - ($price * ($discount / 100));
+        } else {
+          $finalPrice = $price - $discount;
+        }
 
         return response()->json([
           'status' => 'success',
           'message' => null,
           'data' => [
+            'service_detail_id' => $id,
             'price' => $price,
             'discount' => $discount,
             'discount_type' => $discountType,
+            'additional_discount' => $additionalDiscount,
+            'additional_price' => $additionalPrice,
+            'tax' => $tax,
             'final_price' => $finalPrice,
-          ]
+          ],
         ]);
       }
 
       return response()->json([
         'status' => 'error',
         'message' => 'برای استعلام قیمت لطفا تماس بگیرید',
-        'data' => null,
+        'data' => [
+          'service_detail_id' => $serviceDetail->id,
+        ],
       ]);
     }
 

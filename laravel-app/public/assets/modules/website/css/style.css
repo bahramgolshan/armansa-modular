@@ -38,7 +38,7 @@ body {
 }
 
 /* جهت صحافی */
-input[name='binding-direction']:checked + label span {
+input[name='binding_direction_id']:checked + label span {
   background-color: var(--primary-color);
   color: white;
   overflow: hidden;

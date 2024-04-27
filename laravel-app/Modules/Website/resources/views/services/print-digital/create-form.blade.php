@@ -4,14 +4,31 @@
  @endsection
 
  @section('content')
-     {{-- @include('website::partials.bread_crumb') --}}
-     {{-- @include('website::partials.main_digital_print') --}}
+     @include('components.msg-success')
+     @include('components.msg-error')
+
+     @if ($errors->any())
+         <div class="alert alert-danger">
+             <ul>
+                 @foreach ($errors->all() as $error)
+                     <li>{{ $error }}</li>
+                 @endforeach
+             </ul>
+         </div>
+     @endif
 
      <!-- main -->
      <form id="digital-print-form" class="bg-[#f5f5f5] py-[3rem]" action="{{ route('service.print-digital.store') }}"
-         method="POST">
+         enctype='multipart/form-data' method="POST">
+
          @csrf
-         <input type="hidden" name="service" value="{{ $digitalPrintData['service_id'] }}">
+         <input type="hidden" name="service_id" value="{{ $digitalPrintData['service_id'] }}">
+         <input type="hidden" id="service_detail_id" name="service_detail_id">
+         <input type="hidden" id="additional_discount" name="additional_discount">
+         <input type="hidden" id="additional_price" name="additional_price">
+         <input type="hidden" id="tax" name="tax">
+         <input type="hidden" id="final_price" name="final_price">
+
          <h1 class="font-bold text-[2rem] text-center text-[--primary-color] mb-[3rem]">
              سفارش چاپ دیجیتال
          </h1>
@@ -35,11 +52,12 @@
                              <div class="col-span-2 md:col-span-1">
                                  <label for="size" class="block font-medium leading-6">سایز:</label>
                                  <div class="mt-2">
-                                     <select id="size" name="size" autocomplete="size-name"
+                                     <select id="size" name="size_id" autocomplete="size-name"
                                          class="reset-preview block w-full lg:max-w-[18.75rem] rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6">
                                          <option value="">انتخاب کنید</option>
                                          @foreach ($digitalPrintData['sizes'] as $item)
-                                             <option value="{{ $item->code }}">{{ $item->name }}</option>
+                                             <option value="{{ $item->id }}" data-code="{{ $item->code }}">
+                                                 {{ $item->name }}</option>
                                          @endforeach
                                      </select>
                                  </div>
@@ -48,11 +66,11 @@
                              <div class="col-span-2 md:col-span-1">
                                  <label for="paper" class="block font-medium leading-6">نوع کاغذ:</label>
                                  <div class="mt-2">
-                                     <select id="paper" name="paper" autocomplete="paper-name"
+                                     <select id="paper" name="paper_id" autocomplete="paper-name"
                                          class="block w-full lg:max-w-[18.75rem] rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6">
                                          <option value="">انتخاب کنید</option>
                                          @foreach ($digitalPrintData['papers'] as $item)
-                                             <option value="{{ $item->code }}">{{ $item->name }}</option>
+                                             <option value="{{ $item->id }}">{{ $item->name }}</option>
                                          @endforeach
                                      </select>
                                  </div>
@@ -61,21 +79,21 @@
                              <div class="col-span-2 md:col-span-1">
                                  <label for="color" class="block font-medium leading-6">رنگ چاپ:</label>
                                  <div class="mt-2">
-                                     <select id="color" name="color" autocomplete="color-name"
+                                     <select id="color" name="color_id" autocomplete="color-name"
                                          class="block w-full lg:max-w-[18.75rem] rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6">
                                          <option value="">انتخاب کنید</option>
                                          @foreach ($digitalPrintData['colors'] as $item)
-                                             <option value="{{ $item->code }}">{{ $item->name }}</option>
+                                             <option value="{{ $item->id }}">{{ $item->name }}</option>
                                          @endforeach
                                      </select>
                                  </div>
                              </div>
 
                              <div class="col-span-2 md:col-span-1">
-                                 <label for="number-of-pages" class="block font-medium leading-6">تعداد
+                                 <label for="pages" class="block font-medium leading-6">تعداد
                                      صفحات:</label>
                                  <div class="mt-2">
-                                     <input type="text" name="number-of-pages" id="number-of-pages" value=""
+                                     <input type="text" name="pages" id="pages" value=""
                                          autocomplete="given-name"
                                          class="block w-full lg:max-w-[18.75rem] rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm sm:leading-6" />
                                  </div>
@@ -106,11 +124,11 @@
                              <div class="col-span-2 md:col-span-1">
                                  <label for="cover" class="block font-medium leading-6">جنس جلد:</label>
                                  <div class="mt-2">
-                                     <select id="cover" name="cover" autocomplete="cover-name"
+                                     <select id="cover" name="cover_id" autocomplete="cover-name"
                                          class="block w-full lg:max-w-[18.75rem] rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6">
                                          <option value="">انتخاب کنید</option>
                                          @foreach ($digitalPrintData['covers'] as $item)
-                                             <option value="{{ $item->code }}">{{ $item->name }}</option>
+                                             <option value="{{ $item->id }}">{{ $item->name }}</option>
                                          @endforeach
                                      </select>
                                  </div>
@@ -119,11 +137,11 @@
                              <div class="col-span-2 md:col-span-1">
                                  <label for="binding" class="block font-medium leading-6">نوع صحافی:</label>
                                  <div class="mt-2">
-                                     <select id="binding" name="binding" autocomplete="binding-name"
+                                     <select id="binding" name="binding_id" autocomplete="binding-name"
                                          class="block w-full lg:max-w-[18.75rem] rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6">
                                          <option value="">انتخاب کنید</option>
                                          @foreach ($digitalPrintData['bindings'] as $item)
-                                             <option value="{{ $item->code }}">{{ $item->name }}</option>
+                                             <option value="{{ $item->id }}">{{ $item->name }}</option>
                                          @endforeach
                                      </select>
                                  </div>
@@ -132,11 +150,11 @@
                              <div class="col-span-2 md:col-span-1">
                                  <label for="cellophane" class="block font-medium leading-6">نوع سلفون:</label>
                                  <div class="mt-2">
-                                     <select id="cellophane" name="cellophane" autocomplete="cellophane-name"
+                                     <select id="cellophane" name="cellophane_id" autocomplete="cellophane-name"
                                          class="block w-full lg:max-w-[18.75rem] rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6">
                                          <option value="">انتخاب کنید</option>
                                          @foreach ($digitalPrintData['cellophanes'] as $item)
-                                             <option value="{{ $item->code }}">{{ $item->name }}</option>
+                                             <option value="{{ $item->id }}">{{ $item->name }}</option>
                                          @endforeach
                                      </select>
                                  </div>
@@ -148,74 +166,26 @@
 
                              <ul
                                  class="w-[100%] xl:w-[75%] 2xl:w-[65%] grid gap-6 grid-cols-2 sm:grid-cols-4 book-direction">
-                                 <li class="flex justify-center max-w-[9rem] lg:max-w-[10rem]">
-                                     <input type="radio" id="binding-direction-extra-small" name="binding-direction"
-                                         value="fa_v" class="reset-preview hidden peer" required checked />
-                                     <label for="binding-direction-extra-small"
-                                         class="flex flex-col justify-between w-[100%] h-[7.6875rem] border-[#3C4999] cursor-pointer"
-                                         for="">
-                                         <div class="h-[77%] border-[1px] border-[#3C4999] rounded-t-[0.4375rem] w-[100%]">
-                                             <img class="w-[100%] h-[100%]"
-                                                 src="{{ asset('assets/modules/website/images/icon/Fa_V.svg') }}"
-                                                 alt="" />
-                                         </div>
-                                         <span
-                                             class="block w-[100%] text-[0.875rem] h-[23%] leading-[1.5rem] text-center rounded-b-[0.4375rem] border-x-[1px] border-b-[1px] border-[#3C4999]">
-                                             فارسی عمودی
-                                         </span>
-                                     </label>
-                                 </li>
-                                 <li class="flex justify-center max-w-[9rem] lg:max-w-[10rem]">
-                                     <input type="radio" id="binding-direction-small" name="binding-direction"
-                                         value="fa_h" class="reset-preview hidden peer" required />
-                                     <label for="binding-direction-small"
-                                         class="flex flex-col justify-between w-[100%] h-[7.6875rem] border-[#3C4999] cursor-pointer"
-                                         for="">
-                                         <div class="h-[77%] border-[1px] border-[#3C4999] rounded-t-[0.4375rem] w-[100%]">
-                                             <img class="w-[100%] h-[100%]"
-                                                 src="{{ asset('assets/modules/website/images/icon/Fa_H.svg') }}"
-                                                 alt="" />
-                                         </div>
-                                         <span
-                                             class="block w-[100%] text-[0.875rem] h-[23%] leading-[1.5rem] text-center rounded-b-[0.4375rem] border-x-[1px] border-b-[1px] border-[#3C4999]">
-                                             فارسی افقی
-                                         </span>
-                                     </label>
-                                 </li>
-                                 <li class="flex justify-center max-w-[9rem] lg:max-w-[10rem]">
-                                     <input type="radio" id="binding-direction-medium" name="binding-direction"
-                                         value="en_v" class="reset-preview hidden peer" required />
-                                     <label for="binding-direction-medium"
-                                         class="flex flex-col justify-between w-[100%] h-[7.6875rem] border-[#3C4999] cursor-pointer"
-                                         for="">
-                                         <div class="h-[77%] border-[1px] border-[#3C4999] rounded-t-[0.4375rem] w-[100%]">
-                                             <img class="w-[100%] h-[100%]"
-                                                 src="{{ asset('assets/modules/website/images/icon/En_V.svg') }}"
-                                                 alt="" />
-                                         </div>
-                                         <span
-                                             class="block w-[100%] text-[0.875rem] h-[23%] leading-[1.5rem] text-center rounded-b-[0.4375rem] border-x-[1px] border-b-[1px] border-[#3C4999]">
-                                             انگلیسی عمودی
-                                         </span>
-                                     </label>
-                                 </li>
-                                 <li class="flex justify-center max-w-[9rem] lg:max-w-[10rem]">
-                                     <input type="radio" id="binding-direction-big" name="binding-direction"
-                                         value="en_h" class="reset-preview hidden peer" required />
-                                     <label for="binding-direction-big"
-                                         class="lex flex-col justify-between w-[100%] h-[7.6875rem] border-[#3C4999] cursor-pointer"
-                                         for="">
-                                         <div class="h-[77%] border-[1px] border-[#3C4999] rounded-t-[0.4375rem] w-[100%]">
-                                             <img class="w-[100%] h-[100%]"
-                                                 src="{{ asset('assets/modules/website/images/icon/En_H.svg') }}"
-                                                 alt="" />
-                                         </div>
-                                         <span
-                                             class="block w-[100%] text-[0.875rem] h-[23%] leading-[1.5rem] text-center rounded-b-[0.4375rem] border-x-[1px] border-b-[1px] border-[#3C4999]">
-                                             انگلیسی افقی
-                                         </span>
-                                     </label>
-                                 </li>
+                                 @foreach ($digitalPrintData['binding_directions'] as $index => $item)
+                                     <li class="flex justify-center max-w-[9rem] lg:max-w-[10rem]">
+                                         <input type="radio" id="binding_direction_{{ $item->code }}"
+                                             name="binding_direction_id" value="{{ $item->id }}"
+                                             data-code="{{ $item->code }}" class="reset-preview hidden peer" required
+                                             {{ $index == 0 ? 'checked' : '' }} />
+                                         <label for="binding_direction_{{ $item->code }}"
+                                             class="flex flex-col justify-between w-[100%] h-[7.6875rem] border-[#3C4999] cursor-pointer"
+                                             for="">
+                                             <div
+                                                 class="h-[77%] border-[1px] border-[#3C4999] rounded-t-[0.4375rem] w-[100%]">
+                                                 <img class="w-[100%] h-[100%]"
+                                                     src="{{ asset('assets/modules/website/images/icon/' . $item->code . '.svg') }}"
+                                                     alt="" />
+                                             </div>
+                                             <span
+                                                 class="block w-[100%] text-[0.875rem] h-[23%] leading-[1.5rem] text-center rounded-b-[0.4375rem] border-x-[1px] border-b-[1px] border-[#3C4999]">{{ $item->name }}</span>
+                                         </label>
+                                     </li>
+                                 @endforeach
                              </ul>
                          </div>
                      </div>
@@ -295,7 +265,7 @@
                         </div> --}}
                      {{-- HTML FILEUPLOAD --}}
                      <div class="flex items-center justify-start w-full mb-[9px]">
-                         <input type="file" name="file-content" id="file-content"
+                         <input type="file" name="file_content" id="file-content"
                              accept=".doc,.docx,application/msword,application/vnd.indesign,.indd,application/pdf">
                      </div>
                      <div>
@@ -342,7 +312,7 @@
                      </div> --}}
                      {{-- HTML FILEUPLOAD --}}
                      <div class="flex items-center justify-start w-full mb-[9px]">
-                         <input type="file" name="file-cover" id="file-cover" accept="image/*,.pdf,application/pdf">
+                         <input type="file" name="file_cover" id="file-cover" accept="image/*,.pdf,application/pdf">
                      </div>
                      <div>
                          <h4 class="text-indigo-800 text-[0.875rem] lg:text-xl my-[1rem] font-bold">
@@ -438,8 +408,6 @@
              </div>
          </section>
      </form>
-
-     {{-- @include('website::partials.questions') --}}
  @endsection
 
  @section('page-script')
@@ -451,38 +419,35 @@
              $('#digital-print-form').validate({
                  ignore: 'input[type=hidden]',
                  rules: {
-                     'size': {
+                     'size_id': {
                          required: true
                      },
-                     'paper': {
+                     'paper_id': {
                          required: true
                      },
-                     'color': {
+                     'color_id': {
                          required: true,
                      },
-                     'size': {
-                         required: true
-                     },
-                     'number-of-pages': {
+                     'pages': {
                          required: true
                      },
                      'circulation': {
                          required: true,
                      },
-                     'cover': {
+                     'cover_id': {
                          required: true
                      },
-                     'binding': {
+                     'binding_id': {
                          required: true
                      },
-                     'cellophane': {
+                     'cellophane_id': {
                          required: true,
                      },
-                     'file-content': {
+                     'file_content': {
                          required: false,
                          accept: "application/msword, application/pdf, application/x-indesign"
                      },
-                     'file-cover': {
+                     'file_cover': {
                          required: false,
                          accept: "image/*"
                      },
@@ -512,7 +477,6 @@
 
              //  Price Inquiry Click
              $('#price-inquiry-btn').click(function() {
-                 console.log('click');
                  if ($('#digital-print-form').valid()) {
                      var data = $('#digital-print-form').serializeArray();
                      $.ajax({
@@ -525,13 +489,21 @@
 
                          success: function(response) {
                              if (response.status == 'success') {
-                                 $('#final-price-holder').html(response.data.price
-                                     .toLocaleString('en-US'))
+                                 let data = response.data;
+                                 $('#final-price-holder').html(data.final_price.toLocaleString(
+                                     'en-US'))
                                  $('#call-for-price-message').addClass('hidden');
-
                                  $('#digital-print-file-input').removeClass('hidden');
                                  $('#digital-print-contacts').removeClass('hidden');
                                  $('#digital-print-submit-btn').removeClass('hidden');
+
+                                 setInvoiceData(
+                                     data.service_detail_id,
+                                     data.additional_discount,
+                                     data.additional_price,
+                                     data.tax,
+                                     data.final_price
+                                 )
 
                              } else {
                                  $('#final-price-holder').html('0')
@@ -561,16 +533,25 @@
 
              //  Reset Preview
              $(".reset-preview").on("change", function() {
-                 let size = $('select[name=size]').val()
-                 let bindingDirection = $("input[name=binding-direction]").val()
+                 let sizeCode = $('select[id=size]').find(':selected').data('code')
+                 let bindingDirectionCode = $("input[name=binding_direction_id]:checked").data('code')
+                 console.log('resetPreview', sizeCode, bindingDirectionCode)
 
-                 if (size && bindingDirection) {
+                 if (sizeCode && bindingDirectionCode) {
                      let src =
-                         `{{ asset('assets/modules/website/images/home/form/previews/${size}_${bindingDirection}.svg') }}`
+                         `{{ asset('assets/modules/website/images/home/form/previews/${sizeCode}_${bindingDirectionCode}.svg') }}`
                      $('#preview-image').attr('src', src)
                  }
              });
 
          });
+
+         function setInvoiceData(service_detail_id, additional_discount, additional_price, tax, final_price) {
+             $('#service_detail_id').val(service_detail_id)
+             $('#additional_discount').val(additional_discount)
+             $('#additional_price').val(additional_price)
+             $('#tax').val(tax)
+             $('#final_price').val(final_price)
+         }
      </script>
  @endsection
