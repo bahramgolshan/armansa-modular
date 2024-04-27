@@ -5,7 +5,7 @@
                       class="flex flex-row justify-star rounded-t-lg hover:bg-[#3C4999] hover:text-white text-[#3C4999] items-center xl:gap-3 gap-1 px-4 py-2">
                       <img class="w-[24px] h-[24px]"
                           src="{{ asset('assets/modules/website/images/dashboard/edit.png') }}" />
-                      <a href="{{ route('dashboard.profile') }}"
+                      <a href="{{ route('dashboard.profile.edit') }}"
                           class="text-center xl:text-[1.25rem] lg:text-[0.79rem] px-1 dashboard-sidebar-link">ویرایش
                           پروفایل</a>
                   </div>

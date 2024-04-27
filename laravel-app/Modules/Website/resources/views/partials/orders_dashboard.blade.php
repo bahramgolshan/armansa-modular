@@ -45,10 +45,10 @@
                                 <span class="text-[1.2rem] xl:text-[1.5rem]">تومان</span>
                             </div>
                             <div class="flex items-center gap-[1rem] justify-center sm:justify-end">
-                                <button
-                                    class="text-center text-[0.75rem] sm:text-[1rem] lg:text-[1.2rem] w-[200px] h-[40px] h-[50px] bg-[#00B6DE] rounded-lg text-white">
+                                <a href="{{ route('dashboard.invoice.show', ['id' => $invoice->id]) }}" target="_blank"
+                                    class="text-center text-[0.75rem] py-[.7rem] sm:text-[1rem] lg:text-[1.2rem] w-[200px] h-[40px] h-[50px] bg-[#00B6DE] rounded-lg text-white">
                                     مشاهده جزئیات
-                                </button>
+                                </a>
                             </div>
                         </div>
 

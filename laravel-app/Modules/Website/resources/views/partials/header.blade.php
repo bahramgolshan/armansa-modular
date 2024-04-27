@@ -38,7 +38,7 @@
                     @if (Auth::check())
                         <a href="{{ route('dashboard.cart') }}">سبد خرید</a>
                         <div class="w-[0.3rem] h-[0.3rem] bg-[#3C4999] rotate-45"></div>
-                        <a href="{{ route('dashboard.profile') }}">پروفایل</a>
+                        <a href="{{ route('dashboard.profile.edit') }}">پروفایل</a>
                         <div class="w-[0.3rem] h-[0.3rem] bg-[#3C4999] rotate-45"></div>
                         <button
                             onclick="event.preventDefault(); document.getElementById('logout-form-lg').submit();">خروج
@@ -170,7 +170,7 @@
                 </a>
             </li>
             <li class="mb-1 group">
-                <a href="{{ route('dashboard.profile') }}" class="flex items-center py-2 px-4 text-gray-300">
+                <a href="{{ route('dashboard.profile.edit') }}" class="flex items-center py-2 px-4 text-gray-300">
                     <span class="text-white font-bold">پروفایل</span>
                 </a>
             </li>
