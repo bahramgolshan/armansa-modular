@@ -18,7 +18,8 @@
                             نام‌خانوادگی:</label>
                         <div class="mt-2">
                             <input type="text" name="fullname" id="fullname" autocomplete="name"
-                                class="block w-full pr-[0.5rem] rounded-md border-0 py-1.5 text-[#3B4999] shadow-sm ring-1 ring-inset ring-[#3C4999] placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 outline-none" />
+                                class="block w-full pr-[0.5rem] rounded-md border-0 py-1.5 text-[#3B4999] shadow-sm ring-1 ring-inset ring-[#3C4999] placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 outline-none"
+                                value="{{ Auth::user()->full_name }}" />
                         </div>
                     </div>
                     <div class="sm:col-span-2">
@@ -26,8 +27,9 @@
                             class="block text-sm font-medium leading-6 text-[#3B4999] lg:text-[18px]">تلفن همراه
                             :</label>
                         <div class="mt-2">
-                            <input type="text" name="phone" id="phone" autocomplete="phone"
-                                class="block w-full pr-[0.5rem] rounded-md border-0 py-1.5 text-[#3B4999] shadow-sm ring-1 ring-inset ring-[#3C4999] placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 outline-none" />
+                            <input type="text" name="mobile" id="mobile" autocomplete="mobile"
+                                class="block w-full pr-[0.5rem] rounded-md border-0 py-1.5 text-[#3B4999] shadow-sm ring-1 ring-inset ring-[#3C4999] placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 outline-none"
+                                value="{{ Auth::user()->mobile }}" />
                         </div>
                     </div>
                     <div class="sm:col-span-2">
@@ -36,7 +38,8 @@
                             ایمیل:</label>
                         <div class="mt-2">
                             <input type="email" name="email" id="email" autocomplete="email"
-                                class="block w-full pr-[0.5rem] rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-[#3C4999] placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 outline-none" />
+                                class="block w-full pr-[0.5rem] rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-[#3C4999] placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 outline-none"
+                                value="{{ Auth::user()->email }}" />
                         </div>
                     </div>
                     <div class="col-span-full">
@@ -45,7 +48,7 @@
                             :</label>
                         <div class="mt-2">
                             <textarea type="text" name="street-address" id="street-address" autocomplete="street-address"
-                                class="block w-full px-[0.5rem] rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-[#3C4999] placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 outline-none"></textarea>
+                                class="block w-full px-[0.5rem] rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-[#3C4999] placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 outline-none">{{ Auth::user()->address }}</textarea>
                         </div>
                         <div class="flex items-center gap-[1rem] justify-center sm:justify-end mt-5">
                             <button

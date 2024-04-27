@@ -352,7 +352,7 @@
                          <div class="mt-2">
                              <input type="text" name="fullname" id="fullname" autocomplete="name"
                                  class="block w-full pr-[0.5rem] rounded-md border-0 py-1.5 text-[#3B4999] shadow-sm ring-1 ring-inset ring-[#3C4999] placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 outline-none"
-                                 value="{{ Auth::user()->name }}" disabled />
+                                 value="{{ Auth::user()->full_name }}" disabled />
                          </div>
                      </div>
                      <div class="sm:col-span-2">
@@ -361,7 +361,7 @@
                          <div class="mt-2">
                              <input type="text" name="phone" id="phone" autocomplete="phone"
                                  class="block w-full pr-[0.5rem] rounded-md border-0 py-1.5 text-[#3B4999] shadow-sm ring-1 ring-inset ring-[#3C4999] placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 outline-none"
-                                 value="{{ Auth::user()->phone }}" disabled />
+                                 value="{{ Auth::user()->mobile }}" disabled />
                          </div>
                      </div>
                      <div class="sm:col-span-2">
