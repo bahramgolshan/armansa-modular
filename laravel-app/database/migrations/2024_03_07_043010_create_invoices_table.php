@@ -20,6 +20,7 @@ class CreateInvoicesTable extends Migration
       $table->float('additional_price', 22, 2)->default('0')->nullable();
       $table->float('tax', 22, 2)->default('0')->nullable();
       $table->float('final_price', 22, 2)->default('0')->nullable();
+      $table->string('reference_code', 15);
 
       $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict')->onUpdate('cascade');
     });

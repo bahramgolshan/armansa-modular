@@ -3,7 +3,7 @@
     <div class="primary-container mx-auto">
         <div>
             <h1 class="text-center text-[1.5rem] lg:text-[1.6rem] xl:text-[2rem] font-bold mb-[1rem]">
-                سبد خرید
+                سفارش های من
             </h1>
         </div>
         <div class="mx-auto grid grid-cols-1 lg:gap-x-8 gap-y-8 lg:grid-cols-5 xl:gap-x-9">
@@ -16,7 +16,7 @@
                     </div>
                     <div>
                         <p class="text-center text-[1rem] lg:text-[1.25rem]">
-                            سبد خرید شما خالی است!
+                            سابقه سفارش های شما خالی است!
                         </p>
                     </div>
 

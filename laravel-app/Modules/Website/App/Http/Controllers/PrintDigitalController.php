@@ -81,6 +81,7 @@ class PrintDigitalController extends Controller
       $invoice->additional_price = $request->additional_price;
       $invoice->tax = $request->tax;
       $invoice->final_price = $request->final_price;
+      $invoice->reference_code = Auth::id() . '-' . time();
 
       if ($invoice->save()) {
         $invoiceDetail = new InvoiceDetail();
