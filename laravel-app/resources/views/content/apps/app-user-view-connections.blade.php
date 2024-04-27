@@ -1,6 +1,6 @@
 @extends('layouts/layoutMaster')
 
-@section('title', 'User View - Pages')
+@section('title', 'User View')
 
 @section('vendor-style')
     <link rel="stylesheet" href="{{ asset('assets/vendor/libs/sweetalert2/sweetalert2.css') }}" />

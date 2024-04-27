@@ -1,6 +1,6 @@
 @extends('layouts/layoutMaster')
 
-@section('title', 'blog-category List - Pages')
+@section('title', 'blog-category List')
 
 @section('vendor-style')
     <link rel="stylesheet" href="{{ asset('assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css') }}">

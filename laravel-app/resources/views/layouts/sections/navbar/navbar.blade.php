@@ -94,11 +94,11 @@
                 </li>
                 <li>
 
-                    <a class="dropdown-item" href="{{ route('logout') }}"
+                    <button class="dropdown-item"
                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         <i class='mdi mdi-logout me-2'></i>
                         <span class="align-middle">خروج</span>
-                    </a>
+                    </button>
                 </li>
                 <form method="POST" id="logout-form" action="{{ route('app-logout-submit') }}">
                     @csrf

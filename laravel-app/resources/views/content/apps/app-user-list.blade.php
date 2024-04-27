@@ -1,6 +1,6 @@
 @extends('layouts/layoutMaster')
 
-@section('title', 'User List - Pages')
+@section('title', 'User List')
 
 @section('vendor-style')
     <link rel="stylesheet" href="{{ asset('assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css') }}">
@@ -53,7 +53,9 @@
                     @foreach ($users as $user)
                         <tr>
                             <td><span class="">{{ $user->id }}</span></td>
-                            <td><a href="/app/user/preview"><strong>{{ $user->full_name }}</strong></a></td>
+                            <td><a
+                                    href="{{ route('app-user-preview', ['id' => $user->id]) }}"><strong>{{ $user->full_name }}</strong></a>
+                            </td>
                             <td><span class="">{{ $user->mobile }}</span></td>
                             <td><span class="">{{ $user->address }}</span></td>
                             <td><span class="">{{ $user->email }}</span></td>

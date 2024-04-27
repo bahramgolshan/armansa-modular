@@ -31,8 +31,8 @@ Route::middleware('admin')->prefix('/app')->group(function () {
   Route::get('/invoice/add', 'App\Http\Controllers\InvoiceController@create')->name('app-invoice-add');
 
   // users
-  Route::get('/user/list', 'App\Http\Controllers\userController@index')->name('app-user-list');
-  Route::get('/user/preview/{id}', 'App\Http\Controllers\userController@show')->where('id', '[0-9]+')->name('app-user-preview');
+  Route::get('/user/list', 'App\Http\Controllers\UserController@index')->name('app-user-list');
+  Route::get('/user/preview/{id}', 'App\Http\Controllers\UserController@show')->where('id', '[0-9]+')->name('app-user-preview');
 
   // payments
   Route::get('/payment/list', 'App\Http\Controllers\PaymentController@index')->name('app-payment-list');
