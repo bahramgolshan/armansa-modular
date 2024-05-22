@@ -137,6 +137,37 @@
                              </ul>
                          </div>
                      </div>
+
+                     <div>
+                         <div>
+                             <h3 class="text-[1.5rem] lg:text-[1.6rem] xl:text-[2rem] font-bold">
+                                 فایل ها ضمیمه
+                             </h3>
+                             <div class="h-[1px] bg-gray-800 my-[1.25rem]"></div>
+                         </div>
+
+                         {{-- Files --}}
+                         <div class="grid grid-cols-1 gap-x-8 gap-y-[2rem] md:grid-cols-2">
+                             <!-- right -->
+                             <div class="col-span-2 md:col-span-1">
+                                 <label for="file-content" class="block font-medium leading-6">فایل متن:</label>
+                                 <div class="mt-2">
+                                     <a name="file-content" id="file-content"
+                                         href="{{ asset(get_file_upload_path('invoice-detail-files', $invoiceDetail->id) . $fileContent->file_name) }}"
+                                         target="_blank">{{ $fileContent->original_name }}</a>
+                                 </div>
+                             </div>
+
+                             <div class="col-span-2 md:col-span-1">
+                                 <label for="file-cover" class="block font-medium leading-6">فایل جلد:</label>
+                                 <div class="mt-2">
+                                     <a name="file-cover" id="file-cover"
+                                         href="{{ asset(get_file_upload_path('invoice-detail-files', $invoiceDetail->id) . $fileCover->file_name) }}"
+                                         target="_blank">{{ $fileCover->original_name }}</a>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
                  </div>
                  <!-- left -->
                  <div class="lg:col-span-2 flex flex-col justify-start gap-[2rem] text-[1.125rem]">
@@ -169,7 +200,9 @@
                              </div>
                          </div>
                      </div>
+
                  </div>
+
              </div>
          </section>
 

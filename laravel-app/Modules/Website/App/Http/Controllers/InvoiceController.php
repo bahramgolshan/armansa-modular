@@ -5,6 +5,7 @@ namespace Modules\Website\App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Invoice;
 use App\Models\InvoiceDetail;
+use App\Models\InvoiceDetailFile;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
@@ -14,7 +15,7 @@ class InvoiceController extends Controller
 {
   public function cartIndex()
   {
-    $awaitingPaymentInvoices = Invoice::where('user_id', Auth::id())->where('status', 'awaiting_payment')->get();
+    $awaitingPaymentInvoices = Invoice::where('user_id', Auth::id())->where('status', 'awaiting_payment')->orderBy('id', 'DESC')->get();
 
     return view('website::dashboard.cart_dashboard', compact('awaitingPaymentInvoices'));
   }
@@ -29,7 +30,7 @@ class InvoiceController extends Controller
       'rejected' => 'bg-[#FFD3D5] text-[#E30813]',
     ];
 
-    $paidInvoices = Invoice::where('user_id', Auth::id())->where('status', '<>', 'awaiting_payment')->get();
+    $paidInvoices = Invoice::where('user_id', Auth::id())->where('status', '<>', 'awaiting_payment')->orderBy('id', 'DESC')->get();
 
     return view('website::dashboard.orders_dashboard', compact(
       'paidInvoices',
@@ -57,8 +58,10 @@ class InvoiceController extends Controller
     $invoice = Invoice::findOrFail($id);
     $invoiceDetail = InvoiceDetail::where('invoice_id', $invoice->id)->first();
     $serviceDetail = $invoiceDetail->serviceDetail;
+    $fileContent = InvoiceDetailFile::where('invoice_detail_id', $invoiceDetail->id)->where('type', 'file_content')->first();
+    $fileCover = InvoiceDetailFile::where('invoice_detail_id', $invoiceDetail->id)->where('type', 'file_cover')->first();
 
-    return view('website::services.print-digital.show_details', compact('invoice', 'invoiceDetail', 'serviceDetail'));
+    return view('website::services.print-digital.show_details', compact('invoice', 'invoiceDetail', 'serviceDetail', 'fileContent', 'fileCover'));
   }
 
   public function destroy(Request $request)

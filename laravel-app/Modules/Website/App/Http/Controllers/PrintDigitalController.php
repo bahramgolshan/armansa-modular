@@ -19,6 +19,7 @@ use App\Http\Controllers\Controller;
 use App\Models\BindingDirection;
 use App\Models\Invoice;
 use App\Models\InvoiceDetail;
+use App\Models\InvoiceDetailFile;
 use App\Models\ServiceDetail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
@@ -91,9 +92,38 @@ class PrintDigitalController extends Controller
         $invoiceDetail->circulation = $request->circulation;
         $invoiceDetail->pages = $request->pages;
 
-        // TODO: add upload files
-
         if ($invoiceDetail->save()) {
+          $fileName = $invoiceDetail->id . '_' . time();
+
+          if ($request->file('file_content')) {
+            $invoiceDetailFileContent = new InvoiceDetailFile();
+            $invoiceDetailFileContent->invoice_detail_id = $invoiceDetail->id;
+            $invoiceDetailFileContent->original_name = pathinfo($request->file_content->getClientOriginalName(), PATHINFO_FILENAME);
+            $invoiceDetailFileContent->file_name = 'content_' . $fileName . '.' . $request->file_content->getClientOriginalExtension();
+            $invoiceDetailFileContent->extension = $request->file_content->getClientOriginalExtension();
+            $invoiceDetailFileContent->type = 'file_content';
+
+            if ($invoiceDetailFileContent->save()) {
+              $path = get_file_upload_path('invoice-detail-files', $invoiceDetail->id);
+              $fileContent = $request->file('file_content');
+              $fileContent->move($path, $invoiceDetailFileContent->file_name);
+            }
+          }
+
+          if ($request->file('file_cover')) {
+            $invoiceDetailFileCover = new InvoiceDetailFile();
+            $invoiceDetailFileCover->invoice_detail_id = $invoiceDetail->id;
+            $invoiceDetailFileCover->original_name = pathinfo($request->file_cover->getClientOriginalName(), PATHINFO_FILENAME);
+            $invoiceDetailFileCover->file_name = 'cover_' . $fileName . '.' . $request->file_cover->getClientOriginalExtension();
+            $invoiceDetailFileCover->extension = $request->file_cover->getClientOriginalExtension();
+            $invoiceDetailFileCover->type = 'file_cover';
+
+            if ($invoiceDetailFileCover->save()) {
+              $path = get_file_upload_path('invoice-detail-files', $invoiceDetail->id);
+              $fileContent = $request->file('file_cover');
+              $fileContent->move($path, $invoiceDetailFileCover->file_name);
+            }
+          }
 
           return redirect()->route('dashboard.cart')->withSuccess(__('messages.success'));
         }

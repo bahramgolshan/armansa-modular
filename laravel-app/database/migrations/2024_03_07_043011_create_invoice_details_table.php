@@ -16,7 +16,7 @@ class CreateInvoiceDetailsTable extends Migration
       $table->timestamps();
       $table->integer('invoice_id')->unsigned();
       $table->integer('service_detail_id')->unsigned();
-      $table->integer('quantity')->unsigned()->default('1')->nullable();
+      // $table->integer('quantity')->unsigned()->default('1')->nullable();
       $table->integer('circulation')->unsigned();
       $table->integer('pages')->unsigned();
 

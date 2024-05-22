@@ -449,7 +449,7 @@
                      },
                      'file_cover': {
                          required: false,
-                         accept: "image/*"
+                         accept: "image/*, application/pdf"
                      },
                  },
                  submitHandler: function(form) {

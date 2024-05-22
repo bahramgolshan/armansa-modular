@@ -15,6 +15,11 @@ class InvoiceDetail extends Model
     return $this->belongsTo(Invoice::class, 'invoice_id');
   }
 
+  public function invoiceDetailFiles()
+  {
+    return $this->hasMany(InvoiceDetailFile::class);
+  }
+
   public function serviceDetail()
   {
     return $this->belongsTo(ServiceDetail::class, 'service_detail_id');
