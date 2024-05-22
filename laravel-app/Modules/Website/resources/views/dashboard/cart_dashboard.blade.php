@@ -12,13 +12,14 @@
      @endif
  @endsection
  @section('page-script')
-     <script src="{{ asset('assets/js/extended-ui-sweetalert2.js') }}"></script>
+     <script src="{{ asset('assets/vendor/libs/sweetalert2/sweetalert2.js') }}"></script>
+     {{-- <script src="{{ asset('assets/js/extended-ui-sweetalert2.js') }}"></script> --}}
      <script>
          function deleteItem(id) {
              const swal = Swal.mixin({
                  customClass: {
-                     confirmButton: "btn btn-danger",
-                     cancelButton: "btn btn-secondary",
+                     confirmButton: "mx-3 my-3 w-[200px] text-[0.75rem] sm:text-[1rem] lg:text-[1.2rem] h-[50px] bg-red-500 rounded-lg text-white text-center",
+                     cancelButton: "text-center text-[0.75rem] sm:text-[1rem] lg:text-[1.2rem] w-[200px] h-[40px] h-[50px] bg-transparent rounded-lg text-[#E30813] border-[#E30813] border-2",
                  },
                  buttonsStyling: false,
              });
@@ -29,7 +30,7 @@
                  icon: "warning",
                  showConfirmButton: true,
                  showCancelButton: true,
-                 confirmButtonText: "بله، حذف کن!",
+                 confirmButtonText: "بله!",
                  cancelButtonText: "خیر",
              }).then((result) => {
                  if (result.isConfirmed) {
