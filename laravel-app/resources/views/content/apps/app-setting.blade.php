@@ -70,14 +70,14 @@
 
                             </div>
 
-                            <div class="col-md-6">
+                            {{-- <div class="col-md-6">
                                 <div class="">
                                     <label class="mb-1" for="heroImageSrc">عکس هیرو</label>
                                     <input class="form-control" type="text" id="heroImageSrc" name="heroImageSrc"
                                         value="{{ $settings['heroImageSrc'] }}" />
                                     <small class="text-danger">{{ $errors->first('heroImageSrc') }}</small>
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <div class="col-md-6">
                                 <div class="">
@@ -106,32 +106,32 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-6">
+                            {{-- <div class="col-md-6">
                                 <div class="">
                                     <label class="mb-1" for="usersCount">تعداد مشتریان</label>
                                     <input class="form-control" type="text" id="usersCount" name="usersCount"
                                         value="{{ $settings['usersCount'] }}" />
                                     <small class="text-danger">{{ $errors->first('usersCount') }}</small>
                                 </div>
-                            </div>
+                            </div> --}}
 
-                            <div class="col-md-6">
+                            {{-- <div class="col-md-6">
                                 <div class="">
                                     <label class="mb-1" for="ordersCount">تعداد سفارشات</label>
                                     <input class="form-control" type="text" id="ordersCount" name="ordersCount"
                                         value="{{ $settings['ordersCount'] }}" />
                                     <small class="text-danger">{{ $errors->first('ordersCount') }}</small>
                                 </div>
-                            </div>
+                            </div> --}}
 
-                            <div class="col-md-6">
+                            {{-- <div class="col-md-6">
                                 <div class="">
                                     <label class="mb-1" for="usersCount">تعداد مشتریان</label>
                                     <input class="form-control" type="text" id="usersCount" name="usersCount"
                                         value="{{ $settings['usersCount'] }}" />
                                     <small class="text-danger">{{ $errors->first('usersCount') }}</small>
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <div class="col-md-6">
                                 <div class="">
@@ -192,6 +192,15 @@
                                     <input class="form-control" type="text" id="address" name="address"
                                         value="{{ $settings['address'] }}" />
                                     <small class="text-danger">{{ $errors->first('address') }}</small>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="">
+                                    <label class="mb-1" for="workSchedule">ساعات کاری</label>
+                                    <input class="form-control" type="text" id="workSchedule" name="workSchedule"
+                                        value="{{ $settings['workSchedule'] }}" />
+                                    <small class="text-danger">{{ $errors->first('workSchedule') }}</small>
                                 </div>
                             </div>
 

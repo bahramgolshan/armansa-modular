@@ -27,9 +27,9 @@ class SettingController extends Controller
       "heroDescription" => 'nullable|string',
       "aboutArmansa" => 'nullable|string',
       "featuredVideoEmbedCode" => 'nullable|string',
-      "usersCount" => 'nullable|string',
-      "ordersCount" => 'nullable|string',
-      "usersCount" => 'nullable|string',
+      // "usersCount" => 'nullable|string',
+      // "ordersCount" => 'nullable|string',
+      // "usersCount" => 'nullable|string',
       "phone1" => 'nullable|string',
       "phone2" => 'nullable|string',
       "phone3" => 'nullable|string',
@@ -37,6 +37,7 @@ class SettingController extends Controller
       "telegram" => 'nullable|string',
       "eitaa" => 'nullable|string',
       "address" => 'nullable|string',
+      "workSchedule" => 'nullable|string',
     ]);
 
 

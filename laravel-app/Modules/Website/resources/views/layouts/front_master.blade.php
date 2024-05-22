@@ -3,6 +3,7 @@
         ->orWhere('key', 'websiteMetaTags')
         ->orWhere('key', 'websiteTitle')
         ->orWhere('key', 'address')
+        ->orWhere('key', 'workSchedule')
         ->orWhere('key', 'phone1')
         ->orWhere('key', 'phone2')
         ->orWhere('key', 'phone3')

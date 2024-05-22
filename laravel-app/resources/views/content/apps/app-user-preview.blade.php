@@ -32,45 +32,45 @@
                 </div>
                 <div class="card-body p-4">
                     <div class="card-text">
-                        <div class="row">
+                        <div class="row mb-3">
                             <div class="col-12">
                                 <div class="row">
                                     <label for="fullname" class="col-sm-2 col-form-label">نام کامل</label>
                                     <div class="col-sm-10">
-                                        <input type="text" readonly class="form-control-plaintext" id="fullname"
+                                        <input type="text" readonly class="form-control" id="fullname"
                                             value="{{ $user->full_name ?? '' }}">
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mb-3">
                             <div class="col-12">
                                 <div class="row">
                                     <label for="mobile" class="col-sm-2 col-form-label">شماره تماس</label>
                                     <div class="col-sm-10">
-                                        <input type="text" readonly class="form-control-plaintext" id="mobile"
+                                        <input type="text" readonly class="form-control" id="mobile"
                                             value="{{ $user->mobile ?? '' }}">
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mb-3">
                             <div class="col-12">
                                 <div class="row">
                                     <label for="email" class="col-sm-2 col-form-label">ایمیل</label>
                                     <div class="col-sm-10">
-                                        <input type="text" readonly class="form-control-plaintext" id="email"
+                                        <input type="text" readonly class="form-control" id="email"
                                             value="{{ $user->email ?? '' }}">
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mb-3">
                             <div class="col-12">
                                 <div class="row">
                                     <label for="address" class="col-sm-2 col-form-label">آدرس</label>
                                     <div class="col-sm-10">
-                                        <textarea class="form-control-plaintext" id="address" name="w3review" rows="2" cols="20" readonly>{{ $user->address ?? '' }}</textarea>
+                                        <textarea class="form-control" id="address" name="w3review" rows="2" cols="20" readonly>{{ $user->address ?? '' }}</textarea>
                                     </div>
                                 </div>
                             </div>

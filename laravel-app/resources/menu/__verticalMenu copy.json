@@ -1,0 +1,80 @@
+{
+  "menu": [
+    {
+      "url": "app/",
+      "name": "داشبورد",
+      "icon": "menu-icon tf-icons mdi mdi-view-dashboard",
+      "slug": "app-dashboard"
+    },
+    {
+      "url": "app/invoice/list",
+      "name": "سفارشات",
+      "icon": "menu-icon tf-icons mdi mdi-chart-line-variant",
+      "slug": "app-invoice"
+    },
+    {
+      "url": "app/user/list",
+      "name": "مشتریان",
+      "icon": "menu-icon tf-icons mdi mdi-account-outline",
+      "slug": "app-user"
+    },
+    {
+      "url": "app/payment/list",
+      "name": "فاکتور ها",
+      "icon": "menu-icon tf-icons mdi mdi-file-document-outline",
+      "slug": "app-invoice"
+    },
+    {
+      "url": "app/product/list",
+      "name": "محصولات",
+      "icon": "menu-icon tf-icons mdi mdi-package-variant-closed",
+      "slug": "app-product"
+    },
+    {
+      "name": "بلاگ",
+      "icon": "menu-icon tf-icons mdi mdi-post-outline",
+      "slug": "app-blog",
+      "submenu": [
+        {
+          "url": "app/blog/list",
+          "name": "پست ها",
+          "slug": "app-blog-list"
+        },
+        {
+          "url": "app/blog-category/list",
+          "name": "دسته بندی",
+          "slug": "app-blog-category-list"
+        },
+        {
+          "url": "app/tag/list",
+          "name": "برچسب ها",
+          "slug": "app-tag"
+        }
+      ]
+    },
+    {
+      "url": "app/faq/list",
+      "name": "سوالات متداول",
+      "icon": "menu-icon tf-icons mdi mdi-frequently-asked-questions",
+      "slug": "app-faq"
+    },
+    {
+      "url": "app/partner/list",
+      "name": "همکاران",
+      "icon": "menu-icon tf-icons mdi mdi-account-network",
+      "slug": "app-partner"
+    },
+    {
+      "url": "app/servicesample/list",
+      "name": "نمونه های چاپ شده",
+      "icon": "menu-icon tf-icons mdi mdi-book-open-page-variant",
+      "slug": "app-servicesample"
+    },
+    {
+      "url": "app/setting",
+      "name": "تنظیمات",
+      "icon": "menu-icon tf-icons mdi mdi-cog-outline",
+      "slug": "app-tag"
+    }
+  ]
+}

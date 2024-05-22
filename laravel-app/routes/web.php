@@ -83,6 +83,15 @@ Route::middleware('admin')->prefix('/app')->group(function () {
   Route::post('/faq/update/{id}', 'App\Http\Controllers\FaqController@update')->where('id', '[0-9]+')->name('app-faq-update');
   Route::post('/faq/delete/{id}', 'App\Http\Controllers\FaqController@destroy')->where('id', '[0-9]+')->name('app-faq-delete');
 
+  // achievement
+  Route::get('/achievement/list', 'App\Http\Controllers\AchievementController@index')->name('app-achievement-list');
+  Route::get('/achievement/preview/{id}', 'App\Http\Controllers\AchievementController@show')->where('id', '[0-9]+')->name('app-achievement-preview');
+  Route::get('/achievement/add', 'App\Http\Controllers\AchievementController@create')->name('app-achievement-add');
+  Route::post('/achievement/store', 'App\Http\Controllers\AchievementController@store')->name('app-achievement-store');
+  Route::get('/achievement/edit/{id}', 'App\Http\Controllers\AchievementController@edit')->where('id', '[0-9]+')->name('app-achievement-edit');
+  Route::post('/achievement/update/{id}', 'App\Http\Controllers\AchievementController@update')->where('id', '[0-9]+')->name('app-achievement-update');
+  Route::post('/achievement/delete/{id}', 'App\Http\Controllers\AchievementController@destroy')->where('id', '[0-9]+')->name('app-achievement-delete');
+
   // partner
   Route::get('/partner/list', 'App\Http\Controllers\PartnerController@index')->name('app-partner-list');
   Route::get('/partner/preview/{id}', 'App\Http\Controllers\PartnerController@show')->where('id', '[0-9]+')->name('app-partner-preview');

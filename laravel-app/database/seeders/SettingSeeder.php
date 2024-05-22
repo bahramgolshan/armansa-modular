@@ -81,23 +81,23 @@ class SettingSeeder extends Seeder
         | 3. Statistics Section
         |--------------------------------------------------------------------------
         */
-    Setting::updateOrCreate(array(
-      'key' => 'usersCount',
-      'value' => '123',
-      'description' => null,
-    ));
+    // Setting::updateOrCreate(array(
+    //   'key' => 'usersCount',
+    //   'value' => '123',
+    //   'description' => null,
+    // ));
 
-    Setting::updateOrCreate(array(
-      'key' => 'ordersCount',
-      'value' => '123',
-      'description' => null,
-    ));
+    // Setting::updateOrCreate(array(
+    //   'key' => 'ordersCount',
+    //   'value' => '123',
+    //   'description' => null,
+    // ));
 
-    Setting::updateOrCreate(array(
-      'key' => 'usersCount',
-      'value' => '123',
-      'description' => null,
-    ));
+    // Setting::updateOrCreate(array(
+    //   'key' => 'usersCount',
+    //   'value' => '123',
+    //   'description' => null,
+    // ));
 
 
 
@@ -152,6 +152,12 @@ class SettingSeeder extends Seeder
     Setting::updateOrCreate(array(
       'key' => 'address',
       'value' => 'تهران، خیابان انقلاب، خیابان وحید نظری، پلاک ۱۳۰، طبقه ۲، واحد ۳',
+      'description' => null,
+    ));
+
+    Setting::updateOrCreate(array(
+      'key' => 'workSchedule',
+      'value' => 'شنبه تا چهارشنبه از 8.30 الی 17  و جمعه 8.30 الی 12',
       'description' => null,
     ));
   }
