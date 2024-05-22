@@ -139,39 +139,38 @@
                     <div class="card-text">
                         <div class="row">
                             <div class="col-12">
-                                <div class="row">
+                                <div class="row mb-2">
                                     <label for="invoice_id" class="col-sm-2 col-form-label">شماره سفارش</label>
                                     <div class="col-sm-10">
-                                        <input type="text" readonly class="form-control-plaintext" id="invoice_id"
+                                        <input type="text" readonly class="form-control" id="invoice_id"
                                             value="{{ $invoice->id ?? '--' }}">
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div class="row mb-2">
                                     <label for="invoice_created_at" class="col-sm-2 col-form-label">تاریخ سفارش</label>
                                     <div class="col-sm-10">
-                                        <input type="text" readonly class="form-control-plaintext"
-                                            id="invoice_created_at"
+                                        <input type="text" readonly class="form-control" id="invoice_created_at"
                                             value="{{ verta($invoice->created_at)->format('Y-m-d') ?? '--' }}">
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div class="row mb-2">
                                     <label for="user_name" class="col-sm-2 col-form-label">نام مشتری</label>
                                     <div class="col-sm-10">
-                                        <input type="text" readonly class="form-control-plaintext" id="user_name"
+                                        <input type="text" readonly class="form-control" id="user_name"
                                             value="{{ $invoice->user->full_name ?? '--' }}">
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div class="row mb-2">
                                     <label for="user_mobile" class="col-sm-2 col-form-label">شماره موبایل</label>
                                     <div class="col-sm-10">
-                                        <input type="text" readonly class="form-control-plaintext" id="user_mobile"
+                                        <input type="text" readonly class="form-control" id="user_mobile"
                                             value="{{ $invoice->user->mobile ?? '--' }}">
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div class="row mb-2">
                                     <label for="user_address" class="col-sm-2 col-form-label">آدرس</label>
                                     <div class="col-sm-10">
-                                        <input type="text" readonly class="form-control-plaintext" id="user_address"
+                                        <input type="text" readonly class="form-control" id="user_address"
                                             value="{{ $invoice->user->adderss ?? '--' }}">
                                     </div>
                                 </div>
@@ -188,66 +187,92 @@
                     <div class="card-text">
                         <div class="row">
                             <div class="col-12">
-                                <div class="row">
-                                    <label for="invoice_detail_cover" class="col-sm-2 col-form-label">جنس جلد</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" readonly class="form-control-plaintext"
-                                            id="invoice_detail_cover"
-                                            value="{{ $invoiceDetail ? $invoiceDetail->serviceDetail->cover->name : '' }}">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <label for="invoice_detail_binding" class="col-sm-2 col-form-label">نوع صحافی</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" readonly class="form-control-plaintext"
-                                            id="invoice_detail_binding"
-                                            value="{{ $invoiceDetail ? $invoiceDetail->serviceDetail->binding->name : '' }}">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <label for="invoice_detail_binding_direction" class="col-sm-2 col-form-label">جهت
-                                        صحافی</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" readonly class="form-control-plaintext"
-                                            id="invoice_detail_binding_direction"
-                                            value="{{ $invoiceDetail && $invoiceDetail->binding_direction ? __('app.bindingDirection.' . $invoiceDetail->binding_direction) : '' }}">
-                                    </div>
-                                </div>
-                                <div class="row">
+                                <div class="row mb-2">
                                     <label for="invoice_detail_size" class="col-sm-2 col-form-label">سایز</label>
                                     <div class="col-sm-10">
-                                        <input type="text" readonly class="form-control-plaintext"
-                                            id="invoice_detail_size"
+                                        <input type="text" readonly class="form-control" id="invoice_detail_size"
                                             value="{{ $invoiceDetail ? $invoiceDetail->serviceDetail->size->name : '' }}">
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div class="row mb-2">
+                                    <label for="invoice_detail_paper" class="col-sm-2 col-form-label">نوع کاغذ</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" readonly class="form-control" id="invoice_detail_paper"
+                                            value="{{ $invoiceDetail ? $invoiceDetail->serviceDetail->paper->name : '' }}">
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <label for="invoice_detail_color" class="col-sm-2 col-form-label">رنگ چاپ</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" readonly class="form-control" id="invoice_detail_color"
+                                            value="{{ $invoiceDetail ? $invoiceDetail->serviceDetail->color->name : '' }}">
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <label for="invoice_detail_cover" class="col-sm-2 col-form-label">جنس جلد</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" readonly class="form-control" id="invoice_detail_cover"
+                                            value="{{ $invoiceDetail ? $invoiceDetail->serviceDetail->cover->name : '' }}">
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <label for="invoice_detail_cellophane" class="col-sm-2 col-form-label">نوع سلفون</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" readonly class="form-control" id="invoice_detail_cellophane"
+                                            value="{{ $invoiceDetail ? $invoiceDetail->serviceDetail->cellophane->name : '' }}">
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <label for="invoice_detail_binding" class="col-sm-2 col-form-label">نوع صحافی</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" readonly class="form-control" id="invoice_detail_binding"
+                                            value="{{ $invoiceDetail ? $invoiceDetail->serviceDetail->binding->name : '' }}">
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <label for="invoice_detail_binding_direction" class="col-sm-2 col-form-label">جهت
+                                        صحافی</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" readonly class="form-control"
+                                            id="invoice_detail_binding_direction"
+                                            value="{{ $invoiceDetail ? $invoiceDetail->serviceDetail->bindingDirection->name : '' }}">
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <label for="invoice_detail_pages" class="col-sm-2 col-form-label">تعداد صفحات</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" readonly class="form-control" id="invoice_detail_pages"
+                                            value="{{ $invoiceDetail ? $invoiceDetail->pages : '' }}">
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
                                     <label for="invoice_detail_circulation" class="col-sm-2 col-form-label">تیتراژ</label>
                                     <div class="col-sm-10">
-                                        <input type="text" readonly class="form-control-plaintext"
+                                        <input type="text" readonly class="form-control"
                                             id="invoice_detail_circulation"
                                             value="{{ $invoiceDetail ? $invoiceDetail->circulation : '' }}">
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <label for="invoice_detail_circulation" class="col-sm-2 col-form-label">فایل</label>
+                                <div class="row mb-2">
+                                    <label for="invoice_detail_file_content" class="col-sm-2 col-form-label">فایل
+                                        متن</label>
                                     <div class="col-sm-10">
-                                        <div class="row mt-2">
-                                            <div class="col-2">
-                                                <a href="{{ asset(get_file_upload_path('invoice-detail-files', $invoiceDetail->id) . $invoiceDetail->file_name) }}"
-                                                    class="invoice-detail-file tip"
-                                                    title='{{ $invoiceDetail->file_name }}' target="_blank">
-                                                    <span class="border-line">
-                                                        <span class='recep-icon'>
-                                                            {{ strtoupper($invoiceDetail->extension) }} </span>
-                                                    </span>
-                                                    <span class="corner">
-                                                        <span class="o-line"></span>
-                                                    </span>
-                                                </a>
-                                            </div>
-                                        </div>
-
+                                        @isset($fileContent)
+                                            <a name="file-content" id="invoice_detail_file_content" class=""
+                                                href="{{ asset(get_file_upload_path('invoice-detail-files', $invoiceDetail->id) . $fileContent->file_name) }}"
+                                                target="_blank">{{ $fileContent->original_name }}</a>
+                                        @endisset
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <label for="invoice_detail_file_cover" class="col-sm-2 col-form-label">فایل
+                                        جلد</label>
+                                    <div class="col-sm-10">
+                                        @isset($fileCover)
+                                            <a name="file-cover" id="invoice_detail_file_cover" class=""
+                                                href="{{ asset(get_file_upload_path('invoice-detail-files', $invoiceDetail->id) . $fileCover->file_name) }}"
+                                                target="_blank">{{ $fileCover->original_name }}</a>
+                                        @endisset
                                     </div>
                                 </div>
                             </div>

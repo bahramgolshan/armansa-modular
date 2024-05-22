@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Validation\Rule;
 use App\Models\Invoice;
 use App\Models\InvoiceDetail;
+use App\Models\InvoiceDetailFile;
 use App\Models\Payment;
 
 class InvoiceController extends Controller
@@ -53,6 +54,8 @@ class InvoiceController extends Controller
     ];
 
     $invoiceDetail = InvoiceDetail::where('invoice_id', $id)->first();
+    $fileContent = InvoiceDetailFile::where('invoice_detail_id', $invoiceDetail->id)->where('type', 'file_content')->first();
+    $fileCover = InvoiceDetailFile::where('invoice_detail_id', $invoiceDetail->id)->where('type', 'file_cover')->first();
 
     $payments = Payment::where('invoice_id', $id)->get();
     $paymentStatusColors = [
@@ -65,6 +68,8 @@ class InvoiceController extends Controller
       'invoice' => $invoice,
       'invoicesStatusColors' => $invoicesStatusColors,
       'invoiceDetail' => $invoiceDetail,
+      'fileContent' => $fileContent,
+      'fileCover' => $fileCover,
       'payments' => $payments,
       'paymentStatusColors' => $paymentStatusColors,
     ]);
