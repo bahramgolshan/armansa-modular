@@ -43,6 +43,14 @@
                                     <small class="text-danger">{{ $errors->first('answer') }}</small>
                                 </div>
                             </div>
+                            <div class="row mb-3">
+                                <label class="col-sm-2 col-form-label" for="basic-default-answer">ترتیب</label>
+                                <div class="col-sm-6">
+                                    <input type="text" name="order" class="form-control" id="basic-default-order"
+                                        placeholder="ترتیب" />
+                                    <small class="text-danger">{{ $errors->first('order') }}</small>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

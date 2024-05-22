@@ -11,7 +11,7 @@ class FaqController extends Controller
 {
   public function index()
   {
-    $faqs = Faq::orderBy('id', 'DESC')->get();
+    $faqs = Faq::orderBy('order', 'ASC')->get();
 
     return view('content.apps.app-faq-list', [
       'faqs' =>  $faqs,
@@ -28,11 +28,13 @@ class FaqController extends Controller
     $request->validate([
       'question' => 'required|string',
       'answer' => 'required|string',
+      'order' => 'nullable|numeric',
     ]);
 
     $faq = new Faq();
     $faq->question = $request->question;
     $faq->answer = $request->answer;
+    $faq->order = $request->order;
     if ($faq->save()) {
       return redirect(route('app-faq-list'))->withSuccess(__('messages.success'));
     }
@@ -67,6 +69,7 @@ class FaqController extends Controller
     $request->validate([
       'question' => 'required|string',
       'answer' => 'required|string',
+      'order' => 'nullable|numeric',
     ]);
 
     $id = Route::current()->parameter('id');
@@ -74,6 +77,7 @@ class FaqController extends Controller
     $faq = Faq::find($id);
     $faq->question = $request->question;
     $faq->answer = $request->answer;
+    $faq->order = $request->order;
     if ($faq->save()) {
       return redirect(route('app-faq-list'))->withSuccess(__('messages.success'));
     }

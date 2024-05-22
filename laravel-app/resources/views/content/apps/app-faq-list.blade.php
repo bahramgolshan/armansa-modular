@@ -106,6 +106,7 @@
             <table class="datatables-ajax table">
                 <thead class="table-light">
                     <tr>
+                        <th>ترتیب</th>
                         <th>سوال</th>
                         <th>جواب</th>
                         <th class="cell-fit">اقدامات</th>
@@ -114,6 +115,7 @@
                 <tbody class="table-border-bottom-0">
                     @foreach ($faqs as $faq)
                         <tr>
+                            <td>{{ $faq->order }}</td>
                             <td>{{ Str::limit($faq->question, 30) }}</td>
                             <td>{{ Str::limit($faq->answer, 40) }}</td>
                             <td>
