@@ -155,6 +155,6 @@ class PageController extends Controller
   // نمونه کارها
   public function samples()
   {
-    return view('website::pages.publication_permission');
+    return view('website::pages.samples');
   }
 }
