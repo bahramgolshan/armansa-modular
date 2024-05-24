@@ -1,4 +1,5 @@
  @extends('website::layouts.front_master')
+ @section('title', '| سبد خرید')
 
  @section('page-style')
      <link rel="stylesheet" href="{{ asset('assets/vendor/libs/sweetalert2/sweetalert2.css') }}" />

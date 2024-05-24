@@ -1,4 +1,5 @@
  @extends('website::layouts.front_master')
+ @section('title', '| زینک اسپید مستر')
 
  @section('content')
      <main class="bg-[#F5F5F5]">

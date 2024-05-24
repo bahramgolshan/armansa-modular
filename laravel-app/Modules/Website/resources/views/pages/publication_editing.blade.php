@@ -1,5 +1,6 @@
 {{-- ویراستاری --}}
 @extends('website::layouts.front_master')
+@section('title', '| ویراستاری')
 
 @section('content')
     <main class="bg-[#F5F5F5] text-[#3C4999] pb-[2rem]">

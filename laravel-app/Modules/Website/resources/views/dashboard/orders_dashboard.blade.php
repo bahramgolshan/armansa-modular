@@ -1,4 +1,5 @@
  @extends('website::layouts.front_master')
+ @section('title', '| سفارش های من')
 
  @section('content')
      @if (count($paidInvoices) > 0)

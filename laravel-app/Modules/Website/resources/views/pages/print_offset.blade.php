@@ -1,5 +1,6 @@
 @extends('website::layouts.front_master')
 
+@section('title', '| چاپ افست')
 @section('content')
     <main class="bg-[#F5F5F5]">
 
