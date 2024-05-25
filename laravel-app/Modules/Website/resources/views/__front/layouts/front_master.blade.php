@@ -43,7 +43,9 @@
 
 <body class="pt-[92px] lg:pt-[140px]">
 
+    @include('website::partials.top')
     @include('website::partials.header')
+
 
     {{-- Main --}}
     @yield('content')

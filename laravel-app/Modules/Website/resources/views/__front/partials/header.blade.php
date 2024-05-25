@@ -1,5 +1,6 @@
 <!-- Header -->
 <header class="z-[200] w-[100%] fixed top-0" id="sticky-header">
+
     <section class="w-[100%] bg-white z-50 custom-padding">
         <div class="primary-container mx-auto">
             <nav class="relative py-4 flex items-center bg-white lg:justify-between sm:flex-row order-12">
@@ -52,6 +53,8 @@
     <section class="bg-[#3C4999] custom-padding">
         <ul
             class="hidden primary-container text-white w-[100%] py-[12px] lg:flex md:mx-auto lg:mx-auto lg:flex lg:items-center lg:space-x-6">
+            <li><a class="text-sm ml-3" href="#">صفحه اصلی</a></li>
+            <li class="w-[0.3rem] h-[0.3rem] bg-white rotate-45"></li>
             <li><a class="text-sm ml-3" href="#">خدمات چاپ</a></li>
             <li class="w-[0.3rem] h-[0.3rem] bg-white rotate-45"></li>
             <li><a class="text-sm" href="#">خدمات‌‌‌‌‌‌‌‌‌‌ نشر </a></li>
@@ -75,6 +78,11 @@
         class="absolute top-[2rem] right-[1rem] close-button" />
 
     <ul class="p-4 mt-[3rem]">
+        <li class="mb-3">
+             <a href="#" class="text-gray-300 text-white font-normal flex items-center hover:text-gray-100">
+              صفحه اصلی
+             </a>
+        </li>
         <li class="mb-[1rem] group">
             <div href="#" class="flex items-center py-2 px-4 text-gray-300 sidebar-dropdown-toggle">
                 <span class="text-white text-base font-semibold">خدمات چاپ</span>
