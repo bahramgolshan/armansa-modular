@@ -52,7 +52,9 @@
                 <tbody class="table-border-bottom-0">
                     @foreach ($users as $user)
                         <tr>
-                            <td><span class="">{{ $user->id }}</span></td>
+                            <td>
+                                <strong>{{ ($users->currentPage() - 1) * $users->perPage() + $loop->iteration }}</strong>
+                            </td>
                             <td><a
                                     href="{{ route('app-user-preview', ['id' => $user->id]) }}"><strong>{{ $user->full_name }}</strong></a>
                             </td>

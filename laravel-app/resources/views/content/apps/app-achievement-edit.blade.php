@@ -52,10 +52,10 @@
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label class="col-sm-2 col-form-label" for="basic-default-order">ترتیب</label>
+                                <label class="col-sm-2 col-form-label" for="basic-default-order">اولویت</label>
                                 <div class="col-sm-6">
                                     <input type="number" name="order" class="form-control" id="basic-default-order"
-                                        placeholder="ترتیب" value="{{ $achievement->order }}" />
+                                        placeholder="اولویت" value="{{ $achievement->order }}" />
                                     <small class="text-danger">{{ $errors->first('order') }}</small>
                                 </div>
                             </div>

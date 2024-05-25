@@ -15,15 +15,41 @@ use App\Models\Paper;
 use App\Models\Service;
 use App\Models\ServiceDetail;
 use App\Models\Size;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
-  public function index()
+  public function index(Request $request)
   {
-    $serviceDetails = ServiceDetail::orderBy('created_at', 'DESC')->paginate(15);
+    $query = ServiceDetail::select('*');
+
+    if ($request->filled('service_id')) $query->where('service_id', $request->get('service_id'));
+    if ($request->filled('size_id')) $query->where('size_id', $request->get('size_id'));
+    if ($request->filled('paper_id')) $query->where('paper_id', $request->get('paper_id'));
+    if ($request->filled('color_id')) $query->where('color_id', $request->get('color_id'));
+    if ($request->filled('binding_id')) $query->where('binding_id', $request->get('binding_id'));
+    if ($request->filled('cellophane_id')) $query->where('cellophane_id', $request->get('cellophane_id'));
+    if ($request->filled('binding_direction_id')) $query->where('binding_direction_id', $request->get('binding_direction_id'));
+    if ($request->filled('status')) $query->where('status', $request->get('status'));
+
+    $serviceDetails = $query->orderBy('created_at', 'DESC')->paginate(15);
+
+    $digitalPrintData = [];
+    $digitalPrintData['services'] = Service::all();
+    $digitalPrintData['sizes'] = Size::all();
+    $digitalPrintData['papers'] = Paper::all();
+    $digitalPrintData['colors'] = Color::all();
+    $digitalPrintData['bindings'] = Binding::all();
+    $digitalPrintData['bindingDirections'] = BindingDirection::all();
+    $digitalPrintData['cellophanes'] = Cellophane::all();
+    $digitalPrintData['covers'] = Cover::all();
+    $serviceDetailStatus = ServiceDetail::$status;
 
     return view('content.apps.app-product-list', [
       'serviceDetails' => $serviceDetails,
+      'serviceDetailStatus' => $serviceDetailStatus,
+      'digitalPrintData' => $digitalPrintData,
+      'query' => $request->except('_token'),
     ]);
   }
 

@@ -107,7 +107,7 @@
             <table class="datatables-ajax table">
                 <thead class="table-light">
                     <tr>
-                        <th>ترتیب</th>
+                        <th>اولویت</th>
                         <th>عنوان</th>
                         <th>توضیحات</th>
                         <th>سرویس</th>

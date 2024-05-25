@@ -41,6 +41,7 @@
             <table class="datatables-ajax payment-list-table table">
                 <thead class="table-light">
                     <tr>
+                        <th>#</th>
                         <th>شماره فاکتور</th>
                         <th>تاریخ</th>
                         <th>وضعیت فاکتور</th>
@@ -52,6 +53,9 @@
                 <tbody class="table-border-bottom-0">
                     @foreach ($payments as $payment)
                         <tr>
+                            <td>
+                                <strong>{{ ($users->currentPage() - 1) * $users->perPage() + $loop->iteration }}</strong>
+                            </td>
                             <td><a
                                     href="{{ route('app-payment-preview', ['id' => $payment->id]) }}"><strong>{{ $payment->id }}</strong></a>
                             </td>

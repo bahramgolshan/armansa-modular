@@ -44,10 +44,10 @@
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label class="col-sm-2 col-form-label" for="basic-default-answer">ترتیب</label>
+                                <label class="col-sm-2 col-form-label" for="basic-default-answer">اولویت</label>
                                 <div class="col-sm-6">
                                     <input type="text" name="order" class="form-control" id="basic-default-order"
-                                        placeholder="ترتیب" />
+                                        placeholder="اولویت" />
                                     <small class="text-danger">{{ $errors->first('order') }}</small>
                                 </div>
                             </div>

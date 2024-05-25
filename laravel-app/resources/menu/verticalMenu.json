@@ -25,6 +25,12 @@
       "slug": "app-invoice"
     },
     {
+      "url": "app/product/list",
+      "name": "محصولات",
+      "icon": "menu-icon tf-icons mdi mdi-package-variant-closed",
+      "slug": "app-product"
+    },
+    {
       "url": "app/faq/list",
       "name": "سوالات متداول",
       "icon": "menu-icon tf-icons mdi mdi-frequently-asked-questions",

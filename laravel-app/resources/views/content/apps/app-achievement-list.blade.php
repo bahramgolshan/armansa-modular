@@ -106,22 +106,26 @@
             <table class="datatables-ajax table">
                 <thead class="table-light">
                     <tr>
-                        <th>ترتیب</th>
+                        <th>#</th>
                         <th>پیشوند</th>
                         <th>عدد</th>
                         <th>پسوند</th>
                         <th>وضعیت نمایش</th>
+                        <th>اولویت</th>
                         <th class="cell-fit">اقدامات</th>
                     </tr>
                 </thead>
                 <tbody class="table-border-bottom-0">
                     @foreach ($achievements as $achievement)
                         <tr>
-                            <td>{{ $achievement->order }}</td>
+                            <td>
+                                <strong>{{ ($achievements->currentPage() - 1) * $achievements->perPage() + $loop->iteration }}</strong>
+                            </td>
                             <td>{{ Str::limit($achievement->prefix, 30) }}</td>
                             <td>{{ $achievement->number }}</td>
                             <td>{{ Str::limit($achievement->suffix, 40) }}</td>
                             <td>{{ $achievement->is_featured ? 'قعال' : 'غیرفعال' }}</td>
+                            <td>{{ $achievement->order }}</td>
                             <td>
                                 <div class="dropdown">
                                     <button type="button" class="btn p-0 dropdown-toggle hide-arrow"

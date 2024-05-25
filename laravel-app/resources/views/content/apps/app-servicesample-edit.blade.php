@@ -63,10 +63,10 @@
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label class="col-sm-2 col-form-label" for="basic-default-order">ترتیب</label>
+                                <label class="col-sm-2 col-form-label" for="basic-default-order">اولویت</label>
                                 <div class="col-sm-6">
                                     <input type="text" name="order" class="form-control" id="basic-default-order"
-                                        value="{{ $serviceSample->order }}" placeholder="ترتیب" />
+                                        value="{{ $serviceSample->order }}" placeholder="اولویت" />
                                     <small class="text-danger">{{ $errors->first('order') }}</small>
                                 </div>
                             </div>

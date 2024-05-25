@@ -10,7 +10,7 @@ class AchievementController extends Controller
 {
   public function index()
   {
-    $achievements = Achievement::orderBy('order', 'ASC')->get();
+    $achievements = Achievement::orderBy('order', 'ASC')->paginate(15);
 
     return view('content.apps.app-achievement-list', [
       'achievements' =>  $achievements,

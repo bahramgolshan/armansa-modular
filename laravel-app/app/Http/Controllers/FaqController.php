@@ -11,7 +11,7 @@ class FaqController extends Controller
 {
   public function index()
   {
-    $faqs = Faq::orderBy('order', 'ASC')->get();
+    $faqs = Faq::orderBy('order', 'ASC')->paginate(15);
 
     return view('content.apps.app-faq-list', [
       'faqs' =>  $faqs,

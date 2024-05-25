@@ -106,18 +106,22 @@
             <table class="datatables-ajax table">
                 <thead class="table-light">
                     <tr>
-                        <th>ترتیب</th>
+                        <th>#</th>
                         <th>سوال</th>
                         <th>جواب</th>
+                        <th>اولویت</th>
                         <th class="cell-fit">اقدامات</th>
                     </tr>
                 </thead>
                 <tbody class="table-border-bottom-0">
                     @foreach ($faqs as $faq)
                         <tr>
-                            <td>{{ $faq->order }}</td>
+                            <td>
+                                <strong>{{ ($faqs->currentPage() - 1) * $faqs->perPage() + $loop->iteration }}</strong>
+                            </td>
                             <td>{{ Str::limit($faq->question, 30) }}</td>
                             <td>{{ Str::limit($faq->answer, 40) }}</td>
+                            <td>{{ $faq->order }}</td>
                             <td>
                                 <div class="dropdown">
                                     <button type="button" class="btn p-0 dropdown-toggle hide-arrow"

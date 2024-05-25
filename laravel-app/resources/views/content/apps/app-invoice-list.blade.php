@@ -48,6 +48,7 @@
             <table class="datatables-ajax invoice-list-table table">
                 <thead class="table-light">
                     <tr>
+                        <th>#</th>
                         <th>شماره سفارش</th>
                         <th>تاریخ</th>
                         <th>وضعیت سفارش</th>
@@ -61,6 +62,9 @@
                 <tbody class="table-border-bottom-0">
                     @foreach ($invoices as $invoice)
                         <tr>
+                            <td>
+                                <strong>{{ ($invoices->currentPage() - 1) * $invoices->perPage() + $loop->iteration }}</strong>
+                            </td>
                             <td><a
                                     href="{{ route('app-invoice-preview', ['id' => $invoice->id]) }}"><strong>{{ $invoice->id }}</strong></a>
                             </td>
