@@ -1,31 +1,3 @@
-// test
-// console.log("test");
-// var a = 5,
-//     b = 5;
-
-//header
-// window.onscroll = function () {
-//     stickyHeader();
-// };
-
-// Get the header
-// var header = document.getElementById("sticky-header");
-
-// Get the offset position of the navbar
-// var sticky = header.offsetHeight;
-// document.body.style.paddingTop = sticky + "px";
-
-// Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
-// function stickyHeader() {
-//     if (window.scrollY > sticky) {
-//         header.classList.add("fixed");
-//         header.classList.add("top-0");
-//     } else {
-//         header.classList.remove("fixed");
-//         header.classList.remove("top-0");
-//     }
-// }
-
 // start: Sidebar
 const sidebarToggle = document.querySelector(".sidebar-toggle");
 const sidebarOverlay = document.querySelector(".sidebar-overlay");
@@ -73,43 +45,82 @@ document.querySelectorAll(".sidebar-dropdown-toggle").forEach(function (item) {
 
 // end: Sidebar
 
-// document.addEventListener("DOMContentLoaded", function () {
+// start: Popper
+const popperInstance = {}
+document.querySelectorAll('.dropdown').forEach(function (item, index) {
+    const popperId = 'popper-' + index
+    const toggle = item.querySelector('.dropdown-toggle')
+    const menu = item.querySelector('.dropdown-menu')
+    menu.dataset.popperId = popperId
+    popperInstance[popperId] = Popper.createPopper(toggle, menu, {
+        modifiers: [
+            {
+                name: 'offset',
+                options: {
+                    offset: [0, 8],
+                },
+            },
+            {
+                name: 'preventOverflow',
+                options: {
+                    padding: 24,
+                },
+            },
+        ],
+        // placement: 'bottom-end'
+    });
+})
+document.addEventListener('click', function (e) {
+    const toggle = e.target.closest('.dropdown-toggle')
+    const menu = e.target.closest('.dropdown-menu')
+    if (toggle) {
+        const menuEl = toggle.closest('.dropdown').querySelector('.dropdown-menu')
+        const popperId = menuEl.dataset.popperId
+        if (menuEl.classList.contains('hidden')) {
+            hideDropdown()
+            menuEl.classList.remove('hidden')
+            showPopper(popperId)
+        } else {
+            menuEl.classList.add('hidden')
+            hidePopper(popperId)
+        }
+    } else if (!menu) {
+        hideDropdown()
+    }
+})
 
-//   const burger = document.querySelectorAll(".navbar-burger");
-//   const menu = document.querySelectorAll(".navbar-menu");
-//   if (burger.length && menu.length) {
-//     for (var i = 0; i < burger.length; i++) {
-//       burger[i].addEventListener("click", function () {
-//         for (var j = 0; j < menu.length; j++) {
-//           menu[j].classList.toggle("hidden");
-//         }
-//       });
-//     }
-//   }
+function hideDropdown() {
+    document.querySelectorAll('.dropdown-menu').forEach(function (item) {
+        item.classList.add('hidden')
+    })
+}
+function showPopper(popperId) {
+    popperInstance[popperId].setOptions(function (options) {
+        return {
+            ...options,
+            modifiers: [
+                ...options.modifiers,
+                { name: 'eventListeners', enabled: true },
+            ],
+        }
+    });
+    popperInstance[popperId].update();
+}
+function hidePopper(popperId) {
+    popperInstance[popperId].setOptions(function (options) {
+        return {
+            ...options,
+            modifiers: [
+                ...options.modifiers,
+                { name: 'eventListeners', enabled: false },
+            ],
+        }
+    });
+}
+// end: Popper
 
-//   const close = document.querySelectorAll(".navbar-close");
-//   const backdrop = document.querySelectorAll(".navbar-backdrop");
 
-//   if (close.length) {
-//     for (var i = 0; i < close.length; i++) {
-//       close[i].addEventListener("click", function () {
-//         for (var j = 0; j < menu.length; j++) {
-//           menu[j].classList.toggle("hidden");
-//         }
-//       });
-//     }
-//   }
-
-//   if (backdrop.length) {
-//     for (var i = 0; i < backdrop.length; i++) {
-//       backdrop[i].addEventListener("click", function () {
-//         for (var j = 0; j < menu.length; j++) {
-//           menu[j].classList.toggle("hidden");
-//         }
-//       });
-//     }
-//   }
-// });
+// Swiper
 
 var swiper = new Swiper(".about-us-swiper", {
     slidesPerView: 2,

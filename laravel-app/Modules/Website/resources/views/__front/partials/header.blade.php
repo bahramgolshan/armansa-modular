@@ -53,7 +53,7 @@
     <section class="bg-[#3C4999] custom-padding">
         <ul
             class="hidden primary-container text-white w-[100%] py-[12px] lg:flex md:mx-auto lg:mx-auto lg:flex lg:items-center lg:space-x-6">
-            <li><a class="text-sm ml-3" href="#">صفحه اصلی</a></li>
+            <li><a class="text-sm ml-3 dropdown" href="#">صفحه اصلی</a></li>
             <li class="w-[0.3rem] h-[0.3rem] bg-white rotate-45"></li>
             <li><a class="text-sm ml-3" href="#">خدمات چاپ</a></li>
             <li class="w-[0.3rem] h-[0.3rem] bg-white rotate-45"></li>
