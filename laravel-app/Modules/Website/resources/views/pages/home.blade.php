@@ -9,6 +9,7 @@
      @include('website::partials.orders_home')
      @include('website::partials.contact_information')
      @include('website::partials.gallery')
+     @include('website::partials.lightbox')
      @include('website::partials.printed_samples')
      @include('website::partials.questions')
  @endsection
