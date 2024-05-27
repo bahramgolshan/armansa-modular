@@ -18,7 +18,7 @@
         </section>
 
         {{-- main_static_text --}}
-        <section class="custom-padding pb-[1rem] lg:pb-[20px] xl:pb-[30px] bg-neutral-100">
+        <section class="custom-padding text-[#3C4999] pb-[1rem] lg:pb-[20px] xl:pb-[30px] bg-neutral-100">
             <div
                 class="primary-container mx-auto py-[2rem] px-[1rem] bg-white rounded-[0.313rem] lg:rounded-[0.625rem] shadow-[-2px_2px_8px_1px_rgba(0,0,0,0.15)]">
                 <div>

@@ -48,7 +48,7 @@
 
 </head>
 
-<body class="pt-[92px] lg:pt-[140px]">
+<body class="pt-[140px] lg:pt-[200px]">
 
     @include('website::partials.header')
 

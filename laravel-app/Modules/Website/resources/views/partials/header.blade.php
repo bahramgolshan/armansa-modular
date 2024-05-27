@@ -8,7 +8,7 @@
 
             <div
                 class="font-[600] text-[1.6rem] flex items-center gap-[1rem]">
-                <span class="mt-[0.3rem] text-[1rem] lg:text-[1.5rem] text-white"> {{ $settings['phone1'] }} </span>
+                <span class="mt-[0.3rem] text-[1rem] lg:text-[1.5rem] text-white"> {{ $generalSettings['phone1'] }} </span>
                 <img class="hidden sm:inline-block w-[24px] h-[24px] lg:w-[1.8rem] lg:h-[1.8rem] xl:w-[2rem] xl:h-[2rem] 2xl:w-[2.2rem]"
                     src="{{ asset('assets/modules/website/images/icon/phone.png') }}" alt="" />
             </div>
@@ -118,10 +118,10 @@
             <li class="dropdown"><a href="{{ route('page.service.print') }}" class="text-sm ml-3 dropdown-toggle py-[0.7rem]">خدمات چاپ</a>
             <ul class="dropdown-menu bg-gray-100 shadow-md z-30 hidden py-1.5 rounded-md text-[#3C4999] w-auto">
                             <li class="flex items-center justify-center py-1 hover:bg-[#3C4999] hover:text-white">
-                                <a href="{{ route('page.service.print.digital') }}" class="flex items-center py-1.5 font-[300] px-4">چاپ دیجیتال</a>
+                                <a href="{{ route('page.service.print.digital') }}" class="flex items-center py-1.5 px-4 text-[1rem]">چاپ دیجیتال</a>
                             </li>
                             <li class="flex items-center justify-center py-1 hover:bg-[#3C4999] hover:text-white">
-                                <a href="{{ route('page.service.print.offset') }}" class="flex items-center py-1.5 font-[300] px-4">چاپ آفست</a>
+                                <a href="{{ route('page.service.print.offset') }}" class="flex items-center py-1.5 px-4 text-[1rem]">چاپ آفست</a>
                             </li>
                         </ul>
             </li>
@@ -129,13 +129,13 @@
             <li class="dropdown"><a href="{{ route('page.service.publication') }}" class="text-sm ml-3 dropdown-toggle py-[0.7rem]">خدمات نشر</a>
             <ul class="dropdown-menu bg-gray-100 shadow-md z-30 hidden py-1.5 rounded-md text-[#3C4999] w-auto">
                             <li class="flex items-center justify-center py-1 hover:bg-[#3C4999] hover:text-white">
-                                <a href="{{ route('page.service.publication.permission') }}" class="flex items-center py-1.5 font-[300] px-4">اخذ مجوز چاپ</a>
+                                <a href="{{ route('page.service.publication.permission') }}" class="flex items-center py-1.5 px-4 text-[1rem]">اخذ مجوز چاپ</a>
                             </li>
                             <li class="flex items-center justify-center py-1 hover:bg-[#3C4999] hover:text-white">
-                                <a href="{{ route('page.service.publication.layout') }}" class="flex items-center py-1.5 font-[300] px-4">صفحه آرایی</a>
+                                <a href="{{ route('page.service.publication.layout') }}" class="flex items-center py-1.5 px-4 text-[1rem]">صفحه آرایی</a>
                             </li>
                             <li class="flex items-center justify-center py-1 hover:bg-[#3C4999] hover:text-white">
-                                <a href="{{ route('page.service.publication.editing') }}" class="flex items-center py-1.5 font-[300] px-4">ویراستاری</a>
+                                <a href="{{ route('page.service.publication.editing') }}" class="flex items-center py-1.5 px-4 text-[1rem]">ویراستاری</a>
                             </li>
                         </ul>
             </li>
@@ -143,13 +143,13 @@
             <li class="dropdown"><a href="{{ route('page.service.lithography') }}" class="text-sm ml-3 dropdown-toggle py-[0.7rem]">لیتوگرافی</a>
             <ul class="dropdown-menu bg-gray-100 shadow-md z-30 hidden py-1.5 rounded-md text-[#3C4999] w-auto">
                             <li class="flex items-center justify-center py-1 hover:bg-[#3C4999] hover:text-white">
-                                <a href="{{ route('page.service.lithography.zinc-gto') }}" class="flex items-center py-1.5 font-[300] px-4">زینک GTO</a>
+                                <a href="{{ route('page.service.lithography.zinc-gto') }}" class="flex items-center py-1.5 px-4 text-[1rem]">زینک GTO</a>
                             </li>
                             <li class="flex items-center justify-center py-1 hover:bg-[#3C4999] hover:text-white">
-                                <a href="{{ route('page.service.lithography.zinc-dureghi') }}" class="flex items-center py-1.5 font-[300] px-4">زینک دورقی</a>
+                                <a href="{{ route('page.service.lithography.zinc-dureghi') }}" class="flex items-center py-1.5 px-4 text-[1rem]">زینک دورقی</a>
                             </li>
                             <li class="flex items-center justify-center py-1 hover:bg-[#3C4999] hover:text-white">
-                                <a href="{{ route('page.service.lithography.zinc-speed-master') }}" class="flex items-center py-1.5 font-[300] px-4">زینک اسپید مستر</a>
+                                <a href="{{ route('page.service.lithography.zinc-speed-master') }}" class="flex items-center py-1.5 px-4 text-[1rem]">زینک اسپید مستر</a>
                             </li>
                         </ul>
             </li>
