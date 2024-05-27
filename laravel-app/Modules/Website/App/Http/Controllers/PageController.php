@@ -157,4 +157,22 @@ class PageController extends Controller
   {
     return view('website::pages.samples');
   }
+
+  //صحافی
+  public function binding()
+  {
+    return view('website::pages.binding');
+  }
+
+  // بروشورا
+  public function brochure()
+  {
+    return view('website::pages.brochure');
+  }
+
+  //کاتالوگ
+  public function catalog()
+  {
+    return view('website::pages.catalog');
+  }
 }

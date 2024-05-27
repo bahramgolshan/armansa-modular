@@ -35,6 +35,9 @@ Route::prefix('page')->group(function () {
   Route::get('/services/lithography/zinc-speed-master', "PageController@zincSpeedMaster")->name('page.service.lithography.zinc-speed-master'); // زینک اسپید مستر
   Route::get('/services/calendar', "PageController@calendar")->name('page.service.calendar'); // سررسید
   Route::get('/services/samples', "PageController@samples")->name('page.service.samples'); // نمونه کارها
+  Route::get('/services/binding', "PageController@binding")->name('page.service.binding'); // صحافی
+  Route::get('/services/brochure', "PageController@brochure")->name('page.service.brochure'); // بروشور
+  Route::get('/services/catalog', "PageController@catalog")->name('page.service.catalog'); // کاتالوگ
 });
 
 
