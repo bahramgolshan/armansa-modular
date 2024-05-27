@@ -5,30 +5,30 @@
 
         <div class="">
           <div class="bg-[#E3EEFF] py-[1rem]"><img class="mx-auto" src="{{asset('assets/modules/website/images/home/services-navigation/editing.png')}}" alt=""></div>
-          <div class="bg-[--primary-color] text-white text-center py-[0.5rem]"><span class="">ویراستاری</span></div>
-          <div class="border-[1px] border-[--primary-color] flex items-center justify-center p-[1rem] lg:min-h-[160px] xl:min-h-[150px]"><p class="text-right">متن کتاب شما در صورت نیاز، ویراستاری فنی و ادبی می‌شود.</p></div>
+          <div class="bg-[--primary-color] text-white text-center py-[0.5rem]"><span class="lg:text-[1.4rem]">ویراستاری</span></div>
+          <div class="border-[1px] border-[--primary-color] flex items-center justify-center p-[1rem] lg:min-h-[160px] xl:min-h-[150px]"><p class="text-right lg:text-[1.1rem]">متن کتاب شما در صورت نیاز، ویراستاری فنی و ادبی می‌شود.</p></div>
         </div>
 
 
         <div>
           <div class="bg-[#E3EEFF] py-[1rem]"><img class="mx-auto" src="{{asset('assets/modules/website/images/home/services-navigation/layout.png')}}" alt=""></div>
-          <div class="bg-[--primary-color] text-white text-center py-[0.5rem]"><span class="">صفحه‌آرایی</span></div>
-          <div class="border-[1px] border-[--primary-color] flex items-center justify-center p-[1rem] lg:min-h-[160px] xl:min-h-[150px]"><p class="text-right">متن کتاب به صورت قالب خوانا و مناسب چاپ، تنظیم شده و طرح‌های گرافیکی لازم به آن اضافه می‌شود.</p></div>
+          <div class="bg-[--primary-color] text-white text-center py-[0.5rem]"><span class="lg:text-[1.4rem]">صفحه‌آرایی</span></div>
+          <div class="border-[1px] border-[--primary-color] flex items-center justify-center p-[1rem] lg:min-h-[160px] xl:min-h-[150px]"><p class="text-right lg:text-[1.1rem]">متن کتاب به صورت قالب خوانا و مناسب چاپ، تنظیم شده و طرح‌های گرافیکی لازم به آن اضافه می‌شود.</p></div>
         </div>
         <div>
           <div class="bg-[#E3EEFF] py-[1rem]"><img class="mx-auto" src="{{asset('assets/modules/website/images/home/services-navigation/permission.png')}}" alt=""></div>
-          <div class="bg-[--primary-color] text-white text-center py-[0.5rem]"><span class="">اخذ مجوزهای چاپ</span></div>
-          <div class="border-[1px] border-[--primary-color] flex items-center justify-center p-[1rem] lg:min-h-[160px] xl:min-h-[150px]"><p class="text-right">اقدامات لازم جهت گرفتن مجوز وزارت ارشاد و ثبت کتابخانه ملی انجام می‌شود.</p></div>
+          <div class="bg-[--primary-color] text-white text-center py-[0.5rem]"><span class="lg:text-[1.4rem]">اخذ مجوزهای چاپ</span></div>
+          <div class="border-[1px] border-[--primary-color] flex items-center justify-center p-[1rem] lg:min-h-[160px] xl:min-h-[150px]"><p class="text-right lg:text-[1.1rem]">اقدامات لازم جهت گرفتن مجوز وزارت ارشاد و ثبت کتابخانه ملی انجام می‌شود.</p></div>
         </div>
         <div>
           <div class="bg-[#E3EEFF] py-[1rem]"><img class="mx-auto" src="{{asset('assets/modules/website/images/home/services-navigation/cover.png')}}" alt=""></div>
-          <div class="bg-[--primary-color] text-white text-center py-[0.5rem]"><span class="">طراحی جلد</span></div>
-          <div class="border-[1px] border-[--primary-color] flex items-center justify-center p-[1rem] lg:min-h-[160px] xl:min-h-[150px]"><p class="text-right">در صورت نیاز، جلدی زیبا و مناسب برای کتاب شما طراحی می‌شود.</p></div>
+          <div class="bg-[--primary-color] text-white text-center py-[0.5rem]"><span class="lg:text-[1.4rem]">طراحی جلد</span></div>
+          <div class="border-[1px] border-[--primary-color] flex items-center justify-center p-[1rem] lg:min-h-[160px] xl:min-h-[150px]"><p class="text-right lg:text-[1.1rem]">در صورت نیاز، جلدی زیبا و مناسب برای کتاب شما طراحی می‌شود.</p></div>
         </div>
         <div>
           <div class="bg-[#E3EEFF] py-[1rem]"><img class="mx-auto" src="{{asset('assets/modules/website/images/home/services-navigation/print.png')}}" alt=""></div>
-          <div class="bg-[--primary-color] text-white text-center py-[0.5rem]"><span class="">چاپ کتاب</span></div>
-          <div class="border-[1px] border-[--primary-color] flex items-center justify-center p-[1rem] lg:min-h-[160px] xl:min-h-[150px]"><p class="text-right">کتاب در تیراژ درخواستی شما چاپ و صحافی می‌شود.</p></div>
+          <div class="bg-[--primary-color] text-white text-center py-[0.5rem]"><span class="lg:text-[1.4rem]">چاپ کتاب</span></div>
+          <div class="border-[1px] border-[--primary-color] flex items-center justify-center p-[1rem] lg:min-h-[160px] xl:min-h-[150px]"><p class="text-right lg:text-[1.1rem]">کتاب در تیراژ درخواستی شما چاپ و صحافی می‌شود.</p></div>
         </div>
 
       </div>

@@ -1,9 +1,25 @@
+/*
+*
+* ==========================================
+* Variables for colors
+* ==========================================
+*
+*/
+
 :root {
   --primary-color: #3c4999;
   --body-color: #f5f5f5;
   --bg-color: #ffffff;
   --green: #51956d;
 }
+
+/*
+*
+* ==========================================
+* Fonts
+* ==========================================
+*
+*/
 
 @font-face {
   font-family: iran-sans-bold;
@@ -37,12 +53,7 @@ body {
   font-feature-settings: 'ss01';
 }
 
-/* جهت صحافی */
-input[name='binding_direction_id']:checked + label span {
-  background-color: var(--primary-color);
-  color: white;
-  overflow: hidden;
-}
+
 
 /* accordion */
 .accordion__content {
@@ -62,59 +73,6 @@ input[name='h-acc-q']:checked + label img {
   background: var(--primary-color);
   backdrop-filter: blur(10px);
 }
-
-/* .wrap {
-  padding: 40px;
-  text-align: center;
-}
-
-hr {
-  clear: both;
-  margin-top: 40px;
-  margin-bottom: 40px;
-  border: 0;
-  border-top: 1px solid #aaa;
-}
-h1 {
-  font-size: 30px;
-  margin-bottom: 40px;
-}
-p {
-  margin-bottom: 20px;
-}
-.btn {
-  background: #428bca;
-  border: #357ebd solid 1px;
-  border-radius: 3px;
-  color: #fff;
-  display: inline-block;
-  font-size: 14px;
-  padding: 8px 15px;
-  text-decoration: none;
-  text-align: center;
-  min-width: 60px;
-  position: relative;
-  transition: color 0.1s ease;
-}
-.btn:hover {
-  background: #357ebd;
-}
-.btn.btn-big {
-  font-size: 18px;
-  padding: 15px 20px;
-  min-width: 100px;
-}
-.btn-close {
-  color: #aaa;
-  font-size: 30px;
-  text-decoration: none;
-  position: absolute;
-  right: 5px;
-  top: 0;
-}
-.btn-close:hover {
-  color: #919191;
-} */
 
 .large-container {
   max-width: 120rem;
@@ -215,7 +173,6 @@ p {
   flex-grow: 1;
   width: 100%;
   display: none;
-  /* padding: 1rem; */
   background: #fff;
 }
 
@@ -239,7 +196,15 @@ p {
   border-radius: 0rem 0rem 1rem 1rem;
 }
 
-/* home accordion */
+/*
+*
+* ==========================================
+* Home Accordion
+* ==========================================
+*
+*/
+
+
 
 @media (max-width: 1024px) {
   .custom-tabs .custom-tab,
@@ -258,26 +223,29 @@ p {
 }
 /* end */
 
-@media only screen and (max-width: 1024px) {
-  /* .accordion-container,
-  .primary-container {
-    padding-left: 3rem;
-    padding-right: 3rem;
-  } */
-}
+/*
+*
+* ==========================================
+* Overlay on Hero section in Home Page
+* ==========================================
+*
+*/
 
 @media only screen and (max-width: 1700px) {
-  /* .accordion-container,
-  .primary-container {
-    padding-left: 3rem;
-    padding-right: 3rem;
-  } */
-
   .hero-overlay {
     padding-left: 1rem;
     padding-right: 1rem;
   }
 }
+
+/*
+*
+* ==========================================
+* Left and Right padding for containers in
+* every section
+* ==========================================
+*
+*/
 
 @media screen and (min-device-width: 1025px) and (max-device-width: 1700px) {
   .custom-padding {
@@ -286,11 +254,26 @@ p {
   }
 }
 
+
 @media screen and (max-device-width: 1023px) {
   .custom-padding {
     padding-left: 1rem;
     padding-right: 1rem;
   }
+}
+
+/*
+*
+* ==========================================
+* Print Direction - Home Page
+* ==========================================
+*
+*/
+
+input[name='binding_direction_id']:checked + label span {
+  background-color: var(--primary-color);
+  color: white;
+  overflow: hidden;
 }
 
 @media only screen and (min-width: 1024px) {
@@ -350,3 +333,5 @@ p {
   flex-wrap: wrap;
   width: 100px;
 }
+
+
