@@ -39,7 +39,7 @@
                         <div class="mt-2">
                             <input type="email" name="email" id="email"
                                 class="block w-full pr-[0.5rem] rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-[#3C4999] placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 outline-none"
-                                value="{{ Auth::user()->email }}" />
+                                value="{{ Auth::user()->email }}" disabled />
                         </div>
                     </div>
                     <div class="col-span-full">

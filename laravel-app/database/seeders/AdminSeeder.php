@@ -13,7 +13,7 @@ class AdminSeeder extends Seeder
   {
     $data = [
       // ['username', 'email', 'password']
-      ['admin', 'bobcode20@gmail.com', 'password']
+      ['admin', 'admin@chaparmansa.com', 'password']
     ];
 
     foreach ($data as $value) {

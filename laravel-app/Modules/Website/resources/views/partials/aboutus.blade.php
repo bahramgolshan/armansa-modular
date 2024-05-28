@@ -11,10 +11,11 @@
                     <div class="relative bg-white w-full mx-auto lg:pb-[2.5rem]">
                         <div class="swiper about-us-swiper mx-auto h-full">
                             <div class="swiper-wrapper">
-                                @foreach ($partnerLogos as $logo)
+                                @foreach ($partnerLogos as $partner)
                                     <div class="swiper-slide bg-white flex items-center justify-center">
-                                        <img class="max-w-70 grayscale hover:grayscale-0"
-                                            src="{{ asset('assets/modules/website/images/home/about-us/' . basename($logo)) }}" />
+                                        <img class="max-w-24 grayscale hover:grayscale-0"
+                                            src="{{ $partner->media_id ? asset(get_file_upload_path('image-partners', $partner->media->id) . $partner->media->file_name) : '' }}"
+                                            alt="{{ $partner->name }}" />
                                     </div>
                                 @endforeach
                             </div>

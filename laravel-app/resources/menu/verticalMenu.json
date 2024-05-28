@@ -31,16 +31,22 @@
       "slug": "app-product"
     },
     {
-      "url": "app/faq/list",
-      "name": "سوالات متداول",
-      "icon": "menu-icon tf-icons mdi mdi-frequently-asked-questions",
-      "slug": "app-faq"
+      "url": "app/partner/list",
+      "name": "همکاران",
+      "icon": "menu-icon tf-icons mdi mdi-account-network",
+      "slug": "app-partner"
     },
     {
       "url": "app/achievement/list",
       "name": "آمار سایت",
       "icon": "menu-icon tf-icons mdi mdi-frequently-asked-questions",
       "slug": "app-achievement"
+    },
+    {
+      "url": "app/faq/list",
+      "name": "سوالات متداول",
+      "icon": "menu-icon tf-icons mdi mdi-frequently-asked-questions",
+      "slug": "app-faq"
     },
     {
       "url": "app/setting",

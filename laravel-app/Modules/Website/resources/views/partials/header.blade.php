@@ -4,53 +4,52 @@
 
     <section class="bg-[#3C4999] custom-padding">
         <div class="primary-container text-white mx-auto p-[0.8rem]">
-        <div class="w-[100%] flex flex-row justify-between items-center bg-[#3C4999]">
+            <div class="w-[100%] flex flex-row justify-between items-center bg-[#3C4999]">
 
-            <div
-                class="font-[600] text-[1.6rem] flex items-center gap-[1rem]">
-                <span class="mt-[0.3rem] text-[1rem] lg:text-[1.5rem] text-white"> {{ $generalSettings['phone1'] }} </span>
-                <img class="hidden sm:inline-block w-[24px] h-[24px] lg:w-[1.8rem] lg:h-[1.8rem] xl:w-[2rem] xl:h-[2rem] 2xl:w-[2.2rem]"
-                    src="{{ asset('assets/modules/website/images/icon/phone.png') }}" alt="" />
-            </div>
-
-            <div class="w-[50%] flex flex-row justify-between items-center">
-                <div
-                    class="flex flex-row justify-around xl:justify-center items-center xl:ml-[12px]">
-                    <a href="https://t.me/{{ $generalSettings['telegram'] }}" target="_blank"
-                        class="hidden lg:inline-block text-right text-white text-xl font-light font-['IRANSans'] ml-[9px]">
-                        {{ $generalSettings['telegram'] }}
-                    </a>
-                    <div
-                        class="xl:w-[34px] xl:h-[34px] w-[24px] h-[24px] flex-col justify-start items-start xl:ml-[16px]">
-                        <img class="xl:w-[34px] xl:h-[34px] w-[24px] h-[24px]"
-                            src="{{ asset('assets/modules/website/images/icon/telegram.png') }}" />
-                    </div>
+                <div class="font-[600] text-[1.6rem] flex items-center gap-[1rem]">
+                    <span class="mt-[0.3rem] text-[1rem] lg:text-[1.5rem] text-white"> {{ $generalSettings['phone1'] }}
+                    </span>
+                    <img class="hidden sm:inline-block w-[24px] h-[24px] lg:w-[1.8rem] lg:h-[1.8rem] xl:w-[2rem] xl:h-[2rem] 2xl:w-[2.2rem]"
+                        src="{{ asset('assets/modules/website/images/icon/phone.png') }}" alt="" />
                 </div>
 
-                <div class="flex flex-row justify-around xl:justify-center items-center">
-                    <a href="https://www.instagram.com/{{ $generalSettings['instagram'] }}/" target="_blank"
-                        class="hidden lg:inline-block text-right text-white text-xl font-light font-['IRANSans'] ml-[9px]">
-                        {{ $generalSettings['instagram'] }}
-                    </a>
-                    <div
-                        class="xl:w-[34px] xl:h-[34px] w-[24px] h-[24px] flex-col justify-start items-start xl:ml-[16px]">
-                        <img class="xl:w-[34px] xl:h-[34px] w-[24px] h-[24px]"
-                            src="{{ asset('assets/modules/website/images/icon/instagram.png') }}" />
+                <div class="w-[50%] flex flex-row justify-between items-center">
+                    <div class="flex flex-row justify-around xl:justify-center items-center xl:ml-[12px]">
+                        <a href="https://t.me/{{ $generalSettings['telegram'] }}" target="_blank"
+                            class="hidden lg:inline-block text-right text-white text-xl font-light font-['IRANSans'] ml-[9px]">
+                            {{ $generalSettings['telegram'] }}
+                        </a>
+                        <div
+                            class="xl:w-[34px] xl:h-[34px] w-[24px] h-[24px] flex-col justify-start items-start xl:ml-[16px]">
+                            <img class="xl:w-[34px] xl:h-[34px] w-[24px] h-[24px]"
+                                src="{{ asset('assets/modules/website/images/icon/telegram.png') }}" />
+                        </div>
                     </div>
-                </div>
 
-                <div class="flex flex-row justify-around xl:justify-center items-center">
-                    <a href="https://eitaa.com/{{ $generalSettings['eitaa'] }}" target="_blank"
-                        class="hidden lg:inline-block text-right text-white text-xl font-light font-['IRANSans'] ml-[9px]">
-                        {{ $generalSettings['eitaa'] }}
-                    </a>
-                    <div
-                        class="xl:w-[34px] xl:h-[34px] w-[24px] h-[24px] flex-col justify-start items-start xl:ml-[16px]">
-                        <img class="xl:w-[34px] xl:h-[34px] w-[24px] h-[24px]"
-                            src="{{ asset('assets/modules/website/images/icon/eitaa-icon.png') }}" />
+                    <div class="flex flex-row justify-around xl:justify-center items-center">
+                        <a href="https://www.instagram.com/{{ $generalSettings['instagram'] }}/" target="_blank"
+                            class="hidden lg:inline-block text-right text-white text-xl font-light font-['IRANSans'] ml-[9px]">
+                            {{ $generalSettings['instagram'] }}
+                        </a>
+                        <div
+                            class="xl:w-[34px] xl:h-[34px] w-[24px] h-[24px] flex-col justify-start items-start xl:ml-[16px]">
+                            <img class="xl:w-[34px] xl:h-[34px] w-[24px] h-[24px]"
+                                src="{{ asset('assets/modules/website/images/icon/instagram.png') }}" />
+                        </div>
+                    </div>
+
+                    <div class="flex flex-row justify-around xl:justify-center items-center">
+                        <a href="https://eitaa.com/{{ $generalSettings['eitaa'] }}" target="_blank"
+                            class="hidden lg:inline-block text-right text-white text-xl font-light font-['IRANSans'] ml-[9px]">
+                            {{ $generalSettings['eitaa'] }}
+                        </a>
+                        <div
+                            class="xl:w-[34px] xl:h-[34px] w-[24px] h-[24px] flex-col justify-start items-start xl:ml-[16px]">
+                            <img class="xl:w-[34px] xl:h-[34px] w-[24px] h-[24px]"
+                                src="{{ asset('assets/modules/website/images/icon/eitaa-icon.png') }}" />
+                        </div>
                     </div>
                 </div>
-            </div>
 
             </div>
         </div>
@@ -115,48 +114,65 @@
             class="hidden primary-container text-white w-[100%] py-[12px] lg:flex md:mx-auto lg:mx-auto lg:flex lg:items-center lg:space-x-6">
             <li><a href="{{ route('home') }}" class="text-sm ml-3">صفحه اصلی</a></li>
             <li class="w-[0.3rem] h-[0.3rem] bg-white rotate-45"></li>
-            <li class="dropdown"><a href="{{ route('page.service.print') }}" class="text-sm ml-3 dropdown-toggle py-[0.7rem]">خدمات چاپ</a>
-            <ul class="dropdown-menu bg-gray-100 shadow-md z-30 hidden py-1.5 rounded-md text-[#3C4999] w-auto">
-                            <li class="flex items-center justify-center py-1 hover:bg-[#3C4999] hover:text-white">
-                                <a href="{{ route('page.service.print.digital') }}" class="flex items-center py-1.5 px-4 text-[1rem]">چاپ دیجیتال</a>
-                            </li>
-                            <li class="flex items-center justify-center py-1 hover:bg-[#3C4999] hover:text-white">
-                                <a href="{{ route('page.service.print.offset') }}" class="flex items-center py-1.5 px-4 text-[1rem]">چاپ آفست</a>
-                            </li>
-                        </ul>
+            <li class="dropdown"><a href="{{ route('page.service.print') }}"
+                    class="text-sm ml-3 dropdown-toggle py-[0.7rem]">خدمات چاپ</a>
+                <ul class="dropdown-menu bg-gray-100 shadow-md z-30 hidden py-1.5 rounded-md text-[#3C4999] w-auto">
+                    <li class="flex items-center justify-center py-1 hover:bg-[#3C4999] hover:text-white">
+                        <a href="{{ route('page.service.print.digital') }}"
+                            class="flex items-center py-1.5 px-4 text-[1rem]">چاپ دیجیتال</a>
+                    </li>
+                    <li class="flex items-center justify-center py-1 hover:bg-[#3C4999] hover:text-white">
+                        <a href="{{ route('page.service.print.offset') }}"
+                            class="flex items-center py-1.5 px-4 text-[1rem]">چاپ آفست</a>
+                    </li>
+                    <li class="flex items-center justify-center py-1 hover:bg-[#3C4999] hover:text-white">
+                        <a href="{{ route('page.service.print.workflow') }}"
+                            class="flex items-center py-1.5 px-4 text-[1rem]">فرایند چاپ</a>
+                    </li>
+                </ul>
             </li>
             <li class="w-[0.3rem] h-[0.3rem] bg-white rotate-45"></li>
-            <li class="dropdown"><a href="{{ route('page.service.publication') }}" class="text-sm ml-3 dropdown-toggle py-[0.7rem]">خدمات نشر</a>
-            <ul class="dropdown-menu bg-gray-100 shadow-md z-30 hidden py-1.5 rounded-md text-[#3C4999] w-auto">
-                            <li class="flex items-center justify-center py-1 hover:bg-[#3C4999] hover:text-white">
-                                <a href="{{ route('page.service.publication.permission') }}" class="flex items-center py-1.5 px-4 text-[1rem]">اخذ مجوز چاپ</a>
-                            </li>
-                            <li class="flex items-center justify-center py-1 hover:bg-[#3C4999] hover:text-white">
-                                <a href="{{ route('page.service.publication.layout') }}" class="flex items-center py-1.5 px-4 text-[1rem]">صفحه آرایی</a>
-                            </li>
-                            <li class="flex items-center justify-center py-1 hover:bg-[#3C4999] hover:text-white">
-                                <a href="{{ route('page.service.publication.editing') }}" class="flex items-center py-1.5 px-4 text-[1rem]">ویراستاری</a>
-                            </li>
-                        </ul>
+            <li class="dropdown"><a href="{{ route('page.service.publication') }}"
+                    class="text-sm ml-3 dropdown-toggle py-[0.7rem]">خدمات نشر</a>
+                <ul class="dropdown-menu bg-gray-100 shadow-md z-30 hidden py-1.5 rounded-md text-[#3C4999] w-auto">
+                    <li class="flex items-center justify-center py-1 hover:bg-[#3C4999] hover:text-white">
+                        <a href="{{ route('page.service.publication.permission') }}"
+                            class="flex items-center py-1.5 px-4 text-[1rem]">اخذ مجوز چاپ</a>
+                    </li>
+                    <li class="flex items-center justify-center py-1 hover:bg-[#3C4999] hover:text-white">
+                        <a href="{{ route('page.service.publication.layout') }}"
+                            class="flex items-center py-1.5 px-4 text-[1rem]">صفحه آرایی</a>
+                    </li>
+                    <li class="flex items-center justify-center py-1 hover:bg-[#3C4999] hover:text-white">
+                        <a href="{{ route('page.service.publication.editing') }}"
+                            class="flex items-center py-1.5 px-4 text-[1rem]">ویراستاری</a>
+                    </li>
+                </ul>
             </li>
             <li class="w-[0.3rem] h-[0.3rem] bg-white rotate-45"></li>
-            <li class="dropdown"><a href="{{ route('page.service.lithography') }}" class="text-sm ml-3 dropdown-toggle py-[0.7rem]">لیتوگرافی</a>
-            <ul class="dropdown-menu bg-gray-100 shadow-md z-30 hidden py-1.5 rounded-md text-[#3C4999] w-auto">
-                            <li class="flex items-center justify-center py-1 hover:bg-[#3C4999] hover:text-white">
-                                <a href="{{ route('page.service.lithography.zinc-gto') }}" class="flex items-center py-1.5 px-4 text-[1rem]">زینک GTO</a>
-                            </li>
-                            <li class="flex items-center justify-center py-1 hover:bg-[#3C4999] hover:text-white">
-                                <a href="{{ route('page.service.lithography.zinc-dureghi') }}" class="flex items-center py-1.5 px-4 text-[1rem]">زینک دورقی</a>
-                            </li>
-                            <li class="flex items-center justify-center py-1 hover:bg-[#3C4999] hover:text-white">
-                                <a href="{{ route('page.service.lithography.zinc-speed-master') }}" class="flex items-center py-1.5 px-4 text-[1rem]">زینک اسپید مستر</a>
-                            </li>
-                        </ul>
+            <li class="dropdown"><a href="{{ route('page.service.lithography') }}"
+                    class="text-sm ml-3 dropdown-toggle py-[0.7rem]">لیتوگرافی</a>
+                <ul class="dropdown-menu bg-gray-100 shadow-md z-30 hidden py-1.5 rounded-md text-[#3C4999] w-auto">
+                    <li class="flex items-center justify-center py-1 hover:bg-[#3C4999] hover:text-white">
+                        <a href="{{ route('page.service.lithography.zinc-gto') }}"
+                            class="flex items-center py-1.5 px-4 text-[1rem]">زینک GTO</a>
+                    </li>
+                    <li class="flex items-center justify-center py-1 hover:bg-[#3C4999] hover:text-white">
+                        <a href="{{ route('page.service.lithography.zinc-dureghi') }}"
+                            class="flex items-center py-1.5 px-4 text-[1rem]">زینک دورقی</a>
+                    </li>
+                    <li class="flex items-center justify-center py-1 hover:bg-[#3C4999] hover:text-white">
+                        <a href="{{ route('page.service.lithography.zinc-speed-master') }}"
+                            class="flex items-center py-1.5 px-4 text-[1rem]">زینک اسپید مستر</a>
+                    </li>
+                </ul>
             </li>
             <li class="w-[0.3rem] h-[0.3rem] bg-white rotate-45"></li>
             <li><a href="{{ route('page.service.calendar') }}" class="text-sm">سر رسید</a></li>
             <li class="w-[0.3rem] h-[0.3rem] bg-white rotate-45"></li>
             <li><a href="{{ route('page.service.samples') }}" class="text-sm">نمونه‌کار</a></li>
+            <li class="w-[0.3rem] h-[0.3rem] bg-white rotate-45"></li>
+            <li><a href="{{ route('service.print-digital.create') }}" class="text-sm">ثبت سفارش</a></li>
             <li class="w-[0.3rem] h-[0.3rem] bg-white rotate-45"></li>
             <li><a href="{{ route('page.about-us') }}" class="text-sm">درباره‌ما</a></li>
         </ul>
@@ -171,6 +187,11 @@
         class="absolute top-[2rem] right-[1rem] close-button" />
 
     <ul class="p-4 mt-[3rem]">
+        <li class="mb-1 group">
+            <a href="{{ route('home') }}" class="flex items-center py-2 px-4 text-gray-300">
+                <span class="text-white text-base font-semibold">صفحه اصلی</span>
+            </a>
+        </li>
         <li class="mb-[1rem] group">
             <div class="flex items-center py-2 px-4 text-gray-300 sidebar-dropdown-toggle">
                 <span class="text-white text-base font-semibold">خدمات چاپ</span>
@@ -186,6 +207,11 @@
                 <li class="mb-3">
                     <a href="{{ route('page.service.print.offset') }}"
                         class="text-gray-300 text-white font-normal flex items-center hover:text-gray-100">چاپ افست</a>
+                </li>
+                <li class="mb-3">
+                    <a href="{{ route('page.service.print.workflow') }}"
+                        class="text-gray-300 text-white font-normal flex items-center hover:text-gray-100">فرایند
+                        چاپ</a>
                 </li>
             </ul>
         </li>
@@ -245,6 +271,11 @@
         <li class="mb-1 group">
             <a href="{{ route('page.service.samples') }}" class="flex items-center py-2 px-4 text-gray-300">
                 <span class="text-white text-base font-semibold">نمونه کارها</span>
+            </a>
+        </li>
+        <li class="mb-1 group">
+            <a href="{{ route('service.print-digital.create') }}" class="flex items-center py-2 px-4 text-gray-300">
+                <span class="text-white text-base font-semibold">ثبت سفارش</span>
             </a>
         </li>
         <li class="mb-1 group">

@@ -161,6 +161,15 @@
 
                             <div class="col-md-6">
                                 <div class="">
+                                    <label class="mb-1" for="email">ایمیل</label>
+                                    <input class="form-control" type="text" id="email" name="email"
+                                        value="{{ $settings['email'] }}" />
+                                    <small class="text-danger">{{ $errors->first('email') }}</small>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="">
                                     <label class="mb-1" for="instagram">اینستاگرام</label>
                                     <input class="form-control" type="text" id="instagram" name="instagram"
                                         value="{{ $settings['instagram'] }}" />

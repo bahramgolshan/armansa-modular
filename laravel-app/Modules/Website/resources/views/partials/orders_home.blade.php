@@ -218,7 +218,9 @@
                                 href="{{ route('service.print-digital.create') }}">
                                 ثبت سفارش </a>
                         </div>
-                        <div id="digital-print-form-error-box" class="hidden mt-[1rem]"></div>
+                        <div id="digital-print-form-error-box"
+                            class="flex flex-col md:flex-row gap-[1rem] justify-center col-span-1 lg:col-span-5 mt-[1rem]">
+                        </div>
                     </div>
                 </form>
             </div>
@@ -355,12 +357,20 @@
                 error: function(response) {
                     hideAjaxLoader()
                     var html = "";
-                    var response = JSON.parse(response.responseText);
-                    $.each(response.errors, function(key, value) {
+
+                    if (response.status == 429) {
                         html +=
-                            `<div class=''><strong>${value}</strong></div>`;
-                    });
+                            `<div class=''><strong>تعداد درخواست‌ها شما بیش از حد مجاز است! لطفا کمی صبر کنید...</strong></div>`;
+                    } else {
+                        var response = JSON.parse(response.responseText);
+                        $.each(response.errors, function(key, value) {
+                            html +=
+                                `<div class=''><strong>${value}</strong></div>`;
+                        });
+                    }
+
                     $('#digital-print-form-error-box').html(html);
+                    $('#final-price-holder').html('0')
                 }
             });
         }

@@ -13,7 +13,7 @@ require __DIR__ . '/auth.php';
 
 // Home Page
 Route::get('/', "PageController@home")->name('home');
-Route::get('/services/print/digital-print/inquiry', "InvoiceDetailController@inquiry")->name('service.print.digital.inquiry'); // Check price button
+Route::middleware('throttle:200,1')->get('/services/print/digital-print/inquiry', "PrintDigitalController@inquiry")->name('service.print.digital.inquiry'); // Check price button
 
 // Blog
 Route::get('/blogs', "BlogController@index");
@@ -25,6 +25,7 @@ Route::prefix('page')->group(function () {
   Route::get('/services/print', "PageController@print")->name('page.service.print'); // خدمات چاپ
   Route::get('/services/print/digital', "PageController@printDigital")->name('page.service.print.digital'); // چاپ دیجیتال
   Route::get('/services/print/offset', "PageController@printOffset")->name('page.service.print.offset'); // چاپ افست
+  Route::get('/services/print/workflow', "PageController@printWorkflow")->name('page.service.print.workflow'); // چاپ افست
   Route::get('/services/publication', "PageController@publication")->name('page.service.publication'); // خدمات نشر
   Route::get('/services/publication/permission', "PageController@pubPermission")->name('page.service.publication.permission'); // اخذ مجوز چاپ
   Route::get('/services/publication/layout', "PageController@pubLayout")->name('page.service.publication.layout'); // صفحه آرایی
@@ -58,8 +59,10 @@ Route::middleware('auth')->prefix('dashboard')->group(function () {
   Route::get('/cart', 'InvoiceController@cartIndex')->name('dashboard.cart');
   Route::get('/orders', 'InvoiceController@ordersIndex')->name('dashboard.orders');
   Route::get('/invoice/{id}', 'InvoiceController@show')->where('id', '[0-9]+')->name('dashboard.invoice.show');
-  Route::post('/invoice/{id}/pay', 'InvoiceController@pay')->where('id', '[0-9]+')->name('dashboard.invoice.pay');
   Route::post('/invoice/{id}', 'InvoiceController@destroy')->where('id', '[0-9]+')->name('dashboard.invoice.destroy');
+
+  Route::post('/invoice/pay/{id}', 'PaymentController@pay')->where('id', '[0-9]+')->name('dashboard.invoice.pay');
+  Route::post('/invoice/verify/{id}', 'PaymentController@verify')->where('id', '[0-9]+')->name('dashboard.invoice.verify');
 
 
   // Route::get('/unsuccessful', 'DashboardController@unsuccessful')->name('dashboard.unsuccessful');

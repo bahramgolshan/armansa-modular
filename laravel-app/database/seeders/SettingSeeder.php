@@ -29,7 +29,7 @@ class SettingSeeder extends Seeder
 
     Setting::updateOrCreate(array(
       'key' => 'websiteMetaTags',
-      'value' => '[{"value":"نگ1"},{"value":"نگ2"},{"value":"نگ3"},{"value":"tag4"}]',
+      'value' => '[{"value":"چاپ"},{"value":"آرمانسا"},{"value":"خدمات چاپ"},{"value":"چاپ دیجیتال"},{"value":"چاپ افست"}]',
       'description' => null,
     ));
 

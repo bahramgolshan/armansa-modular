@@ -50,9 +50,11 @@
                     <li>
                         <a href="{{ route('page.service.print.digital') }}">چاپ دیجیتال</a>
                     </li>
-
                     <li>
                         <a href="{{ route('page.service.print.offset') }}">چاپ افست</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('page.service.print.workflow') }}">فرایند چاپ</a>
                     </li>
                 </ul>
             </div>

@@ -37,7 +37,8 @@ class PageController extends Controller
     // Get all partner logos from public directoy (images)
     $ds = DIRECTORY_SEPARATOR;
     $path = public_path('assets' . $ds . 'modules' . $ds . 'website' . $ds . 'images' . $ds . 'home' . $ds . 'about-us');
-    $partnerLogos = \File::allFiles($path);
+    // $partnerLogos = \File::allFiles($path);
+    $partnerLogos = Partner::where('is_featured', 1)->get();
 
     // Get drop-down data for digital-print form
     $digitalPrintData = [];
@@ -96,6 +97,12 @@ class PageController extends Controller
   public function printOffset()
   {
     return view('website::pages.print_offset');
+  }
+
+  // فرایند چاپ
+  public function printWorkflow()
+  {
+    return view('website::pages.print_workflow');
   }
 
   // خدمات نشر

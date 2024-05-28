@@ -21,7 +21,7 @@ class ProfileController extends Controller
     $request->validate([
       'full_name' => 'required|string',
       'mobile' => 'required|string',
-      'email' => 'required|email|unique:users,email,' . Auth::id(),
+      // 'email' => 'required|email|unique:users,email,' . Auth::id(),
       'address' => 'nullable|string',
     ]);
 
@@ -29,7 +29,7 @@ class ProfileController extends Controller
       $user = User::findOrFail(Auth::id());
       $user->full_name = $request->full_name;
       $user->mobile = $request->mobile;
-      $user->email = $request->email;
+      // $user->email = $request->email;
       $user->address = $request->address;
       if ($user->save()) {
         return redirect()->route('dashboard.profile.edit')->withSuccess(__('messages.success'));

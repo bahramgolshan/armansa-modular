@@ -33,6 +33,7 @@ class SettingController extends Controller
       "phone1" => 'nullable|string',
       "phone2" => 'nullable|string',
       "phone3" => 'nullable|string',
+      "email" => 'nullable|string',
       "instagram" => 'nullable|string',
       "telegram" => 'nullable|string',
       "eitaa" => 'nullable|string',
