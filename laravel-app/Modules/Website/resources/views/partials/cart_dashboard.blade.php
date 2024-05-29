@@ -15,8 +15,8 @@
                         <div class="col-span-1 lg:col-span-3 flex flex-col justify-between pt-4 lg:py-4 px-5 gap-y-3">
                             <div>
                                 <h2 class="text-right text-[1.2rem] xl:text-[1.5rem] font-bold">
-                                    <span>سفارش چاپ دیجیتال -</span>
-                                    <span>{{ $invoice->id }}</span>
+                                    <span>سفارش چاپ دیجیتال</span>
+                                    {{-- <span>{{ $invoice->id }}</span> --}}
                                 </h2>
                             </div>
                             <div>
@@ -66,7 +66,8 @@
                             <div class="flex items-center gap-[1rem] justify-end">
                                 <button href="{{ route('dashboard.invoice.pay', ['id' => $invoice->id]) }}"
                                     onclick="event.preventDefault(); document.getElementById('pay-invoice').submit();"
-                                    class="w-[200px] text-[0.75rem] sm:text-[1rem] lg:text-[1.2rem] h-[50px] bg-[#51956D] rounded-lg text-white text-center">
+                                    class="w-[200px] text-[0.75rem] sm:text-[1rem] lg:text-[1.2rem] h-[50px] bg-[#51956D] rounded-lg text-white text-center"
+                                    disabled>
                                     پرداخت
                                 </button>
                                 <form method="POST" id="pay-invoice"

@@ -49,7 +49,7 @@
                 <thead class="table-light">
                     <tr>
                         <th>#</th>
-                        <th>شماره سفارش</th>
+                        <th>شماره پیگیری</th>
                         <th>تاریخ</th>
                         <th>وضعیت سفارش</th>
                         <th>تخفیف اضافی</th>
@@ -66,7 +66,7 @@
                                 <strong>{{ ($invoices->currentPage() - 1) * $invoices->perPage() + $loop->iteration }}</strong>
                             </td>
                             <td><a
-                                    href="{{ route('app-invoice-preview', ['id' => $invoice->id]) }}"><strong>{{ $invoice->id }}</strong></a>
+                                    href="{{ route('app-invoice-preview', ['id' => $invoice->id]) }}"><strong>{{ $invoice->reference_code }}</strong></a>
                             </td>
                             <td>{{ verta($invoice->created_at)->format('Y-m-d') }}</td>
 

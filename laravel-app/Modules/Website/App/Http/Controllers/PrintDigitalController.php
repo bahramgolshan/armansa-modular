@@ -65,7 +65,7 @@ class PrintDigitalController extends Controller
       'binding_direction_id' => 'required|numeric',
       'pages' => 'required|numeric|min:0|max:100000',
       'circulation' => 'required|numeric|min:0|max:1000000000',
-      'file_content' => 'required|mimetypes:application/msword,application/pdf,application/x-indesign|max:10240',
+      'file_content' => 'required|mimetypes:application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/pdf,application/x-indesign|max:10240',
       'file_cover' => 'required|mimetypes:image/*,application/pdf|max:10240',
       'service_detail_id' => 'required|numeric',
       'additional_discount' => 'required|numeric',

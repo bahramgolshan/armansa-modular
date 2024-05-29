@@ -140,10 +140,10 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="row mb-2">
-                                    <label for="invoice_id" class="col-sm-2 col-form-label">شماره سفارش</label>
+                                    <label for="invoice_id" class="col-sm-2 col-form-label">شماره پیگیری</label>
                                     <div class="col-sm-10">
-                                        <input type="text" readonly class="form-control" id="invoice_id"
-                                            value="{{ $invoice->id ?? '--' }}">
+                                        <input type="text" readonly class="form-control-plaintext" id="invoice_id"
+                                            value="{{ $invoice->reference_code ?? '--' }}">
                                     </div>
                                 </div>
                                 <div class="row mb-2">

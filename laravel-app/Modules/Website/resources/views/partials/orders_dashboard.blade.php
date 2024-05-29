@@ -16,8 +16,8 @@
                         <div class="flex flex-col justify-between lg:py-4 px-5 gap-y-3">
                             <div>
                                 <h2 class="text-right text-[1.2rem] xl:text-[1.5rem] font-bold">
-                                    <span>سفارش چاپ دیجیتال -</span>
-                                    <span>{{ $invoice->id }}</span>
+                                    <span>سفارش چاپ دیجیتال</span>
+                                    {{-- <span>{{ $invoice->id }}</span> --}}
                                 </h2>
                             </div>
                             <div>

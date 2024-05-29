@@ -445,7 +445,7 @@
                      },
                      'file_content': {
                          required: false,
-                         accept: "application/msword, application/pdf, application/x-indesign"
+                         accept: "application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/pdf, application/x-indesign"
                      },
                      'file_cover': {
                          required: false,
@@ -453,8 +453,6 @@
                      },
                  },
                  submitHandler: function(form) {
-                     console.log('submitHandler called');
-
                      $('#digital-print-form input[type="file"]').each(function() {
                          if (!$(this).val()) {
                              $(this).addClass("error text-red-700");
