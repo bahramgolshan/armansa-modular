@@ -29,6 +29,7 @@ Route::prefix('page')->group(function () {
   Route::get('/services/publication', "PageController@publication")->name('page.service.publication'); // خدمات نشر
   Route::get('/services/publication/permission', "PageController@pubPermission")->name('page.service.publication.permission'); // اخذ مجوز چاپ
   Route::get('/services/publication/layout', "PageController@pubLayout")->name('page.service.publication.layout'); // صفحه آرایی
+  Route::get('/services/publication/cover-design', "PageController@pubCoverDesign")->name('page.service.publication.cover-design'); // طراحی جلد
   Route::get('/services/publication/editing', "PageController@pubEditing")->name('page.service.publication.editing'); // ویراستاری
   Route::get('/services/lithography', "PageController@lithography")->name('page.service.lithography'); // لیتوگرافی
   Route::get('/services/lithography/zinc-gto', "PageController@zincGto")->name('page.service.lithography.zinc-gto'); // زینک gto

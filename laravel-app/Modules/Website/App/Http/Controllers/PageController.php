@@ -64,7 +64,15 @@ class PageController extends Controller
   // درباره ما
   public function about()
   {
-    return view('website::pages.about');
+    $settings = Setting::where('key', 'heroDescription')
+      ->orWhere('key', 'aboutArmansa')
+      ->orWhere('key', 'featuredVideoEmbedCode')
+      ->pluck('value', 'key')
+      ->toArray();
+
+    $partnerLogos = Partner::where('is_featured', 1)->get();
+
+    return view('website::pages.about', compact('settings', 'partnerLogos'));
   }
 
   // خدمات چاپ
@@ -121,6 +129,12 @@ class PageController extends Controller
   public function pubLayout()
   {
     return view('website::pages.publication_layout');
+  }
+
+  // طراحی جلد
+  public function pubCoverDesign()
+  {
+    return view('website::pages.publication_cover_design');
   }
 
   // ویراستاری

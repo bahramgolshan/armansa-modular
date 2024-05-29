@@ -71,6 +71,9 @@
                         <a href="{{ route('page.service.publication.layout') }}">صفحه‌ آرایی</a>
                     </li>
                     <li>
+                        <a href="{{ route('page.service.publication.cover-design') }}">طراحی جلد</a>
+                    </li>
+                    <li>
                         <a href="{{ route('page.service.publication.editing') }}">ویراستاری</a>
                     </li>
                 </ul>

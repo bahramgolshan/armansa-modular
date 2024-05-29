@@ -144,6 +144,10 @@
                             class="flex items-center py-1.5 px-4 text-[1rem]">صفحه آرایی</a>
                     </li>
                     <li class="flex items-center justify-center py-1 hover:bg-[#3C4999] hover:text-white">
+                        <a href="{{ route('page.service.publication.cover-design') }}"
+                            class="flex items-center py-1.5 px-4 text-[1rem]">طراحی جلد</a>
+                    </li>
+                    <li class="flex items-center justify-center py-1 hover:bg-[#3C4999] hover:text-white">
                         <a href="{{ route('page.service.publication.editing') }}"
                             class="flex items-center py-1.5 px-4 text-[1rem]">ویراستاری</a>
                     </li>
@@ -231,6 +235,11 @@
                 <li class="mb-3">
                     <a href="{{ route('page.service.publication.layout') }}"
                         class="text-gray-300 text-white font-normal flex items-center hover:text-gray-100">صفحه‌آرایی</a>
+                </li>
+                <li class="mb-3">
+                    <a href="{{ route('page.service.publication.cover-design') }}"
+                        class="text-gray-300 text-white font-normal flex items-center hover:text-gray-100">طراحی
+                        جلد</a>
                 </li>
                 <li class="mb-3">
                     <a href="{{ route('page.service.publication.editing') }}"
