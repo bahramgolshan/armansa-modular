@@ -15,7 +15,7 @@ jobs:
       - run: |
               #docker login   -u daria -p 7HlUyiSD  https://registry.dariasystem.com
               whoami
-              docker build -t armansa:dev .
+              docker build -t armansa:dev  -f laravel-app/Dockerfile .
               
               
               
