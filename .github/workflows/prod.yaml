@@ -1,0 +1,42 @@
+name: prod armansa
+
+on:
+  push:
+    branches: [ "master" ]
+
+jobs:
+                          
+             
+  prod-build-armansa:
+    runs-on: [self-hosted, linux]
+    steps:
+      - uses: actions/checkout@master
+      - run: |
+              echo "APP_NAME=armansa" >> laravel-app/.env
+              echo "APP_KEY=base64:XEEJ5G2BnwYow2z3z+8HRBdQ+4cqY2dRJ+Bq+w8oX0A=" >> laravel-app/.env
+              echo "APP_DEBUG=true" >> laravel-app/.env
+              echo "APP_URL=https://chaparmansa.ir/" >> laravel-app/.env
+              echo "ASSET_URL=https://chaparmansa.ir/" >> laravel-app/.env
+              echo "APP_TIMEZONE='Asia/Tehran'" >> laravel-app/.env
+              echo "DB_CONNECTION=mysql" >> laravel-app/.env
+              echo "DB_HOST=mysql" >> laravel-app/.env
+              echo "DB_PORT=3306" >> laravel-app/.env
+              echo "DB_DATABASE=armansa" >> laravel-app/.env
+              echo "DB_USERNAME=armansa" >> laravel-app/.env
+              echo "DB_PASSWORD=eM1CCPuPGV" >> laravel-app/.env
+              echo "REDIS_HOST=redis" >> laravel-app/.env
+              echo "REDIS_PASSWORD=null" >> laravel-app/.env
+              echo "REDIS_PORT=6379" >> laravel-app/.env
+              cat  laravel-app/.env
+              docker build -t armansa:prod  -f laravel-app/Dockerfile .
+              
+              
+              
+  prod-deploy-armansa:
+    needs: prod-build-armansa
+    runs-on: [self-hosted, linux]
+    steps:
+      - uses: actions/checkout@master
+      - run: |
+              docker compose -f docker-compose-prod.yml up -d
+              docker ps
