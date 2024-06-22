@@ -30,7 +30,7 @@ jobs:
               echo "REDIS_HOST=redis" >> laravel-app/.env
               echo "REDIS_PASSWORD=null" >> laravel-app/.env
               echo "REDIS_PORT=6379" >> laravel-app/.env
-              cat >> laravel-app/.env
+              cat  laravel-app/.env
               docker build -t armansa:dev  -f laravel-app/Dockerfile .
               
               
