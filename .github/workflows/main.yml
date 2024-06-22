@@ -9,7 +9,7 @@ jobs:
              
   build-armansa:
 #    needs: check-code
-    runs-on: [armansa]
+    runs-on: [self-hosted, linux]
     steps:
       - uses: actions/checkout@master
       - run: |
@@ -20,7 +20,7 @@ jobs:
               
   deploy-armansa:
     needs: build-armansa
-    runs-on: [armansa]
+    runs-on: [self-hosted, linux]
     steps:
       - uses: actions/checkout@master
       - run: |
