@@ -14,6 +14,7 @@ jobs:
       - uses: actions/checkout@master
       - run: |
               #docker login   -u daria -p 7HlUyiSD  https://registry.dariasystem.com
+              whoami
               docker build -t armansa:dev .
               
               
