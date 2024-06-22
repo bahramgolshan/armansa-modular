@@ -9,19 +9,18 @@ jobs:
              
   build-armansa:
 #    needs: check-code
-    runs-on: [app]
+    runs-on: [armansa]
     steps:
       - uses: actions/checkout@master
       - run: |
               #docker login   -u daria -p 7HlUyiSD  https://registry.dariasystem.com
               docker build -t armansa:dev .
-              docker push registry.dariasystem.com/gamein/market:dev
               
               
               
   deploy-armansa:
     needs: build-armansa
-    runs-on: [app]
+    runs-on: [armansa]
     steps:
       - uses: actions/checkout@master
       - run: |
