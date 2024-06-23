@@ -24,7 +24,7 @@ jobs:
               echo "DB_PORT=3306" >> laravel-app/.env
               echo "DB_DATABASE=armansa" >> laravel-app/.env
               echo "DB_USERNAME=armansa" >> laravel-app/.env
-              echo "DB_PASSWORD=qt74D4Dnvd" >> laravel-app/.env
+              echo "DB_PASSWORD=armansa123" >> laravel-app/.env
               echo "REDIS_HOST=redis" >> laravel-app/.env
               echo "REDIS_PASSWORD=null" >> laravel-app/.env
               echo "REDIS_PORT=6379" >> laravel-app/.env
