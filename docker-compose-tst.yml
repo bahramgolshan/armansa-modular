@@ -5,7 +5,7 @@ networks:
     external: true
 
 services:
-  app:
+  armansa-dev:
     container_name: armansa-dev
     image: armansa:dev
     environment:
