@@ -1,7 +1,7 @@
 version: "3"
 
 networks:
-  armansa-dev:
+  armansa:
     external: true
 
 services:
@@ -29,4 +29,4 @@ services:
     volumes:
       - ./laravel-app:/app
     networks:
-      - armansa-dev
+      - armansa
