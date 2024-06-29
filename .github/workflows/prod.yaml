@@ -38,5 +38,6 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - run: |
+              docker rm -f armansa-prod
               docker compose -f docker-compose-prod.yml up -d
               docker ps
