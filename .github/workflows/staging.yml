@@ -39,6 +39,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - run: |
+              docker rm -f armansa-dev
               docker compose -f docker-compose-tst.yml up -d
               docker exec -i  armansa-dev  composer update || true
               docker exec -i  armansa-dev chmod -R 777 public
