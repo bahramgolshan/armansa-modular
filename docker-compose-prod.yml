@@ -1,0 +1,32 @@
+version: "3"
+
+networks:
+  armansa:
+    external: true
+
+services:
+  armansa-prod:
+    container_name: armansa-prod
+    image: armansa:prod
+    environment:
+      - WEB_DOCUMENT_ROOT=/app/public
+      - PHP_DISPLAY_ERRORS=1
+      - PHP_MEMORY_LIMIT=2048M
+      - PHP_MAX_EXECUTION_TIME=-1
+      - XDEBUG_REMOTE_AUTOSTART=1
+      - XDEBUG_REMOTE_PORT=9000
+      - XDEBUG_PROFILER_ENABLE=0
+      - XDEBUG_REMOTE_CONNECT_BACK=0
+      - php.xdebug.idekey=PHPSTORM
+      - php.xdebug.remote_enable=1
+      - php.xdebug.max_nesting_level=1000
+      - SERVICE_NGINX_CLIENT_MAX_BODY_SIZE=400m
+      - PHP_POST_MAX_SIZE=400m
+      - PHP_UPLOAD_MAX_FILESIZE=400m
+      - TZ=Asia/Tehran
+    ports:
+      - "127.0.0.1:8085:80"
+    volumes:
+      - ./laravel-app:/app
+    networks:
+      - armansa
