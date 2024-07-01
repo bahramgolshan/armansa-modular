@@ -21,7 +21,7 @@ jobs:
               echo "ASSET_URL=https://dev.chaparmansa.ir/" >> ./laravel-app/.env
               echo "APP_TIMEZONE='Asia/Tehran'" >> ./laravel-app/.env
               echo "DB_CONNECTION=mysql" >> ./laravel-app/.env
-              echo "DB_HOST=dev-mysql" >> .aravel-app/.env
+              echo "DB_HOST=dev-mysql" >> ./laravel-app/.env
               echo "DB_PORT=3306" >> ./laravel-app/.env
               echo "DB_DATABASE=armansa" >> ./laravel-app/.env
               echo "DB_USERNAME=armansa" >> ./laravel-app/.env
