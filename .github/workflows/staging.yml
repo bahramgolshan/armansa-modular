@@ -44,6 +44,7 @@ jobs:
       - run: |
               docker rm -f armansa-dev
               IMAGE_TAG=armansa:${{ github.run_id }} docker compose -f docker-compose-tst.yml up -d
+              docker cp /home/hosein/env-dev armansa-dev:/app/.env
               docker exec -i  armansa-dev  composer update
               continue-on-error: true
               docker exec -i  armansa-dev chmod -R 777 public
