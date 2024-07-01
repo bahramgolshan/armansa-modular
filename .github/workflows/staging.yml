@@ -14,23 +14,23 @@ jobs:
       - uses: actions/checkout@master
       - run: |
               ls -lah
-              echo "APP_NAME=armansa" >> ./laravel-app/.env
-              echo "APP_KEY=base64:XEEJ5G2BnwYow2z3z+8HRBdQ+4cqY2dRJ+Bq+w8oX0A=" >> ./laravel-app/.env
-              echo "APP_DEBUG=true" >> ./laravel-app/.env
-              echo "APP_URL=https://dev.chaparmansa.ir/" >> ./laravel-app/.env
-              echo "ASSET_URL=https://dev.chaparmansa.ir/" >> ./laravel-app/.env
-              echo "APP_TIMEZONE='Asia/Tehran'" >> ./laravel-app/.env
-              echo "DB_CONNECTION=mysql" >> ./laravel-app/.env
-              echo "DB_HOST=dev-mysql" >> ./laravel-app/.env
-              echo "DB_PORT=3306" >> ./laravel-app/.env
-              echo "DB_DATABASE=armansa" >> ./laravel-app/.env
-              echo "DB_USERNAME=armansa" >> ./laravel-app/.env
-              echo "DB_PASSWORD=armansa123" >> ./laravel-app/.env
-              echo "REDIS_HOST=redis" >> ./laravel-app/.env
-              echo "REDIS_PASSWORD=null" >> ./laravel-app/.env
-              echo "REDIS_PORT=6379" >> ./laravel-app/.env
-              ls -lah ./laravel-app
-              cat  ./laravel-app/.env
+              echo "APP_NAME=armansa" >> /build/actions-runner/_work/armansa-modular/armansa-modular/laravel-app/.env
+              echo "APP_KEY=base64:XEEJ5G2BnwYow2z3z+8HRBdQ+4cqY2dRJ+Bq+w8oX0A=" >> /build/actions-runner/_work/armansa-modular/armansa-modular/laravel-app/.env
+              echo "APP_DEBUG=true" >> /build/actions-runner/_work/armansa-modular/armansa-modular/laravel-app/.env
+              echo "APP_URL=https://dev.chaparmansa.ir/" >> /build/actions-runner/_work/armansa-modular/armansa-modular/laravel-app/.env
+              echo "ASSET_URL=https://dev.chaparmansa.ir/" >> /build/actions-runner/_work/armansa-modular/armansa-modular/laravel-app/.env
+              echo "APP_TIMEZONE='Asia/Tehran'" >> /build/actions-runner/_work/armansa-modular/armansa-modular/laravel-app/.env
+              echo "DB_CONNECTION=mysql" >> /build/actions-runner/_work/armansa-modular/armansa-modular/laravel-app/.env
+              echo "DB_HOST=dev-mysql" >> /build/actions-runner/_work/armansa-modular/armansa-modular/laravel-app/.env
+              echo "DB_PORT=3306" >> /build/actions-runner/_work/armansa-modular/armansa-modular/laravel-app/.env
+              echo "DB_DATABASE=armansa" >> /build/actions-runner/_work/armansa-modular/armansa-modular/laravel-app/.env
+              echo "DB_USERNAME=armansa" >> /build/actions-runner/_work/armansa-modular/armansa-modular/laravel-app/.env
+              echo "DB_PASSWORD=armansa123" >> /build/actions-runner/_work/armansa-modular/armansa-modular/laravel-app/.env
+              echo "REDIS_HOST=redis" >> /build/actions-runner/_work/armansa-modular/armansa-modular/laravel-app/.env
+              echo "REDIS_PASSWORD=null" >> ./laravel-app//build/actions-runner/_work/armansa-modular/armansa-modular/laravel-app/.env
+              echo "REDIS_PORT=6379" >> /build/actions-runner/_work/armansa-modular/armansa-modular/laravel-app/.env
+              ls -lah /build/actions-runner/_work/armansa-modular/armansa-modular/laravel-app/
+              cat  /build/actions-runner/_work/armansa-modular/armansa-modular/laravel-app/.env
               echo ${{ github.run_id }}
               docker build -t armansa:${{ github.run_id }}  -f laravel-app/Dockerfile .
               
