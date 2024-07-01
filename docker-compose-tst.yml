@@ -7,7 +7,7 @@ networks:
 services:
   armansa-dev:
     container_name: armansa-dev
-    image: armansa:dev
+    image: $IMAGE_TAG
     environment:
       - WEB_DOCUMENT_ROOT=/app/public
       - PHP_DISPLAY_ERRORS=1
