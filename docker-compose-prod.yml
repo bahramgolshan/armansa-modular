@@ -5,9 +5,9 @@ networks:
     external: true
 
 services:
-  armansa-dev:
-    container_name: armansa-dev
-    image: $IMAGE_TAG
+  armansa-prod:
+    container_name: armansa-prod
+    image: armansa:prod
     environment:
       - WEB_DOCUMENT_ROOT=/app/public
       - PHP_DISPLAY_ERRORS=1
@@ -25,7 +25,7 @@ services:
       - PHP_UPLOAD_MAX_FILESIZE=400m
       - TZ=Asia/Tehran
     ports:
-      - "127.0.0.1:8086:80"
+      - "127.0.0.1:8085:80"
     volumes:
       - ./laravel-app:/app
     networks:

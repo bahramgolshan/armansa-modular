@@ -13,23 +13,26 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - run: |
-              echo "APP_NAME=armansa" >> laravel-app/.env
-              echo "APP_KEY=base64:XEEJ5G2BnwYow2z3z+8HRBdQ+4cqY2dRJ+Bq+w8oX0A=" >> laravel-app/.env
-              echo "APP_DEBUG=true" >> laravel-app/.env
-              echo "APP_URL=https://dev.chaparmansa.ir/" >> laravel-app/.env
-              echo "ASSET_URL=https://dev.chaparmansa.ir/" >> laravel-app/.env
-              echo "APP_TIMEZONE='Asia/Tehran'" >> laravel-app/.env
-              echo "DB_CONNECTION=mysql" >> laravel-app/.env
-              echo "DB_HOST=dev-mysql" >> laravel-app/.env
-              echo "DB_PORT=3306" >> laravel-app/.env
-              echo "DB_DATABASE=armansa" >> laravel-app/.env
-              echo "DB_USERNAME=armansa" >> laravel-app/.env
-              echo "DB_PASSWORD=armansa123" >> laravel-app/.env
-              echo "REDIS_HOST=redis" >> laravel-app/.env
-              echo "REDIS_PASSWORD=null" >> laravel-app/.env
-              echo "REDIS_PORT=6379" >> laravel-app/.env
-              cat  laravel-app/.env
-              docker build -t armansa:dev  -f laravel-app/Dockerfile .
+              ls -lah
+              echo "APP_NAME=armansa" >> ./laravel-app/.env
+              echo "APP_KEY=base64:XEEJ5G2BnwYow2z3z+8HRBdQ+4cqY2dRJ+Bq+w8oX0A=" >> ./laravel-app/.env
+              echo "APP_DEBUG=true" >> ./laravel-app/.env
+              echo "APP_URL=https://dev.chaparmansa.ir/" >> ./laravel-app/.env
+              echo "ASSET_URL=https://dev.chaparmansa.ir/" >> ./laravel-app/.env
+              echo "APP_TIMEZONE='Asia/Tehran'" >> ./laravel-app/.env
+              echo "DB_CONNECTION=mysql" >> ./laravel-app/.env
+              echo "DB_HOST=dev-mysql" >> ./laravel-app/.env
+              echo "DB_PORT=3306" >> ./laravel-app/.env
+              echo "DB_DATABASE=armansa" >> ./laravel-app/.env
+              echo "DB_USERNAME=armansa" >> ./laravel-app/.env
+              echo "DB_PASSWORD=armansa123" >> ./laravel-app/.env
+              echo "REDIS_HOST=redis" >> ./laravel-app/.env
+              echo "REDIS_PASSWORD=null" >> ./laravel-app/.env
+              echo "REDIS_PORT=6379" >> ./laravel-app/.env
+              ls -lah ./laravel-app/
+              cat  ./laravel-app/.env
+              echo ${{ github.run_id }}
+              docker build -t armansa:${{ github.run_id }}  -f laravel-app/Dockerfile .
               
               
               
@@ -39,12 +42,14 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - run: |
-              docker compose -f docker-compose-tst.yml up -d
+              docker rm -f armansa-dev
+              IMAGE_TAG=armansa:${{ github.run_id }} docker compose -f docker-compose-tst.yml up -d
+              docker cp /home/hosein/env-dev armansa-dev:/app/.env
               docker exec -i  armansa-dev  composer update || true
               docker exec -i  armansa-dev chmod -R 777 public
               docker exec -i  armansa-dev chmod -R 777 storage
               docker exec -i  armansa-dev chmod -R 777 vendor
               docker exec -i  armansa-dev php artisan cache:clear
-              docker exec -i  armansa-dev php artisan migrate
+              docker exec -i  armansa-dev php artisan migrate || true
               docker rmi $(docker images --filter "dangling=true" -q --no-trunc) || true
               docker ps
