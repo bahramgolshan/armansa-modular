@@ -28,7 +28,7 @@ jobs:
               echo "REDIS_PASSWORD=null" >> laravel-app/.env
               echo "REDIS_PORT=6379" >> laravel-app/.env
               cat  laravel-app/.env
-              docker build -t armansa:prod  -f laravel-app/Dockerfile .
+              docker build -t armansa:${{ github.run_id }}  -f laravel-app/Dockerfile .
               
               
               
