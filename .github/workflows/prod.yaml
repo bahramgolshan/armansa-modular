@@ -39,5 +39,13 @@ jobs:
       - uses: actions/checkout@master
       - run: |
               docker rm -f armansa-prod
-              docker compose -f docker-compose-prod.yml up -d
+              IMAGE_TAG=armansa:${{ github.run_id }} docker compose -f docker-compose-prod.yml up -d
+              docker cp /home/hosein/env-prod armansa-prod:/app/.env
+              docker exec -i  armansa-prod  composer update || true
+              docker exec -i  armansa-prod chmod -R 777 public
+              docker exec -i  armansa-prod chmod -R 777 storage
+              docker exec -i  armansa-prod chmod -R 777 vendor
+              docker exec -i  armansa-prod php artisan cache:clear
+              docker exec -i  armansa-prod php artisan migrate || true
+              docker rmi $(docker images --filter "dangling=true" -q --no-trunc) || true
               docker ps
