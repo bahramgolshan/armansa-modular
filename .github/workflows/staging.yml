@@ -45,13 +45,11 @@ jobs:
               docker rm -f armansa-dev
               IMAGE_TAG=armansa:${{ github.run_id }} docker compose -f docker-compose-tst.yml up -d
               docker cp /home/hosein/env-dev armansa-dev:/app/.env
-              docker exec -i  armansa-dev  composer update
-              continue-on-error: true
+              docker exec -i  armansa-dev  composer update || true
               docker exec -i  armansa-dev chmod -R 777 public
               docker exec -i  armansa-dev chmod -R 777 storage
               docker exec -i  armansa-dev chmod -R 777 vendor
               docker exec -i  armansa-dev php artisan cache:clear
               docker exec -i  armansa-dev php artisan migrate
               docker rmi $(docker images --filter "dangling=true" -q --no-trunc) || true
-              continue-on-error: true
               docker ps
