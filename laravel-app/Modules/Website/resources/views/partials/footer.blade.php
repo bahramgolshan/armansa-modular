@@ -7,7 +7,7 @@
             </div>
 
             <div class="text-center text-white texl-lg sm:text-xl lg:text-2xl font-normal my-1">
-                ساعات کاری: {{ $generalSettings['workSchedule'] }}
+                ساعات کاری: {{-- {{ $generalSettings['workSchedule'] }} --}}
             </div>
 
             <div class="w-[40%] flex sm:flex-row justify-center items-center flex-col gap-[0.3rem] lg:gap-[0] my-2">
