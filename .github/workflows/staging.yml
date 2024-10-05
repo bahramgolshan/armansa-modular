@@ -11,7 +11,8 @@ jobs:
 #    needs: check-code
     runs-on: [self-hosted, linux]
     steps:
-      - uses: actions/checkout@develop
+      - name: Checkout code
+        uses: actions/checkout@v3
       - run: |
               ls -lah
               echo "APP_NAME=armansa" >> ./laravel-app/.env
@@ -40,7 +41,8 @@ jobs:
     needs: build-armansa
     runs-on: [self-hosted, linux]
     steps:
-      - uses: actions/checkout@develop
+      - name: Checkout code
+        uses: actions/checkout@v3
       - run: |
               docker rm -f armansa-dev
               IMAGE_TAG=armansa:${{ github.run_id }} docker compose -f docker-compose-tst.yml up -d
