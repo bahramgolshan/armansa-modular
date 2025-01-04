@@ -2,7 +2,8 @@ name: build armansa
 
 on:
   push:
-    branches: [ "developeeeee" ]
+    branches: [ "developeeee" ]
+
 
 jobs:
                           
